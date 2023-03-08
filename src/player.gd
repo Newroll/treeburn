@@ -1,4 +1,4 @@
-extends Area2D
+extends RigidBody2D
 
 var speed = 400 # How fast the player will move (pixels/sec).
 var screen_size # Size of the game window.
