@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bogs7stst3ips"
-path="res://.godot/imported/firesheet.png-151e92e0d95ef14f11dc1599a28c590b.ctex"
+path="res://.godot/imported/firesheet.png-5fb64a28dba11d7d185461e9c7af409e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/enviroment/firesheet.png"
-dest_files=["res://.godot/imported/firesheet.png-151e92e0d95ef14f11dc1599a28c590b.ctex"]
+source_file="res://assets/environment/firesheet.png"
+dest_files=["res://.godot/imported/firesheet.png-5fb64a28dba11d7d185461e9c7af409e.ctex"]
 
 [params]
 
