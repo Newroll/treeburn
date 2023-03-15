@@ -1,4 +1,23 @@
-[gd_scene load_steps=5 format=3 uid="uid://bcxhwtl70ikil"]
+[gd_scene load_steps=6 format=3 uid="uid://bcxhwtl70ikil"]
+
+[sub_resource type="FontFile" id="FontFile_7fcwx"]
+face_index = null
+embolden = null
+transform = null
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/128/0 = Vector2(0, 0)
+cache/0/128/0/ascent = 0.0
+cache/0/128/0/descent = 0.0
+cache/0/128/0/underline_position = 0.0
+cache/0/128/0/underline_thickness = 0.0
+cache/0/128/0/scale = 1.0
+cache/0/128/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/128/0/kerning_overrides/128/0 = Vector2(0, 0)
 
 [sub_resource type="FontFile" id="FontFile_im41t"]
 face_index = null
@@ -103,6 +122,7 @@ layout_mode = 2
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_fonts/font = SubResource("FontFile_7fcwx")
 theme_override_font_sizes/font_size = 128
 text = "Untitled Productions"
 horizontal_alignment = 1
