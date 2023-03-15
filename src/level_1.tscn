@@ -22,7 +22,6 @@ sources/7 = SubResource("TileSetAtlasSource_1vm0y")
 [node name="Level 1" type="Node2D"]
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_km57j")]
-texture_filter = 1
 position = Vector2(12, -17)
 scale = Vector2(-1.64068, 1.69948)
 
