@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ss0ladhmrdck"
-path="res://.godot/imported/flower3.png-1381bb74cfbe6686944de2433c32f669.ctex"
+uid="uid://crn6d8xyadx7j"
+path="res://.godot/imported/coinsheet.png-101954ce637d90f929313c1d7be505e4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/flower3.png"
-dest_files=["res://.godot/imported/flower3.png-1381bb74cfbe6686944de2433c32f669.ctex"]
+source_file="res://assets/interactive/coinsheet.png"
+dest_files=["res://.godot/imported/coinsheet.png-101954ce637d90f929313c1d7be505e4.ctex"]
 
 [params]
 

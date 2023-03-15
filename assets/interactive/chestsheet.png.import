@@ -2,20 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<< Updated upstream
-uid="uid://ov7ccpl0dtgr"
-=======
-uid="uid://d37syit20thc7"
->>>>>>> Stashed changes
-path="res://.godot/imported/firesheet.png-c5e4aeb262b493a4c104bd73dc05680d.ctex"
+uid="uid://bsqlswx6off3o"
+path="res://.godot/imported/chestsheet.png-ba546d483d686b6ff4f84b119ad3a5c1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/firesheet.png"
-dest_files=["res://.godot/imported/firesheet.png-c5e4aeb262b493a4c104bd73dc05680d.ctex"]
+source_file="res://assets/interactive/chestsheet.png"
+dest_files=["res://.godot/imported/chestsheet.png-ba546d483d686b6ff4f84b119ad3a5c1.ctex"]
 
 [params]
 

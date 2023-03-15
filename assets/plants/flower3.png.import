@@ -2,20 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-<<<<<<< Updated upstream
-uid="uid://bnf8fgdjj6pnl"
-=======
-uid="uid://bly25spld6wyu"
->>>>>>> Stashed changes
-path="res://.godot/imported/coinsheet.png-0b96ea469f02002638ab959e46600f46.ctex"
+uid="uid://lkkmf123r74j"
+path="res://.godot/imported/flower3.png-9a4c948744372bca99b45d7e9f98d82e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/coinsheet.png"
-dest_files=["res://.godot/imported/coinsheet.png-0b96ea469f02002638ab959e46600f46.ctex"]
+source_file="res://assets/plants/flower3.png"
+dest_files=["res://.godot/imported/flower3.png-9a4c948744372bca99b45d7e9f98d82e.ctex"]
 
 [params]
 
