@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://buhq5clfvx402"
-path="res://.godot/imported/coinsheet.png-0b96ea469f02002638ab959e46600f46.ctex"
+uid="uid://c0kqmwg87byha"
+path="res://.godot/imported/icon.svg-9ffd99e4b8a55380f3055552bd81b639.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/coinsheet.png"
-dest_files=["res://.godot/imported/coinsheet.png-0b96ea469f02002638ab959e46600f46.ctex"]
+source_file="res://test/icon.svg"
+dest_files=["res://.godot/imported/icon.svg-9ffd99e4b8a55380f3055552bd81b639.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false

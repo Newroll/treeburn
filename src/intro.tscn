@@ -78,7 +78,7 @@ corner_radius_bottom_left = 20
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(4, 5)
-scale = Vector2(0.231368, 0.239353)
+scale = Vector2(0.163323, 0.168162)
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -17.0
@@ -92,6 +92,10 @@ offset_left = -16.0
 offset_top = -21.0
 offset_right = 1935.0
 offset_bottom = 1112.0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 100
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
@@ -100,23 +104,59 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 128
-text = "By Untitled Studios"
+text = "Untitled Productions"
 horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/separation = 35
 
 [node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+theme_override_constants/margin_left = 250
+theme_override_constants/margin_right = 250
 
 [node name="Button" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
+focus_mode = 0
 theme_override_fonts/font = SubResource("FontFile_im41t")
 theme_override_font_sizes/font_size = 100
 theme_override_styles/normal = SubResource("StyleBoxFlat_530d5")
 theme_override_styles/hover = SubResource("StyleBoxFlat_pn56p")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_jpxg7")
 text = "New Game"
+
+[node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 250
+theme_override_constants/margin_right = 250
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2"]
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = SubResource("FontFile_im41t")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_530d5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pn56p")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jpxg7")
+text = "Continue"
+
+[node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 250
+theme_override_constants/margin_right = 250
+
+[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer3"]
+layout_mode = 2
+focus_mode = 0
+theme_override_fonts/font = SubResource("FontFile_im41t")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_530d5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_pn56p")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jpxg7")
+text = "Settings"
