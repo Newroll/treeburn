@@ -96,8 +96,8 @@ corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
 [node name="Node2D" type="Node2D"]
-position = Vector2(4, 5)
-scale = Vector2(0.163323, 0.168162)
+position = Vector2(-3, 3.99997)
+scale = Vector2(0.991924, 0.96079)
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -17.0
