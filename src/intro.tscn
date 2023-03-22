@@ -133,3 +133,5 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_530d5")
 theme_override_styles/hover = SubResource("StyleBoxFlat_pn56p")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_jpxg7")
 text = "Settings"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/NewGame_Button" to="." method="_on_new_game_button_pressed"]
