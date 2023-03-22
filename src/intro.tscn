@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://bcxhwtl70ikil"]
 
 [ext_resource type="Script" path="res://src/intro.gd" id="1_11qdw"]
-[ext_resource type="Texture2D" uid="uid://dyuwwe1ro0qxe" path="res://assets/background/CloudsBack.png" id="1_o7lc3"]
-[ext_resource type="Texture2D" uid="uid://66ruwodcwwrm" path="res://assets/background/CloudsFront.png" id="2_ctoqt"]
+[ext_resource type="Texture2D" uid="uid://clhywbvoheih6" path="res://assets/background/CloudsBack.png" id="1_o7lc3"]
+[ext_resource type="Texture2D" uid="uid://cmc246lq0hvrh" path="res://assets/background/CloudsFront.png" id="2_ctoqt"]
 [ext_resource type="FontFile" uid="uid://es627dw3q2bu" path="res://assets/WayfarersToyBoxRegular-gxxER.ttf" id="2_wddbg"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e112q"]
