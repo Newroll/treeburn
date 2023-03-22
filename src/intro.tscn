@@ -1,115 +1,68 @@
-[gd_scene load_steps=6 format=3 uid="uid://bcxhwtl70ikil"]
+[gd_scene load_steps=10 format=3 uid="uid://bcxhwtl70ikil"]
 
-[sub_resource type="FontFile" id="FontFile_7fcwx"]
-face_index = null
-embolden = null
-transform = null
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
-cache/0/16/0/kerning_overrides/128/0 = Vector2(0, 0)
-cache/0/128/0/ascent = 0.0
-cache/0/128/0/descent = 0.0
-cache/0/128/0/underline_position = 0.0
-cache/0/128/0/underline_thickness = 0.0
-cache/0/128/0/scale = 1.0
-cache/0/128/0/kerning_overrides/16/0 = Vector2(0, 0)
-cache/0/128/0/kerning_overrides/128/0 = Vector2(0, 0)
+[ext_resource type="Script" path="res://src/intro.gd" id="1_11qdw"]
+[ext_resource type="Texture2D" uid="uid://dyuwwe1ro0qxe" path="res://assets/background/CloudsBack.png" id="1_o7lc3"]
+[ext_resource type="Texture2D" uid="uid://66ruwodcwwrm" path="res://assets/background/CloudsFront.png" id="2_ctoqt"]
+[ext_resource type="FontFile" uid="uid://es627dw3q2bu" path="res://assets/WayfarersToyBoxRegular-gxxER.ttf" id="2_wddbg"]
 
-[sub_resource type="FontFile" id="FontFile_im41t"]
-face_index = null
-embolden = null
-transform = null
-cache/0/16/0/ascent = 0.0
-cache/0/16/0/descent = 0.0
-cache/0/16/0/underline_position = 0.0
-cache/0/16/0/underline_thickness = 0.0
-cache/0/16/0/scale = 1.0
-cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
-cache/0/16/0/kerning_overrides/70/0 = Vector2(0, 0)
-cache/0/16/0/kerning_overrides/75/0 = Vector2(0, 0)
-cache/0/16/0/kerning_overrides/80/0 = Vector2(0, 0)
-cache/0/16/0/kerning_overrides/100/0 = Vector2(0, 0)
-cache/0/70/0/ascent = 0.0
-cache/0/70/0/descent = 0.0
-cache/0/70/0/underline_position = 0.0
-cache/0/70/0/underline_thickness = 0.0
-cache/0/70/0/scale = 1.0
-cache/0/70/0/kerning_overrides/16/0 = Vector2(0, 0)
-cache/0/70/0/kerning_overrides/70/0 = Vector2(0, 0)
-cache/0/70/0/kerning_overrides/75/0 = Vector2(0, 0)
-cache/0/70/0/kerning_overrides/80/0 = Vector2(0, 0)
-cache/0/70/0/kerning_overrides/100/0 = Vector2(0, 0)
-cache/0/75/0/ascent = 0.0
-cache/0/75/0/descent = 0.0
-cache/0/75/0/underline_position = 0.0
-cache/0/75/0/underline_thickness = 0.0
-cache/0/75/0/scale = 1.0
-cache/0/75/0/kerning_overrides/16/0 = Vector2(0, 0)
-cache/0/75/0/kerning_overrides/70/0 = Vector2(0, 0)
-cache/0/75/0/kerning_overrides/75/0 = Vector2(0, 0)
-cache/0/75/0/kerning_overrides/80/0 = Vector2(0, 0)
-cache/0/75/0/kerning_overrides/100/0 = Vector2(0, 0)
-cache/0/80/0/ascent = 0.0
-cache/0/80/0/descent = 0.0
-cache/0/80/0/underline_position = 0.0
-cache/0/80/0/underline_thickness = 0.0
-cache/0/80/0/scale = 1.0
-cache/0/80/0/kerning_overrides/16/0 = Vector2(0, 0)
-cache/0/80/0/kerning_overrides/70/0 = Vector2(0, 0)
-cache/0/80/0/kerning_overrides/75/0 = Vector2(0, 0)
-cache/0/80/0/kerning_overrides/80/0 = Vector2(0, 0)
-cache/0/80/0/kerning_overrides/100/0 = Vector2(0, 0)
-cache/0/100/0/ascent = 0.0
-cache/0/100/0/descent = 0.0
-cache/0/100/0/underline_position = 0.0
-cache/0/100/0/underline_thickness = 0.0
-cache/0/100/0/scale = 1.0
-cache/0/100/0/kerning_overrides/16/0 = Vector2(0, 0)
-cache/0/100/0/kerning_overrides/70/0 = Vector2(0, 0)
-cache/0/100/0/kerning_overrides/75/0 = Vector2(0, 0)
-cache/0/100/0/kerning_overrides/80/0 = Vector2(0, 0)
-cache/0/100/0/kerning_overrides/100/0 = Vector2(0, 0)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e112q"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 12
+border_width_top = 12
+border_width_right = 12
+border_width_bottom = 12
+border_color = Color(0, 0, 0, 1)
+shadow_size = 10
+shadow_offset = Vector2(10, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lhmq3"]
+bg_color = Color(1, 1, 1, 1)
+border_width_left = 12
+border_width_top = 12
+border_width_right = 12
+border_width_bottom = 12
+border_color = Color(0.290196, 0.290196, 0.290196, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_530d5"]
-bg_color = Color(0.717647, 0, 0.866667, 1)
+bg_color = Color(0.235294, 0.513726, 0.929412, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pn56p"]
-bg_color = Color(0.458824, 0, 0.556863, 1)
+bg_color = Color(0.0941176, 0.337255, 0.686275, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jpxg7"]
-bg_color = Color(0.247059, 0, 0.305882, 1)
+bg_color = Color(0.0117647, 0.0941176, 0.231373, 1)
 corner_radius_top_left = 20
 corner_radius_top_right = 20
 corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
-[node name="Node2D" type="Node2D"]
-position = Vector2(-3, 3.99997)
-scale = Vector2(0.991924, 0.96079)
+[node name="intro" type="Node2D"]
+position = Vector2(1, 2)
+scale = Vector2(0.178587, 0.155733)
+script = ExtResource("1_11qdw")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -17.0
-offset_top = -21.0
-offset_right = 1935.0
-offset_bottom = 1112.0
-color = Color(0, 0, 0, 1)
+[node name="CloudsBack" type="Sprite2D" parent="."]
+position = Vector2(958.224, 547.091)
+scale = Vector2(3.7909, 3.53082)
+texture = ExtResource("1_o7lc3")
+
+[node name="CloudsFront" type="Sprite2D" parent="."]
+position = Vector2(960.317, 523.358)
+scale = Vector2(3.77311, 3.672)
+texture = ExtResource("2_ctoqt")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-offset_left = -16.0
-offset_top = -21.0
-offset_right = 1935.0
+offset_left = -12.0
+offset_top = -18.0
+offset_right = 1929.0
 offset_bottom = 1112.0
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 10
@@ -122,9 +75,10 @@ layout_mode = 2
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_fonts/font = SubResource("FontFile_7fcwx")
-theme_override_font_sizes/font_size = 128
-text = "Untitled Productions"
+theme_override_colors/font_color = Color(0.133333, 0.6, 0.133333, 1)
+theme_override_fonts/font = ExtResource("2_wddbg")
+theme_override_font_sizes/font_size = 140
+text = "TreeBurn"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -139,14 +93,14 @@ size_flags_vertical = 3
 theme_override_constants/margin_left = 250
 theme_override_constants/margin_right = 250
 
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer"]
+[node name="NewGame_Button" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
 focus_mode = 0
-theme_override_fonts/font = SubResource("FontFile_im41t")
-theme_override_font_sizes/font_size = 100
-theme_override_styles/normal = SubResource("StyleBoxFlat_530d5")
-theme_override_styles/hover = SubResource("StyleBoxFlat_pn56p")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_jpxg7")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_wddbg")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = SubResource("StyleBoxFlat_e112q")
+theme_override_styles/hover = SubResource("StyleBoxFlat_lhmq3")
 text = "New Game"
 
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
@@ -158,8 +112,8 @@ theme_override_constants/margin_right = 250
 [node name="Button" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2"]
 layout_mode = 2
 focus_mode = 0
-theme_override_fonts/font = SubResource("FontFile_im41t")
-theme_override_font_sizes/font_size = 100
+theme_override_fonts/font = ExtResource("2_wddbg")
+theme_override_font_sizes/font_size = 80
 theme_override_styles/normal = SubResource("StyleBoxFlat_530d5")
 theme_override_styles/hover = SubResource("StyleBoxFlat_pn56p")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_jpxg7")
@@ -174,9 +128,10 @@ theme_override_constants/margin_right = 250
 [node name="Button" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer3"]
 layout_mode = 2
 focus_mode = 0
-theme_override_fonts/font = SubResource("FontFile_im41t")
 theme_override_font_sizes/font_size = 100
 theme_override_styles/normal = SubResource("StyleBoxFlat_530d5")
 theme_override_styles/hover = SubResource("StyleBoxFlat_pn56p")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_jpxg7")
 text = "Settings"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/NewGame_Button" to="." method="_on_new_game_button_pressed"]
