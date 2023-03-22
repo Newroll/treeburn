@@ -1,7 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://crseeoxvqcv1b"]
+[gd_scene load_steps=9 format=3 uid="uid://crseeoxvqcv1b"]
 
+[ext_resource type="Texture2D" uid="uid://cdnratxtsurls" path="res://assets/background/BGBack.png" id="1_bdqgh"]
 [ext_resource type="PackedScene" uid="uid://bmlc5h5gbouaf" path="res://src/character.tscn" id="1_km57j"]
+[ext_resource type="Texture2D" uid="uid://clhywbvoheih6" path="res://assets/background/CloudsBack.png" id="1_p6k47"]
 [ext_resource type="Texture2D" uid="uid://br3mj7gabjkrp" path="res://assets/environment/dirtsheet.png" id="1_v4b01"]
+[ext_resource type="Texture2D" uid="uid://cmc246lq0hvrh" path="res://assets/background/CloudsFront.png" id="2_ox2ky"]
+[ext_resource type="Texture2D" uid="uid://bxybs22oecsx4" path="res://assets/background/BGFront.png" id="2_tupnl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2efse"]
 texture = ExtResource("1_v4b01")
@@ -21,17 +25,61 @@ sources/0 = SubResource("TileSetAtlasSource_2efse")
 
 [node name="Level1" type="Node2D"]
 
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+follow_viewport_enabled = true
+
+[node name="CloudBack" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.05, 0.05)
+motion_mirroring = Vector2(4096, 2.08165e-12)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/CloudBack"]
+texture_filter = 1
+position = Vector2(2048, -24)
+texture = ExtResource("1_p6k47")
+
+[node name="CloudFront" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 0.1)
+motion_mirroring = Vector2(1433, 2.08165e-12)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/CloudFront"]
+texture_filter = 1
+position = Vector2(717, -52)
+scale = Vector2(0.56, 0.56)
+texture = ExtResource("2_ox2ky")
+
+[node name="BGBack" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.15, 0.15)
+motion_mirroring = Vector2(2266, 2.08165e-12)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/BGBack"]
+texture_filter = 1
+position = Vector2(1133, -28)
+texture = ExtResource("1_bdqgh")
+
+[node name="BGFront" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 0.2)
+motion_mirroring = Vector2(2048, 2.08165e-12)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/BGFront"]
+texture_filter = 1
+position = Vector2(1024, -11)
+texture = ExtResource("2_tupnl")
+
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
 tile_set = SubResource("TileSet_5cvp5")
 format = 2
-layer_0/tile_data = PackedInt32Array(0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 65544, 65536, 0, 65545, 65536, 0, 65546, 65536, 0, 10, 0, 0, 9, 0, 0, 8, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 65536, 65536, 0, 65537, 65536, 0, 65538, 65536, 0, 65539, 65536, 0, 65540, 65536, 0, 65541, 65536, 0, 65542, 65536, 0, 65543, 65536, 0, 65547, 65536, 0, 65548, 65536, 0, 65549, 65536, 0, 65550, 65536, 0, 65551, 65536, 0, 65552, 65536, 0, 65553, 65536, 0, 131089, 65536, 0, 131088, 65536, 0, 131087, 65536, 0, 131086, 65536, 0, 131085, 65536, 0, 131084, 65536, 0, 131083, 65536, 0, 131082, 65536, 0, 131081, 65536, 0, 131080, 65536, 0, 131079, 65536, 0, 131073, 65536, 0, 131072, 65536, 0, 131074, 65536, 0, 131075, 65536, 0, 131076, 65536, 0, 131077, 65536, 0, 131078, 65536, 0)
+layer_0/tile_data = PackedInt32Array(0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 65544, 65536, 0, 65545, 65536, 0, 65546, 65536, 0, 10, 0, 0, 9, 0, 0, 8, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 65536, 65536, 0, 65537, 65536, 0, 65538, 65536, 0, 65539, 65536, 0, 65540, 65536, 0, 65541, 65536, 0, 65542, 65536, 0, 65543, 65536, 0, 65547, 65536, 0, 65548, 65536, 0, 65549, 65536, 0, 65550, 65536, 0, 65551, 65536, 0, 65552, 65536, 0, 65553, 65536, 0, 131089, 65536, 0, 131088, 65536, 0, 131087, 65536, 0, 131086, 65536, 0, 131085, 65536, 0, 131084, 65536, 0, 131083, 65536, 0, 131082, 65536, 0, 131081, 65536, 0, 131080, 65536, 0, 131079, 65536, 0, 131073, 65536, 0, 131072, 65536, 0, 131074, 65536, 0, 131075, 65536, 0, 131076, 65536, 0, 131077, 65536, 0, 131078, 65536, 0, 29, 0, 0, 65565, 65536, 0, 131101, 65536, 0, 30, 0, 0, 65566, 65536, 0, 131102, 65536, 0, 31, 0, 0, 65567, 65536, 0, 131103, 65536, 0, 32, 0, 0, 65568, 65536, 0, 131104, 65536, 0, 33, 0, 0, 65569, 65536, 0, 131105, 65536, 0, 34, 0, 0, 65570, 65536, 0, 131106, 65536, 0, 35, 0, 0, 65571, 65536, 0, 131107, 65536, 0, 36, 0, 0, 65572, 65536, 0, 131108, 65536, 0, 37, 0, 0, 65573, 65536, 0, 131109, 65536, 0, 38, 0, 0, 65574, 65536, 0, 131110, 65536, 0, 39, 0, 0, 65575, 65536, 0, 131111, 65536, 0, 40, 0, 0, 65576, 65536, 0, 131112, 65536, 0, 41, 0, 0, 65577, 65536, 0, 131113, 65536, 0, 42, 0, 0, 65578, 65536, 0, 131114, 65536, 0, 43, 0, 0, 65579, 65536, 0, 131115, 65536, 0, 44, 0, 0, 65580, 65536, 0, 131116, 65536, 0, 45, 0, 0, 65581, 65536, 0, 131117, 65536, 0, 23, 0, 0, 65559, 65536, 0, 131095, 65536, 0, 24, 0, 0, 65560, 65536, 0, 131096, 65536, 0, 25, 0, 0, 65561, 65536, 0, 131097, 65536, 0, 26, 0, 0, 65562, 65536, 0, 131098, 65536, 0, 27, 0, 0, 65563, 65536, 0, 131099, 65536, 0, 28, 0, 0, 65564, 65536, 0, 131100, 65536, 0, -131019, 0, 0, -131018, 0, 0, -131017, 0, 0, -131016, 0, 0, -131022, 0, 0, -65486, 65536, 0, -131021, 0, 0, -65485, 65536, 0, -131020, 0, 0, -65484, 65536, 0, -65483, 65536, 0, -65482, 65536, 0, -65481, 65536, 0, -65480, 65536, 0, 68, 0, 0, 65604, 65536, 0, 131140, 65536, 0, 69, 0, 0, 65605, 65536, 0, 131141, 65536, 0, 70, 0, 0, 65606, 65536, 0, 131142, 65536, 0, 71, 0, 0, 65607, 65536, 0, 131143, 65536, 0, 72, 0, 0, 65608, 65536, 0, 131144, 65536, 0, 73, 0, 0, 65609, 65536, 0, 131145, 65536, 0, 74, 0, 0, 65610, 65536, 0, 131146, 65536, 0, 75, 0, 0, 65611, 65536, 0, 131147, 65536, 0, 76, 0, 0, 65612, 65536, 0, 131148, 65536, 0, 77, 0, 0, 65613, 65536, 0, 131149, 65536, 0, 78, 0, 0, 65614, 65536, 0, 131150, 65536, 0, 79, 0, 0, 65615, 65536, 0, 131151, 65536, 0, 80, 0, 0, 65616, 65536, 0, 131152, 65536, 0, 81, 0, 0, 65617, 65536, 0, 131153, 65536, 0, 82, 0, 0, 65618, 65536, 0, 131154, 65536, 0, 83, 0, 0, 65619, 65536, 0, 131155, 65536, 0, 84, 0, 0, 65620, 65536, 0, 131156, 65536, 0, 85, 0, 0, 65621, 65536, 0, 131157, 65536, 0, 86, 0, 0, 65622, 65536, 0, 131158, 65536, 0, 87, 0, 0, 65623, 65536, 0, 131159, 65536, 0, 61, 0, 0, 65597, 65536, 0, 131133, 65536, 0, 62, 0, 0, 65598, 65536, 0, 131134, 65536, 0, 63, 0, 0, 65599, 65536, 0, 131135, 65536, 0, 64, 0, 0, 65600, 65536, 0, 131136, 65536, 0, 65, 0, 0, 65601, 65536, 0, 131137, 65536, 0, 66, 0, 0, 65602, 65536, 0, 131138, 65536, 0, 67, 0, 0, 65603, 65536, 0, 131139, 65536, 0)
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("1_km57j")]
-position = Vector2(12, -12)
+position = Vector2(10, -12)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterBody2D"]
 remote_path = NodePath("../../Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(12, -12)
+position = Vector2(10, -12)
+limit_left = 0
+limit_top = -132
+limit_right = 1420
+limit_bottom = 48
