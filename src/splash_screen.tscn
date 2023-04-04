@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3 uid="uid://dyouby6mp3g0x"]
+
+[ext_resource type="FontFile" uid="uid://es627dw3q2bu" path="res://assets/WayfarersToyBoxRegular-gxxER.ttf" id="1_k6vee"]
+
+[node name="splash_screen" type="Node2D"]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="AnimationPlayer"]
+offset_left = -63.0
+offset_top = -296.0
+offset_right = -21.0
+offset_bottom = -289.0
+scale = Vector2(49.1456, 239.897)
+color = Color(0, 0, 0, 1)
+
+[node name="Label2" type="Label" parent="AnimationPlayer"]
+offset_left = -67.0
+offset_top = 162.0
+offset_right = 2125.0
+offset_bottom = 440.0
+theme_override_colors/font_color = Color(0.133333, 0.6, 0.133333, 1)
+theme_override_fonts/font = ExtResource("1_k6vee")
+theme_override_font_sizes/font_size = 240
+text = "TreeBurn"
+
+[node name="Label" type="Label" parent="AnimationPlayer"]
+offset_left = -143.0
+offset_top = 1037.0
+offset_right = 2049.0
+offset_bottom = 1315.0
+theme_override_colors/font_color = Color(0.133333, 0.6, 0.133333, 1)
+theme_override_fonts/font = ExtResource("1_k6vee")
+theme_override_font_sizes/font_size = 240
+text = "TreeBurn"
+
+[node name="Camera2D" type="Camera2D" parent="AnimationPlayer"]
+position = Vector2(941, 513)
+scale = Vector2(22, 12.12)
