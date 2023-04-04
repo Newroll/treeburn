@@ -25,6 +25,13 @@ sources/0 = SubResource("TileSetAtlasSource_2efse")
 
 [node name="Level1" type="Node2D"]
 
+[node name="LvlComplete" type="Label" parent="."]
+offset_left = 1237.0
+offset_top = -64.0
+offset_right = 1370.0
+offset_bottom = -38.0
+text = "LEVEL COMPLETE"
+
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 follow_viewport_enabled = true
 
