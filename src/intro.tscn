@@ -50,13 +50,13 @@ scale = Vector2(0.178587, 0.155733)
 script = ExtResource("1_11qdw")
 
 [node name="CloudsBack" type="Sprite2D" parent="."]
-position = Vector2(958.224, 547.091)
-scale = Vector2(3.7909, 3.53082)
+position = Vector2(1332.68, 563.597)
+scale = Vector2(1.61143, 3.62115)
 texture = ExtResource("1_o7lc3")
 
 [node name="CloudsFront" type="Sprite2D" parent="."]
-position = Vector2(960.317, 523.358)
-scale = Vector2(3.77311, 3.672)
+position = Vector2(1332.68, 905.62)
+scale = Vector2(2.58103, 2.52269)
 texture = ExtResource("2_ctoqt")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
