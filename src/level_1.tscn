@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://bxybs22oecsx4" path="res://assets/background/BGFront.png" id="2_tupnl"]
 [ext_resource type="Texture2D" uid="uid://cxxwwsbyywqov" path="res://assets/plants/flower2.png" id="6_svgu6"]
 [ext_resource type="Texture2D" uid="uid://lkkmf123r74j" path="res://assets/plants/flower3.png" id="7_eym66"]
-[ext_resource type="Texture2D" uid="uid://dpqycjh2slhrt" path="res://assets/interactive/Log.png" id="7_ijfs0"]
+[ext_resource type="Texture2D" uid="uid://bphvm3r2uupvi" path="res://assets/interactive/Log.png" id="7_ijfs0"]
 [ext_resource type="Texture2D" uid="uid://ccg8vdfpfmmuw" path="res://assets/plants/flower1.png" id="9_xms2k"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2efse"]
