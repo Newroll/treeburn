@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://crseeoxvqcv1b"]
+[gd_scene load_steps=22 format=3 uid="uid://y7ooqx1k3tik"]
 
 [ext_resource type="Texture2D" uid="uid://cdnratxtsurls" path="res://assets/background/BGBack.png" id="1_bdqgh"]
 [ext_resource type="PackedScene" uid="uid://bmlc5h5gbouaf" path="res://src/character.tscn" id="1_km57j"]
@@ -11,13 +11,19 @@
 [ext_resource type="Texture2D" uid="uid://bphvm3r2uupvi" path="res://assets/interactive/Log.png" id="7_ijfs0"]
 [ext_resource type="Texture2D" uid="uid://cr8ghxt16h5pl" path="res://assets/interactive/Portal.png" id="8_o2qkq"]
 [ext_resource type="Texture2D" uid="uid://ccg8vdfpfmmuw" path="res://assets/plants/flower1.png" id="9_xms2k"]
-[ext_resource type="Script" path="res://src/Portal.gd" id="11_j6nym"]
+[ext_resource type="Script" path="res://src/Portal1.gd" id="12_8cjoe"]
 [ext_resource type="FontFile" uid="uid://es627dw3q2bu" path="res://assets/WayfarersToyBoxRegular-gxxER.ttf" id="13_lcnso"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2efse"]
 texture = ExtResource("1_v4b01")
-texture_region_size = Vector2i(32, 25)
-use_texture_padding = false
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6qls7"]
 texture = ExtResource("6_svgu6")
@@ -72,6 +78,7 @@ use_texture_padding = false
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, -12.5, -2, -15.5, 0, -16, 7, -13.5, 9.5, 14.5, 9.5, 17, 7.5, 15.5, -7.5, 14.5, -9)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ls74n"]
 texture = ExtResource("9_xms2k")
@@ -157,7 +164,7 @@ limit_right = 1420
 limit_bottom = 48
 
 [node name="Portal" type="Area2D" parent="."]
-script = ExtResource("11_j6nym")
+script = ExtResource("12_8cjoe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Portal"]
 position = Vector2(1404, -17)
