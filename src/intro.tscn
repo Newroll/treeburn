@@ -45,7 +45,7 @@ corner_radius_bottom_right = 20
 corner_radius_bottom_left = 20
 
 [node name="intro" type="Node2D"]
-position = Vector2(1, 2)
+position = Vector2(0, 3)
 scale = Vector2(0.178587, 0.155733)
 script = ExtResource("1_11qdw")
 
