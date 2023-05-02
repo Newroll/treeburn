@@ -42,5 +42,5 @@ func _physics_process(delta):
 		get_tree().reload_current_scene()
 
 
-func _on_portal_body_exited(body):
+func _on_portal_body_exited(_body):
 	pass # Replace with function body.
