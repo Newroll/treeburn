@@ -40,6 +40,7 @@ func _physics_process(delta):
 	var playerposition = get_position()
 	if(playerposition.y > 150):
 		get_tree().reload_current_scene()
+		Main.coins = 0
 
 
 func _on_portal_body_exited(body):
