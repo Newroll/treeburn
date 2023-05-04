@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://dwlssdg85j5ay"]
+
+[ext_resource type="Script" path="res://platform.gd" id="1_qhpda"]
+[ext_resource type="Texture2D" uid="uid://inrcl7qmo83r" path="res://assets/interactive/rubbishbg.png" id="1_sjo66"]
+[ext_resource type="Script" path="res://falling.gd" id="3_1lhyy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_44gli"]
+size = Vector2(62, 16)
+
+[node name="platform" type="CharacterBody2D"]
+script = ExtResource("1_qhpda")
+
+[node name="Rubbishbg" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(197, 9)
+texture = ExtResource("1_sjo66")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+texture_filter = 1
+position = Vector2(197, 11)
+shape = SubResource("RectangleShape2D_44gli")
+
+[node name="falling" type="Area2D" parent="."]
+script = ExtResource("3_1lhyy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="falling"]
+texture_filter = 1
+position = Vector2(197, 11)
+shape = SubResource("RectangleShape2D_44gli")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+
+[connection signal="body_entered" from="falling" to="." method="_on_falling_body_entered"]
