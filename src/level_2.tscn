@@ -12,7 +12,7 @@
 [ext_resource type="Script" path="res://src/Portal2.gd" id="9_smxht"]
 [ext_resource type="FontFile" uid="uid://es627dw3q2bu" path="res://assets/WayfarersToyBoxRegular-gxxER.ttf" id="10_guj8l"]
 [ext_resource type="PackedScene" uid="uid://dtfkm547yxtbg" path="res://src/ui.tscn" id="11_o4cb6"]
-[ext_resource type="PackedScene" uid="uid://dwlssdg85j5ay" path="res://platform.tscn" id="13_xy6ej"]
+[ext_resource type="PackedScene" uid="uid://dwlssdg85j5ay" path="res://src/platform.tscn" id="13_xy6ej"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mghff"]
 texture = ExtResource("8_fdsr4")
