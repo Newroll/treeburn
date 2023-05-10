@@ -1,48 +1,69 @@
-[gd_scene load_steps=10 format=3 uid="uid://bcxhwtl70ikil"]
+[gd_scene load_steps=14 format=3 uid="uid://bcxhwtl70ikil"]
 
 [ext_resource type="Script" path="res://src/intro.gd" id="1_11qdw"]
 [ext_resource type="Texture2D" uid="uid://clhywbvoheih6" path="res://assets/background/CloudsBack.png" id="1_o7lc3"]
 [ext_resource type="Texture2D" uid="uid://cmc246lq0hvrh" path="res://assets/background/CloudsFront.png" id="2_ctoqt"]
 [ext_resource type="FontFile" uid="uid://es627dw3q2bu" path="res://assets/WayfarersToyBoxRegular-gxxER.ttf" id="2_wddbg"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e112q"]
-bg_color = Color(1, 1, 1, 1)
-border_width_left = 12
-border_width_top = 12
-border_width_right = 12
-border_width_bottom = 12
-border_color = Color(0, 0, 0, 1)
-shadow_size = 10
-shadow_offset = Vector2(10, 0)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5lqq5"]
+bg_color = Color(0.380392, 0.568627, 0.764706, 0.639216)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lhmq3"]
-bg_color = Color(1, 1, 1, 1)
-border_width_left = 12
-border_width_top = 12
-border_width_right = 12
-border_width_bottom = 12
-border_color = Color(0.290196, 0.290196, 0.290196, 1)
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_orp26"]
+bg_color = Color(0.239216, 0.431373, 0.556863, 0.862745)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_530d5"]
-bg_color = Color(0.235294, 0.513726, 0.929412, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fck3n"]
+bg_color = Color(0.239216, 0.376471, 0.392157, 0.862745)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pn56p"]
-bg_color = Color(0.0941176, 0.337255, 0.686275, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0tjkf"]
+bg_color = Color(0.380392, 0.568627, 0.764706, 0.639216)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jpxg7"]
-bg_color = Color(0.0117647, 0.0941176, 0.231373, 1)
-corner_radius_top_left = 20
-corner_radius_top_right = 20
-corner_radius_bottom_right = 20
-corner_radius_bottom_left = 20
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_wnv00"]
+bg_color = Color(0.239216, 0.431373, 0.556863, 0.862745)
+border_color = Color(1, 1, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i57td"]
+bg_color = Color(0.239216, 0.376471, 0.392157, 0.862745)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3o8u5"]
+bg_color = Color(0.380392, 0.568627, 0.764706, 0.639216)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0m5xs"]
+bg_color = Color(0.239216, 0.431373, 0.556863, 0.862745)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nmyxe"]
+bg_color = Color(0.239216, 0.376471, 0.392157, 0.862745)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="intro" type="Node2D"]
 position = Vector2(0, 3)
@@ -96,11 +117,12 @@ theme_override_constants/margin_right = 250
 [node name="NewGame_Button" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
 focus_mode = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_wddbg")
 theme_override_font_sizes/font_size = 80
-theme_override_styles/normal = SubResource("StyleBoxFlat_e112q")
-theme_override_styles/hover = SubResource("StyleBoxFlat_lhmq3")
+theme_override_styles/normal = SubResource("StyleBoxFlat_5lqq5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_orp26")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fck3n")
 text = "New Game"
 
 [node name="MarginContainer2" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
@@ -112,11 +134,12 @@ theme_override_constants/margin_right = 250
 [node name="Button" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer2"]
 layout_mode = 2
 focus_mode = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_wddbg")
 theme_override_font_sizes/font_size = 80
-theme_override_styles/normal = SubResource("StyleBoxFlat_530d5")
-theme_override_styles/hover = SubResource("StyleBoxFlat_pn56p")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_jpxg7")
+theme_override_styles/normal = SubResource("StyleBoxFlat_0tjkf")
+theme_override_styles/hover = SubResource("StyleBoxFlat_wnv00")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_i57td")
 text = "Continue"
 
 [node name="MarginContainer3" type="MarginContainer" parent="MarginContainer/VBoxContainer/VBoxContainer"]
@@ -128,10 +151,12 @@ theme_override_constants/margin_right = 250
 [node name="Button" type="Button" parent="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer3"]
 layout_mode = 2
 focus_mode = 0
-theme_override_font_sizes/font_size = 100
-theme_override_styles/normal = SubResource("StyleBoxFlat_530d5")
-theme_override_styles/hover = SubResource("StyleBoxFlat_pn56p")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_jpxg7")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("2_wddbg")
+theme_override_font_sizes/font_size = 80
+theme_override_styles/normal = SubResource("StyleBoxFlat_3o8u5")
+theme_override_styles/hover = SubResource("StyleBoxFlat_0m5xs")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nmyxe")
 text = "Settings"
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/NewGame_Button" to="." method="_on_new_game_button_pressed"]
