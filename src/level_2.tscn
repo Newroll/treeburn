@@ -1,8 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://b66ausvfs2ukb"]
+[gd_scene load_steps=20 format=3 uid="uid://c628hlm7egwmv"]
 
 [ext_resource type="Texture2D" uid="uid://cdnratxtsurls" path="res://assets/background/BGBack.png" id="1_bdqgh"]
 [ext_resource type="PackedScene" uid="uid://bmlc5h5gbouaf" path="res://src/character.tscn" id="1_km57j"]
 [ext_resource type="Texture2D" uid="uid://clhywbvoheih6" path="res://assets/background/CloudsBack.png" id="1_p6k47"]
+[ext_resource type="Script" path="res://src/level_2.gd" id="1_yq4t4"]
 [ext_resource type="Texture2D" uid="uid://cmc246lq0hvrh" path="res://assets/background/CloudsFront.png" id="2_ox2ky"]
 [ext_resource type="Texture2D" uid="uid://bxybs22oecsx4" path="res://assets/background/BGFront.png" id="2_tupnl"]
 [ext_resource type="PackedScene" uid="uid://kfxb12a1wxyl" path="res://src/coin.tscn" id="5_jcrsc"]
@@ -12,7 +13,7 @@
 [ext_resource type="Script" path="res://src/Portal2.gd" id="9_smxht"]
 [ext_resource type="FontFile" uid="uid://es627dw3q2bu" path="res://assets/WayfarersToyBoxRegular-gxxER.ttf" id="10_guj8l"]
 [ext_resource type="PackedScene" uid="uid://dtfkm547yxtbg" path="res://src/ui.tscn" id="11_o4cb6"]
-[ext_resource type="PackedScene" uid="uid://dwlssdg85j5ay" path="res://src/platform.tscn" id="13_xy6ej"]
+[ext_resource type="PackedScene" uid="uid://uiouwl5inj5h" path="res://src/platform.tscn" id="13_uoyuq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mghff"]
 texture = ExtResource("8_fdsr4")
@@ -83,6 +84,7 @@ sources/0 = SubResource("TileSetAtlasSource_mghff")
 size = Vector2(30, 34)
 
 [node name="Level2" type="Node2D"]
+script = ExtResource("1_yq4t4")
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 follow_viewport_enabled = true
@@ -124,25 +126,43 @@ texture_filter = 1
 position = Vector2(1025, -1)
 texture = ExtResource("2_tupnl")
 
+[node name="Coin8" parent="ParallaxBackground" instance=ExtResource("5_jcrsc")]
+position = Vector2(805, 38)
+
 [node name="Coins" type="Node" parent="ParallaxBackground"]
 
 [node name="Coin" parent="ParallaxBackground/Coins" instance=ExtResource("5_jcrsc")]
-position = Vector2(31, 0)
+position = Vector2(19, -7)
 
 [node name="Coin2" parent="ParallaxBackground/Coins" instance=ExtResource("5_jcrsc")]
-position = Vector2(689, 0)
+position = Vector2(456, 31)
 
 [node name="Coin3" parent="ParallaxBackground/Coins" instance=ExtResource("5_jcrsc")]
-position = Vector2(820, -17)
+position = Vector2(861, -56)
 
 [node name="Coin4" parent="ParallaxBackground/Coins" instance=ExtResource("5_jcrsc")]
-position = Vector2(1017, -80)
+position = Vector2(1023, -97)
 
 [node name="Coin5" parent="ParallaxBackground/Coins" instance=ExtResource("5_jcrsc")]
-position = Vector2(1134, -65)
+position = Vector2(1183, -59)
 
 [node name="Coin6" parent="ParallaxBackground/Coins" instance=ExtResource("5_jcrsc")]
-position = Vector2(1251, 0)
+position = Vector2(1252, -16)
+
+[node name="Coin7" parent="ParallaxBackground/Coins" instance=ExtResource("5_jcrsc")]
+position = Vector2(112, 25)
+
+[node name="Coin8" parent="ParallaxBackground/Coins" instance=ExtResource("5_jcrsc")]
+position = Vector2(344, -3)
+
+[node name="Coin9" parent="ParallaxBackground/Coins" instance=ExtResource("5_jcrsc")]
+position = Vector2(344, -3)
+
+[node name="Coin10" parent="ParallaxBackground/Coins" instance=ExtResource("5_jcrsc")]
+position = Vector2(742, -49)
+
+[node name="Coin11" parent="ParallaxBackground/Coins" instance=ExtResource("5_jcrsc")]
+position = Vector2(582, -19)
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
@@ -187,25 +207,22 @@ vertical_alignment = 1
 
 [node name="UI" parent="." instance=ExtResource("11_o4cb6")]
 
-[node name="Platforms" type="Node" parent="."]
+[node name="Platform" type="Node" parent="."]
 
-[node name="platform" parent="Platforms" instance=ExtResource("13_xy6ej")]
-position = Vector2(-5, 0)
+[node name="platform" parent="Platform" instance=ExtResource("13_uoyuq")]
+position = Vector2(3, -2)
 
-[node name="platform2" parent="Platforms" instance=ExtResource("13_xy6ej")]
-position = Vector2(93, 0)
+[node name="platform2" parent="Platform" instance=ExtResource("13_uoyuq")]
+position = Vector2(474, -2)
 
-[node name="platform3" parent="Platforms" instance=ExtResource("13_xy6ej")]
-position = Vector2(293, 0)
+[node name="platform3" parent="Platform" instance=ExtResource("13_uoyuq")]
+position = Vector2(358, -2)
 
-[node name="platform4" parent="Platforms" instance=ExtResource("13_xy6ej")]
-position = Vector2(195, 0)
+[node name="platform4" parent="Platform" instance=ExtResource("13_uoyuq")]
+position = Vector2(238, -2)
 
-[node name="platform5" parent="Platforms" instance=ExtResource("13_xy6ej")]
-position = Vector2(390, 0)
-
-[node name="platform6" parent="Platforms" instance=ExtResource("13_xy6ej")]
-position = Vector2(496, 0)
+[node name="platform5" parent="Platform" instance=ExtResource("13_uoyuq")]
+position = Vector2(121, -2)
 
 [connection signal="body_entered" from="Portal" to="Portal" method="_on_body_entered"]
 [connection signal="body_exited" from="Portal" to="Portal" method="_on_body_exited"]
