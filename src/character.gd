@@ -43,5 +43,5 @@ func _physics_process(delta):
 		Main.coins = 0
 
 
-func _on_portal_body_exited(body):
+func _on_portal_body_exited(_body):
 	pass # Replace with function body.
