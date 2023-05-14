@@ -105,9 +105,10 @@ libraries = {
 }
 
 [node name="Label" type="Label" parent="."]
-offset_left = 77.0
+modulate = Color(1, 1, 1, 0)
+offset_left = 348.0
 offset_top = 341.0
-offset_right = 2115.0
+offset_right = 2386.0
 offset_bottom = 619.0
 theme_override_colors/font_color = Color(0.133333, 0.6, 0.133333, 1)
 theme_override_fonts/font = ExtResource("1_ajybt")
@@ -117,9 +118,10 @@ horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Letter" type="Label" parent="."]
-offset_left = 221.0
+modulate = Color(1, 1, 1, 0)
+offset_left = 826.0
 offset_top = 291.0
-offset_right = 494.999
+offset_right = 1100.0
 offset_bottom = 569.0
 theme_override_colors/font_color = Color(0.133333, 0.6, 0.133333, 1)
 theme_override_fonts/font = ExtResource("1_ajybt")
