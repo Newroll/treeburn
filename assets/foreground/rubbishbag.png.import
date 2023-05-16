@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lhelvvmlia8x"
-path="res://.godot/imported/crab.png-599972fc5cd07fbbcbc8345637ae180a.ctex"
+uid="uid://daexljmbfi71l"
+path="res://.godot/imported/rubbishbag.png-9f6ef9710e49ebca44e05cfff96f2752.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/interactive/crab.png"
-dest_files=["res://.godot/imported/crab.png-599972fc5cd07fbbcbc8345637ae180a.ctex"]
+source_file="res://assets/foreground/rubbishbag.png"
+dest_files=["res://.godot/imported/rubbishbag.png-9f6ef9710e49ebca44e05cfff96f2752.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://lhelvvmlia8x"
-path="res://.godot/imported/crab.png-599972fc5cd07fbbcbc8345637ae180a.ctex"
+uid="uid://bgm14silqtfeb"
+path="res://.godot/imported/deadflower2.png-86ea190cadf3477b93c37e74b75910f4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/interactive/crab.png"
-dest_files=["res://.godot/imported/crab.png-599972fc5cd07fbbcbc8345637ae180a.ctex"]
+source_file="res://assets/unused/deadflower2.png"
+dest_files=["res://.godot/imported/deadflower2.png-86ea190cadf3477b93c37e74b75910f4.ctex"]
 
 [params]
 
