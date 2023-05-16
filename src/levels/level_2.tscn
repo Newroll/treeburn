@@ -1,19 +1,17 @@
-[gd_scene load_steps=20 format=3 uid="uid://c628hlm7egwmv"]
+[gd_scene load_steps=18 format=3 uid="uid://ddv4q4gf0k1gu"]
 
-[ext_resource type="Texture2D" uid="uid://cdnratxtsurls" path="res://assets/background/BGBack.png" id="1_bdqgh"]
-[ext_resource type="PackedScene" uid="uid://bmlc5h5gbouaf" path="res://src/character.tscn" id="1_km57j"]
-[ext_resource type="Texture2D" uid="uid://clhywbvoheih6" path="res://assets/background/CloudsBack.png" id="1_p6k47"]
-[ext_resource type="Script" path="res://src/level_2.gd" id="1_yq4t4"]
-[ext_resource type="Texture2D" uid="uid://cmc246lq0hvrh" path="res://assets/background/CloudsFront.png" id="2_ox2ky"]
-[ext_resource type="Texture2D" uid="uid://bxybs22oecsx4" path="res://assets/background/BGFront.png" id="2_tupnl"]
-[ext_resource type="PackedScene" uid="uid://kfxb12a1wxyl" path="res://src/coin.tscn" id="5_jcrsc"]
-[ext_resource type="Texture2D" uid="uid://cr8ghxt16h5pl" path="res://assets/interactive/Portal.png" id="6_6esk0"]
-[ext_resource type="Texture2D" uid="uid://bvxqcflfg84d0" path="res://assets/environment/rubbishbag.png" id="6_sgxam"]
-[ext_resource type="Texture2D" uid="uid://d34cffi4w7cyn" path="res://assets/background/sandground.jpg" id="8_fdsr4"]
+[ext_resource type="Texture2D" uid="uid://ds8wu6cfnnbef" path="res://assets/background/mountainback.png" id="1_bdqgh"]
+[ext_resource type="PackedScene" uid="uid://bmlc5h5gbouaf" path="res://src/interactive/character.tscn" id="1_km57j"]
+[ext_resource type="Texture2D" uid="uid://cqevjjlaxqex8" path="res://assets/background/cloudback.png" id="1_p6k47"]
+[ext_resource type="Script" path="res://src/levels/level_2.gd" id="1_yq4t4"]
+[ext_resource type="Texture2D" uid="uid://ce4cc4oe5ds0a" path="res://assets/background/cloudfront.png" id="2_ox2ky"]
+[ext_resource type="Texture2D" uid="uid://bnrtver323uex" path="res://assets/background/lvl1_front.png" id="2_tupnl"]
+[ext_resource type="Texture2D" uid="uid://cvxbfhrpvg0bh" path="res://assets/interactive/portal.png" id="6_6esk0"]
+[ext_resource type="Texture2D" uid="uid://daexljmbfi71l" path="res://assets/foreground/rubbishbag.png" id="6_sgxam"]
+[ext_resource type="Texture2D" uid="uid://bma82qa316g1p" path="res://assets/foreground/lvl2_ground.jpg" id="8_fdsr4"]
 [ext_resource type="Script" path="res://src/Portal2.gd" id="9_smxht"]
-[ext_resource type="FontFile" uid="uid://es627dw3q2bu" path="res://assets/WayfarersToyBoxRegular-gxxER.ttf" id="10_guj8l"]
-[ext_resource type="PackedScene" uid="uid://dtfkm547yxtbg" path="res://src/ui.tscn" id="11_o4cb6"]
-[ext_resource type="PackedScene" uid="uid://uiouwl5inj5h" path="res://src/platform.tscn" id="13_uoyuq"]
+[ext_resource type="FontFile" uid="uid://2lkpmo7tmy0s" path="res://assets/fonts/WayfarersToyBoxRegular.ttf" id="10_guj8l"]
+[ext_resource type="PackedScene" uid="uid://uiouwl5inj5h" path="res://src/interactive/platform.tscn" id="13_uoyuq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mghff"]
 texture = ExtResource("8_fdsr4")
@@ -126,43 +124,7 @@ texture_filter = 1
 position = Vector2(1025, -1)
 texture = ExtResource("2_tupnl")
 
-[node name="Coin8" parent="ParallaxBackground" instance=ExtResource("5_jcrsc")]
-position = Vector2(805, 38)
-
 [node name="Coins" type="Node" parent="ParallaxBackground"]
-
-[node name="Coin" parent="ParallaxBackground/Coins" instance=ExtResource("5_jcrsc")]
-position = Vector2(19, -7)
-
-[node name="Coin2" parent="ParallaxBackground/Coins" instance=ExtResource("5_jcrsc")]
-position = Vector2(468, 31)
-
-[node name="Coin3" parent="ParallaxBackground/Coins" instance=ExtResource("5_jcrsc")]
-position = Vector2(861, -56)
-
-[node name="Coin4" parent="ParallaxBackground/Coins" instance=ExtResource("5_jcrsc")]
-position = Vector2(1023, -97)
-
-[node name="Coin5" parent="ParallaxBackground/Coins" instance=ExtResource("5_jcrsc")]
-position = Vector2(1183, -59)
-
-[node name="Coin6" parent="ParallaxBackground/Coins" instance=ExtResource("5_jcrsc")]
-position = Vector2(1252, -16)
-
-[node name="Coin7" parent="ParallaxBackground/Coins" instance=ExtResource("5_jcrsc")]
-position = Vector2(112, 25)
-
-[node name="Coin8" parent="ParallaxBackground/Coins" instance=ExtResource("5_jcrsc")]
-position = Vector2(344, -3)
-
-[node name="Coin9" parent="ParallaxBackground/Coins" instance=ExtResource("5_jcrsc")]
-position = Vector2(291, -19)
-
-[node name="Coin10" parent="ParallaxBackground/Coins" instance=ExtResource("5_jcrsc")]
-position = Vector2(742, -49)
-
-[node name="Coin11" parent="ParallaxBackground/Coins" instance=ExtResource("5_jcrsc")]
-position = Vector2(582, -19)
 
 [node name="TileMap" type="TileMap" parent="."]
 texture_filter = 1
@@ -205,23 +167,16 @@ text = "Press ENTER to continue"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="UI" parent="." instance=ExtResource("11_o4cb6")]
-
-[node name="Platform" type="Node" parent="."]
-
-[node name="platform" parent="Platform" instance=ExtResource("13_uoyuq")]
-position = Vector2(3, -2)
-
-[node name="platform2" parent="Platform" instance=ExtResource("13_uoyuq")]
+[node name="Platform@platform2" parent="." instance=ExtResource("13_uoyuq")]
 position = Vector2(474, -2)
 
-[node name="platform3" parent="Platform" instance=ExtResource("13_uoyuq")]
+[node name="Platform@platform3" parent="." instance=ExtResource("13_uoyuq")]
 position = Vector2(358, -2)
 
-[node name="platform4" parent="Platform" instance=ExtResource("13_uoyuq")]
+[node name="Platform@platform4" parent="." instance=ExtResource("13_uoyuq")]
 position = Vector2(238, -2)
 
-[node name="platform5" parent="Platform" instance=ExtResource("13_uoyuq")]
+[node name="Platform@platform5" parent="." instance=ExtResource("13_uoyuq")]
 position = Vector2(121, -2)
 
 [connection signal="body_entered" from="Portal" to="Portal" method="_on_body_entered"]
