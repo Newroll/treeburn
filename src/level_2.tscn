@@ -135,7 +135,7 @@ position = Vector2(805, 38)
 position = Vector2(19, -7)
 
 [node name="Coin2" parent="ParallaxBackground/Coins" instance=ExtResource("5_jcrsc")]
-position = Vector2(456, 31)
+position = Vector2(468, 31)
 
 [node name="Coin3" parent="ParallaxBackground/Coins" instance=ExtResource("5_jcrsc")]
 position = Vector2(861, -56)
@@ -156,7 +156,7 @@ position = Vector2(112, 25)
 position = Vector2(344, -3)
 
 [node name="Coin9" parent="ParallaxBackground/Coins" instance=ExtResource("5_jcrsc")]
-position = Vector2(344, -3)
+position = Vector2(291, -19)
 
 [node name="Coin10" parent="ParallaxBackground/Coins" instance=ExtResource("5_jcrsc")]
 position = Vector2(742, -49)
