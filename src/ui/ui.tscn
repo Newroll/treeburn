@@ -1,8 +1,8 @@
 [gd_scene load_steps=6 format=3 uid="uid://dtfkm547yxtbg"]
 
-[ext_resource type="FontFile" uid="uid://es627dw3q2bu" path="res://assets/WayfarersToyBoxRegular-gxxER.ttf" id="1_6jeod"]
-[ext_resource type="Script" path="res://src/CoinCounter.gd" id="1_teiot"]
-[ext_resource type="Texture2D" uid="uid://du005oord63qw" path="res://assets/interactive/coinsheet.png" id="3_m1w8n"]
+[ext_resource type="FontFile" uid="uid://es627dw3q2bu" path="res://assets/fonts/WayfarersToyBoxRegular.ttf" id="1_6jeod"]
+[ext_resource type="Texture2D" uid="uid://du005oord63qw" path="res://assets/interactive/coin.png" id="3_m1w8n"]
+[ext_resource type="Script" path="res://src/interactive/coincounter.gd" id="3_x676s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ap6g3"]
 atlas = ExtResource("3_m1w8n")
@@ -37,4 +37,4 @@ theme_override_fonts/font = ExtResource("1_6jeod")
 theme_override_font_sizes/font_size = 10
 text = "0"
 horizontal_alignment = 1
-script = ExtResource("1_teiot")
+script = ExtResource("3_x676s")

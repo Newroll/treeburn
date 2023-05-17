@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://uiouwl5inj5h"]
 
-[ext_resource type="Script" path="res://src/platformtest.gd" id="1_veek5"]
-[ext_resource type="Texture2D" uid="uid://inrcl7qmo83r" path="res://assets/interactive/rubbishbg.png" id="2_glpxj"]
+[ext_resource type="Script" path="res://src/interactive/platform.gd" id="1_veek5"]
+[ext_resource type="Texture2D" uid="uid://inrcl7qmo83r" path="res://assets/interactive/platform.png" id="2_glpxj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h1k72"]
 size = Vector2(61, 13)
