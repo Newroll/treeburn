@@ -1,16 +1,10 @@
 [gd_scene load_steps=14 format=3 uid="uid://bcxhwtl70ikil"]
 
-[ext_resource type="Script" path="res://src/intro.gd" id="1_11qdw"]
-[ext_resource type="Texture2D" uid="uid://clhywbvoheih6" path="res://assets/background/CloudsBack.png" id="1_o7lc3"]
-[ext_resource type="Texture2D" uid="uid://cmc246lq0hvrh" path="res://assets/background/CloudsFront.png" id="2_ctoqt"]
-[ext_resource type="FontFile" uid="uid://es627dw3q2bu" path="res://assets/WayfarersToyBoxRegular-gxxER.ttf" id="2_wddbg"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5lqq5"]
-bg_color = Color(0.380392, 0.568627, 0.764706, 0.639216)
-corner_radius_top_left = 10
-corner_radius_top_right = 10
-corner_radius_bottom_right = 10
-corner_radius_bottom_left = 10
+[ext_resource type="Texture2D" uid="uid://d1gcs3x30n3k" path="res://assets/background/cloudback.png" id="1_o7lc3"]
+[ext_resource type="Script" path="res://src/ui/intro.gd" id="1_thbuj"]
+[ext_resource type="Texture2D" uid="uid://cmc246lq0hvrh" path="res://assets/background/cloudfront.png" id="2_ctoqt"]
+[ext_resource type="FontFile" uid="uid://es627dw3q2bu" path="res://assets/fonts/WayfarersToyBoxRegular.ttf" id="2_wddbg"]
+[ext_resource type="StyleBox" uid="uid://cavwdk0v7i65u" path="res://assets/fonts/button_theme.tres" id="5_syq3h"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_orp26"]
 bg_color = Color(0.239216, 0.431373, 0.556863, 0.862745)
@@ -72,7 +66,7 @@ corner_radius_bottom_left = 10
 [node name="intro" type="Node2D"]
 position = Vector2(0, 3)
 scale = Vector2(0.178587, 0.155733)
-script = ExtResource("1_11qdw")
+script = ExtResource("1_thbuj")
 
 [node name="CloudsBack" type="Sprite2D" parent="."]
 position = Vector2(1332.68, 563.597)
@@ -124,7 +118,7 @@ focus_mode = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("2_wddbg")
 theme_override_font_sizes/font_size = 80
-theme_override_styles/normal = SubResource("StyleBoxFlat_5lqq5")
+theme_override_styles/normal = ExtResource("5_syq3h")
 theme_override_styles/hover = SubResource("StyleBoxFlat_orp26")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_fck3n")
 text = "New Game"
