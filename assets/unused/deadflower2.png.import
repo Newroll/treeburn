@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bphvm3r2uupvi"
-path="res://.godot/imported/log.png-8bf953e4e59f8245a94b210a9c68eecf.ctex"
+uid="uid://fgecxqe23d4i"
+path="res://.godot/imported/deadflower2.png-86ea190cadf3477b93c37e74b75910f4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/interactive/log.png"
-dest_files=["res://.godot/imported/log.png-8bf953e4e59f8245a94b210a9c68eecf.ctex"]
+source_file="res://assets/unused/deadflower2.png"
+dest_files=["res://.godot/imported/deadflower2.png-86ea190cadf3477b93c37e74b75910f4.ctex"]
 
 [params]
 

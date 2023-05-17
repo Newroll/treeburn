@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bphvm3r2uupvi"
-path="res://.godot/imported/log.png-8bf953e4e59f8245a94b210a9c68eecf.ctex"
+uid="uid://cdnratxtsurls"
+path="res://.godot/imported/mountainback.png-b457c7387163f9362abef3c7acc3b397.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/interactive/log.png"
-dest_files=["res://.godot/imported/log.png-8bf953e4e59f8245a94b210a9c68eecf.ctex"]
+source_file="res://assets/background/mountainback.png"
+dest_files=["res://.godot/imported/mountainback.png-b457c7387163f9362abef3c7acc3b397.ctex"]
 
 [params]
 

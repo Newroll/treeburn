@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://uiouwl5inj5h"]
+
+[ext_resource type="Script" path="res://src/interactive/platform.gd" id="1_veek5"]
+[ext_resource type="Texture2D" uid="uid://inrcl7qmo83r" path="res://assets/interactive/platform.png" id="2_glpxj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h1k72"]
+size = Vector2(61, 13)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t5owi"]
+size = Vector2(62, 16.4062)
+
+[node name="platform" type="CharacterBody2D"]
+script = ExtResource("1_veek5")
+
+[node name="collider" type="Area2D" parent="."]
+position = Vector2(197, 9)
+
+[node name="Rubbishbg" type="Sprite2D" parent="collider"]
+texture_filter = 1
+texture = ExtResource("2_glpxj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collider"]
+position = Vector2(-1, -14)
+shape = SubResource("RectangleShape2D_h1k72")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+texture_filter = 1
+position = Vector2(197, 11)
+shape = SubResource("RectangleShape2D_t5owi")
+
+[connection signal="body_entered" from="collider" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="collider" to="." method="_on_area_2d_body_exited"]

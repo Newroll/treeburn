@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bphvm3r2uupvi"
-path="res://.godot/imported/log.png-8bf953e4e59f8245a94b210a9c68eecf.ctex"
+uid="uid://cmc246lq0hvrh"
+path="res://.godot/imported/cloudfront.png-88ab02043c3f17fe083e6eef6aa21153.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/interactive/log.png"
-dest_files=["res://.godot/imported/log.png-8bf953e4e59f8245a94b210a9c68eecf.ctex"]
+source_file="res://assets/background/cloudfront.png"
+dest_files=["res://.godot/imported/cloudfront.png-88ab02043c3f17fe083e6eef6aa21153.ctex"]
 
 [params]
 
