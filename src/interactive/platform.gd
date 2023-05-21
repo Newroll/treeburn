@@ -12,5 +12,6 @@ func _on_area_2d_body_exited(_body):
 
 func _physics_process(_delta):
 	if entered == true:
+		await get_tree().create_timer(0.05).timeout
 		velocity = Vector2(0, 75)
 		move_and_slide()
