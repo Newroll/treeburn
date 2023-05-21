@@ -1,9 +1,9 @@
 [gd_scene load_steps=7 format=3 uid="uid://bwom3600dmuy1"]
 
-[ext_resource type="Texture2D" uid="uid://cmc246lq0hvrh" path="res://assets/background/CloudsFront.png" id="1_3bn35"]
-[ext_resource type="FontFile" uid="uid://es627dw3q2bu" path="res://assets/WayfarersToyBoxRegular-gxxER.ttf" id="1_ajybt"]
+[ext_resource type="Texture2D" uid="uid://cmc246lq0hvrh" path="res://assets/background/cloudfront.png" id="1_3bn35"]
+[ext_resource type="Script" path="res://src/ui/splashscreen.gd" id="1_6gylh"]
+[ext_resource type="FontFile" uid="uid://es627dw3q2bu" path="res://assets/fonts/WayfarersToyBoxRegular.ttf" id="1_ajybt"]
 [ext_resource type="Texture2D" uid="uid://clhywbvoheih6" path="res://assets/background/CloudsBack.png" id="1_inlpq"]
-[ext_resource type="Script" path="res://src/splashscreen.gd" id="1_x3a11"]
 
 [sub_resource type="Animation" id="Animation_6x26f"]
 resource_name = "splashscreen_animation"
@@ -85,7 +85,7 @@ _data = {
 [node name="splashscreen" type="Node2D"]
 position = Vector2(72, 8)
 scale = Vector2(0.0898008, 0.158892)
-script = ExtResource("1_x3a11")
+script = ExtResource("1_6gylh")
 metadata/_edit_vertical_guides_ = []
 
 [node name="CloudsBack" type="Sprite2D" parent="."]
