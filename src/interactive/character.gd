@@ -1,5 +1,15 @@
 extends CharacterBody2D
 
+var level_string = ""
+
+func _level_get():
+	if Main.level == 1:
+		level_string = "/root/Level1/ParallaxBackground/Coins/Coin"
+	else:
+		level_string = "/root/Level2/ParallaxBackground/Coins/Coin"
+
+@onready var coinnode = $level_string
+
 const SPEED = 150.0
 const JUMP_VELOCITY = -350.0
 
@@ -39,10 +49,12 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	var playerposition = get_position()
+	print(position)
+	print(playerposition.y)
 	if(playerposition.y > 150):
-		get_tree().reload_current_scene()
+		position = Vector2(10,-20)
 		Main.coins = 0
-
+		coinnode.coinvisibilty(true, false)
 
 func _on_portal_body_exited(_body):
 	pass # Replace with function body.
