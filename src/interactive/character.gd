@@ -39,7 +39,7 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	var playerposition = get_position()
-	if(playerposition.y > 150):
+	if(playerposition.y > 100):
 		get_tree().reload_current_scene()
 		Main.coins = 0
 
