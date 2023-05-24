@@ -106,10 +106,10 @@ libraries = {
 
 [node name="Label" type="Label" parent="."]
 modulate = Color(1, 1, 1, 0)
-offset_left = 348.0
-offset_top = 341.0
-offset_right = 2386.0
-offset_bottom = 619.0
+offset_left = 89.0859
+offset_top = 333.56
+offset_right = 2127.09
+offset_bottom = 611.56
 theme_override_colors/font_color = Color(0.133333, 0.6, 0.133333, 1)
 theme_override_fonts/font = ExtResource("1_ajybt")
 theme_override_font_sizes/font_size = 170
