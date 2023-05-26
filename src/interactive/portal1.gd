@@ -2,8 +2,6 @@ extends Area2D
 
 var entered = false
 
-@onready var level_string
-
 func _on_body_entered(_body):
 	entered = true
 	$ContinueLable.visible = true
@@ -14,7 +12,7 @@ func _on_body_exited(_body):
 	$ContinueLable.visible = false
 
 func _process(_delta):
-	if entered == true && Main.coins == 3 && Input.is_action_just_pressed("enter"):
+	if entered == true && Main.coins >= 3 && Input.is_action_just_pressed("enter"):
 		Main.coins = 0
 		Main.level += 1
 		get_tree().change_scene_to_file("res://src/levels/level_2.tscn")

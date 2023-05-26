@@ -1,5 +1,12 @@
 extends Node
 
+var coins = []
+
+func _ready():
+for child in get_children():
+	if child.is_class("Area2D"):
+		coins.append(child)
+
 func _on_body_entered(body):
 	if body.name == "CharacterBody2D":
 		$AudioStreamPlayer.play()
