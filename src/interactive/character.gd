@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal _on_player_death()
+
 const SPEED = 150.0
 const JUMP_VELOCITY = -350.0
 
@@ -40,9 +42,9 @@ func _physics_process(delta):
 	
 	var playerposition = get_position()
 	if(playerposition.y > 100):
-		get_tree().reload_current_scene()
+		position = Vector2(10,-20)
 		Main.coins = 0
-
-
+		_on_player_death.emit()
+    
 func _on_portal_body_exited(_body):
 	pass # Replace with function body.
