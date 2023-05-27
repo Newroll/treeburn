@@ -1,6 +1,5 @@
-[gd_scene load_steps=22 format=3 uid="uid://kfxb12a1wxyl"]
+[gd_scene load_steps=21 format=3 uid="uid://kfxb12a1wxyl"]
 
-[ext_resource type="Script" path="res://src/interactive/coin.gd" id="1_m20dx"]
 [ext_resource type="Texture2D" uid="uid://du005oord63qw" path="res://assets/interactive/coin.png" id="1_nlpw5"]
 [ext_resource type="AudioStream" uid="uid://da3oi4gbeuxx0" path="res://assets/sfx/coin.mp3" id="3_h7qos"]
 
@@ -128,7 +127,6 @@ animations = [{
 size = Vector2(11, 11)
 
 [node name="Coin" type="Area2D"]
-script = ExtResource("1_m20dx")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1

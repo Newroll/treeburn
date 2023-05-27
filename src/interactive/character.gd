@@ -1,18 +1,6 @@
 extends CharacterBody2D
 
-var level_string = ""
-
-@onready var coinnode = null
-
-func level_get():
-	if (Main.level==1):
-		level_string = "/root/Level1/ParallaxBackground/Coins/Coin"
-	else:
-		level_string = "/root/Level2/ParallaxBackground/Coins/Coin"
-
-func _ready():
-	level_get()
-	coinnode = get_node(level_string)
+signal _on_player_death()
 
 const SPEED = 150.0
 const JUMP_VELOCITY = -350.0
@@ -56,7 +44,8 @@ func _physics_process(delta):
 	if(playerposition.y > 150):
 		position = Vector2(10,-20)
 		Main.coins = 0
-		coinnode.coinvisibilty(true,false)
+		_on_player_death.emit()
+		
 
 func _on_portal_body_exited(_body):
 	pass # Replace with function body.
