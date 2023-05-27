@@ -45,4 +45,4 @@ shape = SubResource("RectangleShape2D_jbxt3")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_fhep2")
-volume_db = -5.0
+volume_db = 5.0

@@ -46,6 +46,10 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -17.0
+offset_top = 8.0
+offset_right = -17.0
+offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -63,12 +67,14 @@ theme_override_styles/normal = ExtResource("3_sh48l")
 text = "Resume"
 
 [node name="SettingsButton" type="Button" parent="Panel/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme = ExtResource("2_pw8og")
 theme_override_styles/normal = ExtResource("3_sh48l")
 text = "Settings"
 
 [node name="QuitToMenuButton" type="Button" parent="Panel/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme = ExtResource("2_pw8og")
 theme_override_styles/normal = ExtResource("3_sh48l")
@@ -78,7 +84,7 @@ text = "Quit To Menu"
 layout_mode = 2
 theme = ExtResource("2_pw8og")
 theme_override_styles/normal = ExtResource("3_sh48l")
-text = "Quit To Desktop"
+text = "Quit "
 
 [connection signal="pressed" from="Panel/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="Panel/VBoxContainer/QuitToMenuButton" to="." method="_on_quit_to_menu_button_pressed"]

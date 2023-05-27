@@ -41,11 +41,10 @@ func _physics_process(delta):
 	move_and_slide()
 	
 	var playerposition = get_position()
-	if(playerposition.y > 150):
+	if(playerposition.y > 100):
 		position = Vector2(10,-20)
 		Main.coins = 0
 		_on_player_death.emit()
-		
-
+    
 func _on_portal_body_exited(_body):
 	pass # Replace with function body.
