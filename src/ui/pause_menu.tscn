@@ -74,7 +74,6 @@ theme_override_styles/normal = ExtResource("3_sh48l")
 text = "Settings"
 
 [node name="QuitToMenuButton" type="Button" parent="Panel/VBoxContainer"]
-visible = false
 layout_mode = 2
 theme = ExtResource("2_pw8og")
 theme_override_styles/normal = ExtResource("3_sh48l")

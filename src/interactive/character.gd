@@ -45,6 +45,6 @@ func _physics_process(delta):
 		position = Vector2(10,-20)
 		Main.coins = 0
 		_on_player_death.emit()
-    
+	
 func _on_portal_body_exited(_body):
 	pass # Replace with function body.
