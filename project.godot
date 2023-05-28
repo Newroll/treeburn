@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="TreeBurn"
-run/main_scene="res://src/global/game.tscn"
+run/main_scene="res://src/ui/splashscreen.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
 config/icon="res://icon.svg"
 
@@ -83,4 +83,3 @@ open_pause_menu={
 
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
-textures/vram_compression/import_s3tc_bptc=true

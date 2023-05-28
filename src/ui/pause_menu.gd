@@ -25,3 +25,4 @@ func _on_quit_to_desktop_button_pressed():
 
 func _on_quit_to_menu_button_pressed():
 	get_tree().change_scene_to_file("res://src/ui/intro.tscn")
+	game_manager.game_paused = false
