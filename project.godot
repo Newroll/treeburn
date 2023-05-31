@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="TreeBurn"
-run/main_scene="res://src/ui/splashscreen.tscn"
+run/main_scene="res://src/global/game.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
 boot_splash/image="res://assets/brand/icon.png"
 boot_splash/fullsize=false

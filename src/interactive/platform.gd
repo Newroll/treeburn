@@ -32,8 +32,3 @@ func _on_player_death():
 
 	if name == "Platform@platform2":
 		position = Vector2(474,-2)
-
-
-
-func _on_character_body_2d__on_player_death():
-	pass # Replace with function body.
