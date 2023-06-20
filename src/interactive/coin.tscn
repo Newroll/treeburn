@@ -141,6 +141,6 @@ shape = SubResource("RectangleShape2D_phwqx")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("3_h7qos")
-volume_db = -5.0
+volume_db = -15.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

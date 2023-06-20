@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cr8ghxt16h5pl"
-path="res://.godot/imported/Portal.png-ad0e317d17808ea736ccc991ca34a048.ctex"
+uid="uid://bdvqve7arvi4r"
+path="res://.godot/imported/finalflower.png-8e1d2dcac5a16698e1d50c68543630b0.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/interactive/Portal.png"
-dest_files=["res://.godot/imported/Portal.png-ad0e317d17808ea736ccc991ca34a048.ctex"]
+source_file="res://assets/foreground/finalflower.png"
+dest_files=["res://.godot/imported/finalflower.png-8e1d2dcac5a16698e1d50c68543630b0.ctex"]
 
 [params]
 
