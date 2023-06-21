@@ -1,5 +1,9 @@
 extends Node
 
+func _ready():
+	# Set the z_index property.
+	self.z_index = -99
+
 func _on_body_entered(body):
 	if body.name == "CharacterBody2D":
 		$AudioStreamPlayer.play()
