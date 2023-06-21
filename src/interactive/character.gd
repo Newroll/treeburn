@@ -4,7 +4,7 @@ signal _on_player_death()
 
 const SPEED = 150.0
 const JUMP_VELOCITY = -300.0
-const wall_pushback = 100
+const wall_pushback = 5000
 const wall_slide = 10
 
 var jump_counter = 0
@@ -20,33 +20,42 @@ func _physics_process(delta):
 	if not is_on_floor() && wall_sliding == false:
 		velocity.y += gravity * delta
 		animated_sprite.animation = "default"
-	else:
+	if is_on_floor():
 		jump_counter = 0
 		if(velocity.x == 0):
 			animated_sprite.animation = "default"
 		else:
 			animated_sprite.animation = "move"
 	
+	#wall sliding
 	if is_on_wall() && not is_on_floor():
-		if Input.is_action_pressed("interact"):
+		if Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right"):
 			wall_sliding = true
-			animated_sprite.animation = "default"
-			velocity.y = wall_slide
-			velocity.y += gravity * delta
-		else:
+		else: 
 			wall_sliding = false
-			
+	else: 
+		wall_sliding = false
+
+	if wall_sliding == true:
+		animated_sprite.animation = "default"
+		velocity.y = wall_slide
+		velocity.y += gravity * delta
+	else:
+		wall_sliding = false
 
 	# Handle Jump.
-	if Input.is_action_just_pressed("jump") && jump_counter <1:
+	if Input.is_action_just_pressed("jump") && jump_counter < 2:
+		wall_sliding = false
+		jump_counter += 1
 		velocity.y = JUMP_VELOCITY
 		$AudioStreamPlayer.play()
-		jump_counter += 1
-		
-	if Input.is_action_just_pressed("jump") && jump_counter <=2 && double_jump == true:
-		velocity.y = JUMP_VELOCITY
-		$AudioStreamPlayer.play()
-		jump_counter += 1
+		if is_on_wall() and Input.is_action_pressed("move_left"):
+			velocity.x = wall_pushback
+			print("test1")
+		if is_on_wall():
+			velocity.x = -wall_pushback
+			print(velocity.x)
+			print(velocity.y)
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
