@@ -1,83 +1,72 @@
 extends CharacterBody2D
 
-signal _on_player_death()
+signal _on_player_death
 
-const SPEED = 150.0
-const JUMP_VELOCITY = -300.0
-const wall_pushback = 5000
-const wall_slide = 10
+#Set player movement speed along with acceleration and friction to create accurate player movement
+const SPEED = 150
+const acc = 20
+const friction = 30
 
+#Set character's jump power values
+const JUMP_VELOCITY = -300
 var jump_counter = 0
+var max_jumps = 2
 var double_jump = false
+
+const wall_pushback = 50
+const wall_slide = 10
 var wall_sliding = false
 
-# Get the gravity from the project settings to be synced with RigidBody nodes.
-var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
-@onready var animated_sprite = $AnimatedSprite2D
+var playerposition = Vector2()
+
+var gravity = 1000  # Adjust this as needed
+@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+
+func _ready():
+	playerposition = position
 
 func _physics_process(delta):
-	# Add the gravity.
-	if not is_on_floor() && wall_sliding == false:
+	if !is_on_floor():
 		velocity.y += gravity * delta
+
+	var input_dir: Vector2 = input()
+
+	if input_dir != Vector2.ZERO:
+		accelerate(input_dir)
+	else:
+		add_friction()
 		animated_sprite.animation = "default"
+
+	jump()
+	player_movement()
+
+func input() -> Vector2:
+	var input_dir = Vector2.ZERO
+
+	input_dir.x = Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
+	input_dir = input_dir.normalized()
+	return input_dir
+
+func accelerate(direction: Vector2) -> void:
+	velocity = velocity.move_toward(SPEED * direction, acc)
+
+func add_friction() -> void:
+	velocity = velocity.move_toward(Vector2.ZERO, friction)
+
+func player_movement() -> void:
+	var horizontal_movement = Vector2(velocity.x, 0)
+	var vertical_movement = Vector2(0, velocity.y)
+
+
+	velocity.x = horizontal_movement.x
+	velocity.y = vertical_movement.y
+	move_and_slide()
+
+#Handle Jump.
+func jump() -> void:
 	if is_on_floor():
 		jump_counter = 0
-		if(velocity.x == 0):
-			animated_sprite.animation = "default"
-		else:
-			animated_sprite.animation = "move"
-	
-	#wall sliding
-	if is_on_wall() && not is_on_floor():
-		if Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right"):
-			wall_sliding = true
-		else: 
-			wall_sliding = false
-	else: 
-		wall_sliding = false
-
-	if wall_sliding == true:
-		animated_sprite.animation = "default"
-		velocity.y = wall_slide
-		velocity.y += gravity * delta
-	else:
-		wall_sliding = false
-
-	# Handle Jump.
-	if Input.is_action_just_pressed("jump") && jump_counter < 2:
-		wall_sliding = false
-		jump_counter += 1
-		velocity.y = JUMP_VELOCITY
-		$AudioStreamPlayer.play()
-		if is_on_wall() and Input.is_action_pressed("move_left"):
-			velocity.x = wall_pushback
-			print("test1")
-		if is_on_wall():
-			velocity.x = -wall_pushback
-			print(velocity.x)
-			print(velocity.y)
-
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = Input.get_axis("move_left", "move_right")
-	if direction:
-		velocity.x = direction * SPEED
-		
-		if(velocity.x < 0): 
-			animated_sprite.flip_h = true 
-		elif(velocity.x > 0): 
-			animated_sprite.flip_h = false 
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		
-	move_and_slide()
-	
-	var playerposition = get_position()
-	if(playerposition.y > 100):
-		position = Vector2(10,-20)
-		double_jump = true
-		Main.coins = 0
-		_on_player_death.emit()
-	
-func _on_portal_body_exited(_body):
-	pass # Replace with function body.
+	if Input.is_action_just_pressed("ui_accept"):
+		if jump_counter < max_jumps:
+			velocity.y = JUMP_VELOCITY
+			jump_counter += 1
