@@ -1,4 +1,4 @@
-[gd_resource type="AnimatedTexture" load_steps=5 format=3 uid="uid://2tfaa43tvx0b"]
+[gd_resource type="AnimatedTexture" load_steps=5 format=3 uid="uid://duge8tqd3kjt3"]
 
 [ext_resource type="Texture2D" uid="uid://b0e8ispf4cke" path="res://assets/foreground/water1.png" id="1_m07e5"]
 [ext_resource type="Texture2D" uid="uid://b2boxujidhmfj" path="res://assets/foreground/water2.png" id="2_smpg1"]
