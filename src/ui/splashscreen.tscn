@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cmc246lq0hvrh" path="res://assets/background/cloudfront.png" id="1_3bn35"]
 [ext_resource type="Script" path="res://src/ui/splashscreen.gd" id="1_6gylh"]
 [ext_resource type="FontFile" uid="uid://es627dw3q2bu" path="res://assets/fonts/WayfarersToyBoxRegular.ttf" id="1_ajybt"]
-[ext_resource type="Texture2D" uid="uid://clhywbvoheih6" path="res://assets/background/cloudback.png" id="1_inlpq"]
+[ext_resource type="Texture2D" uid="uid://d1gcs3x30n3k" path="res://assets/background/cloudback.png" id="1_inlpq"]
 
 [sub_resource type="Animation" id="Animation_6x26f"]
 resource_name = "splashscreen_animation"
