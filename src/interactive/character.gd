@@ -64,6 +64,3 @@ func _physics_process(delta):
 		double_jump = true
 		Main.coins = 0
 		_on_player_death.emit()
-	
-func _on_portal_body_exited(_body):
-	pass # Replace with function body.
