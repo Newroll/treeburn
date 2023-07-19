@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://7ltuyca3kmsb"]
+
+[ext_resource type="Script" path="res://src/interactive/quicksand.gd" id="1_tl2lo"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3c5lk"]
+size = Vector2(109.5, 102)
+
+[node name="quicksand" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("1_tl2lo")
+
+[node name="ColorRect" type="ColorRect" parent="Area2D"]
+offset_left = 464.0
+offset_top = 507.0
+offset_right = 574.0
+offset_bottom = 611.0
+color = Color(1, 1, 0.6, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(519.25, 559)
+shape = SubResource("RectangleShape2D_3c5lk")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_exited" from="Area2D" to="Area2D" method="_on_body_exited"]
