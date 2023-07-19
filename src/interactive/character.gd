@@ -4,11 +4,11 @@ signal _on_player_death
 
 #Ground Movement 
 const SPEED = 150.0
-const acc = 700
+const acc = 500
 const friction = 2000
 
 #Set character's jump values
-const JUMP_VELOCITY = -320
+const JUMP_VELOCITY = -300
 const air_resistance = 100
 var double_jump = true
 
