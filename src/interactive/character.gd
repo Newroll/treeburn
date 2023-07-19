@@ -2,93 +2,101 @@ extends CharacterBody2D
 
 signal _on_player_death
 
-
-#Set player movement speed along with acceleration and friction to create accurate player movement
-#Going to try and use acceleration and friction later
-const acc = 20
-const friction = 30
-
-#Ground Movement for now
+#Ground Movement 
 const SPEED = 150.0
+const acc = 500
+const friction = 2000
 
-#Set character's jump power values
+#Set character's jump values
 const JUMP_VELOCITY = -300
-var jump_counter = 0
-var max_jumps = 2
+const air_resistance = 100
+var double_jump = true
 
 #Declares wall sliding variables
 const wall_pushback = 50
 const wall_slide = 10
 var wall_sliding = false
 
-#Declares wall jumping variables
-const wall_jump_power = 200
-var wall_jumps = 0
-
 var playerposition = Vector2()
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
-func _ready():
-	playerposition = position
-
 func _physics_process(delta):
-	velocity.y += gravity * delta
-
-	move()
+	var input_axis = Input.get_axis("move_left", "move_right")
 	jump()
 	player_movement()
 	wall_sliding_true()
 	player_death()
 	animation_state()
+	apply_gravity(delta)
+	handle_acceleration(input_axis, delta)
+	handle_air_resistance(input_axis,delta)
+	apply_friction(input_axis,delta)
 
-func move():
-	if Input.is_action_just_pressed("move_left"):
-		velocity.x = SPEED * -1
+func apply_gravity(delta):
+	if not is_on_floor():
+		velocity.y += gravity * delta
 
-	if Input.is_action_just_pressed("move_right"):
-		velocity.x = SPEED
+func handle_acceleration(input_axis, delta):
+	if not is_on_floor():
+		return
+	if input_axis != 0:
+		velocity.x = move_toward(velocity.x, SPEED *  input_axis, acc * delta)
 
-	if not Input.is_action_pressed("move_left") and not Input.is_action_pressed("move_right"):
-		velocity.x = 0
+func apply_friction(input_axis, delta):
+	if not is_on_floor():
+		return
+	if input_axis == 0:
+		velocity.x = move_toward(velocity.x, 0, friction * delta)
 
+func handle_air_resistance(input_axis, delta):
+	if input_axis != 0:
+		velocity.x = move_toward(velocity.x, SPEED * input_axis, air_resistance * delta)
 
-func player_movement() -> void:
+func player_movement():
 	move_and_slide()
 
 #Handle Jump.
 func jump():
 	if Input.is_action_just_pressed("jump"):
-		if jump_counter < max_jumps && wall_sliding == false:
+		if is_on_floor():
 			velocity.y = JUMP_VELOCITY
-			jump_counter += 1
+		if not is_on_floor() && double_jump == true:
+			velocity.y = JUMP_VELOCITY * 0.8
+			double_jump = false
 
 	if is_on_floor():
-		jump_counter = 0
-		wall_jumps = 0
+		double_jump = true
 
 #Handles Wall Sliding.
 func wall_sliding_true():
-	if is_on_wall() && not is_on_floor():
-		if Input.is_action_pressed("interact"):
-			wall_sliding = true
-			velocity.y = wall_slide
-			if Input.is_action_just_pressed("move_left"):
-				if wall_jumps < max_jumps:
-					velocity.y = wall_jump_power
-					wall_jumps += 1
-					print(wall_jumps)
-
 	if not is_on_wall():
 		wall_sliding = false
+		return
+
+	if is_on_wall() && not is_on_floor():
+		if Input.is_action_just_pressed("interact"):
+			wall_sliding = true
+
+	if wall_sliding == true:
+		velocity.y = wall_slide
+		
+	if Input.is_action_just_pressed("move_left") && is_on_wall() && not is_on_floor():
+		velocity.y = JUMP_VELOCITY
+		velocity.x = 150
+
+	if Input.is_action_just_pressed("move_right") && is_on_wall() && not is_on_floor():
+		velocity.y = JUMP_VELOCITY
+		velocity.x = 150
+
 
 #Resets player values and position.
 func player_death():
 	get_position()
 	if(position.y > 100):
 		position = Vector2(10,-20)
-		jump_counter = 0
+		double_jump = true
 		Main.coins = 0
 		_on_player_death.emit()
 
