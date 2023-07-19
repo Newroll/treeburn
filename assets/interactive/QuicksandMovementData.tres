@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="MovementData" load_steps=2 format=3 uid="uid://b8boj1dguh83b"]
+
+[ext_resource type="Script" path="res://assets/interactive/PlayerMovementData.gd" id="1_o6l1h"]
+
+[resource]
+script = ExtResource("1_o6l1h")
+speed = 75.0
+acc = 400
+friction = 2000
+jump_velocity = -160
+air_resistance = 100
+double_jump = false
+wall_pushback = 50
+wall_slide = 10
+wall_sliding = false
