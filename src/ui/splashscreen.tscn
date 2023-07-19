@@ -1,9 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bwom3600dmuy1"]
+[gd_scene load_steps=5 format=3 uid="uid://bwom3600dmuy1"]
 
-[ext_resource type="Texture2D" uid="uid://cmc246lq0hvrh" path="res://assets/background/cloudfront.png" id="1_3bn35"]
 [ext_resource type="Script" path="res://src/ui/splashscreen.gd" id="1_6gylh"]
 [ext_resource type="FontFile" uid="uid://es627dw3q2bu" path="res://assets/fonts/WayfarersToyBoxRegular.ttf" id="1_ajybt"]
-[ext_resource type="Texture2D" uid="uid://d1gcs3x30n3k" path="res://assets/background/cloudback.png" id="1_inlpq"]
 
 [sub_resource type="Animation" id="Animation_6x26f"]
 resource_name = "splashscreen_animation"
@@ -91,12 +89,10 @@ metadata/_edit_vertical_guides_ = []
 [node name="CloudBack" type="Sprite2D" parent="."]
 position = Vector2(1048.5, 515.5)
 scale = Vector2(1.41089, 3.52937)
-texture = ExtResource("1_inlpq")
 
 [node name="CloudsFront" type="Sprite2D" parent="."]
 position = Vector2(1050, 754)
 scale = Vector2(2.24297, 3.65379)
-texture = ExtResource("1_3bn35")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 autoplay = "splashscreen_animation"
