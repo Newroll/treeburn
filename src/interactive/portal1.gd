@@ -18,9 +18,9 @@ func _process(_delta):
 		$ContinueLable.visible = false
 		$FalseLable.visible = false
 		stupid = 0
-	if entered == true && Main.coins != 8 && Input.is_action_just_pressed("enter"):
+	if entered == true && Main.coins != 24 && Input.is_action_just_pressed("enter"):
 		$FalseLable.visible = true
-	if entered == true && Main.coins == 8 && Input.is_action_just_pressed("enter"):
+	if entered == true && Main.coins == 24 && Input.is_action_just_pressed("enter"):
 		Main.coins = 0
 		Main.level += 1
 		get_tree().change_scene_to_file("res://src/levels/level_2.tscn")
