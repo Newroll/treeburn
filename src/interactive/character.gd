@@ -19,6 +19,8 @@ var wall_sliding = false
 
 var playerposition = Vector2()
 
+var spawnY = -20
+
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
@@ -84,18 +86,20 @@ func wall_sliding_true():
 		
 	if Input.is_action_just_pressed("move_left") && is_on_wall() && not is_on_floor():
 		velocity.y = JUMP_VELOCITY
-		velocity.x = 150
+		velocity.x = 250
 
 	if Input.is_action_just_pressed("move_right") && is_on_wall() && not is_on_floor():
 		velocity.y = JUMP_VELOCITY
-		velocity.x = 150
+		velocity.x = 250
 
 
 #Resets player values and position.
 func player_death():
 	get_position()
+	if(Main.level == 3):
+		spawnY = -130
 	if(position.y > 100):
-		position = Vector2(10,-20)
+		position = Vector2(10,spawnY)
 		double_jump = true
 		Main.coins = 0
 		_on_player_death.emit()
