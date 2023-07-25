@@ -2,22 +2,11 @@ extends CharacterBody2D
 
 signal _on_player_death
 
-#Ground Movement 
-const SPEED = 150.0
-const acc = 500
-const friction = 2000
-
-#Set character's jump values
-const JUMP_VELOCITY = -300
-const air_resistance = 100
-var double_jump = true
-
-#Declares wall sliding variables
-const wall_pushback = 50
-const wall_slide = 10
-var wall_sliding = false
+@export var movement_data : MovementData
 
 var playerposition = Vector2()
+
+@export var in_quicksand = false
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -25,6 +14,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 func _physics_process(delta):
 	var input_axis = Input.get_axis("move_left", "move_right")
 	jump()
+	check_state()
 	player_movement()
 	wall_sliding_true()
 	player_death()
@@ -34,6 +24,13 @@ func _physics_process(delta):
 	handle_air_resistance(input_axis,delta)
 	apply_friction(input_axis,delta)
 
+func check_state():
+	if Main.quicksand == true:
+		movement_data = load("res://src/interactive/QuicksandMovementData.tres")
+		print("movement_data changed!")
+	else:
+		movement_data = load("res://src/interactive/DefaultMovementData.tres")
+
 func apply_gravity(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -42,17 +39,17 @@ func handle_acceleration(input_axis, delta):
 	if not is_on_floor():
 		return
 	if input_axis != 0:
-		velocity.x = move_toward(velocity.x, SPEED *  input_axis, acc * delta)
+		velocity.x = move_toward(velocity.x, movement_data.speed *  input_axis, movement_data.acc * delta)
 
 func apply_friction(input_axis, delta):
 	if not is_on_floor():
 		return
 	if input_axis == 0:
-		velocity.x = move_toward(velocity.x, 0, friction * delta)
+		velocity.x = move_toward(velocity.x, 0, movement_data.friction * delta)
 
 func handle_air_resistance(input_axis, delta):
 	if input_axis != 0:
-		velocity.x = move_toward(velocity.x, SPEED * input_axis, air_resistance * delta)
+		velocity.x = move_toward(velocity.x, movement_data.speed * input_axis, movement_data.air_resistance * delta)
 
 func player_movement():
 	move_and_slide()
@@ -61,33 +58,33 @@ func player_movement():
 func jump():
 	if Input.is_action_just_pressed("jump"):
 		if is_on_floor():
-			velocity.y = JUMP_VELOCITY
-		if not is_on_floor() && double_jump == true:
-			velocity.y = JUMP_VELOCITY * 0.8
-			double_jump = false
+			velocity.y = movement_data.jump_velocity
+		if not is_on_floor() && movement_data.double_jump == true:
+			velocity.y = movement_data.jump_velocity * 0.8
+			movement_data.double_jump = false
 
 	if is_on_floor():
-		double_jump = true
+		movement_data.double_jump = true
 
 #Handles Wall Sliding.
 func wall_sliding_true():
 	if not is_on_wall():
-		wall_sliding = false
+		movement_data.wall_sliding = false
 		return
 
 	if is_on_wall() && not is_on_floor():
 		if Input.is_action_just_pressed("interact"):
-			wall_sliding = true
+			movement_data.wall_sliding = true
 
-	if wall_sliding == true:
-		velocity.y = wall_slide
+	if movement_data.wall_sliding == true:
+		velocity.y = movement_data.wall_slide
 		
 	if Input.is_action_just_pressed("move_left") && is_on_wall() && not is_on_floor():
-		velocity.y = JUMP_VELOCITY
+		velocity.y = movement_data.jump_velocity
 		velocity.x = 150
 
 	if Input.is_action_just_pressed("move_right") && is_on_wall() && not is_on_floor():
-		velocity.y = JUMP_VELOCITY
+		velocity.y = movement_data.jump_velocity
 		velocity.x = 150
 
 
@@ -96,8 +93,9 @@ func player_death():
 	get_position()
 	if(position.y > 100):
 		position = Vector2(10,-20)
-		double_jump = true
+		movement_data.double_jump = true
 		Main.coins = 0
+		Main.quicksand = false
 		_on_player_death.emit()
 
 func animation_state():
