@@ -3,10 +3,10 @@
 [ext_resource type="Script" path="res://src/interactive/quicksand.gd" id="1_tl2lo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3c5lk"]
-size = Vector2(57, 31)
+size = Vector2(60, 31.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ndl8"]
-size = Vector2(62.5, 26.5)
+size = Vector2(60.25, 29)
 
 [node name="quicksand" type="CharacterBody2D"]
 
@@ -21,11 +21,11 @@ offset_bottom = 546.0
 color = Color(1, 1, 0.6, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(493, 502)
+position = Vector2(493, 500)
 shape = SubResource("RectangleShape2D_3c5lk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(494, 532)
+position = Vector2(492.875, 531.5)
 shape = SubResource("RectangleShape2D_2ndl8")
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

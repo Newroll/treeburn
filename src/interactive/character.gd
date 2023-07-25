@@ -12,7 +12,6 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 func _physics_process(delta):
-	print(Main.quicksand)
 	var input_axis = Input.get_axis("move_left", "move_right")
 	jump()
 	check_state()
@@ -27,8 +26,10 @@ func _physics_process(delta):
 
 func check_state():
 	if Main.quicksand == true:
-		movement_data = load("res://assests/interactive/QuicksandMovementData.tres")
+		movement_data = load("res://src/interactive/QuicksandMovementData.tres")
 		print("movement_data changed!")
+	else:
+		movement_data = load("res://src/interactive/DefaultMovementData.tres")
 
 func apply_gravity(delta):
 	if not is_on_floor():
@@ -94,6 +95,7 @@ func player_death():
 		position = Vector2(10,-20)
 		movement_data.double_jump = true
 		Main.coins = 0
+		Main.quicksand = false
 		_on_player_death.emit()
 
 func animation_state():
