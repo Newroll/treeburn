@@ -1,7 +1,5 @@
 extends CharacterBody2D
 
-
-
 @export var movement_data : MovementData
 
 var playerposition = Vector2()
@@ -10,6 +8,9 @@ var playerposition = Vector2()
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+
+func _ready():
+	Main.connect("dead", player_dead)
 
 func _physics_process(delta):
 	var input_axis = Input.get_axis("move_left", "move_right")
@@ -23,6 +24,7 @@ func _physics_process(delta):
 	handle_acceleration(input_axis, delta)
 	handle_air_resistance(input_axis,delta)
 	apply_friction(input_axis,delta)
+	player_death()
 
 func check_state():
 	if Main.quicksand == true:
@@ -91,9 +93,9 @@ func wall_sliding_true():
 func player_death():
 	get_position()
 	if (position.y > 100):
-		Main.dead.emit()
+		Main.emit_signal("dead")
 
-func dead():
+func player_dead():
 	position = Vector2(10,-20)
 	movement_data.double_jump = true
 	Main.coins = 0
