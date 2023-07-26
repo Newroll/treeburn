@@ -1,70 +1,51 @@
-[gd_scene load_steps=21 format=3 uid="uid://kfxb12a1wxyl"]
-
-[ext_resource type="Texture2D" uid="uid://du005oord63qw" path="res://assets/interactive/coin.png" id="1_nlpw5"]
-[ext_resource type="AudioStream" uid="uid://da3oi4gbeuxx0" path="res://assets/sfx/coin.mp3" id="3_h7qos"]
+[gd_scene load_steps=19 format=3 uid="uid://kfxb12a1wxyl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ap6g3"]
-atlas = ExtResource("1_nlpw5")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qefiq"]
-atlas = ExtResource("1_nlpw5")
 region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0p01k"]
-atlas = ExtResource("1_nlpw5")
 region = Rect2(32, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wdn4f"]
-atlas = ExtResource("1_nlpw5")
 region = Rect2(48, 0, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6rmpu"]
-atlas = ExtResource("1_nlpw5")
 region = Rect2(0, 16, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dbdoe"]
-atlas = ExtResource("1_nlpw5")
 region = Rect2(16, 16, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qqgia"]
-atlas = ExtResource("1_nlpw5")
 region = Rect2(32, 16, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_t64n8"]
-atlas = ExtResource("1_nlpw5")
 region = Rect2(48, 16, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jr2dj"]
-atlas = ExtResource("1_nlpw5")
 region = Rect2(0, 32, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_o4tlv"]
-atlas = ExtResource("1_nlpw5")
 region = Rect2(16, 32, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_uqc6u"]
-atlas = ExtResource("1_nlpw5")
 region = Rect2(32, 32, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kq2kc"]
-atlas = ExtResource("1_nlpw5")
 region = Rect2(48, 32, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_np6rj"]
-atlas = ExtResource("1_nlpw5")
 region = Rect2(0, 48, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5r3ek"]
-atlas = ExtResource("1_nlpw5")
 region = Rect2(16, 48, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b4es1"]
-atlas = ExtResource("1_nlpw5")
 region = Rect2(32, 48, 16, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pl62q"]
-atlas = ExtResource("1_nlpw5")
 region = Rect2(48, 48, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yo563"]
@@ -140,7 +121,12 @@ position = Vector2(87, -5)
 shape = SubResource("RectangleShape2D_phwqx")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("3_h7qos")
 volume_db = -15.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 82.0
+offset_top = -10.0
+offset_right = 92.0
+color = Color(1, 0, 0, 1)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
