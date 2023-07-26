@@ -6,6 +6,7 @@ signal _on_player_death
 
 var playerposition = Vector2()
 
+var spawnY = -20
 @export var in_quicksand = false
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -91,6 +92,8 @@ func wall_sliding_true():
 #Resets player values and position.
 func player_death():
 	get_position()
+	if(Main.level == 3):
+		spawnY = -130
 	if(position.y > 100):
 		position = Vector2(10,-20)
 		movement_data.double_jump = true
