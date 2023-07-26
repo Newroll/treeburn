@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-signal _on_player_death
+
 
 @export var movement_data : MovementData
 
@@ -27,7 +27,6 @@ func _physics_process(delta):
 func check_state():
 	if Main.quicksand == true:
 		movement_data = load("res://src/interactive/QuicksandMovementData.tres")
-		print("movement_data changed!")
 	else:
 		movement_data = load("res://src/interactive/DefaultMovementData.tres")
 
@@ -91,12 +90,14 @@ func wall_sliding_true():
 #Resets player values and position.
 func player_death():
 	get_position()
-	if(position.y > 100):
-		position = Vector2(10,-20)
-		movement_data.double_jump = true
-		Main.coins = 0
-		Main.quicksand = false
-		_on_player_death.emit()
+	if (position.y > 100):
+		Main.dead.emit()
+
+func dead():
+	position = Vector2(10,-20)
+	movement_data.double_jump = true
+	Main.coins = 0
+	Main.quicksand = false
 
 func animation_state():
 	if velocity.x == 0:

@@ -21,3 +21,6 @@ func _physics_process(delta):
 
 	velocity.x = speed
 	move_and_slide()
+
+func _on_area_2d_body_entered(body):
+		Main.dead.emit()
