@@ -11,3 +11,5 @@ func _physics_process(delta):
 	if(framesEclapsed == 60):
 		levelTimeEclapsed += 1
 		framesEclapsed = 0
+
+var quicksand = false
