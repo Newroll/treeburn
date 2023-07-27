@@ -1,9 +1,9 @@
 [gd_resource type="AnimatedTexture" load_steps=5 format=3 uid="uid://rcyan8w13bl6"]
 
-[ext_resource type="Texture2D" path="res://assets/foreground/water1.png" id="1_m07e5"]
-[ext_resource type="Texture2D" path="res://assets/foreground/water2.png" id="2_smpg1"]
-[ext_resource type="Texture2D" path="res://assets/foreground/water3.png" id="3_sfle8"]
-[ext_resource type="Texture2D" path="res://assets/foreground/water4.png" id="4_qxp0u"]
+[ext_resource type="Texture2D" uid="uid://b0e8ispf4cke" path="res://assets/foreground/water1.png" id="1_m07e5"]
+[ext_resource type="Texture2D" uid="uid://b2boxujidhmfj" path="res://assets/foreground/water2.png" id="2_smpg1"]
+[ext_resource type="Texture2D" uid="uid://djqgqsl4ba6gb" path="res://assets/foreground/water3.png" id="3_sfle8"]
+[ext_resource type="Texture2D" uid="uid://72jlp7ien0g0" path="res://assets/foreground/water4.png" id="4_qxp0u"]
 
 [resource]
 frames = 4

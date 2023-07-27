@@ -124,9 +124,10 @@ shape = SubResource("RectangleShape2D_phwqx")
 volume_db = -15.0
 
 [node name="ColorRect" type="ColorRect" parent="."]
-offset_left = 82.0
-offset_top = -10.0
-offset_right = 92.0
-color = Color(0.658824, 0.376471, 0, 1)
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 5.0
+offset_bottom = 5.0
+color = Color(1, 0.843137, 0, 1)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

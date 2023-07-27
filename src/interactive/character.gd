@@ -93,10 +93,12 @@ func player_death():
 	if(Main.level == 3):
 		spawnY = -130
 	if (position.y > 100):
+		if(Main.level == 3):
+			spawnY = -130
 		Main.emit_signal("dead")
 
 func player_dead():
-	position = Vector2(10,-20)
+	position = Vector2(10,spawnY)
 	movement_data.double_jump = true
 	Main.coins = 0
 	Main.quicksand = false

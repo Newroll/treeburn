@@ -1,11 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://dtfkm547yxtbg"]
+[gd_scene load_steps=5 format=3 uid="uid://dtfkm547yxtbg"]
 
 [ext_resource type="FontFile" uid="uid://es627dw3q2bu" path="res://assets/fonts/WayfarersToyBoxRegular.ttf" id="1_6jeod"]
-[ext_resource type="Texture2D" uid="uid://du005oord63qw" path="res://assets/interactive/coin.png" id="3_m1w8n"]
 [ext_resource type="Script" path="res://src/interactive/coincounter.gd" id="3_x676s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ap6g3"]
-atlas = ExtResource("3_m1w8n")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dh1gv"]
