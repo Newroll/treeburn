@@ -23,7 +23,6 @@ func _physics_process(delta):
 	animation_state()
 	apply_gravity(delta)
 	handle_acceleration(input_axis, delta)
-	handle_air_resistance(input_axis,delta)
 	apply_friction(input_axis,delta)
 	player_death()
 
@@ -38,20 +37,18 @@ func apply_gravity(delta):
 		velocity.y += gravity * delta
 
 func handle_acceleration(input_axis, delta):
-	if not is_on_floor():
-		return
 	if input_axis != 0:
-		velocity.x = move_toward(velocity.x, movement_data.speed *  input_axis, movement_data.acc * delta)
-
+		if !is_on_floor():
+			velocity.x = move_toward(velocity.x, movement_data.speed *  input_axis, movement_data.air_resistance * delta)
+		else:
+			velocity.x = move_toward(velocity.x, movement_data.speed *  input_axis, movement_data.acc * delta)
+			
 func apply_friction(input_axis, delta):
-	if not is_on_floor():
-		return
 	if input_axis == 0:
-		velocity.x = move_toward(velocity.x, 0, movement_data.friction * delta)
-
-func handle_air_resistance(input_axis, delta):
-	if input_axis != 0:
-		velocity.x = move_toward(velocity.x, movement_data.speed * input_axis, movement_data.air_resistance * delta)
+		if !is_on_floor():
+			velocity.x = move_toward(velocity.x, 0, movement_data.air_friction * delta)
+		else:
+			velocity.x = move_toward(velocity.x, 0, movement_data.friction * delta)
 
 func player_movement():
 	move_and_slide()

@@ -10,6 +10,7 @@ extends Resource
 #Set character's jump values
 @export var jump_velocity = -320
 @export var air_resistance = 100
+@export var air_friction = 1000
 @export var double_jump = true
 
 #Declares wall sliding variables
