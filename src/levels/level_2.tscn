@@ -313,11 +313,31 @@ position = Vector2(1447, -1)
 [node name="platform5" parent="platforms" instance=ExtResource("13_uoyuq")]
 position = Vector2(1615, -1)
 
-[node name="quicksand" parent="." instance=ExtResource("14_6ggne")]
-position = Vector2(-341, -589)
-
 [node name="Enemy" parent="." instance=ExtResource("15_n3t30")]
 position = Vector2(70, -43)
+
+[node name="quicksand2" type="Node" parent="."]
+
+[node name="quicksand" parent="quicksand2" instance=ExtResource("14_6ggne")]
+position = Vector2(1537, -506)
+
+[node name="quicksand7" parent="quicksand2" instance=ExtResource("14_6ggne")]
+position = Vector2(1595, -506)
+
+[node name="quicksand2" parent="quicksand2" instance=ExtResource("14_6ggne")]
+position = Vector2(1778, -506)
+
+[node name="quicksand6" parent="quicksand2" instance=ExtResource("14_6ggne")]
+position = Vector2(1720, -506)
+
+[node name="quicksand3" parent="quicksand2" instance=ExtResource("14_6ggne")]
+position = Vector2(1945, -506)
+
+[node name="quicksand4" parent="quicksand2" instance=ExtResource("14_6ggne")]
+position = Vector2(2003, -506)
+
+[node name="quicksand5" parent="quicksand2" instance=ExtResource("14_6ggne")]
+position = Vector2(1887, -506)
 
 [connection signal="body_entered" from="Portal" to="Portal" method="_on_body_entered"]
 [connection signal="body_exited" from="Portal" to="Portal" method="_on_body_exited"]
