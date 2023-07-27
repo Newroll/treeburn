@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://b4cb7d6bu8kiu"]
+[gd_scene load_steps=30 format=3 uid="uid://b4cb7d6bu8kiu"]
 
 [ext_resource type="Texture2D" uid="uid://dy12u1xfe8uck" path="res://assets/background/lvl1back.png" id="1_dgqja"]
 [ext_resource type="Texture2D" uid="uid://etxpk65gm7kk" path="res://assets/background/lvl1front.png" id="1_fglrk"]
@@ -8,8 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://grrid1bfg8il" path="res://assets/foreground/trees.png" id="4_gewfj"]
 [ext_resource type="Script" path="res://src/interactive/coins.gd" id="5_1cxdc"]
 [ext_resource type="Texture2D" uid="uid://bo5yrg83rhude" path="res://assets/foreground/lvl1_ground.png" id="7_1a65m"]
-[ext_resource type="Texture2D" uid="uid://duge8tqd3kjt3" path="res://assets/foreground/water.tres" id="10_ha865"]
-[ext_resource type="Texture2D" uid="uid://bmctx3il6li2" path="res://assets/foreground/watertop.tres" id="11_fv842"]
+[ext_resource type="Texture2D" uid="uid://rcyan8w13bl6" path="res://assets/foreground/water.tres" id="10_ha865"]
+[ext_resource type="Texture2D" uid="uid://b2cwqr5hlkrh0" path="res://assets/foreground/watertop.tres" id="11_fv842"]
 [ext_resource type="Script" path="res://src/interactive/portal1.gd" id="12_8cjoe"]
 [ext_resource type="FontFile" uid="uid://es627dw3q2bu" path="res://assets/fonts/WayfarersToyBoxRegular.ttf" id="13_lcnso"]
 [ext_resource type="PackedScene" uid="uid://dtfkm547yxtbg" path="res://src/ui/ui.tscn" id="15_0cqxb"]
