@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bmlc5h5gbouaf"]
+[gd_scene load_steps=6 format=3 uid="uid://bmlc5h5gbouaf"]
 
 [ext_resource type="Script" path="res://src/interactive/character.gd" id="1_bp46o"]
 [ext_resource type="Texture2D" uid="uid://b886vmgxvxpq5" path="res://assets/player/idle.png" id="2_85flt"]
 [ext_resource type="Texture2D" uid="uid://bq3a45mcvn5tm" path="res://assets/player/move.png" id="3_f2b3e"]
-[ext_resource type="AudioStream" uid="uid://dcaabl1gi8pvx" path="res://assets/sfx/jump.mp3" id="4_fhep2"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_3bg3d"]
 animations = [{
@@ -44,5 +43,4 @@ animation = &"move"
 shape = SubResource("RectangleShape2D_jbxt3")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_fhep2")
 volume_db = -5.0

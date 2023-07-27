@@ -1,6 +1,7 @@
 extends Node
 
 func _ready():
+	Main.connect("dead", player_dead)
 	# Set the z_index property.
 	self.z_index = -99
 
@@ -12,6 +13,6 @@ func _on_body_entered(body):
 		Main.coins += 1
 		await get_tree().create_timer(0.4).timeout
 
-func _on_player_death():
+func player_dead():
 	self.visible = true
 	$CollisionShape2D.set_deferred("disabled", false)

@@ -13,3 +13,6 @@ func _physics_process(delta):
 		framesEclapsed = 0
 
 var quicksand = false
+var player_dead = false
+
+signal dead
