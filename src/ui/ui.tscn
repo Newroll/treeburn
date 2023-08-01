@@ -27,6 +27,7 @@ sprite_frames = SubResource("SpriteFrames_dh1gv")
 autoplay = "default"
 
 [node name="CoinCounter" type="Label" parent="."]
+texture_filter = 1
 offset_left = 300.0
 offset_top = 9.0
 offset_right = 312.0
