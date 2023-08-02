@@ -9,10 +9,11 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if isInFire == true && immuneTimer == 0 && Main.health > 0:
+		Main.knockback = true
 		Main.health -= 1
-		immuneTimer = 60
+		immuneTimer = 120
 	if immuneTimer > 0:
 		immuneTimer -= 1
 
@@ -22,6 +23,6 @@ func _on_body_entered(body):
 		isInFire = true
 
 
-func _on_body_exited(body):
+func _on_body_exited(_body):
 	isInFire = false
 	immuneTimer = 0

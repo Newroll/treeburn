@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://es627dw3q2bu"
-path="res://.godot/imported/WayfarersToyBoxRegular.ttf-be4c1bec534c17321e7931bc81a1ebe0.fontdata"
+uid="uid://422t11bovf6v"
+path="res://.godot/imported/mainport.ttf-d35c27eb96f64a4d111521dc53d09f18.fontdata"
 
 [deps]
 
-source_file="res://assets/fonts/WayfarersToyBoxRegular.ttf"
-dest_files=["res://.godot/imported/WayfarersToyBoxRegular.ttf-be4c1bec534c17321e7931bc81a1ebe0.fontdata"]
+source_file="res://assets/styles/mainport.ttf"
+dest_files=["res://.godot/imported/mainport.ttf-d35c27eb96f64a4d111521dc53d09f18.fontdata"]
 
 [params]
 

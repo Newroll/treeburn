@@ -10,21 +10,27 @@ var spawnY = -20
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
+var facingDirection = -1
+const KNOCKBACKTIMECONST = 7
+var knockbackTime = KNOCKBACKTIMECONST
+
 func _ready():
 	Main.connect("dead", player_dead)
 
 func _physics_process(delta):
 	var input_axis = Input.get_axis("move_left", "move_right")
-	jump()
-	check_state()
+	if Main.knockback == false:
+		jump()
+		check_state()
+		wall_sliding_true()
+		player_death()
+		animation_state()
+		apply_gravity(delta)
+		handle_acceleration(input_axis, delta)
+		apply_friction(input_axis,delta)
+		player_death()
+	knockback(input_axis, delta)
 	player_movement()
-	wall_sliding_true()
-	player_death()
-	animation_state()
-	apply_gravity(delta)
-	handle_acceleration(input_axis, delta)
-	apply_friction(input_axis,delta)
-	player_death()
 
 func check_state():
 	if Main.quicksand == true:
@@ -116,6 +122,18 @@ func animation_state():
 		animated_sprite.animation = "move"
 		animated_sprite.flip_h = false 
 
-
-func _on_portal_body_exited(_body):
-	pass # Replace with function body.
+func knockback(input_axis, delta):
+	if Main.knockback == true:
+		if input_axis < 0:
+			facingDirection = 1
+		if input_axis > 0:
+			facingDirection = -1
+		if knockbackTime > 0:
+			velocity.y = -300
+			velocity.x = facingDirection * 500
+			knockbackTime -= 1
+		if knockbackTime <= 0:
+			velocity.y = 0
+			velocity.x = 0
+			knockbackTime = KNOCKBACKTIMECONST
+			Main.knockback = false

@@ -6,7 +6,7 @@ var levelTimeEclapsed = 0
 var framesEclapsed = 0
 var health = 3
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	framesEclapsed += 1
 	
 	if(framesEclapsed == 60):
@@ -19,5 +19,6 @@ func _physics_process(delta):
 
 var quicksand = false
 var player_dead = false
+var knockback = false
 
 signal dead
