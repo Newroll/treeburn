@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://bwopwmlvyw5s0"]
+
+[node name="throwable_rock" type="Area2D"]

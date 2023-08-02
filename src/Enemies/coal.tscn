@@ -1,3 +1,43 @@
-[gd_scene format=3 uid="uid://chcc3nqndgcno"]
+[gd_scene load_steps=4 format=3 uid="uid://chcc3nqndgcno"]
+
+[ext_resource type="Script" path="res://src/Enemies/coal.gd" id="1_hb40t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tip21"]
+size = Vector2(142.688, 48.375)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wdm8e"]
+height = 20.0
 
 [node name="coal" type="CharacterBody2D"]
+position = Vector2(10, 0)
+script = ExtResource("1_hb40t")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(26, -27)
+scale = Vector2(0.354167, 0.313017)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(-119, 101, -124, 89, -120, 74, -108, 73, -94, 65, -79, 79, -76, 92, -84, 104, -103, 109)
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-3, 17, -1, 1, -2, -2, -7, -7, -17, -4, -18, 1, -17, 17)
+
+[node name="player_detection" type="Area2D" parent="."]
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_detection"]
+position = Vector2(-10, -7.1875)
+shape = SubResource("RectangleShape2D_tip21")
+
+[node name="death" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="death"]
+position = Vector2(-10, 0)
+shape = SubResource("CapsuleShape2D_wdm8e")
+
+[node name="RayCast_Left" type="RayCast2D" parent="."]
+position = Vector2(-27, 8)
+target_position = Vector2(0, 15)
+
+[node name="RayCast_Right" type="RayCast2D" parent="."]
+position = Vector2(6, 8)
+target_position = Vector2(0, 15)
