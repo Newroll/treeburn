@@ -101,7 +101,8 @@ func player_dead():
 	position = Vector2(10,spawnY)
 	movement_data.double_jump = true
 	Main.coins = 0
-	Main.quicksand = false
+	#Main.quicksand = false
+	Main.health = 3
 
 func animation_state():
 	if velocity.x == 0:

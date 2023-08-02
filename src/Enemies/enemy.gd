@@ -23,4 +23,5 @@ func _physics_process(delta):
 	move_and_slide()
 
 func _on_area_2d_body_entered(body):
-		Main.dead.emit()
+	if body.name == "CharacterBody2D":
+		Main.health -= 1
