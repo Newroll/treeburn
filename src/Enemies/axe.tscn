@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://dqwcpids7e46a"]
+
+[ext_resource type="Script" path="res://src/Enemies/axe.gd" id="1_3cb35"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qa7ft"]
+size = Vector2(14, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_31et8"]
+size = Vector2(142.688, 49.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e38vs"]
+size = Vector2(18, 35)
+
+[node name="axe" type="CharacterBody2D"]
+position = Vector2(10, -1)
+script = ExtResource("1_3cb35")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -17.0
+offset_top = -15.0
+offset_right = -3.0
+offset_bottom = 17.0
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-10, 1)
+shape = SubResource("RectangleShape2D_qa7ft")
+
+[node name="player_detection" type="Area2D" parent="."]
+collision_layer = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_detection"]
+position = Vector2(-10, -7)
+shape = SubResource("RectangleShape2D_31et8")
+
+[node name="death" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="death"]
+position = Vector2(-10, -0.5)
+shape = SubResource("RectangleShape2D_e38vs")
+
+[node name="RayCast_Left" type="RayCast2D" parent="."]
+position = Vector2(-27, 8)
+target_position = Vector2(0, 15)
+
+[node name="RayCast_Right" type="RayCast2D" parent="."]
+position = Vector2(6, 8)
+target_position = Vector2(0, 15)
+
+[connection signal="body_entered" from="player_detection" to="." method="_on_player_detection_body_entered"]
+[connection signal="body_exited" from="player_detection" to="." method="_on_player_detection_body_exited"]
+[connection signal="body_entered" from="death" to="." method="_on_death_body_entered"]
