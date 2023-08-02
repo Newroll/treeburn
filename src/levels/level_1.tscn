@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://b4cb7d6bu8kiu"]
+[gd_scene load_steps=66 format=3 uid="uid://b4cb7d6bu8kiu"]
 
 [ext_resource type="Texture2D" uid="uid://dy12u1xfe8uck" path="res://assets/background/lvl1back.png" id="1_dgqja"]
 [ext_resource type="Texture2D" uid="uid://etxpk65gm7kk" path="res://assets/background/lvl1front.png" id="1_fglrk"]
@@ -9,9 +9,9 @@
 [ext_resource type="Texture2D" uid="uid://grrid1bfg8il" path="res://assets/foreground/trees.png" id="4_gewfj"]
 [ext_resource type="Script" path="res://src/interactive/coins.gd" id="5_1cxdc"]
 [ext_resource type="Texture2D" uid="uid://bo5yrg83rhude" path="res://assets/foreground/lvl1_ground.png" id="7_1a65m"]
-[ext_resource type="Texture2D" uid="uid://rcyan8w13bl6" path="res://assets/foreground/water.tres" id="10_ha865"]
-[ext_resource type="Texture2D" uid="uid://b2cwqr5hlkrh0" path="res://assets/foreground/watertop.tres" id="11_fv842"]
 [ext_resource type="FontFile" uid="uid://es627dw3q2bu" path="res://assets/fonts/WayfarersToyBoxRegular.ttf" id="13_lcnso"]
+[ext_resource type="Texture2D" uid="uid://bne1ycyic206n" path="res://assets/foreground/water.png" id="14_dd7rm"]
+[ext_resource type="Texture2D" uid="uid://bdaq3mkajdhsn" path="res://assets/foreground/watertop.png" id="14_ev6a3"]
 [ext_resource type="PackedScene" uid="uid://dtfkm547yxtbg" path="res://src/ui/ui.tscn" id="15_0cqxb"]
 [ext_resource type="Texture2D" uid="uid://d3xho7hc8wt4a" path="res://assets/interactive/pitfall.png" id="15_mbeea"]
 [ext_resource type="Script" path="res://src/interactive/pitfall.gd" id="15_pqn2h"]
@@ -24,6 +24,7 @@ size = Vector2(112, 32)
 
 [sub_resource type="Animation" id="Animation_rhm36"]
 length = 0.001
+loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -257,67 +258,298 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_f1fr4")
 sources/0 = SubResource("TileSetAtlasSource_fomlk")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rp6ra"]
-texture = ExtResource("4_gewfj")
-11:1/0 = 0
-12:1/0 = 0
-13:1/0 = 0
-10:2/0 = 0
-11:2/0 = 0
-12:2/0 = 0
-13:2/0 = 0
-2:3/0 = 0
-3:3/0 = 0
-4:3/0 = 0
-5:3/0 = 0
-10:3/0 = 0
-11:3/0 = 0
-12:3/0 = 0
-13:3/0 = 0
-14:3/0 = 0
-2:4/0 = 0
-3:4/0 = 0
-4:4/0 = 0
-5:4/0 = 0
-10:4/0 = 0
-11:4/0 = 0
-12:4/0 = 0
-13:4/0 = 0
-14:4/0 = 0
-2:5/0 = 0
-3:5/0 = 0
-4:5/0 = 0
-5:5/0 = 0
-11:5/0 = 0
-12:5/0 = 0
-2:6/0 = 0
-3:6/0 = 0
-4:6/0 = 0
-5:6/0 = 0
-12:6/0 = 0
-2:7/0 = 0
-3:7/0 = 0
-4:7/0 = 0
-11:7/0 = 0
-12:7/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4lelb"]
-texture = ExtResource("10_ha865")
-use_texture_padding = false
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uh3jr"]
-texture = ExtResource("11_fv842")
-use_texture_padding = false
-0:0/0 = 0
-
 [sub_resource type="TileSet" id="TileSet_nhoyd"]
-sources/3 = SubResource("TileSetAtlasSource_4lelb")
-sources/4 = SubResource("TileSetAtlasSource_uh3jr")
-sources/0 = SubResource("TileSetAtlasSource_rp6ra")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ne77q"]
 size = Vector2(37, 42)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0teg7"]
+atlas = ExtResource("14_ev6a3")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rrul0"]
+atlas = ExtResource("14_ev6a3")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bk78j"]
+atlas = ExtResource("14_ev6a3")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_krwvj"]
+atlas = ExtResource("14_ev6a3")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6q8jr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0teg7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rrul0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bk78j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_krwvj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wggvh"]
+atlas = ExtResource("14_ev6a3")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_etrp0"]
+atlas = ExtResource("14_ev6a3")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aw8dd"]
+atlas = ExtResource("14_ev6a3")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2type"]
+atlas = ExtResource("14_ev6a3")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oinu8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wggvh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_etrp0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aw8dd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2type")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mj5la"]
+atlas = ExtResource("14_ev6a3")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vcp01"]
+atlas = ExtResource("14_ev6a3")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2hh4a"]
+atlas = ExtResource("14_ev6a3")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oytkj"]
+atlas = ExtResource("14_ev6a3")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4k5vd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mj5la")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vcp01")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2hh4a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oytkj")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rtwbo"]
+atlas = ExtResource("14_ev6a3")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_761a1"]
+atlas = ExtResource("14_ev6a3")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7wold"]
+atlas = ExtResource("14_ev6a3")
+region = Rect2(32, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yhph6"]
+atlas = ExtResource("14_ev6a3")
+region = Rect2(48, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_gukfd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rtwbo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_761a1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7wold")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yhph6")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q0d6a"]
+atlas = ExtResource("14_dd7rm")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_136br"]
+atlas = ExtResource("14_dd7rm")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7t48a"]
+atlas = ExtResource("14_dd7rm")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b203w"]
+atlas = ExtResource("14_dd7rm")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_5gb8u"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q0d6a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_136br")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7t48a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b203w")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eowyl"]
+atlas = ExtResource("14_dd7rm")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_idt05"]
+atlas = ExtResource("14_dd7rm")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqe7m"]
+atlas = ExtResource("14_dd7rm")
+region = Rect2(32, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cjrtu"]
+atlas = ExtResource("14_dd7rm")
+region = Rect2(48, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oblfq"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eowyl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_idt05")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jqe7m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cjrtu")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_342e5"]
+atlas = ExtResource("14_dd7rm")
+region = Rect2(0, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_na7kc"]
+atlas = ExtResource("14_dd7rm")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_elifb"]
+atlas = ExtResource("14_dd7rm")
+region = Rect2(32, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sapqt"]
+atlas = ExtResource("14_dd7rm")
+region = Rect2(48, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hk427"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_342e5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_na7kc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_elifb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sapqt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cnrn5"]
+atlas = ExtResource("14_dd7rm")
+region = Rect2(0, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bgwxn"]
+atlas = ExtResource("14_dd7rm")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xojfe"]
+atlas = ExtResource("14_dd7rm")
+region = Rect2(32, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t3nur"]
+atlas = ExtResource("14_dd7rm")
+region = Rect2(48, 48, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2nq1x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cnrn5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bgwxn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xojfe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t3nur")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Level1" type="Node2D"]
 script = ExtResource("1_tuhjd")
@@ -325,10 +557,10 @@ script = ExtResource("1_tuhjd")
 [node name="Parallax" type="ParallaxBackground" parent="."]
 
 [node name="SkyBack" type="ColorRect" parent="Parallax"]
-offset_left = -2.0
-offset_top = -222.0
-offset_right = 2593.0
-offset_bottom = 214.0
+offset_left = -8.0
+offset_top = -218.0
+offset_right = 2587.0
+offset_bottom = 218.0
 color = Color(0.396078, 0.717647, 0.831373, 1)
 
 [node name="SkyFront" type="ParallaxLayer" parent="Parallax"]
@@ -403,7 +635,7 @@ remote_path = NodePath("../../Camera2D")
 texture_filter = 1
 tile_set = SubResource("TileSet_nhoyd")
 format = 2
-layer_0/tile_data = PackedInt32Array(-65501, 0, 0, -65489, 0, 0, -65469, 0, 0, -65460, 0, 0, 65546, 3, 0, 65547, 3, 0, 65548, 3, 0, 65549, 3, 0, 131085, 3, 0, 131084, 3, 0, 131083, 3, 0, 131082, 3, 0, 196618, 3, 0, 196619, 3, 0, 196620, 3, 0, 196621, 3, 0, 262157, 3, 0, 262156, 3, 0, 262155, 3, 0, 262154, 3, 0, 10, 4, 0, 11, 4, 0, 12, 4, 0, 13, 4, 0, 65560, 3, 0, 131096, 3, 0, 196632, 3, 0, 262168, 3, 0, 65561, 3, 0, 131097, 3, 0, 196633, 3, 0, 262169, 3, 0, 65562, 3, 0, 131098, 3, 0, 196634, 3, 0, 262170, 3, 0, 65563, 3, 0, 131099, 3, 0, 196635, 3, 0, 262171, 3, 0, 65564, 3, 0, 131100, 3, 0, 196636, 3, 0, 262172, 3, 0, 65565, 3, 0, 131101, 3, 0, 196637, 3, 0, 262173, 3, 0, 65566, 3, 0, 131102, 3, 0, 196638, 3, 0, 262174, 3, 0, 65567, 3, 0, 131103, 3, 0, 196639, 3, 0, 262175, 3, 0, 65568, 3, 0, 131104, 3, 0, 196640, 3, 0, 262176, 3, 0, 65569, 3, 0, 131105, 3, 0, 196641, 3, 0, 262177, 3, 0, 65576, 3, 0, 131112, 3, 0, 196648, 3, 0, 262184, 3, 0, 65577, 3, 0, 131113, 3, 0, 196649, 3, 0, 262185, 3, 0, 65578, 3, 0, 131114, 3, 0, 196650, 3, 0, 262186, 3, 0, 65579, 3, 0, 131115, 3, 0, 196651, 3, 0, 262187, 3, 0, 65580, 3, 0, 131116, 3, 0, 196652, 3, 0, 262188, 3, 0, 65581, 3, 0, 131117, 3, 0, 196653, 3, 0, 262189, 3, 0, 65582, 3, 0, 131118, 3, 0, 196654, 3, 0, 262190, 3, 0, 65583, 3, 0, 131119, 3, 0, 196655, 3, 0, 262191, 3, 0, 65584, 3, 0, 131120, 3, 0, 196656, 3, 0, 262192, 3, 0, 65585, 3, 0, 131121, 3, 0, 196657, 3, 0, 262193, 3, 0, 24, 4, 0, 25, 4, 0, 26, 4, 0, 27, 4, 0, 28, 4, 0, 29, 4, 0, 30, 4, 0, 31, 4, 0, 32, 4, 0, 33, 4, 0, 40, 4, 0, 41, 4, 0, 42, 4, 0, 43, 4, 0, 44, 4, 0, 45, 4, 0, 46, 4, 0, 47, 4, 0, 48, 4, 0, 49, 4, 0, 56, 4, 0, 57, 4, 0, 58, 4, 0, 65592, 3, 0, 131128, 3, 0, 196664, 3, 0, 262200, 3, 0, 65593, 3, 0, 131129, 3, 0, 196665, 3, 0, 262201, 3, 0, 65594, 3, 0, 131130, 3, 0, 196666, 3, 0, 262202, 3, 0, 65601, 3, 0, 131137, 3, 0, 196673, 3, 0, 262209, 3, 0, 65602, 3, 0, 131138, 3, 0, 196674, 3, 0, 262210, 3, 0, 65603, 3, 0, 131139, 3, 0, 196675, 3, 0, 262211, 3, 0, 65604, 3, 0, 131140, 3, 0, 196676, 3, 0, 262212, 3, 0, 65605, 3, 0, 131141, 3, 0, 196677, 3, 0, 262213, 3, 0, 65, 4, 0, 66, 4, 0, 67, 4, 0, 68, 4, 0, 69, 4, 0, 90, 4, 0, 91, 4, 0, 92, 4, 0, 93, 4, 0, 94, 4, 0, 95, 4, 0, 96, 4, 0, 97, 4, 0, 98, 4, 0, 99, 4, 0, 65626, 3, 0, 131162, 3, 0, 196698, 3, 0, 262234, 3, 0, 65627, 3, 0, 131163, 3, 0, 196699, 3, 0, 262235, 3, 0, 65628, 3, 0, 131164, 3, 0, 196700, 3, 0, 262236, 3, 0, 65629, 3, 0, 131165, 3, 0, 196701, 3, 0, 262237, 3, 0, 65630, 3, 0, 131166, 3, 0, 196702, 3, 0, 262238, 3, 0, 65631, 3, 0, 131167, 3, 0, 196703, 3, 0, 262239, 3, 0, 65632, 3, 0, 131168, 3, 0, 196704, 3, 0, 262240, 3, 0, 65633, 3, 0, 131169, 3, 0, 196705, 3, 0, 262241, 3, 0, 65634, 3, 0, 131170, 3, 0, 196706, 3, 0, 262242, 3, 0, 65635, 3, 0, 131171, 3, 0, 196707, 3, 0, 262243, 3, 0, 65661, 3, 0, 131197, 3, 0, 196733, 3, 0, 262269, 3, 0, 65662, 3, 0, 131198, 3, 0, 196734, 3, 0, 262270, 3, 0, 65663, 3, 0, 131199, 3, 0, 196735, 3, 0, 262271, 3, 0, 65664, 3, 0, 131200, 3, 0, 196736, 3, 0, 262272, 3, 0, 65665, 3, 0, 131201, 3, 0, 196737, 3, 0, 262273, 3, 0, 125, 4, 0, 126, 4, 0, 127, 4, 0, 128, 4, 0, 129, 4, 0, 65674, 3, 0, 131210, 3, 0, 196746, 3, 0, 262282, 3, 0, 65675, 3, 0, 131211, 3, 0, 196747, 3, 0, 262283, 3, 0, 65676, 3, 0, 131212, 3, 0, 196748, 3, 0, 262284, 3, 0, 65677, 3, 0, 131213, 3, 0, 196749, 3, 0, 262285, 3, 0, 65678, 3, 0, 131214, 3, 0, 196750, 3, 0, 262286, 3, 0, 65679, 3, 0, 131215, 3, 0, 196751, 3, 0, 262287, 3, 0, 65680, 3, 0, 131216, 3, 0, 196752, 3, 0, 262288, 3, 0, 65681, 3, 0, 131217, 3, 0, 196753, 3, 0, 262289, 3, 0, 138, 4, 0, 139, 4, 0, 140, 4, 0, 141, 4, 0, 142, 4, 0, 143, 4, 0, 144, 4, 0, 145, 4, 0, -327676, 131072, 3, -262140, 131072, 4, -196604, 131072, 5, -131068, 131072, 6, -65532, 131072, 7, -327675, 196608, 3, -262139, 196608, 4, -196603, 196608, 5, -131067, 196608, 6, -65531, 196608, 7, -327674, 262144, 3, -262138, 262144, 4, -196602, 262144, 5, -131066, 262144, 6, -65530, 262144, 7, -327673, 327680, 3, -262137, 327680, 4, -196601, 327680, 5, -131065, 327680, 6, -327663, 131072, 3, -262127, 131072, 4, -196591, 131072, 5, -131055, 131072, 6, -65519, 131072, 7, -327662, 196608, 3, -262126, 196608, 4, -196590, 196608, 5, -131054, 196608, 6, -65518, 196608, 7, -327661, 262144, 3, -262125, 262144, 4, -196589, 262144, 5, -131053, 262144, 6, -65517, 262144, 7, -327660, 327680, 3, -262124, 327680, 4, -196588, 327680, 5, -131052, 327680, 6, -524133, 262144, 3, -458597, 262144, 4, -393061, 262144, 5, -327525, 262144, 6, -261989, 262144, 7, -524132, 327680, 3, -458596, 327680, 4, -393060, 327680, 5, -327524, 327680, 6, -524131, 655360, 3, -458595, 655360, 4, -524130, 720896, 3, -458594, 720896, 4, -393058, 720896, 5, -393181, 655360, 2, -327645, 655360, 3, -262109, 655360, 4, -458716, 720896, 1, -393180, 720896, 2, -327644, 720896, 3, -262108, 720896, 4, -196572, 720896, 5, -65500, 720896, 7, -458715, 786432, 1, -393179, 786432, 2, -327643, 786432, 3, -262107, 786432, 4, -196571, 786432, 5, -131035, 786432, 6, -65499, 786432, 7, -458714, 851968, 1, -393178, 851968, 2, -327642, 851968, 3, -262106, 851968, 4, -327641, 917504, 3, -262105, 917504, 4, -589750, 655360, 2, -524214, 655360, 3, -458678, 655360, 4, -655285, 720896, 1, -589749, 720896, 2, -524213, 720896, 3, -458677, 720896, 4, -393141, 720896, 5, -262069, 720896, 7, -655284, 786432, 1, -589748, 786432, 2, -524212, 786432, 3, -458676, 786432, 4, -393140, 786432, 5, -327604, 786432, 6, -262068, 786432, 7, -655283, 851968, 1, -589747, 851968, 2, -524211, 851968, 3, -458675, 851968, 4, -589676, 655360, 2, -524140, 655360, 3, -458604, 655360, 4, -655211, 720896, 1, -589675, 720896, 2, -524139, 720896, 3, -458603, 720896, 4, -393067, 720896, 5, -261995, 720896, 7, -655210, 786432, 1, -589674, 786432, 2, -524138, 786432, 3, -458602, 786432, 4, -393066, 786432, 5, -327530, 786432, 6, -261994, 786432, 7, -655209, 851968, 1, -589673, 851968, 2, -524137, 851968, 3, -458601, 851968, 4, -524136, 917504, 3, -458600, 917504, 4, -524227, 131072, 3, -458691, 131072, 4, -393155, 131072, 5, -327619, 131072, 6, -262083, 131072, 7, -524226, 196608, 3, -458690, 196608, 4, -393154, 196608, 5, -327618, 196608, 6, -262082, 196608, 7, -524225, 262144, 3, -458689, 262144, 4, -393153, 262144, 5, -327617, 262144, 6, -262081, 262144, 7, -524224, 327680, 3, -458688, 327680, 4, -393152, 327680, 5, -327616, 327680, 6, -327680, 131072, 3, -262144, 131072, 4, -196608, 131072, 5, -131072, 131072, 6, -65536, 131072, 7, -327679, 196608, 3, -262143, 196608, 4, -196607, 196608, 5, -131071, 196608, 6, -65535, 196608, 7, -327678, 262144, 3, -262142, 262144, 4, -196606, 262144, 5, -131070, 262144, 6, -65534, 262144, 7, -327677, 327680, 3, -262141, 327680, 4, -196605, 327680, 5, -131069, 327680, 6, -917385, 131072, 3, -851849, 131072, 4, -786313, 131072, 5, -720777, 131072, 6, -655241, 131072, 7, -917384, 196608, 3, -851848, 196608, 4, -786312, 196608, 5, -720776, 196608, 6, -655240, 196608, 7, -917383, 262144, 3, -851847, 262144, 4, -786311, 262144, 5, -720775, 262144, 6, -655239, 262144, 7, -917382, 327680, 3, -851846, 327680, 4, -786310, 327680, 5, -720774, 327680, 6, -524135, 131072, 3, -458599, 131072, 4, -393063, 131072, 5, -327527, 131072, 6, -261991, 131072, 7, -524134, 196608, 3, -458598, 196608, 4, -393062, 196608, 5, -327526, 196608, 6, -261990, 196608, 7, -589667, 655360, 2, -655202, 720896, 1, -589666, 720896, 2, -261986, 720896, 7, -655201, 786432, 1, -589665, 786432, 2, -524129, 786432, 3, -458593, 786432, 4, -393057, 786432, 5, -327521, 786432, 6, -261985, 786432, 7, -655200, 851968, 1, -589664, 851968, 2, -524128, 851968, 3, -458592, 851968, 4, -524127, 917504, 3, -458591, 917504, 4, -982911, 655360, 2, -917375, 655360, 3, -851839, 655360, 4, -1048446, 720896, 1, -982910, 720896, 2, -917374, 720896, 3, -851838, 720896, 4, -786302, 720896, 5, -655230, 720896, 7, -1048445, 786432, 1, -982909, 786432, 2, -917373, 786432, 3, -851837, 786432, 4, -786301, 786432, 5, -720765, 786432, 6, -655229, 786432, 7, -1048444, 851968, 1, -982908, 851968, 2, -917372, 851968, 3, -851836, 851968, 4, -917371, 917504, 3, -851835, 917504, 4, -851858, 655360, 2, -786322, 655360, 3, -720786, 655360, 4, -917393, 720896, 1, -851857, 720896, 2, -786321, 720896, 3, -720785, 720896, 4, -655249, 720896, 5, -524177, 720896, 7, -917392, 786432, 1, -851856, 786432, 2, -786320, 786432, 3, -720784, 786432, 4, -655248, 786432, 5, -589712, 786432, 6, -524176, 786432, 7, -917391, 851968, 1, -851855, 851968, 2, -786319, 851968, 3, -720783, 851968, 4, -786318, 917504, 3, -720782, 917504, 4, -524210, 917504, 3, -458674, 917504, 4, -589745, 655360, 2, -524209, 655360, 3, -458673, 655360, 4, -655280, 720896, 1, -589744, 720896, 2, -524208, 720896, 3, -458672, 720896, 4, -393136, 720896, 5, -262064, 720896, 7, -655279, 786432, 1, -589743, 786432, 2, -524207, 786432, 3, -458671, 786432, 4, -393135, 786432, 5, -327599, 786432, 6, -262063, 786432, 7, -655278, 851968, 1, -589742, 851968, 2, -524206, 851968, 3, -458670, 851968, 4, -524205, 917504, 3, -458669, 917504, 4, -524204, 131072, 3, -458668, 131072, 4, -393132, 131072, 5, -327596, 131072, 6, -262060, 131072, 7, -524203, 196608, 3, -458667, 196608, 4, -393131, 196608, 5, -327595, 196608, 6, -262059, 196608, 7, -524202, 262144, 3, -458666, 262144, 4, -393130, 262144, 5, -327594, 262144, 6, -262058, 262144, 7, -524201, 327680, 3, -458665, 327680, 4, -393129, 327680, 5, -327593, 327680, 6, -524187, 131072, 3, -458651, 131072, 4, -393115, 131072, 5, -327579, 131072, 6, -262043, 131072, 7, -524186, 196608, 3, -458650, 196608, 4, -393114, 196608, 5, -327578, 196608, 6, -262042, 196608, 7, -524185, 262144, 3, -458649, 262144, 4, -393113, 262144, 5, -327577, 262144, 6, -262041, 262144, 7, -524184, 327680, 3, -458648, 327680, 4, -393112, 327680, 5, -327576, 327680, 6, -393163, 655360, 2, -327627, 655360, 3, -262091, 655360, 4, -458698, 720896, 1, -393162, 720896, 2, -327626, 720896, 3, -262090, 720896, 4, -196554, 720896, 5, -65482, 720896, 7, -458697, 786432, 1, -393161, 786432, 2, -327625, 786432, 3, -262089, 786432, 4, -196553, 786432, 5, -131017, 786432, 6, -65481, 786432, 7, -458696, 851968, 1, -393160, 851968, 2, -327624, 851968, 3, -262088, 851968, 4, -327623, 917504, 3, -262087, 917504, 4)
+layer_0/tile_data = PackedInt32Array(-65501, 0, 0, -65489, 0, 0, -65469, 0, 0, -65460, 0, 0, 65560, 3, 0, 131096, 3, 0, 196632, 3, 0, 262168, 3, 0, 65561, 3, 0, 131097, 3, 0, 196633, 3, 0, 262169, 3, 0, 65562, 3, 0, 131098, 3, 0, 196634, 3, 0, 262170, 3, 0, 65563, 3, 0, 131099, 3, 0, 196635, 3, 0, 262171, 3, 0, 65564, 3, 0, 131100, 3, 0, 196636, 3, 0, 262172, 3, 0, 65565, 3, 0, 131101, 3, 0, 196637, 3, 0, 262173, 3, 0, 65566, 3, 0, 131102, 3, 0, 196638, 3, 0, 262174, 3, 0, 65567, 3, 0, 131103, 3, 0, 196639, 3, 0, 262175, 3, 0, 65568, 3, 0, 131104, 3, 0, 196640, 3, 0, 262176, 3, 0, 65569, 3, 0, 131105, 3, 0, 196641, 3, 0, 262177, 3, 0, 65576, 3, 0, 131112, 3, 0, 196648, 3, 0, 262184, 3, 0, 65577, 3, 0, 131113, 3, 0, 196649, 3, 0, 262185, 3, 0, 65578, 3, 0, 131114, 3, 0, 196650, 3, 0, 262186, 3, 0, 65579, 3, 0, 131115, 3, 0, 196651, 3, 0, 262187, 3, 0, 65580, 3, 0, 131116, 3, 0, 196652, 3, 0, 262188, 3, 0, 65581, 3, 0, 131117, 3, 0, 196653, 3, 0, 262189, 3, 0, 65582, 3, 0, 131118, 3, 0, 196654, 3, 0, 262190, 3, 0, 65583, 3, 0, 131119, 3, 0, 196655, 3, 0, 262191, 3, 0, 65584, 3, 0, 131120, 3, 0, 196656, 3, 0, 262192, 3, 0, 65585, 3, 0, 131121, 3, 0, 196657, 3, 0, 262193, 3, 0, 24, 4, 0, 25, 4, 0, 26, 4, 0, 27, 4, 0, 28, 4, 0, 29, 4, 0, 30, 4, 0, 31, 4, 0, 32, 4, 0, 33, 4, 0, 40, 4, 0, 41, 4, 0, 42, 4, 0, 43, 4, 0, 44, 4, 0, 45, 4, 0, 46, 4, 0, 47, 4, 0, 48, 4, 0, 49, 4, 0, 56, 4, 0, 57, 4, 0, 58, 4, 0, 65592, 3, 0, 131128, 3, 0, 196664, 3, 0, 262200, 3, 0, 65593, 3, 0, 131129, 3, 0, 196665, 3, 0, 262201, 3, 0, 65594, 3, 0, 131130, 3, 0, 196666, 3, 0, 262202, 3, 0, 65601, 3, 0, 131137, 3, 0, 196673, 3, 0, 262209, 3, 0, 65602, 3, 0, 131138, 3, 0, 196674, 3, 0, 262210, 3, 0, 65603, 3, 0, 131139, 3, 0, 196675, 3, 0, 262211, 3, 0, 65604, 3, 0, 131140, 3, 0, 196676, 3, 0, 262212, 3, 0, 65605, 3, 0, 131141, 3, 0, 196677, 3, 0, 262213, 3, 0, 65, 4, 0, 66, 4, 0, 67, 4, 0, 68, 4, 0, 69, 4, 0, 90, 4, 0, 91, 4, 0, 92, 4, 0, 93, 4, 0, 94, 4, 0, 95, 4, 0, 96, 4, 0, 97, 4, 0, 98, 4, 0, 99, 4, 0, 65626, 3, 0, 131162, 3, 0, 196698, 3, 0, 262234, 3, 0, 65627, 3, 0, 131163, 3, 0, 196699, 3, 0, 262235, 3, 0, 65628, 3, 0, 131164, 3, 0, 196700, 3, 0, 262236, 3, 0, 65629, 3, 0, 131165, 3, 0, 196701, 3, 0, 262237, 3, 0, 65630, 3, 0, 131166, 3, 0, 196702, 3, 0, 262238, 3, 0, 65631, 3, 0, 131167, 3, 0, 196703, 3, 0, 262239, 3, 0, 65632, 3, 0, 131168, 3, 0, 196704, 3, 0, 262240, 3, 0, 65633, 3, 0, 131169, 3, 0, 196705, 3, 0, 262241, 3, 0, 65634, 3, 0, 131170, 3, 0, 196706, 3, 0, 262242, 3, 0, 65635, 3, 0, 131171, 3, 0, 196707, 3, 0, 262243, 3, 0, 65661, 3, 0, 131197, 3, 0, 196733, 3, 0, 262269, 3, 0, 65662, 3, 0, 131198, 3, 0, 196734, 3, 0, 262270, 3, 0, 65663, 3, 0, 131199, 3, 0, 196735, 3, 0, 262271, 3, 0, 65664, 3, 0, 131200, 3, 0, 196736, 3, 0, 262272, 3, 0, 65665, 3, 0, 131201, 3, 0, 196737, 3, 0, 262273, 3, 0, 125, 4, 0, 126, 4, 0, 127, 4, 0, 128, 4, 0, 129, 4, 0, 65674, 3, 0, 131210, 3, 0, 196746, 3, 0, 262282, 3, 0, 65675, 3, 0, 131211, 3, 0, 196747, 3, 0, 262283, 3, 0, 65676, 3, 0, 131212, 3, 0, 196748, 3, 0, 262284, 3, 0, 65677, 3, 0, 131213, 3, 0, 196749, 3, 0, 262285, 3, 0, 65678, 3, 0, 131214, 3, 0, 196750, 3, 0, 262286, 3, 0, 65679, 3, 0, 131215, 3, 0, 196751, 3, 0, 262287, 3, 0, 65680, 3, 0, 131216, 3, 0, 196752, 3, 0, 262288, 3, 0, 65681, 3, 0, 131217, 3, 0, 196753, 3, 0, 262289, 3, 0, 138, 4, 0, 139, 4, 0, 140, 4, 0, 141, 4, 0, 142, 4, 0, 143, 4, 0, 144, 4, 0, 145, 4, 0, -327676, 131072, 3, -262140, 131072, 4, -196604, 131072, 5, -131068, 131072, 6, -65532, 131072, 7, -327675, 196608, 3, -262139, 196608, 4, -196603, 196608, 5, -131067, 196608, 6, -65531, 196608, 7, -327674, 262144, 3, -262138, 262144, 4, -196602, 262144, 5, -131066, 262144, 6, -65530, 262144, 7, -327673, 327680, 3, -262137, 327680, 4, -196601, 327680, 5, -131065, 327680, 6, -327663, 131072, 3, -262127, 131072, 4, -196591, 131072, 5, -131055, 131072, 6, -65519, 131072, 7, -327662, 196608, 3, -262126, 196608, 4, -196590, 196608, 5, -131054, 196608, 6, -65518, 196608, 7, -327661, 262144, 3, -262125, 262144, 4, -196589, 262144, 5, -131053, 262144, 6, -65517, 262144, 7, -327660, 327680, 3, -262124, 327680, 4, -196588, 327680, 5, -131052, 327680, 6, -524133, 262144, 3, -458597, 262144, 4, -393061, 262144, 5, -327525, 262144, 6, -261989, 262144, 7, -524132, 327680, 3, -458596, 327680, 4, -393060, 327680, 5, -327524, 327680, 6, -524131, 655360, 3, -458595, 655360, 4, -524130, 720896, 3, -458594, 720896, 4, -393058, 720896, 5, -393181, 655360, 2, -327645, 655360, 3, -262109, 655360, 4, -458716, 720896, 1, -393180, 720896, 2, -327644, 720896, 3, -262108, 720896, 4, -196572, 720896, 5, -65500, 720896, 7, -458715, 786432, 1, -393179, 786432, 2, -327643, 786432, 3, -262107, 786432, 4, -196571, 786432, 5, -131035, 786432, 6, -65499, 786432, 7, -458714, 851968, 1, -393178, 851968, 2, -327642, 851968, 3, -262106, 851968, 4, -327641, 917504, 3, -262105, 917504, 4, -589750, 655360, 2, -524214, 655360, 3, -458678, 655360, 4, -655285, 720896, 1, -589749, 720896, 2, -524213, 720896, 3, -458677, 720896, 4, -393141, 720896, 5, -262069, 720896, 7, -655284, 786432, 1, -589748, 786432, 2, -524212, 786432, 3, -458676, 786432, 4, -393140, 786432, 5, -327604, 786432, 6, -262068, 786432, 7, -655283, 851968, 1, -589747, 851968, 2, -524211, 851968, 3, -458675, 851968, 4, -589676, 655360, 2, -524140, 655360, 3, -458604, 655360, 4, -655211, 720896, 1, -589675, 720896, 2, -524139, 720896, 3, -458603, 720896, 4, -393067, 720896, 5, -261995, 720896, 7, -655210, 786432, 1, -589674, 786432, 2, -524138, 786432, 3, -458602, 786432, 4, -393066, 786432, 5, -327530, 786432, 6, -261994, 786432, 7, -655209, 851968, 1, -589673, 851968, 2, -524137, 851968, 3, -458601, 851968, 4, -524136, 917504, 3, -458600, 917504, 4, -524227, 131072, 3, -458691, 131072, 4, -393155, 131072, 5, -327619, 131072, 6, -262083, 131072, 7, -524226, 196608, 3, -458690, 196608, 4, -393154, 196608, 5, -327618, 196608, 6, -262082, 196608, 7, -524225, 262144, 3, -458689, 262144, 4, -393153, 262144, 5, -327617, 262144, 6, -262081, 262144, 7, -524224, 327680, 3, -458688, 327680, 4, -393152, 327680, 5, -327616, 327680, 6, -327680, 131072, 3, -262144, 131072, 4, -196608, 131072, 5, -131072, 131072, 6, -65536, 131072, 7, -327679, 196608, 3, -262143, 196608, 4, -196607, 196608, 5, -131071, 196608, 6, -65535, 196608, 7, -327678, 262144, 3, -262142, 262144, 4, -196606, 262144, 5, -131070, 262144, 6, -65534, 262144, 7, -327677, 327680, 3, -262141, 327680, 4, -196605, 327680, 5, -131069, 327680, 6, -917385, 131072, 3, -851849, 131072, 4, -786313, 131072, 5, -720777, 131072, 6, -655241, 131072, 7, -917384, 196608, 3, -851848, 196608, 4, -786312, 196608, 5, -720776, 196608, 6, -655240, 196608, 7, -917383, 262144, 3, -851847, 262144, 4, -786311, 262144, 5, -720775, 262144, 6, -655239, 262144, 7, -917382, 327680, 3, -851846, 327680, 4, -786310, 327680, 5, -720774, 327680, 6, -524135, 131072, 3, -458599, 131072, 4, -393063, 131072, 5, -327527, 131072, 6, -261991, 131072, 7, -524134, 196608, 3, -458598, 196608, 4, -393062, 196608, 5, -327526, 196608, 6, -261990, 196608, 7, -589667, 655360, 2, -655202, 720896, 1, -589666, 720896, 2, -261986, 720896, 7, -655201, 786432, 1, -589665, 786432, 2, -524129, 786432, 3, -458593, 786432, 4, -393057, 786432, 5, -327521, 786432, 6, -261985, 786432, 7, -655200, 851968, 1, -589664, 851968, 2, -524128, 851968, 3, -458592, 851968, 4, -524127, 917504, 3, -458591, 917504, 4, -982911, 655360, 2, -917375, 655360, 3, -851839, 655360, 4, -1048446, 720896, 1, -982910, 720896, 2, -917374, 720896, 3, -851838, 720896, 4, -786302, 720896, 5, -655230, 720896, 7, -1048445, 786432, 1, -982909, 786432, 2, -917373, 786432, 3, -851837, 786432, 4, -786301, 786432, 5, -720765, 786432, 6, -655229, 786432, 7, -1048444, 851968, 1, -982908, 851968, 2, -917372, 851968, 3, -851836, 851968, 4, -917371, 917504, 3, -851835, 917504, 4, -851858, 655360, 2, -786322, 655360, 3, -720786, 655360, 4, -917393, 720896, 1, -851857, 720896, 2, -786321, 720896, 3, -720785, 720896, 4, -655249, 720896, 5, -524177, 720896, 7, -917392, 786432, 1, -851856, 786432, 2, -786320, 786432, 3, -720784, 786432, 4, -655248, 786432, 5, -589712, 786432, 6, -524176, 786432, 7, -917391, 851968, 1, -851855, 851968, 2, -786319, 851968, 3, -720783, 851968, 4, -786318, 917504, 3, -720782, 917504, 4, -524210, 917504, 3, -458674, 917504, 4, -589745, 655360, 2, -524209, 655360, 3, -458673, 655360, 4, -655280, 720896, 1, -589744, 720896, 2, -524208, 720896, 3, -458672, 720896, 4, -393136, 720896, 5, -262064, 720896, 7, -655279, 786432, 1, -589743, 786432, 2, -524207, 786432, 3, -458671, 786432, 4, -393135, 786432, 5, -327599, 786432, 6, -262063, 786432, 7, -655278, 851968, 1, -589742, 851968, 2, -524206, 851968, 3, -458670, 851968, 4, -524205, 917504, 3, -458669, 917504, 4, -524204, 131072, 3, -458668, 131072, 4, -393132, 131072, 5, -327596, 131072, 6, -262060, 131072, 7, -524203, 196608, 3, -458667, 196608, 4, -393131, 196608, 5, -327595, 196608, 6, -262059, 196608, 7, -524202, 262144, 3, -458666, 262144, 4, -393130, 262144, 5, -327594, 262144, 6, -262058, 262144, 7, -524201, 327680, 3, -458665, 327680, 4, -393129, 327680, 5, -327593, 327680, 6, -524187, 131072, 3, -458651, 131072, 4, -393115, 131072, 5, -327579, 131072, 6, -262043, 131072, 7, -524186, 196608, 3, -458650, 196608, 4, -393114, 196608, 5, -327578, 196608, 6, -262042, 196608, 7, -524185, 262144, 3, -458649, 262144, 4, -393113, 262144, 5, -327577, 262144, 6, -262041, 262144, 7, -524184, 327680, 3, -458648, 327680, 4, -393112, 327680, 5, -327576, 327680, 6, -393163, 655360, 2, -327627, 655360, 3, -262091, 655360, 4, -458698, 720896, 1, -393162, 720896, 2, -327626, 720896, 3, -262090, 720896, 4, -196554, 720896, 5, -65482, 720896, 7, -458697, 786432, 1, -393161, 786432, 2, -327625, 786432, 3, -262089, 786432, 4, -196553, 786432, 5, -131017, 786432, 6, -65481, 786432, 7, -458696, 851968, 1, -393160, 851968, 2, -327624, 851968, 3, -262088, 851968, 4, -327623, 917504, 3, -262087, 917504, 4)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(11.0001, -9.00002)
@@ -549,6 +781,1674 @@ theme_override_font_sizes/font_size = 8
 text = "Need all 24 coins!"
 
 [node name="UI" parent="." instance=ExtResource("15_0cqxb")]
+
+[node name="Node" type="Node" parent="."]
+
+[node name="water1" type="Node" parent="Node"]
+
+[node name="watertop1" type="AnimatedSprite2D" parent="Node/water1"]
+texture_filter = 1
+position = Vector2(168, 8)
+sprite_frames = SubResource("SpriteFrames_6q8jr")
+autoplay = "default"
+
+[node name="watertop2" type="AnimatedSprite2D" parent="Node/water1"]
+texture_filter = 1
+position = Vector2(184, 8)
+sprite_frames = SubResource("SpriteFrames_oinu8")
+autoplay = "default"
+
+[node name="watertop3" type="AnimatedSprite2D" parent="Node/water1"]
+texture_filter = 1
+position = Vector2(200, 8)
+sprite_frames = SubResource("SpriteFrames_4k5vd")
+autoplay = "default"
+
+[node name="watertop4" type="AnimatedSprite2D" parent="Node/water1"]
+texture_filter = 1
+position = Vector2(216, 8)
+sprite_frames = SubResource("SpriteFrames_gukfd")
+autoplay = "default"
+
+[node name="water1" type="AnimatedSprite2D" parent="Node/water1"]
+texture_filter = 1
+position = Vector2(168, 24)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water2" type="AnimatedSprite2D" parent="Node/water1"]
+texture_filter = 1
+position = Vector2(184, 24)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="water3" type="AnimatedSprite2D" parent="Node/water1"]
+texture_filter = 1
+position = Vector2(200, 24)
+sprite_frames = SubResource("SpriteFrames_hk427")
+autoplay = "default"
+
+[node name="water4" type="AnimatedSprite2D" parent="Node/water1"]
+texture_filter = 1
+position = Vector2(216, 24)
+sprite_frames = SubResource("SpriteFrames_2nq1x")
+autoplay = "default"
+
+[node name="water5" type="AnimatedSprite2D" parent="Node/water1"]
+texture_filter = 1
+position = Vector2(168, 40)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water6" type="AnimatedSprite2D" parent="Node/water1"]
+texture_filter = 1
+position = Vector2(184, 40)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="water7" type="AnimatedSprite2D" parent="Node/water1"]
+texture_filter = 1
+position = Vector2(200, 40)
+sprite_frames = SubResource("SpriteFrames_hk427")
+autoplay = "default"
+
+[node name="water8" type="AnimatedSprite2D" parent="Node/water1"]
+texture_filter = 1
+position = Vector2(216, 40)
+sprite_frames = SubResource("SpriteFrames_2nq1x")
+autoplay = "default"
+
+[node name="water9" type="AnimatedSprite2D" parent="Node/water1"]
+texture_filter = 1
+position = Vector2(168, 56)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water10" type="AnimatedSprite2D" parent="Node/water1"]
+texture_filter = 1
+position = Vector2(184, 56)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="water11" type="AnimatedSprite2D" parent="Node/water1"]
+texture_filter = 1
+position = Vector2(200, 56)
+sprite_frames = SubResource("SpriteFrames_hk427")
+autoplay = "default"
+
+[node name="water12" type="AnimatedSprite2D" parent="Node/water1"]
+texture_filter = 1
+position = Vector2(216, 56)
+sprite_frames = SubResource("SpriteFrames_2nq1x")
+autoplay = "default"
+
+[node name="water13" type="AnimatedSprite2D" parent="Node/water1"]
+texture_filter = 1
+position = Vector2(168, 72)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water14" type="AnimatedSprite2D" parent="Node/water1"]
+texture_filter = 1
+position = Vector2(184, 72)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="water15" type="AnimatedSprite2D" parent="Node/water1"]
+texture_filter = 1
+position = Vector2(200, 72)
+sprite_frames = SubResource("SpriteFrames_hk427")
+autoplay = "default"
+
+[node name="water16" type="AnimatedSprite2D" parent="Node/water1"]
+texture_filter = 1
+position = Vector2(216, 72)
+sprite_frames = SubResource("SpriteFrames_2nq1x")
+autoplay = "default"
+
+[node name="water2" type="Node" parent="Node"]
+
+[node name="watertop1" type="AnimatedSprite2D" parent="Node/water2"]
+texture_filter = 1
+position = Vector2(392, 8)
+sprite_frames = SubResource("SpriteFrames_6q8jr")
+autoplay = "default"
+
+[node name="watertop2" type="AnimatedSprite2D" parent="Node/water2"]
+texture_filter = 1
+position = Vector2(408, 8)
+sprite_frames = SubResource("SpriteFrames_oinu8")
+autoplay = "default"
+
+[node name="watertop3" type="AnimatedSprite2D" parent="Node/water2"]
+texture_filter = 1
+position = Vector2(424, 8)
+sprite_frames = SubResource("SpriteFrames_4k5vd")
+autoplay = "default"
+
+[node name="watertop4" type="AnimatedSprite2D" parent="Node/water2"]
+texture_filter = 1
+position = Vector2(440, 8)
+sprite_frames = SubResource("SpriteFrames_gukfd")
+autoplay = "default"
+
+[node name="water1" type="AnimatedSprite2D" parent="Node/water2"]
+texture_filter = 1
+position = Vector2(392, 24)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water2" type="AnimatedSprite2D" parent="Node/water2"]
+texture_filter = 1
+position = Vector2(408, 24)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="water3" type="AnimatedSprite2D" parent="Node/water2"]
+texture_filter = 1
+position = Vector2(424, 24)
+sprite_frames = SubResource("SpriteFrames_hk427")
+autoplay = "default"
+
+[node name="water4" type="AnimatedSprite2D" parent="Node/water2"]
+texture_filter = 1
+position = Vector2(440, 24)
+sprite_frames = SubResource("SpriteFrames_2nq1x")
+autoplay = "default"
+
+[node name="water5" type="AnimatedSprite2D" parent="Node/water2"]
+texture_filter = 1
+position = Vector2(392, 40)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water6" type="AnimatedSprite2D" parent="Node/water2"]
+texture_filter = 1
+position = Vector2(408, 40)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="water7" type="AnimatedSprite2D" parent="Node/water2"]
+texture_filter = 1
+position = Vector2(424, 40)
+sprite_frames = SubResource("SpriteFrames_hk427")
+autoplay = "default"
+
+[node name="water8" type="AnimatedSprite2D" parent="Node/water2"]
+texture_filter = 1
+position = Vector2(440, 40)
+sprite_frames = SubResource("SpriteFrames_2nq1x")
+autoplay = "default"
+
+[node name="water9" type="AnimatedSprite2D" parent="Node/water2"]
+texture_filter = 1
+position = Vector2(392, 56)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water10" type="AnimatedSprite2D" parent="Node/water2"]
+texture_filter = 1
+position = Vector2(408, 56)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="water11" type="AnimatedSprite2D" parent="Node/water2"]
+texture_filter = 1
+position = Vector2(424, 56)
+sprite_frames = SubResource("SpriteFrames_hk427")
+autoplay = "default"
+
+[node name="water12" type="AnimatedSprite2D" parent="Node/water2"]
+texture_filter = 1
+position = Vector2(440, 56)
+sprite_frames = SubResource("SpriteFrames_2nq1x")
+autoplay = "default"
+
+[node name="water13" type="AnimatedSprite2D" parent="Node/water2"]
+texture_filter = 1
+position = Vector2(392, 72)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water14" type="AnimatedSprite2D" parent="Node/water2"]
+texture_filter = 1
+position = Vector2(408, 72)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="water15" type="AnimatedSprite2D" parent="Node/water2"]
+texture_filter = 1
+position = Vector2(424, 72)
+sprite_frames = SubResource("SpriteFrames_hk427")
+autoplay = "default"
+
+[node name="water16" type="AnimatedSprite2D" parent="Node/water2"]
+texture_filter = 1
+position = Vector2(440, 72)
+sprite_frames = SubResource("SpriteFrames_2nq1x")
+autoplay = "default"
+
+[node name="watertop5" type="AnimatedSprite2D" parent="Node/water2"]
+texture_filter = 1
+position = Vector2(456, 8)
+sprite_frames = SubResource("SpriteFrames_6q8jr")
+autoplay = "default"
+
+[node name="watertop6" type="AnimatedSprite2D" parent="Node/water2"]
+texture_filter = 1
+position = Vector2(472, 8)
+sprite_frames = SubResource("SpriteFrames_oinu8")
+autoplay = "default"
+
+[node name="watertop7" type="AnimatedSprite2D" parent="Node/water2"]
+texture_filter = 1
+position = Vector2(488, 8)
+sprite_frames = SubResource("SpriteFrames_4k5vd")
+autoplay = "default"
+
+[node name="watertop8" type="AnimatedSprite2D" parent="Node/water2"]
+texture_filter = 1
+position = Vector2(504, 8)
+sprite_frames = SubResource("SpriteFrames_gukfd")
+autoplay = "default"
+
+[node name="water17" type="AnimatedSprite2D" parent="Node/water2"]
+texture_filter = 1
+position = Vector2(456, 24)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water18" type="AnimatedSprite2D" parent="Node/water2"]
+texture_filter = 1
+position = Vector2(472, 24)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="water19" type="AnimatedSprite2D" parent="Node/water2"]
+texture_filter = 1
+position = Vector2(488, 24)
+sprite_frames = SubResource("SpriteFrames_hk427")
+autoplay = "default"
+
+[node name="water20" type="AnimatedSprite2D" parent="Node/water2"]
+texture_filter = 1
+position = Vector2(504, 24)
+sprite_frames = SubResource("SpriteFrames_2nq1x")
+autoplay = "default"
+
+[node name="water21" type="AnimatedSprite2D" parent="Node/water2"]
+texture_filter = 1
+position = Vector2(456, 40)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water22" type="AnimatedSprite2D" parent="Node/water2"]
+texture_filter = 1
+position = Vector2(472, 40)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="water23" type="AnimatedSprite2D" parent="Node/water2"]
+texture_filter = 1
+position = Vector2(488, 40)
+sprite_frames = SubResource("SpriteFrames_hk427")
+autoplay = "default"
+
+[node name="water24" type="AnimatedSprite2D" parent="Node/water2"]
+texture_filter = 1
+position = Vector2(504, 40)
+sprite_frames = SubResource("SpriteFrames_2nq1x")
+autoplay = "default"
+
+[node name="water25" type="AnimatedSprite2D" parent="Node/water2"]
+texture_filter = 1
+position = Vector2(456, 56)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water26" type="AnimatedSprite2D" parent="Node/water2"]
+texture_filter = 1
+position = Vector2(472, 56)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="water27" type="AnimatedSprite2D" parent="Node/water2"]
+texture_filter = 1
+position = Vector2(488, 56)
+sprite_frames = SubResource("SpriteFrames_hk427")
+autoplay = "default"
+
+[node name="water28" type="AnimatedSprite2D" parent="Node/water2"]
+texture_filter = 1
+position = Vector2(504, 56)
+sprite_frames = SubResource("SpriteFrames_2nq1x")
+autoplay = "default"
+
+[node name="water29" type="AnimatedSprite2D" parent="Node/water2"]
+texture_filter = 1
+position = Vector2(456, 72)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water30" type="AnimatedSprite2D" parent="Node/water2"]
+texture_filter = 1
+position = Vector2(472, 72)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="watertop9" type="AnimatedSprite2D" parent="Node/water2"]
+texture_filter = 1
+position = Vector2(520, 8)
+sprite_frames = SubResource("SpriteFrames_6q8jr")
+autoplay = "default"
+
+[node name="watertop10" type="AnimatedSprite2D" parent="Node/water2"]
+texture_filter = 1
+position = Vector2(536, 8)
+sprite_frames = SubResource("SpriteFrames_oinu8")
+autoplay = "default"
+
+[node name="water33" type="AnimatedSprite2D" parent="Node/water2"]
+texture_filter = 1
+position = Vector2(520, 24)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water34" type="AnimatedSprite2D" parent="Node/water2"]
+texture_filter = 1
+position = Vector2(536, 24)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="water35" type="AnimatedSprite2D" parent="Node/water2"]
+texture_filter = 1
+position = Vector2(520, 40)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water36" type="AnimatedSprite2D" parent="Node/water2"]
+texture_filter = 1
+position = Vector2(536, 40)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="water37" type="AnimatedSprite2D" parent="Node/water2"]
+texture_filter = 1
+position = Vector2(520, 56)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water38" type="AnimatedSprite2D" parent="Node/water2"]
+texture_filter = 1
+position = Vector2(536, 56)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="water39" type="AnimatedSprite2D" parent="Node/water2"]
+texture_filter = 1
+position = Vector2(520, 72)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water40" type="AnimatedSprite2D" parent="Node/water2"]
+texture_filter = 1
+position = Vector2(536, 72)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="water31" type="AnimatedSprite2D" parent="Node/water2"]
+texture_filter = 1
+position = Vector2(488, 72)
+sprite_frames = SubResource("SpriteFrames_hk427")
+autoplay = "default"
+
+[node name="water32" type="AnimatedSprite2D" parent="Node/water2"]
+texture_filter = 1
+position = Vector2(504, 72)
+sprite_frames = SubResource("SpriteFrames_2nq1x")
+autoplay = "default"
+
+[node name="water3" type="Node" parent="Node"]
+
+[node name="watertop1" type="AnimatedSprite2D" parent="Node/water3"]
+texture_filter = 1
+position = Vector2(648, 8)
+sprite_frames = SubResource("SpriteFrames_6q8jr")
+autoplay = "default"
+
+[node name="watertop2" type="AnimatedSprite2D" parent="Node/water3"]
+texture_filter = 1
+position = Vector2(664, 8)
+sprite_frames = SubResource("SpriteFrames_oinu8")
+autoplay = "default"
+
+[node name="watertop3" type="AnimatedSprite2D" parent="Node/water3"]
+texture_filter = 1
+position = Vector2(680, 8)
+sprite_frames = SubResource("SpriteFrames_4k5vd")
+autoplay = "default"
+
+[node name="watertop4" type="AnimatedSprite2D" parent="Node/water3"]
+texture_filter = 1
+position = Vector2(696, 8)
+sprite_frames = SubResource("SpriteFrames_gukfd")
+autoplay = "default"
+
+[node name="water1" type="AnimatedSprite2D" parent="Node/water3"]
+texture_filter = 1
+position = Vector2(648, 24)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water2" type="AnimatedSprite2D" parent="Node/water3"]
+texture_filter = 1
+position = Vector2(664, 24)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="water3" type="AnimatedSprite2D" parent="Node/water3"]
+texture_filter = 1
+position = Vector2(680, 24)
+sprite_frames = SubResource("SpriteFrames_hk427")
+autoplay = "default"
+
+[node name="water4" type="AnimatedSprite2D" parent="Node/water3"]
+texture_filter = 1
+position = Vector2(696, 24)
+sprite_frames = SubResource("SpriteFrames_2nq1x")
+autoplay = "default"
+
+[node name="water5" type="AnimatedSprite2D" parent="Node/water3"]
+texture_filter = 1
+position = Vector2(648, 40)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water6" type="AnimatedSprite2D" parent="Node/water3"]
+texture_filter = 1
+position = Vector2(664, 40)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="water7" type="AnimatedSprite2D" parent="Node/water3"]
+texture_filter = 1
+position = Vector2(680, 40)
+sprite_frames = SubResource("SpriteFrames_hk427")
+autoplay = "default"
+
+[node name="water8" type="AnimatedSprite2D" parent="Node/water3"]
+texture_filter = 1
+position = Vector2(696, 40)
+sprite_frames = SubResource("SpriteFrames_2nq1x")
+autoplay = "default"
+
+[node name="water9" type="AnimatedSprite2D" parent="Node/water3"]
+texture_filter = 1
+position = Vector2(648, 56)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water10" type="AnimatedSprite2D" parent="Node/water3"]
+texture_filter = 1
+position = Vector2(664, 56)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="water11" type="AnimatedSprite2D" parent="Node/water3"]
+texture_filter = 1
+position = Vector2(680, 56)
+sprite_frames = SubResource("SpriteFrames_hk427")
+autoplay = "default"
+
+[node name="water12" type="AnimatedSprite2D" parent="Node/water3"]
+texture_filter = 1
+position = Vector2(696, 56)
+sprite_frames = SubResource("SpriteFrames_2nq1x")
+autoplay = "default"
+
+[node name="water13" type="AnimatedSprite2D" parent="Node/water3"]
+texture_filter = 1
+position = Vector2(648, 72)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water14" type="AnimatedSprite2D" parent="Node/water3"]
+texture_filter = 1
+position = Vector2(664, 72)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="water15" type="AnimatedSprite2D" parent="Node/water3"]
+texture_filter = 1
+position = Vector2(680, 72)
+sprite_frames = SubResource("SpriteFrames_hk427")
+autoplay = "default"
+
+[node name="water16" type="AnimatedSprite2D" parent="Node/water3"]
+texture_filter = 1
+position = Vector2(696, 72)
+sprite_frames = SubResource("SpriteFrames_2nq1x")
+autoplay = "default"
+
+[node name="watertop5" type="AnimatedSprite2D" parent="Node/water3"]
+texture_filter = 1
+position = Vector2(712, 8)
+sprite_frames = SubResource("SpriteFrames_6q8jr")
+autoplay = "default"
+
+[node name="watertop6" type="AnimatedSprite2D" parent="Node/water3"]
+texture_filter = 1
+position = Vector2(728, 8)
+sprite_frames = SubResource("SpriteFrames_oinu8")
+autoplay = "default"
+
+[node name="watertop7" type="AnimatedSprite2D" parent="Node/water3"]
+texture_filter = 1
+position = Vector2(744, 8)
+sprite_frames = SubResource("SpriteFrames_4k5vd")
+autoplay = "default"
+
+[node name="watertop8" type="AnimatedSprite2D" parent="Node/water3"]
+texture_filter = 1
+position = Vector2(760, 8)
+sprite_frames = SubResource("SpriteFrames_gukfd")
+autoplay = "default"
+
+[node name="water17" type="AnimatedSprite2D" parent="Node/water3"]
+texture_filter = 1
+position = Vector2(712, 24)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water18" type="AnimatedSprite2D" parent="Node/water3"]
+texture_filter = 1
+position = Vector2(728, 24)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="water19" type="AnimatedSprite2D" parent="Node/water3"]
+texture_filter = 1
+position = Vector2(744, 24)
+sprite_frames = SubResource("SpriteFrames_hk427")
+autoplay = "default"
+
+[node name="water20" type="AnimatedSprite2D" parent="Node/water3"]
+texture_filter = 1
+position = Vector2(760, 24)
+sprite_frames = SubResource("SpriteFrames_2nq1x")
+autoplay = "default"
+
+[node name="water21" type="AnimatedSprite2D" parent="Node/water3"]
+texture_filter = 1
+position = Vector2(712, 40)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water22" type="AnimatedSprite2D" parent="Node/water3"]
+texture_filter = 1
+position = Vector2(728, 40)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="water23" type="AnimatedSprite2D" parent="Node/water3"]
+texture_filter = 1
+position = Vector2(744, 40)
+sprite_frames = SubResource("SpriteFrames_hk427")
+autoplay = "default"
+
+[node name="water24" type="AnimatedSprite2D" parent="Node/water3"]
+texture_filter = 1
+position = Vector2(760, 40)
+sprite_frames = SubResource("SpriteFrames_2nq1x")
+autoplay = "default"
+
+[node name="water25" type="AnimatedSprite2D" parent="Node/water3"]
+texture_filter = 1
+position = Vector2(712, 56)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water26" type="AnimatedSprite2D" parent="Node/water3"]
+texture_filter = 1
+position = Vector2(728, 56)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="water27" type="AnimatedSprite2D" parent="Node/water3"]
+texture_filter = 1
+position = Vector2(744, 56)
+sprite_frames = SubResource("SpriteFrames_hk427")
+autoplay = "default"
+
+[node name="water28" type="AnimatedSprite2D" parent="Node/water3"]
+texture_filter = 1
+position = Vector2(760, 56)
+sprite_frames = SubResource("SpriteFrames_2nq1x")
+autoplay = "default"
+
+[node name="water29" type="AnimatedSprite2D" parent="Node/water3"]
+texture_filter = 1
+position = Vector2(712, 72)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water30" type="AnimatedSprite2D" parent="Node/water3"]
+texture_filter = 1
+position = Vector2(728, 72)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="watertop9" type="AnimatedSprite2D" parent="Node/water3"]
+texture_filter = 1
+position = Vector2(776, 8)
+sprite_frames = SubResource("SpriteFrames_6q8jr")
+autoplay = "default"
+
+[node name="watertop10" type="AnimatedSprite2D" parent="Node/water3"]
+texture_filter = 1
+position = Vector2(792, 8)
+sprite_frames = SubResource("SpriteFrames_oinu8")
+autoplay = "default"
+
+[node name="water33" type="AnimatedSprite2D" parent="Node/water3"]
+texture_filter = 1
+position = Vector2(776, 24)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water34" type="AnimatedSprite2D" parent="Node/water3"]
+texture_filter = 1
+position = Vector2(792, 24)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="water35" type="AnimatedSprite2D" parent="Node/water3"]
+texture_filter = 1
+position = Vector2(776, 40)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water36" type="AnimatedSprite2D" parent="Node/water3"]
+texture_filter = 1
+position = Vector2(792, 40)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="water37" type="AnimatedSprite2D" parent="Node/water3"]
+texture_filter = 1
+position = Vector2(776, 56)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water38" type="AnimatedSprite2D" parent="Node/water3"]
+texture_filter = 1
+position = Vector2(792, 56)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="water39" type="AnimatedSprite2D" parent="Node/water3"]
+texture_filter = 1
+position = Vector2(776, 72)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water40" type="AnimatedSprite2D" parent="Node/water3"]
+texture_filter = 1
+position = Vector2(792, 72)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="water31" type="AnimatedSprite2D" parent="Node/water3"]
+texture_filter = 1
+position = Vector2(744, 72)
+sprite_frames = SubResource("SpriteFrames_hk427")
+autoplay = "default"
+
+[node name="water32" type="AnimatedSprite2D" parent="Node/water3"]
+texture_filter = 1
+position = Vector2(760, 72)
+sprite_frames = SubResource("SpriteFrames_2nq1x")
+autoplay = "default"
+
+[node name="water7" type="Node" parent="Node"]
+
+[node name="watertop1" type="AnimatedSprite2D" parent="Node/water7"]
+texture_filter = 1
+position = Vector2(1448, 8)
+sprite_frames = SubResource("SpriteFrames_6q8jr")
+autoplay = "default"
+
+[node name="watertop2" type="AnimatedSprite2D" parent="Node/water7"]
+texture_filter = 1
+position = Vector2(1464, 8)
+sprite_frames = SubResource("SpriteFrames_oinu8")
+autoplay = "default"
+
+[node name="watertop3" type="AnimatedSprite2D" parent="Node/water7"]
+texture_filter = 1
+position = Vector2(1480, 8)
+sprite_frames = SubResource("SpriteFrames_4k5vd")
+autoplay = "default"
+
+[node name="watertop4" type="AnimatedSprite2D" parent="Node/water7"]
+texture_filter = 1
+position = Vector2(1496, 8)
+sprite_frames = SubResource("SpriteFrames_gukfd")
+autoplay = "default"
+
+[node name="water1" type="AnimatedSprite2D" parent="Node/water7"]
+texture_filter = 1
+position = Vector2(1448, 24)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water2" type="AnimatedSprite2D" parent="Node/water7"]
+texture_filter = 1
+position = Vector2(1464, 24)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="water3" type="AnimatedSprite2D" parent="Node/water7"]
+texture_filter = 1
+position = Vector2(1480, 24)
+sprite_frames = SubResource("SpriteFrames_hk427")
+autoplay = "default"
+
+[node name="water4" type="AnimatedSprite2D" parent="Node/water7"]
+texture_filter = 1
+position = Vector2(1496, 24)
+sprite_frames = SubResource("SpriteFrames_2nq1x")
+autoplay = "default"
+
+[node name="water5" type="AnimatedSprite2D" parent="Node/water7"]
+texture_filter = 1
+position = Vector2(1448, 40)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water6" type="AnimatedSprite2D" parent="Node/water7"]
+texture_filter = 1
+position = Vector2(1464, 40)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="water7" type="AnimatedSprite2D" parent="Node/water7"]
+texture_filter = 1
+position = Vector2(1480, 40)
+sprite_frames = SubResource("SpriteFrames_hk427")
+autoplay = "default"
+
+[node name="water8" type="AnimatedSprite2D" parent="Node/water7"]
+texture_filter = 1
+position = Vector2(1496, 40)
+sprite_frames = SubResource("SpriteFrames_2nq1x")
+autoplay = "default"
+
+[node name="water9" type="AnimatedSprite2D" parent="Node/water7"]
+texture_filter = 1
+position = Vector2(1448, 56)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water10" type="AnimatedSprite2D" parent="Node/water7"]
+texture_filter = 1
+position = Vector2(1464, 56)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="water11" type="AnimatedSprite2D" parent="Node/water7"]
+texture_filter = 1
+position = Vector2(1480, 56)
+sprite_frames = SubResource("SpriteFrames_hk427")
+autoplay = "default"
+
+[node name="water12" type="AnimatedSprite2D" parent="Node/water7"]
+texture_filter = 1
+position = Vector2(1496, 56)
+sprite_frames = SubResource("SpriteFrames_2nq1x")
+autoplay = "default"
+
+[node name="water13" type="AnimatedSprite2D" parent="Node/water7"]
+texture_filter = 1
+position = Vector2(1448, 72)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water14" type="AnimatedSprite2D" parent="Node/water7"]
+texture_filter = 1
+position = Vector2(1464, 72)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="water15" type="AnimatedSprite2D" parent="Node/water7"]
+texture_filter = 1
+position = Vector2(1480, 72)
+sprite_frames = SubResource("SpriteFrames_hk427")
+autoplay = "default"
+
+[node name="water16" type="AnimatedSprite2D" parent="Node/water7"]
+texture_filter = 1
+position = Vector2(1496, 72)
+sprite_frames = SubResource("SpriteFrames_2nq1x")
+autoplay = "default"
+
+[node name="watertop5" type="AnimatedSprite2D" parent="Node/water7"]
+texture_filter = 1
+position = Vector2(1512, 8)
+sprite_frames = SubResource("SpriteFrames_6q8jr")
+autoplay = "default"
+
+[node name="watertop6" type="AnimatedSprite2D" parent="Node/water7"]
+texture_filter = 1
+position = Vector2(1528, 8)
+sprite_frames = SubResource("SpriteFrames_oinu8")
+autoplay = "default"
+
+[node name="watertop7" type="AnimatedSprite2D" parent="Node/water7"]
+texture_filter = 1
+position = Vector2(1544, 8)
+sprite_frames = SubResource("SpriteFrames_4k5vd")
+autoplay = "default"
+
+[node name="watertop8" type="AnimatedSprite2D" parent="Node/water7"]
+texture_filter = 1
+position = Vector2(1560, 8)
+sprite_frames = SubResource("SpriteFrames_gukfd")
+autoplay = "default"
+
+[node name="water17" type="AnimatedSprite2D" parent="Node/water7"]
+texture_filter = 1
+position = Vector2(1512, 24)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water18" type="AnimatedSprite2D" parent="Node/water7"]
+texture_filter = 1
+position = Vector2(1528, 24)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="water19" type="AnimatedSprite2D" parent="Node/water7"]
+texture_filter = 1
+position = Vector2(1544, 24)
+sprite_frames = SubResource("SpriteFrames_hk427")
+autoplay = "default"
+
+[node name="water20" type="AnimatedSprite2D" parent="Node/water7"]
+texture_filter = 1
+position = Vector2(1560, 24)
+sprite_frames = SubResource("SpriteFrames_2nq1x")
+autoplay = "default"
+
+[node name="water21" type="AnimatedSprite2D" parent="Node/water7"]
+texture_filter = 1
+position = Vector2(1512, 40)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water22" type="AnimatedSprite2D" parent="Node/water7"]
+texture_filter = 1
+position = Vector2(1528, 40)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="water23" type="AnimatedSprite2D" parent="Node/water7"]
+texture_filter = 1
+position = Vector2(1544, 40)
+sprite_frames = SubResource("SpriteFrames_hk427")
+autoplay = "default"
+
+[node name="water24" type="AnimatedSprite2D" parent="Node/water7"]
+texture_filter = 1
+position = Vector2(1560, 40)
+sprite_frames = SubResource("SpriteFrames_2nq1x")
+autoplay = "default"
+
+[node name="water25" type="AnimatedSprite2D" parent="Node/water7"]
+texture_filter = 1
+position = Vector2(1512, 56)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water26" type="AnimatedSprite2D" parent="Node/water7"]
+texture_filter = 1
+position = Vector2(1528, 56)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="water27" type="AnimatedSprite2D" parent="Node/water7"]
+texture_filter = 1
+position = Vector2(1544, 56)
+sprite_frames = SubResource("SpriteFrames_hk427")
+autoplay = "default"
+
+[node name="water28" type="AnimatedSprite2D" parent="Node/water7"]
+texture_filter = 1
+position = Vector2(1560, 56)
+sprite_frames = SubResource("SpriteFrames_2nq1x")
+autoplay = "default"
+
+[node name="water29" type="AnimatedSprite2D" parent="Node/water7"]
+texture_filter = 1
+position = Vector2(1512, 72)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water30" type="AnimatedSprite2D" parent="Node/water7"]
+texture_filter = 1
+position = Vector2(1528, 72)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="watertop9" type="AnimatedSprite2D" parent="Node/water7"]
+texture_filter = 1
+position = Vector2(1576, 8)
+sprite_frames = SubResource("SpriteFrames_6q8jr")
+autoplay = "default"
+
+[node name="watertop10" type="AnimatedSprite2D" parent="Node/water7"]
+texture_filter = 1
+position = Vector2(1592, 8)
+sprite_frames = SubResource("SpriteFrames_oinu8")
+autoplay = "default"
+
+[node name="water33" type="AnimatedSprite2D" parent="Node/water7"]
+texture_filter = 1
+position = Vector2(1576, 24)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water34" type="AnimatedSprite2D" parent="Node/water7"]
+texture_filter = 1
+position = Vector2(1592, 24)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="water35" type="AnimatedSprite2D" parent="Node/water7"]
+texture_filter = 1
+position = Vector2(1576, 40)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water36" type="AnimatedSprite2D" parent="Node/water7"]
+texture_filter = 1
+position = Vector2(1592, 40)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="water37" type="AnimatedSprite2D" parent="Node/water7"]
+texture_filter = 1
+position = Vector2(1576, 56)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water38" type="AnimatedSprite2D" parent="Node/water7"]
+texture_filter = 1
+position = Vector2(1592, 56)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="water39" type="AnimatedSprite2D" parent="Node/water7"]
+texture_filter = 1
+position = Vector2(1576, 72)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water40" type="AnimatedSprite2D" parent="Node/water7"]
+texture_filter = 1
+position = Vector2(1592, 72)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="water31" type="AnimatedSprite2D" parent="Node/water7"]
+texture_filter = 1
+position = Vector2(1544, 72)
+sprite_frames = SubResource("SpriteFrames_hk427")
+autoplay = "default"
+
+[node name="water32" type="AnimatedSprite2D" parent="Node/water7"]
+texture_filter = 1
+position = Vector2(1560, 72)
+sprite_frames = SubResource("SpriteFrames_2nq1x")
+autoplay = "default"
+
+[node name="water8" type="Node" parent="Node"]
+
+[node name="watertop1" type="AnimatedSprite2D" parent="Node/water8"]
+texture_filter = 1
+position = Vector2(2216, 8)
+sprite_frames = SubResource("SpriteFrames_6q8jr")
+autoplay = "default"
+
+[node name="watertop2" type="AnimatedSprite2D" parent="Node/water8"]
+texture_filter = 1
+position = Vector2(2232, 8)
+sprite_frames = SubResource("SpriteFrames_oinu8")
+autoplay = "default"
+
+[node name="watertop3" type="AnimatedSprite2D" parent="Node/water8"]
+texture_filter = 1
+position = Vector2(2248, 8)
+sprite_frames = SubResource("SpriteFrames_4k5vd")
+autoplay = "default"
+
+[node name="watertop4" type="AnimatedSprite2D" parent="Node/water8"]
+texture_filter = 1
+position = Vector2(2264, 8)
+sprite_frames = SubResource("SpriteFrames_gukfd")
+autoplay = "default"
+
+[node name="water1" type="AnimatedSprite2D" parent="Node/water8"]
+texture_filter = 1
+position = Vector2(2216, 24)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water2" type="AnimatedSprite2D" parent="Node/water8"]
+texture_filter = 1
+position = Vector2(2232, 24)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="water3" type="AnimatedSprite2D" parent="Node/water8"]
+texture_filter = 1
+position = Vector2(2248, 24)
+sprite_frames = SubResource("SpriteFrames_hk427")
+autoplay = "default"
+
+[node name="water4" type="AnimatedSprite2D" parent="Node/water8"]
+texture_filter = 1
+position = Vector2(2264, 24)
+sprite_frames = SubResource("SpriteFrames_2nq1x")
+autoplay = "default"
+
+[node name="water5" type="AnimatedSprite2D" parent="Node/water8"]
+texture_filter = 1
+position = Vector2(2216, 40)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water6" type="AnimatedSprite2D" parent="Node/water8"]
+texture_filter = 1
+position = Vector2(2232, 40)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="water7" type="AnimatedSprite2D" parent="Node/water8"]
+texture_filter = 1
+position = Vector2(2248, 40)
+sprite_frames = SubResource("SpriteFrames_hk427")
+autoplay = "default"
+
+[node name="water8" type="AnimatedSprite2D" parent="Node/water8"]
+texture_filter = 1
+position = Vector2(2264, 40)
+sprite_frames = SubResource("SpriteFrames_2nq1x")
+autoplay = "default"
+
+[node name="water9" type="AnimatedSprite2D" parent="Node/water8"]
+texture_filter = 1
+position = Vector2(2216, 56)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water10" type="AnimatedSprite2D" parent="Node/water8"]
+texture_filter = 1
+position = Vector2(2232, 56)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="water11" type="AnimatedSprite2D" parent="Node/water8"]
+texture_filter = 1
+position = Vector2(2248, 56)
+sprite_frames = SubResource("SpriteFrames_hk427")
+autoplay = "default"
+
+[node name="water12" type="AnimatedSprite2D" parent="Node/water8"]
+texture_filter = 1
+position = Vector2(2264, 56)
+sprite_frames = SubResource("SpriteFrames_2nq1x")
+autoplay = "default"
+
+[node name="water13" type="AnimatedSprite2D" parent="Node/water8"]
+texture_filter = 1
+position = Vector2(2216, 72)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water14" type="AnimatedSprite2D" parent="Node/water8"]
+texture_filter = 1
+position = Vector2(2232, 72)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="water15" type="AnimatedSprite2D" parent="Node/water8"]
+texture_filter = 1
+position = Vector2(2248, 72)
+sprite_frames = SubResource("SpriteFrames_hk427")
+autoplay = "default"
+
+[node name="water16" type="AnimatedSprite2D" parent="Node/water8"]
+texture_filter = 1
+position = Vector2(2264, 72)
+sprite_frames = SubResource("SpriteFrames_2nq1x")
+autoplay = "default"
+
+[node name="watertop5" type="AnimatedSprite2D" parent="Node/water8"]
+texture_filter = 1
+position = Vector2(2280, 8)
+sprite_frames = SubResource("SpriteFrames_6q8jr")
+autoplay = "default"
+
+[node name="watertop6" type="AnimatedSprite2D" parent="Node/water8"]
+texture_filter = 1
+position = Vector2(2296, 8)
+sprite_frames = SubResource("SpriteFrames_oinu8")
+autoplay = "default"
+
+[node name="watertop7" type="AnimatedSprite2D" parent="Node/water8"]
+texture_filter = 1
+position = Vector2(2312, 8)
+sprite_frames = SubResource("SpriteFrames_4k5vd")
+autoplay = "default"
+
+[node name="watertop8" type="AnimatedSprite2D" parent="Node/water8"]
+texture_filter = 1
+position = Vector2(2328, 8)
+sprite_frames = SubResource("SpriteFrames_gukfd")
+autoplay = "default"
+
+[node name="water17" type="AnimatedSprite2D" parent="Node/water8"]
+texture_filter = 1
+position = Vector2(2280, 24)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water18" type="AnimatedSprite2D" parent="Node/water8"]
+texture_filter = 1
+position = Vector2(2296, 24)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="water19" type="AnimatedSprite2D" parent="Node/water8"]
+texture_filter = 1
+position = Vector2(2312, 24)
+sprite_frames = SubResource("SpriteFrames_hk427")
+autoplay = "default"
+
+[node name="water20" type="AnimatedSprite2D" parent="Node/water8"]
+texture_filter = 1
+position = Vector2(2328, 24)
+sprite_frames = SubResource("SpriteFrames_2nq1x")
+autoplay = "default"
+
+[node name="water21" type="AnimatedSprite2D" parent="Node/water8"]
+texture_filter = 1
+position = Vector2(2280, 40)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water22" type="AnimatedSprite2D" parent="Node/water8"]
+texture_filter = 1
+position = Vector2(2296, 40)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="water23" type="AnimatedSprite2D" parent="Node/water8"]
+texture_filter = 1
+position = Vector2(2312, 40)
+sprite_frames = SubResource("SpriteFrames_hk427")
+autoplay = "default"
+
+[node name="water24" type="AnimatedSprite2D" parent="Node/water8"]
+texture_filter = 1
+position = Vector2(2328, 40)
+sprite_frames = SubResource("SpriteFrames_2nq1x")
+autoplay = "default"
+
+[node name="water25" type="AnimatedSprite2D" parent="Node/water8"]
+texture_filter = 1
+position = Vector2(2280, 56)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water26" type="AnimatedSprite2D" parent="Node/water8"]
+texture_filter = 1
+position = Vector2(2296, 56)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="water27" type="AnimatedSprite2D" parent="Node/water8"]
+texture_filter = 1
+position = Vector2(2312, 56)
+sprite_frames = SubResource("SpriteFrames_hk427")
+autoplay = "default"
+
+[node name="water28" type="AnimatedSprite2D" parent="Node/water8"]
+texture_filter = 1
+position = Vector2(2328, 56)
+sprite_frames = SubResource("SpriteFrames_2nq1x")
+autoplay = "default"
+
+[node name="water29" type="AnimatedSprite2D" parent="Node/water8"]
+texture_filter = 1
+position = Vector2(2280, 72)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water30" type="AnimatedSprite2D" parent="Node/water8"]
+texture_filter = 1
+position = Vector2(2296, 72)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="water31" type="AnimatedSprite2D" parent="Node/water8"]
+texture_filter = 1
+position = Vector2(2312, 72)
+sprite_frames = SubResource("SpriteFrames_hk427")
+autoplay = "default"
+
+[node name="water32" type="AnimatedSprite2D" parent="Node/water8"]
+texture_filter = 1
+position = Vector2(2328, 72)
+sprite_frames = SubResource("SpriteFrames_2nq1x")
+autoplay = "default"
+
+[node name="water4" type="Node" parent="Node"]
+
+[node name="watertop1" type="AnimatedSprite2D" parent="Node/water4"]
+texture_filter = 1
+position = Vector2(904, 8)
+sprite_frames = SubResource("SpriteFrames_6q8jr")
+autoplay = "default"
+
+[node name="watertop2" type="AnimatedSprite2D" parent="Node/water4"]
+texture_filter = 1
+position = Vector2(920, 8)
+sprite_frames = SubResource("SpriteFrames_oinu8")
+autoplay = "default"
+
+[node name="watertop3" type="AnimatedSprite2D" parent="Node/water4"]
+texture_filter = 1
+position = Vector2(936, 8)
+sprite_frames = SubResource("SpriteFrames_4k5vd")
+autoplay = "default"
+
+[node name="water1" type="AnimatedSprite2D" parent="Node/water4"]
+texture_filter = 1
+position = Vector2(904, 24)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water2" type="AnimatedSprite2D" parent="Node/water4"]
+texture_filter = 1
+position = Vector2(920, 24)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="water3" type="AnimatedSprite2D" parent="Node/water4"]
+texture_filter = 1
+position = Vector2(936, 24)
+sprite_frames = SubResource("SpriteFrames_hk427")
+autoplay = "default"
+
+[node name="water5" type="AnimatedSprite2D" parent="Node/water4"]
+texture_filter = 1
+position = Vector2(904, 40)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water6" type="AnimatedSprite2D" parent="Node/water4"]
+texture_filter = 1
+position = Vector2(920, 40)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="water7" type="AnimatedSprite2D" parent="Node/water4"]
+texture_filter = 1
+position = Vector2(936, 40)
+sprite_frames = SubResource("SpriteFrames_hk427")
+autoplay = "default"
+
+[node name="water9" type="AnimatedSprite2D" parent="Node/water4"]
+texture_filter = 1
+position = Vector2(904, 56)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water10" type="AnimatedSprite2D" parent="Node/water4"]
+texture_filter = 1
+position = Vector2(920, 56)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="water11" type="AnimatedSprite2D" parent="Node/water4"]
+texture_filter = 1
+position = Vector2(936, 56)
+sprite_frames = SubResource("SpriteFrames_hk427")
+autoplay = "default"
+
+[node name="water13" type="AnimatedSprite2D" parent="Node/water4"]
+texture_filter = 1
+position = Vector2(904, 72)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water14" type="AnimatedSprite2D" parent="Node/water4"]
+texture_filter = 1
+position = Vector2(920, 72)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="water15" type="AnimatedSprite2D" parent="Node/water4"]
+texture_filter = 1
+position = Vector2(936, 72)
+sprite_frames = SubResource("SpriteFrames_hk427")
+autoplay = "default"
+
+[node name="water5" type="Node" parent="Node"]
+
+[node name="watertop1" type="AnimatedSprite2D" parent="Node/water5"]
+texture_filter = 1
+position = Vector2(1048, 8)
+sprite_frames = SubResource("SpriteFrames_6q8jr")
+autoplay = "default"
+
+[node name="watertop2" type="AnimatedSprite2D" parent="Node/water5"]
+texture_filter = 1
+position = Vector2(1064, 8)
+sprite_frames = SubResource("SpriteFrames_oinu8")
+autoplay = "default"
+
+[node name="watertop3" type="AnimatedSprite2D" parent="Node/water5"]
+texture_filter = 1
+position = Vector2(1080, 8)
+sprite_frames = SubResource("SpriteFrames_4k5vd")
+autoplay = "default"
+
+[node name="watertop4" type="AnimatedSprite2D" parent="Node/water5"]
+texture_filter = 1
+position = Vector2(1096, 8)
+sprite_frames = SubResource("SpriteFrames_gukfd")
+autoplay = "default"
+
+[node name="water1" type="AnimatedSprite2D" parent="Node/water5"]
+texture_filter = 1
+position = Vector2(1048, 24)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water2" type="AnimatedSprite2D" parent="Node/water5"]
+texture_filter = 1
+position = Vector2(1064, 24)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="water3" type="AnimatedSprite2D" parent="Node/water5"]
+texture_filter = 1
+position = Vector2(1080, 24)
+sprite_frames = SubResource("SpriteFrames_hk427")
+autoplay = "default"
+
+[node name="water4" type="AnimatedSprite2D" parent="Node/water5"]
+texture_filter = 1
+position = Vector2(1096, 24)
+sprite_frames = SubResource("SpriteFrames_2nq1x")
+autoplay = "default"
+
+[node name="water5" type="AnimatedSprite2D" parent="Node/water5"]
+texture_filter = 1
+position = Vector2(1048, 40)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water6" type="AnimatedSprite2D" parent="Node/water5"]
+texture_filter = 1
+position = Vector2(1064, 40)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="water7" type="AnimatedSprite2D" parent="Node/water5"]
+texture_filter = 1
+position = Vector2(1080, 40)
+sprite_frames = SubResource("SpriteFrames_hk427")
+autoplay = "default"
+
+[node name="water8" type="AnimatedSprite2D" parent="Node/water5"]
+texture_filter = 1
+position = Vector2(1096, 40)
+sprite_frames = SubResource("SpriteFrames_2nq1x")
+autoplay = "default"
+
+[node name="water9" type="AnimatedSprite2D" parent="Node/water5"]
+texture_filter = 1
+position = Vector2(1048, 56)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water10" type="AnimatedSprite2D" parent="Node/water5"]
+texture_filter = 1
+position = Vector2(1064, 56)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="water11" type="AnimatedSprite2D" parent="Node/water5"]
+texture_filter = 1
+position = Vector2(1080, 56)
+sprite_frames = SubResource("SpriteFrames_hk427")
+autoplay = "default"
+
+[node name="water12" type="AnimatedSprite2D" parent="Node/water5"]
+texture_filter = 1
+position = Vector2(1096, 56)
+sprite_frames = SubResource("SpriteFrames_2nq1x")
+autoplay = "default"
+
+[node name="water13" type="AnimatedSprite2D" parent="Node/water5"]
+texture_filter = 1
+position = Vector2(1048, 72)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="watertop5" type="AnimatedSprite2D" parent="Node/water5"]
+texture_filter = 1
+position = Vector2(1112, 8)
+sprite_frames = SubResource("SpriteFrames_6q8jr")
+autoplay = "default"
+
+[node name="water17" type="AnimatedSprite2D" parent="Node/water5"]
+texture_filter = 1
+position = Vector2(1112, 24)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water18" type="AnimatedSprite2D" parent="Node/water5"]
+texture_filter = 1
+position = Vector2(1112, 40)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water19" type="AnimatedSprite2D" parent="Node/water5"]
+texture_filter = 1
+position = Vector2(1112, 56)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water20" type="AnimatedSprite2D" parent="Node/water5"]
+texture_filter = 1
+position = Vector2(1112, 72)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water14" type="AnimatedSprite2D" parent="Node/water5"]
+texture_filter = 1
+position = Vector2(1064, 72)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="water15" type="AnimatedSprite2D" parent="Node/water5"]
+texture_filter = 1
+position = Vector2(1080, 72)
+sprite_frames = SubResource("SpriteFrames_hk427")
+autoplay = "default"
+
+[node name="water16" type="AnimatedSprite2D" parent="Node/water5"]
+texture_filter = 1
+position = Vector2(1096, 72)
+sprite_frames = SubResource("SpriteFrames_2nq1x")
+autoplay = "default"
+
+[node name="water6" type="Node" parent="Node"]
+
+[node name="watertop1" type="AnimatedSprite2D" parent="Node/water6"]
+texture_filter = 1
+position = Vector2(2008, 8)
+sprite_frames = SubResource("SpriteFrames_6q8jr")
+autoplay = "default"
+
+[node name="watertop2" type="AnimatedSprite2D" parent="Node/water6"]
+texture_filter = 1
+position = Vector2(2024, 8)
+sprite_frames = SubResource("SpriteFrames_oinu8")
+autoplay = "default"
+
+[node name="watertop3" type="AnimatedSprite2D" parent="Node/water6"]
+texture_filter = 1
+position = Vector2(2040, 8)
+sprite_frames = SubResource("SpriteFrames_4k5vd")
+autoplay = "default"
+
+[node name="watertop4" type="AnimatedSprite2D" parent="Node/water6"]
+texture_filter = 1
+position = Vector2(2056, 8)
+sprite_frames = SubResource("SpriteFrames_gukfd")
+autoplay = "default"
+
+[node name="water1" type="AnimatedSprite2D" parent="Node/water6"]
+texture_filter = 1
+position = Vector2(2008, 24)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water2" type="AnimatedSprite2D" parent="Node/water6"]
+texture_filter = 1
+position = Vector2(2024, 24)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="water3" type="AnimatedSprite2D" parent="Node/water6"]
+texture_filter = 1
+position = Vector2(2040, 24)
+sprite_frames = SubResource("SpriteFrames_hk427")
+autoplay = "default"
+
+[node name="water4" type="AnimatedSprite2D" parent="Node/water6"]
+texture_filter = 1
+position = Vector2(2056, 24)
+sprite_frames = SubResource("SpriteFrames_2nq1x")
+autoplay = "default"
+
+[node name="water5" type="AnimatedSprite2D" parent="Node/water6"]
+texture_filter = 1
+position = Vector2(2008, 40)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water6" type="AnimatedSprite2D" parent="Node/water6"]
+texture_filter = 1
+position = Vector2(2024, 40)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="water7" type="AnimatedSprite2D" parent="Node/water6"]
+texture_filter = 1
+position = Vector2(2040, 40)
+sprite_frames = SubResource("SpriteFrames_hk427")
+autoplay = "default"
+
+[node name="water8" type="AnimatedSprite2D" parent="Node/water6"]
+texture_filter = 1
+position = Vector2(2056, 40)
+sprite_frames = SubResource("SpriteFrames_2nq1x")
+autoplay = "default"
+
+[node name="water9" type="AnimatedSprite2D" parent="Node/water6"]
+texture_filter = 1
+position = Vector2(2008, 56)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water10" type="AnimatedSprite2D" parent="Node/water6"]
+texture_filter = 1
+position = Vector2(2024, 56)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="water11" type="AnimatedSprite2D" parent="Node/water6"]
+texture_filter = 1
+position = Vector2(2040, 56)
+sprite_frames = SubResource("SpriteFrames_hk427")
+autoplay = "default"
+
+[node name="water12" type="AnimatedSprite2D" parent="Node/water6"]
+texture_filter = 1
+position = Vector2(2056, 56)
+sprite_frames = SubResource("SpriteFrames_2nq1x")
+autoplay = "default"
+
+[node name="water13" type="AnimatedSprite2D" parent="Node/water6"]
+texture_filter = 1
+position = Vector2(2008, 72)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="watertop5" type="AnimatedSprite2D" parent="Node/water6"]
+texture_filter = 1
+position = Vector2(2072, 8)
+sprite_frames = SubResource("SpriteFrames_6q8jr")
+autoplay = "default"
+
+[node name="water17" type="AnimatedSprite2D" parent="Node/water6"]
+texture_filter = 1
+position = Vector2(2072, 24)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water18" type="AnimatedSprite2D" parent="Node/water6"]
+texture_filter = 1
+position = Vector2(2072, 40)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water19" type="AnimatedSprite2D" parent="Node/water6"]
+texture_filter = 1
+position = Vector2(2072, 56)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water20" type="AnimatedSprite2D" parent="Node/water6"]
+texture_filter = 1
+position = Vector2(2072, 72)
+sprite_frames = SubResource("SpriteFrames_5gb8u")
+autoplay = "default"
+
+[node name="water14" type="AnimatedSprite2D" parent="Node/water6"]
+texture_filter = 1
+position = Vector2(2024, 72)
+sprite_frames = SubResource("SpriteFrames_oblfq")
+autoplay = "default"
+
+[node name="water15" type="AnimatedSprite2D" parent="Node/water6"]
+texture_filter = 1
+position = Vector2(2040, 72)
+sprite_frames = SubResource("SpriteFrames_hk427")
+autoplay = "default"
+
+[node name="water16" type="AnimatedSprite2D" parent="Node/water6"]
+texture_filter = 1
+position = Vector2(2056, 72)
+sprite_frames = SubResource("SpriteFrames_2nq1x")
+autoplay = "default"
 
 [connection signal="body_entered" from="pitfall/collider" to="pitfall" method="_on_collider_body_entered"]
 [connection signal="body_exited" from="pitfall/collider" to="pitfall" method="_on_collider_body_exited"]
