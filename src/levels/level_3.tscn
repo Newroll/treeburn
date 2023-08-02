@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://b6ay00x3a3jcj"]
+[gd_scene load_steps=14 format=3 uid="uid://b6ay00x3a3jcj"]
 
 [ext_resource type="PackedScene" uid="uid://bmlc5h5gbouaf" path="res://src/interactive/character.tscn" id="1_km57j"]
 [ext_resource type="Texture2D" uid="uid://ddodrd661qp2" path="res://assets/background/cloudsfront.png" id="1_s6uy5"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://kfxb12a1wxyl" path="res://src/interactive/coin.tscn" id="4_4obr8"]
 [ext_resource type="Texture2D" uid="uid://c53pxjnt6vm8w" path="res://assets/foreground/lvl3_ground.png" id="4_wrhuw"]
 [ext_resource type="Script" path="res://src/interactive/coins.gd" id="5_1cxdc"]
+[ext_resource type="PackedScene" uid="uid://cqm6jb4lo3pts" path="res://src/interactive/movingplatform.tscn" id="8_pw5pa"]
 [ext_resource type="PackedScene" uid="uid://dvvqyio0cmfa5" path="res://src/interactive/snow.tscn" id="11_t4lbf"]
 [ext_resource type="PackedScene" uid="uid://dtfkm547yxtbg" path="res://src/ui/ui.tscn" id="15_0cqxb"]
 
@@ -163,6 +164,11 @@ drag_top_margin = 0.8
 [node name="Coin" parent="coins" instance=ExtResource("4_4obr8")]
 position = Vector2(90, -21)
 script = ExtResource("5_1cxdc")
+
+[node name="platforms" type="Node" parent="."]
+
+[node name="movingplatform" parent="platforms" instance=ExtResource("8_pw5pa")]
+position = Vector2(79, -145)
 
 [node name="snow" type="Node" parent="."]
 
