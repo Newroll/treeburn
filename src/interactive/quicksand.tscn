@@ -14,6 +14,7 @@ size = Vector2(58, 29)
 script = ExtResource("1_tl2lo")
 
 [node name="ColorRect" type="ColorRect" parent="Area2D"]
+visible = false
 offset_left = 464.0
 offset_top = 507.0
 offset_right = 522.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://ddv4q4gf0k1gu"]
+[gd_scene load_steps=22 format=3 uid="uid://ddv4q4gf0k1gu"]
 
 [ext_resource type="Script" path="res://src/levels/level_2.gd" id="1_anxaj"]
 [ext_resource type="PackedScene" uid="uid://bmlc5h5gbouaf" path="res://src/interactive/character.tscn" id="1_km57j"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c2mry0qfdwb45" path="res://assets/foreground/lvl2_ground.png" id="4_ps6a8"]
 [ext_resource type="Script" path="res://src/interactive/coins.gd" id="5_1cxdc"]
 [ext_resource type="Resource" uid="uid://bybefrr5rfkdx" path="res://src/interactive/DefaultMovementData.tres" id="8_75utj"]
+[ext_resource type="Texture2D" uid="uid://dyjdhilnk6ppo" path="res://assets/foreground/quicksand.png" id="8_m2tjl"]
 [ext_resource type="PackedScene" uid="uid://uiouwl5inj5h" path="res://src/interactive/platform.tscn" id="13_uoyuq"]
 [ext_resource type="PackedScene" uid="uid://be2b5vmn7o8d1" path="res://src/interactive/quicksand.tscn" id="14_6ggne"]
 [ext_resource type="PackedScene" uid="uid://dtfkm547yxtbg" path="res://src/ui/ui.tscn" id="15_0cqxb"]
@@ -65,6 +66,22 @@ texture = ExtResource("4_ps6a8")
 3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 3:1/0/physics_layer_0/angular_velocity = 0.0
 3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+4:0/0 = 0
+4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+4:0/0/physics_layer_0/angular_velocity = 0.0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 5, 5, 8, -8, 8)
+5:0/0 = 0
+5:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+5:0/0/physics_layer_0/angular_velocity = 0.0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -3.5, 8, -3.5, 4.5, -8, 4.5)
+6:0/0 = 0
+6:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+6:0/0/physics_layer_0/angular_velocity = 0.0
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:0/0 = 0
+7:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+7:0/0/physics_layer_0/angular_velocity = 0.0
+7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -4, 8, -4, 4, -8, 4.5)
 4:1/0 = 0
 4:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:1/0/physics_layer_0/angular_velocity = 0.0
@@ -100,6 +117,40 @@ texture_region_size = Vector2i(48, 48)
 physics_layer_0/collision_layer = 1
 sources/2 = SubResource("TileSetAtlasSource_3n1mi")
 sources/5 = SubResource("TileSetAtlasSource_n3ewm")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3affl"]
+texture = ExtResource("8_m2tjl")
+1:0/animation_columns = 3
+1:0/animation_frame_0/duration = 1.0
+1:0/animation_frame_1/duration = 1.0
+1:0/animation_frame_2/duration = 1.0
+1:0/0 = 0
+0:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n0dtg"]
+texture = ExtResource("4_ps6a8")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_4xtmi"]
+sources/2 = SubResource("TileSetAtlasSource_3affl")
+sources/3 = SubResource("TileSetAtlasSource_n0dtg")
 
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_anxaj")
@@ -157,6 +208,12 @@ movement_data = ExtResource("8_75utj")
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="CharacterBody2D"]
 remote_path = NodePath("../../Camera2D")
+
+[node name="InfrontPlayer" type="TileMap" parent="."]
+texture_filter = 1
+tile_set = SubResource("TileSet_4xtmi")
+format = 2
+layer_0/tile_data = PackedInt32Array(125, 65538, 0, 126, 65538, 0, 127, 65538, 0, 128, 65538, 0, 129, 65538, 0, 130, 65538, 0, 131, 65538, 0, 137, 65538, 0, 138, 65538, 0, 139, 65538, 0, 140, 65538, 0, 141, 65538, 0, 142, 65538, 0, 143, 65538, 0, 147, 65538, 0, 65683, 2, 1, 131219, 2, 1, 196755, 196611, 1, 262291, 2, 1, 327827, 2, 1, 393363, 2, 1, 148, 65538, 0, 65684, 2, 1, 131220, 196611, 2, 196756, 2, 1, 262292, 2, 1, 327828, 196611, 1, 393364, 2, 1, 149, 65538, 0, 65685, 2, 1, 131221, 196611, 2, 196757, 2, 1, 262293, 2, 1, 327829, 2, 1, 393365, 2, 1, 150, 65538, 0, 65686, 2, 1, 131222, 196611, 1, 196758, 2, 1, 262294, 2, 1, 327830, 2, 1, 393366, 2, 1, 151, 65538, 0, 65687, 2, 1, 131223, 2, 1, 196759, 196611, 2, 262295, 196611, 1, 327831, 2, 1, 393367, 2, 1, 152, 65538, 0, 65688, 2, 1, 131224, 2, 1, 196760, 2, 1, 262296, 2, 1, 327832, 2, 1, 393368, 2, 1, 153, 65538, 0, 65689, 196611, 2, 131225, 196611, 1, 196761, 2, 1, 262297, 2, 1, 327833, 196611, 2, 393369, 2, 1, 154, 65538, 0, 65690, 2, 1, 131226, 2, 1, 196762, 2, 1, 262298, 2, 1, 327834, 2, 1, 393370, 2, 1, 155, 65538, 0, 65691, 2, 1, 131227, 2, 1, 196763, 196611, 1, 262299, 196611, 2, 327835, 2, 1, 393371, 2, 1, 156, 65538, 0, 65692, 2, 1, 131228, 2, 1, 196764, 2, 1, 262300, 2, 1, 327836, 196611, 2, 393372, 2, 1, 157, 65538, 0, 65693, 2, 1, 131229, 2, 1, 196765, 2, 1, 262301, 2, 1, 327837, 2, 1, 393373, 2, 1, 65673, 2, 1, 131209, 2, 1, 196745, 2, 1, 262281, 2, 1, 327817, 2, 1, 393353, 2, 1, 65674, 2, 1, 131210, 2, 1, 196746, 196611, 1, 262282, 2, 1, 327818, 2, 1, 393354, 2, 1, 65675, 2, 1, 131211, 196611, 1, 196747, 2, 1, 262283, 196611, 2, 327819, 196611, 1, 393355, 2, 1, 65676, 2, 1, 131212, 2, 1, 196748, 2, 1, 262284, 2, 1, 327820, 2, 1, 393356, 2, 1, 65677, 2, 1, 131213, 2, 1, 196749, 196611, 1, 262285, 2, 1, 327821, 2, 1, 393357, 2, 1, 65678, 2, 1, 131214, 196611, 2, 196750, 2, 1, 262286, 2, 1, 327822, 196611, 2, 393358, 2, 1, 65679, 2, 1, 131215, 2, 1, 196751, 2, 1, 262287, 2, 1, 327823, 2, 1, 393359, 2, 1, 65661, 2, 1, 131197, 2, 1, 196733, 2, 1, 262269, 2, 1, 327805, 196611, 2, 393341, 2, 1, 65662, 196611, 1, 327806, 196611, 2, 393342, 2, 1, 65663, 2, 1, 327807, 2, 1, 393343, 2, 1, 65664, 2, 1, 327808, 196611, 1, 393344, 2, 1, 65665, 2, 1, 327809, 2, 1, 393345, 2, 1, 65666, 2, 1, 131202, 196611, 1, 196738, 196611, 2, 262274, 2, 1, 327810, 196611, 1, 393346, 2, 1, 65667, 2, 1, 131203, 2, 1, 196739, 2, 1, 262275, 2, 1, 327811, 2, 1, 393347, 196611, 2, 131198, 196611, 2, 196734, 2, 1, 262270, 196611, 1, 131199, 2, 1, 196735, 2, 1, 262271, 2, 1, 131200, 2, 1, 196736, 196611, 2, 262272, 2, 1, 131201, 2, 1, 196737, 2, 1, 262273, 2, 1)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(20, -10)
