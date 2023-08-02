@@ -9,10 +9,10 @@ func _process(delta):
 	
 	if Input.is_action_just_pressed("two"):
 		Main.coins = 0
-		Main.level = 1
+		Main.level = 2
 		get_tree().change_scene_to_file("res://src/levels/level_2.tscn")
 	
 	if Input.is_action_just_pressed("three"):
 		Main.coins = 0
-		Main.level = 1
+		Main.level = 3
 		get_tree().change_scene_to_file("res://src/levels/level_3.tscn")

@@ -1,7 +1,7 @@
 extends Node
 
 var coins = 0
-var level = 3
+var level = 1
 var levelTimeEclapsed = 0
 var framesEclapsed = 0
 var health = 3
@@ -12,7 +12,10 @@ func _physics_process(delta):
 	if(framesEclapsed == 60):
 		levelTimeEclapsed += 1
 		framesEclapsed = 0
-	print(health)
+	if(health <= 0):
+		health = 3
+		#play death animation
+		get_tree().change_scene_to_file("res://src/levels/level_" + str(level) + ".tscn")
 
 var quicksand = false
 var player_dead = false

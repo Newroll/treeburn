@@ -20,9 +20,8 @@ func _process(delta):
 func _on_body_entered(body):
 	if body.name == "CharacterBody2D":
 		isInFire = true
-		#print("entered")
 
 
 func _on_body_exited(body):
 	isInFire = false
-	#print("exited")
+	immuneTimer = 0
