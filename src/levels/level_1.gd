@@ -1,7 +1,7 @@
 extends Node2D
 
 
-func _process(delta):
+func _process(_delta):
 	if Input.is_action_just_pressed("one"):
 		Main.coins = 0
 		Main.level = 1

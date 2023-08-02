@@ -4,5 +4,5 @@ func _on_body_entered(body):
 	if body.name == "CharacterBody2D":
 		Main.quicksand = true
 
-func _on_body_exited(body):
+func _on_body_exited(_body):
 	Main.quicksand = false

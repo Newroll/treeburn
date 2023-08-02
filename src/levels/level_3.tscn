@@ -158,13 +158,11 @@ drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_top_margin = 0.8
 
-[node name="Coins" type="Node" parent="."]
+[node name="coins" type="Node" parent="."]
 
-[node name="Coin" parent="Coins" instance=ExtResource("4_4obr8")]
+[node name="Coin" parent="coins" instance=ExtResource("4_4obr8")]
 position = Vector2(90, -21)
 script = ExtResource("5_1cxdc")
-
-[node name="UI" parent="." instance=ExtResource("15_0cqxb")]
 
 [node name="snow" type="Node" parent="."]
 
@@ -967,3 +965,5 @@ scale = Vector2(1.5625, 1.5625)
 [node name="snow200" parent="snow" instance=ExtResource("11_t4lbf")]
 position = Vector2(730, -416)
 scale = Vector2(1.5625, 1.5625)
+
+[node name="ui" parent="." instance=ExtResource("15_0cqxb")]

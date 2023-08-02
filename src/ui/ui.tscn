@@ -1,6 +1,6 @@
 [gd_scene load_steps=16 format=3 uid="uid://dtfkm547yxtbg"]
 
-[ext_resource type="FontFile" uid="uid://es627dw3q2bu" path="res://assets/fonts/WayfarersToyBoxRegular.ttf" id="1_6jeod"]
+[ext_resource type="FontFile" uid="uid://422t11bovf6v" path="res://assets/styles/mainport.ttf" id="1_hkuc3"]
 [ext_resource type="Texture2D" uid="uid://bfw6ie5ct8058" path="res://assets/player/fullhealth.png" id="3_lxw2j"]
 [ext_resource type="Script" path="res://src/interactive/coincounter.gd" id="3_x676s"]
 [ext_resource type="Script" path="res://src/ui/health1.gd" id="5_ogaie"]
@@ -65,9 +65,9 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="UI" type="CanvasLayer"]
+[node name="ui" type="CanvasLayer"]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="coinanimation" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(293, 14)
 scale = Vector2(0.601563, 0.601563)
@@ -76,11 +76,11 @@ autoplay = "default"
 
 [node name="CoinCounter" type="Label" parent="."]
 texture_filter = 1
-offset_left = 300.0
-offset_top = 9.0
-offset_right = 312.0
-offset_bottom = 24.0
-theme_override_fonts/font = ExtResource("1_6jeod")
+offset_left = 301.0
+offset_top = 7.0
+offset_right = 308.0
+offset_bottom = 20.0
+theme_override_fonts/font = ExtResource("1_hkuc3")
 theme_override_font_sizes/font_size = 10
 text = "0"
 horizontal_alignment = 1
