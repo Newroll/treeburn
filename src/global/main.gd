@@ -5,6 +5,9 @@ var level = 3
 var levelTimeEclapsed = 0
 var framesEclapsed = 0
 
+var in_range = false
+var aggro = false
+
 func _physics_process(delta):
 	framesEclapsed += 1
 	

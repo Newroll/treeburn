@@ -95,8 +95,11 @@ func player_death():
 func player_dead():
 	position = Vector2(10,-20)
 	movement_data.double_jump = true
+	#Reset Main
 	Main.coins = 0
 	Main.quicksand = false
+	Main.in_range = false
+	Main.aggro = false
 
 func animation_state():
 	if velocity.x == 0:
