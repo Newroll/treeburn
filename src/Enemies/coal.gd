@@ -28,7 +28,10 @@ func _physics_process(delta):
 		can_attack = false
 		_throw_rock()
 		attack_timer.start()
-	
+
+	if aggro:
+		move_towards_player(player.position, speed, delta)
+
 	#Run functions
 	move_character()
 	move_and_slide()
@@ -59,6 +62,10 @@ func _on_player_detection_body_exited(body):
 	if body.is_in_group("player"):
 		aggro = false
 		speed = 12
+
+func move_towards_player(player_pos: Vector2, speed: float, delta: float):
+	var direction = (player_pos - position).normalized()
+	position.x += direction.x * speed * delta
 
 func _throw_rock() -> void:
 	var projectile = rock_throwable_scene.instantiate()
