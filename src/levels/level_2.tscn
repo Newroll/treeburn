@@ -340,9 +340,10 @@ position = Vector2(1887, -506)
 [node name="Enemies" type="Node" parent="."]
 
 [node name="axe" parent="Enemies" instance=ExtResource("15_n3t30")]
-position = Vector2(336, -18)
+position = Vector2(1038, -51)
 
 [node name="coal" parent="Enemies" instance=ExtResource("15_ty355")]
+position = Vector2(344, -18)
 
 [connection signal="body_entered" from="Portal" to="Portal" method="_on_body_entered"]
 [connection signal="body_exited" from="Portal" to="Portal" method="_on_body_exited"]

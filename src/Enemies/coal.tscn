@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" path="res://src/Enemies/coal.gd" id="1_hb40t"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tip21"]
-size = Vector2(142.688, 48.375)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_achxt"]
+radius = 150.0
+height = 300.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wdm8e"]
 height = 20.0
@@ -26,7 +27,7 @@ collision_layer = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_detection"]
 position = Vector2(-10, -7.1875)
-shape = SubResource("RectangleShape2D_tip21")
+shape = SubResource("CapsuleShape2D_achxt")
 
 [node name="death" type="Area2D" parent="."]
 
@@ -41,3 +42,12 @@ target_position = Vector2(0, 15)
 [node name="RayCast_Right" type="RayCast2D" parent="."]
 position = Vector2(6, 8)
 target_position = Vector2(0, 15)
+
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+
+[connection signal="body_entered" from="player_detection" to="." method="_on_player_detection_body_entered"]
+[connection signal="body_exited" from="player_detection" to="." method="_on_player_detection_body_exited"]
+[connection signal="body_entered" from="death" to="." method="_on_death_body_entered"]
+[connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
