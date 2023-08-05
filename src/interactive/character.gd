@@ -2,10 +2,7 @@ extends CharacterBody2D
 
 @export var movement_data : MovementData
 
-var playerposition = Vector2()
-
 var spawnY = -20
-@export var in_quicksand = false
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
@@ -106,8 +103,11 @@ func player_death():
 func player_dead():
 	position = Vector2(10,spawnY)
 	movement_data.double_jump = true
+	#Reset Main
 	Main.coins = 0
-	#Main.quicksand = false
+	Main.quicksand = false
+	Main.in_range = false
+	Main.aggro = false
 	Main.health = 3
 
 func animation_state():

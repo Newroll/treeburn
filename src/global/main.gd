@@ -5,8 +5,10 @@ var level = 1
 var levelTimeEclapsed = 0
 var framesEclapsed = 0
 var health = 3
+var in_range = false
+var aggro = false
 
-func _physics_process(_delta):
+func _physics_process(delta):
 	framesEclapsed += 1
 	
 	if(framesEclapsed == 60):
