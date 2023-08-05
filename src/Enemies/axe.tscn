@@ -1,53 +1,55 @@
-[gd_scene load_steps=5 format=3 uid="uid://dqwcpids7e46a"]
+[gd_scene load_steps=4 format=3 uid="uid://dqwcpids7e46a"]
 
 [ext_resource type="Script" path="res://src/Enemies/axe.gd" id="1_3cb35"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_qa7ft"]
-size = Vector2(14, 32)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tikr1"]
+height = 20.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_31et8"]
-size = Vector2(142.688, 49.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e38vs"]
-size = Vector2(18, 35)
+[sub_resource type="CircleShape2D" id="CircleShape2D_vw6dv"]
+radius = 89.0
 
 [node name="axe" type="CharacterBody2D"]
 position = Vector2(10, -1)
 script = ExtResource("1_3cb35")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -17.0
-offset_top = -15.0
-offset_right = -3.0
-offset_bottom = 17.0
+[node name="Polygon2D" type="Polygon2D" parent="."]
+position = Vector2(26, -41.5971)
+scale = Vector2(0.354167, 0.537588)
 color = Color(0, 0, 0, 1)
-metadata/_edit_use_anchors_ = true
+polygon = PackedVector2Array(-98.8234, 99.6992, -98.8234, 77.3773, -124.235, 81.0976, -127.059, 58.7757, -98.8234, 60.6359, -81.8823, 60.6359, -81.8823, 110.86, -98.8234, 110.86)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-10, 1)
-shape = SubResource("RectangleShape2D_qa7ft")
-
-[node name="player_detection" type="Area2D" parent="."]
-collision_layer = 3
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="player_detection"]
-position = Vector2(-10, -7)
-shape = SubResource("RectangleShape2D_31et8")
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-3, 18, -3, 1, -3, -9, -10, -9, -19, -10, -18, 2, -9, 0, -9, 18)
 
 [node name="death" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="death"]
-position = Vector2(-10, -0.5)
-shape = SubResource("RectangleShape2D_e38vs")
+position = Vector2(-10, 0)
+shape = SubResource("CapsuleShape2D_tikr1")
 
-[node name="RayCast_Left" type="RayCast2D" parent="."]
+[node name="player_chase" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player_chase"]
+position = Vector2(-11, -2)
+shape = SubResource("CircleShape2D_vw6dv")
+
+[node name="RayCast_Left2" type="RayCast2D" parent="."]
 position = Vector2(-27, 8)
 target_position = Vector2(0, 15)
 
-[node name="RayCast_Right" type="RayCast2D" parent="."]
+[node name="RayCast_Right2" type="RayCast2D" parent="."]
 position = Vector2(6, 8)
 target_position = Vector2(0, 15)
 
-[connection signal="body_entered" from="player_detection" to="." method="_on_player_detection_body_entered"]
-[connection signal="body_exited" from="player_detection" to="." method="_on_player_detection_body_exited"]
-[connection signal="body_entered" from="death" to="." method="_on_death_body_entered"]
+[node name="AttackTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="WalkTimer" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
+autostart = true
+
+[node name="IdleTimer" type="Timer" parent="."]
+wait_time = 1.25
+one_shot = true

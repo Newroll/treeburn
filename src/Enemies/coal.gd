@@ -11,11 +11,15 @@ var can_attack = false
 
 @onready var player = get_tree().current_scene.get_node("CharacterBody2D")
 @onready var attack_timer: Timer = get_node("AttackTimer")
+@onready var idle_timer: Timer = get_node("IdleTimer")
+@onready var walk_timer: Timer = get_node("WalkTimer")
 
-var speed = 12.0
+# Movement State
+var speed = 18
 var is_moving_left = false
-# aggro state
+var idle = false
 
+# Raycasts to determine if ground is available for the enemy to walk on
 @onready var raycast_left = $RayCast_Left
 @onready var raycast_right = $RayCast_Right
 
@@ -38,13 +42,15 @@ func _physics_process(delta):
 	move_and_slide()
 	move_character()
 	detect_turn()
+	enemy_idle()
 
 
 func move_character():
-	if is_moving_left == true:
-		velocity.x = -speed
-	else:
-		velocity.x = speed
+	if idle == false:
+		if is_moving_left == true:
+			velocity.x = -speed
+		else:
+			velocity.x = speed
 
 
 func detect_turn():
@@ -80,7 +86,7 @@ func _on_player_chase_body_entered(body):
 func _on_player_chase_body_exited(body):
 	if body.is_in_group("player"):
 		Main.aggro = false
-		speed = 12
+		speed = 18
 
 func move_towards_player():
 	if raycast_left.is_colliding() && raycast_right.is_colliding() && is_on_floor():
@@ -93,3 +99,20 @@ func _throw_rock() -> void:
 
 func _on_attack_timer_timeout():
 	can_attack = true
+
+
+func _on_idle_timer_timeout():
+	idle = false
+	walk_timer.start()
+
+
+func enemy_idle():
+	if idle == true:
+		velocity.x = 0
+	else:
+		return
+
+
+func _on_walk_timer_timeout():
+	idle = true
+	idle_timer.start()
