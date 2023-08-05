@@ -340,7 +340,7 @@ position = Vector2(1887, -506)
 [node name="Enemies" type="Node" parent="."]
 
 [node name="axe" parent="Enemies" instance=ExtResource("15_n3t30")]
-position = Vector2(1038, -51)
+position = Vector2(660, -36)
 
 [node name="coal" parent="Enemies" instance=ExtResource("15_ty355")]
 position = Vector2(344, -18)
