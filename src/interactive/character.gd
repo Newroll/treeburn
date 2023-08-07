@@ -32,6 +32,8 @@ func _physics_process(delta):
 func check_state():
 	if Main.quicksand == true:
 		movement_data = load("res://src/interactive/QuicksandMovementData.tres")
+	elif Main.ice == true:
+		movement_data = load("res://src/interactive/IceMovementData.tres")
 	else:
 		movement_data = load("res://src/interactive/DefaultMovementData.tres")
 
