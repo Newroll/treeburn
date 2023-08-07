@@ -20,6 +20,7 @@ func _physics_process(delta):
 		get_tree().change_scene_to_file("res://src/levels/level_" + str(level) + ".tscn")
 
 var quicksand = false
+var ice = false
 var player_dead = false
 var knockback = false
 
