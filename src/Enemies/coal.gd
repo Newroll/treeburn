@@ -4,7 +4,7 @@ extends CharacterBody2D
 const rock_throwable_scene = preload("res://src/Enemies/throwable_rock.tscn")
 
 # Determines whether or not it can attack
-var can_attack = false
+var can_attack = true
 
 
 @export var projectile_speed: int = 100
@@ -61,30 +61,28 @@ func detect_turn():
 
 
 func _on_death_body_entered(body):
-	if body.is_in_group("player"):
+	if body.name == "CharacterBody2D":
 		Main.dead.emit()
 
 
 func _on_ranged_attack_body_entered(body):
-	if body.is_in_group("player"):
+	if body.name == "CharacterBody2D":
 		Main.in_range = true
 		attack_timer.start()
 
 
 func _on_ranged_attack_body_exited(body):
-	if body.is_in_group("player"):
 		Main.in_range = false
 		attack_timer.stop()
 
 
 func _on_player_chase_body_entered(body):
-	if body.is_in_group("player"):
+	if body.name == "CharacterBody2D":
 		Main.aggro = true
 		speed = 50
 
 
 func _on_player_chase_body_exited(body):
-	if body.is_in_group("player"):
 		Main.aggro = false
 		speed = 18
 

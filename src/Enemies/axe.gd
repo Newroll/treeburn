@@ -6,6 +6,8 @@ extends CharacterBody2D
 @onready var attack_timer: Timer = get_node("AttackTimer")
 @onready var idle_timer: Timer = get_node("IdleTimer")
 @onready var walk_timer: Timer = get_node("WalkTimer")
+@onready var animated_sprite: AnimatedSprite2D = get_node("AnimatedSprite2D")
+@onready var animation_player: AnimationPlayer = get_node("AnimationPlayer")
 
 # Movement State
 var speed = 25
@@ -28,12 +30,12 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 	
 	if can_attack && attack_interval_passed:
-		$AnimationPlayer.play("axe_attack")
+		animation_player.play("axe_attack")
 		attack_interval_passed = false
 		attack_timer.start()
 	
 	#Stops enemy movement if attacking
-	if $AnimationPlayer.current_animation == "axe_attack":
+	if animation_player.current_animation == "axe_attack":
 		velocity.x = 0
 
 	#Makes the enemy chase the player once it is in range through the aggro var
@@ -45,7 +47,7 @@ func _physics_process(delta):
 	move_character()
 	detect_turn()
 	enemy_idle()
-	#animation_state()
+	animation_state()
 
 
 func move_character():
@@ -63,19 +65,20 @@ func detect_turn():
 		is_moving_left = true
 
 func _on_player_chase_body_entered(body):
-	if body.is_in_group("player"):
+	if body.name == "CharacterBody2D":
 		Main.aggro = true
 		speed = 40
 
 
 func _on_player_chase_body_exited(body):
-	if body.is_in_group("player"):
+	if body.name == "CharacterBody2D":
 		Main.aggro = false
 		speed = 25
 
 func move_towards_player():
 	if raycast_left.is_colliding() && raycast_right.is_colliding() && is_on_floor():
-		position.x += (player.position.x - position.x)/speed
+		speed = (player.position.x - position.x)/speed
+		velocity.x = speed
 
 
 func _on_idle_timer_timeout():
@@ -103,12 +106,12 @@ func end_hit():
 
 
 func _on_can_attack_body_entered(body):
-	if body.is_in_group("player"):
+	if body.name == "CharacterBody2D":
 		can_attack = true
 
 
 func _on_attack_area_body_entered(body):
-	if body.is_in_group("player"):
+	if body.name == "CharacterBody2D":
 		Main.dead.emit()
 
 
@@ -116,8 +119,12 @@ func _on_attack_timer_timeout():
 	attack_interval_passed = true
 
 
-#func animation_state():
-	#if velocity.x > 0:
-		#axe.flip_h = true
-	#if velocity.x < 0:
-		#axe.flip_h = false
+func animation_state():
+	if velocity.x > 0:
+		animated_sprite.flip_h = true
+		animation_player.play("axe_run")
+	if velocity.x < 0:
+		animated_sprite.flip_h = false
+		animation_player.play("axe_run")
+	if idle == true:
+		animation_player.play("axe_idle")
