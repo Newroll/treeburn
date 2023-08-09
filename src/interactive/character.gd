@@ -17,6 +17,7 @@ func _ready():
 func _physics_process(delta):
 	var input_axis = Input.get_axis("move_left", "move_right")
 	if Main.knockback == false:
+		#add check here to check if speed is below limit
 		jump()
 		check_state()
 		wall_sliding_true()
