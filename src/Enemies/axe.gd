@@ -63,13 +63,13 @@ func detect_turn():
 		is_moving_left = true
 
 func _on_player_chase_body_entered(body):
-	if body.is_in_group("player"):
+	if body.name == "CharacterBody2D":
 		Main.aggro = true
 		speed = 40
 
 
 func _on_player_chase_body_exited(body):
-	if body.is_in_group("player"):
+	if body.name == "CharacterBody2D":
 		Main.aggro = false
 		speed = 25
 
@@ -103,12 +103,12 @@ func end_hit():
 
 
 func _on_can_attack_body_entered(body):
-	if body.is_in_group("player"):
+	if body.name == "CharacterBody2D":
 		can_attack = true
 
 
 func _on_attack_area_body_entered(body):
-	if body.is_in_group("player"):
+	if body.name == "CharacterBody2D":
 		Main.dead.emit()
 
 
