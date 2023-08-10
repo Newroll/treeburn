@@ -27,7 +27,7 @@ func _physics_process(delta):
 		position = Vector2(1000, -1000)
 		needToReset = true
 		
-	if Main.levelTimeEclapsed % 6 == 0 && needToReset == true:
+	if int(Main.timeEclapsed) % 6 == 0 && needToReset == true:
 		position = Vector2(returnTo.x, returnTo.y)
 		needToReset = false
 	
