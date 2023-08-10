@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://dtfkm547yxtbg"]
+[gd_scene load_steps=17 format=3 uid="uid://dtfkm547yxtbg"]
 
 [ext_resource type="FontFile" uid="uid://422t11bovf6v" path="res://assets/styles/mainport.ttf" id="1_hkuc3"]
 [ext_resource type="Texture2D" uid="uid://bfw6ie5ct8058" path="res://assets/player/fullhealth.png" id="3_lxw2j"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://src/ui/health2.gd" id="6_0g8ks"]
 [ext_resource type="Texture2D" uid="uid://dkf6xuqqf5jx0" path="res://assets/player/healthsheet.png" id="7_0wtc1"]
 [ext_resource type="Script" path="res://src/ui/health3.gd" id="7_x4u3b"]
+[ext_resource type="Script" path="res://src/ui/worldHealth.gd" id="8_6i3im"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ap6g3"]
 region = Rect2(0, 0, 16, 16)
@@ -119,3 +120,15 @@ script = ExtResource("7_x4u3b")
 visible = false
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_y7kgl")
+
+[node name="worldHealth" type="ProgressBar" parent="."]
+texture_filter = 1
+offset_left = 6.0
+offset_top = 7.0
+offset_right = 199.0
+offset_bottom = 15.0
+theme_override_fonts/font = ExtResource("1_hkuc3")
+max_value = 3600.0
+step = 2.08165e-12
+show_percentage = false
+script = ExtResource("8_6i3im")
