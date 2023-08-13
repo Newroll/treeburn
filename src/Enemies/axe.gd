@@ -14,7 +14,11 @@ var speed = 25
 var is_moving_left = false
 var idle = false
 
+#Test
+var player_axis = 0
+
 var can_attack = false
+var aggro = false
 var attack_interval_passed = true
 
 # Raycasts to determine if ground is available for the enemy to walk on
@@ -25,11 +29,12 @@ var attack_interval_passed = true
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 func _physics_process(delta):
+	var player_dir = player.position.x - position.x
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
 	
-	if can_attack && attack_interval_passed:
+	if can_attack == true && attack_interval_passed == true:
 		animation_player.play("axe_attack")
 		attack_interval_passed = false
 		attack_timer.start()
@@ -39,13 +44,12 @@ func _physics_process(delta):
 		velocity.x = 0
 
 	#Makes the enemy chase the player once it is in range through the aggro var
-	if Main.aggro == true:
-		move_towards_player()
-
+	move_towards_player(player_dir)
+		
 	#Run functions
 	move_and_slide()
-	move_character()
 	detect_turn()
+	move_character()
 	enemy_idle()
 	animation_state()
 
@@ -59,38 +63,38 @@ func move_character():
 
 
 func detect_turn():
-	if !raycast_left.is_colliding() && is_on_floor or is_on_wall():
+	if !raycast_left.is_colliding() && is_on_floor():
 		is_moving_left = false
-	if !raycast_right.is_colliding() && is_on_floor() or is_on_wall():
+	if !raycast_right.is_colliding() && is_on_floor():
 		is_moving_left = true
 
 func _on_player_chase_body_entered(body):
 	if body.name == "CharacterBody2D":
-		Main.aggro = true
-		speed = 40
+		aggro = true
 
 
 func _on_player_chase_body_exited(body):
 	if body.name == "CharacterBody2D":
-		Main.aggro = false
-		speed = 25
+		aggro = false
 
-func move_towards_player():
-	if raycast_left.is_colliding() && raycast_right.is_colliding() && is_on_floor():
-		speed = (player.position.x - position.x)/speed
-		velocity.x = speed
+func move_towards_player(player_dir):
+	if raycast_left.is_colliding() && raycast_right.is_colliding() && aggro == true:
+		if  player_dir <= -1:
+			player_axis = -1
+		if player_dir >= 1:
+			player_axis = 1
+		speed = 40 * player_axis
 
 
 func _on_idle_timer_timeout():
 	idle = false
+	speed = 25
 	walk_timer.start()
 
 
 func enemy_idle():
 	if idle == true:
 		velocity.x = 0
-	else:
-		return
 
 
 func _on_walk_timer_timeout():
@@ -110,6 +114,11 @@ func _on_can_attack_body_entered(body):
 		can_attack = true
 
 
+func _on_can_attack_body_exited(body):
+	if body.name == "CharacterBody2D":
+		can_attack = false
+
+
 func _on_attack_area_body_entered(body):
 	if body.name == "CharacterBody2D":
 		Main.dead.emit()
@@ -120,10 +129,10 @@ func _on_attack_timer_timeout():
 
 
 func animation_state():
-	if velocity.x > 0:
+	if velocity.x > 0 && not animation_player.current_animation == "axe_attack":
 		animated_sprite.flip_h = true
 		animation_player.play("axe_run")
-	if velocity.x < 0:
+	if velocity.x < 0 && not animation_player.current_animation == "axe_attack":
 		animated_sprite.flip_h = false
 		animation_player.play("axe_run")
 	if idle == true:
