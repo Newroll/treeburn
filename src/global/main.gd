@@ -8,6 +8,7 @@ var health = 3
 var in_range = false
 var aggro = false
 var worldHealth = 3600
+var playerPosition
 
 func _physics_process(delta):
 	framesEclapsed += 1
