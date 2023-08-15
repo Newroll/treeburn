@@ -3,14 +3,14 @@
 [ext_resource type="Script" path="res://src/Enemies/coal.gd" id="1_hb40t"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_achxt"]
-radius = 109.0
-height = 284.375
+radius = 157.0
+height = 314.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wdm8e"]
 height = 20.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_weeu6"]
-radius = 69.0
+radius = 84.006
 
 [node name="coal" type="CharacterBody2D"]
 position = Vector2(10, 0)

@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 #Gets player and timer nodes
 @onready var player: CharacterBody2D = get_tree().current_scene.get_node("CharacterBody2D")
-#@onready var axe: AnimatedSprite2D = get_node(" AnimatedSprite2D")
 @onready var attack_timer: Timer = get_node("AttackTimer")
 @onready var idle_timer: Timer = get_node("IdleTimer")
 @onready var walk_timer: Timer = get_node("WalkTimer")
@@ -102,7 +101,6 @@ func move_towards_player(player_dir):
 
 func _on_idle_timer_timeout():
 	idle = false
-	speed = 25
 	walk_timer.start()
 
 

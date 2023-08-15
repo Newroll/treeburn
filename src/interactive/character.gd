@@ -86,11 +86,11 @@ func wall_sliding_true():
 		
 	if Input.is_action_just_pressed("move_left") && is_on_wall() && not is_on_floor():
 		velocity.y = movement_data.jump_velocity
-		velocity.x = 150
+		velocity.x = 250
 
 	if Input.is_action_just_pressed("move_right") && is_on_wall() && not is_on_floor():
 		velocity.y = movement_data.jump_velocity
-		velocity.x = 150
+		velocity.x = -250
 
 
 #Resets player values and position.
