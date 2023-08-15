@@ -6,6 +6,7 @@ var timeEclapsed = 0
 var framesEclapsed = 0
 var health = 3
 var in_range = false
+var player_dir = 0
 var aggro = false
 var worldHealth = 3600
 var playerPosition
