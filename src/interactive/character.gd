@@ -110,7 +110,6 @@ func player_dead():
 	Main.coins = 0
 	Main.quicksand = false
 	Main.in_range = false
-	Main.aggro = false
 	Main.health = 3
 
 func animation_state():

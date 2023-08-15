@@ -76,10 +76,10 @@ animations = [{
 radius = 89.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kgeqp"]
-size = Vector2(18, 25.0263)
+size = Vector2(34.5238, 29)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_feejs"]
-size = Vector2(69, 48)
+size = Vector2(77, 48)
 
 [sub_resource type="Animation" id="Animation_yx7cu"]
 length = 0.001
@@ -253,26 +253,31 @@ sprite_frames = SubResource("SpriteFrames_oo2mv")
 animation = &"run"
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-8, 29, -4, -2, -5, -6, -7, -19, -22, -19, -24, -18, -24, -7, -25, 3, -19, 8, -14, 9, -11, -3, -10, 9, -11, 29)
+polygon = PackedVector2Array(-7, 28, -4, -2, -5, -6, -7, -19, -22, -19, -24, -18, -24, -7, -25, 3, -19, 8, -14, 9, -11, -3, -10, 9, -9, 28)
 
 [node name="player_chase" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_chase"]
+visible = false
 position = Vector2(-10, 1)
 shape = SubResource("CircleShape2D_vw6dv")
 
 [node name="attack_area" type="Area2D" parent="."]
+visible = false
 monitoring = false
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attack_area"]
-position = Vector2(-14, -3.51314)
+visible = false
+position = Vector2(-10, -5)
 shape = SubResource("RectangleShape2D_kgeqp")
 
 [node name="can_attack" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="can_attack"]
-position = Vector2(-13.5, -6)
+position = Vector2(-10, -1)
 shape = SubResource("RectangleShape2D_feejs")
 
 [node name="RayCast_Left" type="RayCast2D" parent="."]
