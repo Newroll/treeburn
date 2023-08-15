@@ -62,7 +62,7 @@ func detect_turn():
 
 func _on_death_body_entered(body):
 	if body.is_in_group("player"):
-		Main.dead.emit()
+		Main.death()
 
 
 func _on_ranged_attack_body_entered(body):

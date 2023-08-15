@@ -12,4 +12,4 @@ func _physics_process(_delta):
 	if entered == true:
 		$AnimationPlayer.play("wobble")
 		await get_tree().create_timer(0.5).timeout
-		queue_free()		
+		queue_free()

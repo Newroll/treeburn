@@ -9,6 +9,10 @@ var in_range = false
 var aggro = false
 var worldHealth = 3600
 var playerPosition
+var quicksand = false
+var ice = false
+var resetPlayer = false
+var knockback = false
 
 func _physics_process(delta):
 	framesEclapsed += 1
@@ -18,14 +22,14 @@ func _physics_process(delta):
 		timeEclapsed += 0.1
 		framesEclapsed = 0
 	if(health <= 0 || worldHealth <= 0):
-		worldHealth = 3600
-		health = 3
-		#play death animation
-		get_tree().change_scene_to_file("res://src/levels/level_" + str(level) + ".tscn")
-
-var quicksand = false
-var ice = false
-var player_dead = false
-var knockback = false
-
-signal dead
+		death()
+		
+func death():
+	coins = 0 
+	health = 3
+	worldHealth = 3600
+	quicksand = false
+	ice = false
+	resetPlayer = true
+	get_tree().change_scene_to_file("res://src/global/death.tscn")
+	

@@ -11,24 +11,25 @@ var facingDirection = -1
 const KNOCKBACKTIMECONST = 7
 var knockbackTime = KNOCKBACKTIMECONST
 
-func _ready():
-	Main.connect("dead", player_dead)
-
 func _physics_process(delta):
 	var input_axis = Input.get_axis("move_left", "move_right")
 	if Main.knockback == false:
-		#add check here to check if speed is below limit
 		jump()
 		check_state()
 		wall_sliding_true()
-		player_death()
 		animation_state()
 		apply_gravity(delta)
 		handle_acceleration(input_axis, delta)
 		apply_friction(input_axis,delta)
-		player_death()
 	knockback(input_axis, delta)
 	player_movement()
+	
+	if position.y > 100:
+		Main.death()
+	
+	if Main.resetPlayer == true:
+		resetPlayerPos()
+		Main.resetPlayer = false
 	
 	Main.playerPosition = get_position()
 
@@ -94,26 +95,14 @@ func wall_sliding_true():
 		velocity.y = movement_data.jump_velocity
 		velocity.x = 150
 
-
-#Resets player values and position.
-func player_death():
+func resetPlayerPos():
 	get_position()
 	if(Main.level == 3):
 		spawnY = -130
-	if (position.y > 100):
-		if(Main.level == 3):
-			spawnY = -130
-		Main.emit_signal("dead")
-
-func player_dead():
+	else:
+		spawnY = -20
 	position = Vector2(10,spawnY)
 	movement_data.double_jump = true
-	#Reset Main
-	Main.coins = 0
-	Main.quicksand = false
-	Main.in_range = false
-	Main.aggro = false
-	Main.health = 3
 
 func animation_state():
 	if velocity.x == 0:
