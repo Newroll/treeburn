@@ -22,5 +22,6 @@ func _process(delta):
 		if showLeaf == true:
 			$leaf2.show()
 			showLeaf = false
+			Main.worldHealth = 3000
 		$leaf.show()
 		sameWorldhealth = false
