@@ -79,5 +79,3 @@ $RECYCLE.BIN/
 
 # End of https://www.toptal.com/developers/gitignore/api/godot,macos,windows# Godot 4+ specific ignores
 .godot/
-
-.env
