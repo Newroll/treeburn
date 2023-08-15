@@ -29,6 +29,8 @@ func _physics_process(delta):
 		player_death()
 	knockback(input_axis, delta)
 	player_movement()
+	
+	Main.playerPosition = get_position()
 
 func check_state():
 	if Main.quicksand == true:
