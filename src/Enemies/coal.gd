@@ -9,6 +9,8 @@ const rock_throwable_scene = preload("res://src/Enemies/throwable_rock.tscn")
 @onready var attack_timer: Timer = get_node("AttackTimer")
 @onready var idle_timer: Timer = get_node("IdleTimer")
 @onready var walk_timer: Timer = get_node("WalkTimer")
+@onready var bull_timer: Timer = get_node("BullAttackTimer")
+@onready var range_timer: Timer = get_node("RangeAttackTimer")
 #@onready var animated_sprite: AnimatedSprite2D = get_node("AnimatedSprite2D")
 #@onready var animation_player: AnimationPlayer = get_node("AnimationPlayer")
 
@@ -33,7 +35,9 @@ var distance_to_player: float
 #Chase and Attack state
 var aggro = false
 var in_range = false
+var bull_attack = false
 var attack_interval_passed = true
+var projectile = rock_throwable_scene.instantiate()
 
 # Raycasts to determine if ground is available for the enemy to walk on
 @onready var raycast_left = $RayCast_Left
@@ -55,9 +59,9 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
-	if can_attack == true && in_range:
+	if can_attack && in_range && bull_attack == false:
 		can_attack = false
-		#_throw_rock()
+		_throw_rock()
 		attack_timer.start()
 
 
@@ -66,19 +70,29 @@ func _physics_process(delta):
 	#if animation_player.current_animation == "axe_attack":
 		#velocity.x = 0
 
-	#Makes the enemy chase the player once it is in range through the aggro var
+	#Makes the enemy stay in a certain distance from the player
+	#while if there is no where to go to it does a charge attack
+	
 	if aggro:
-		if distance_to_player > max_distance_to_player:
-			move_towards_player(player_dir)
-			print("Go towards player!")
+		if raycast_left.is_colliding() && raycast_right.is_colliding() && bull_attack == false:
+			if distance_to_player > max_distance_to_player:
+				move_towards_player(player_dir)
 
-		if distance_to_player < min_distance_to_player:
-			move_away_player(player_dir)
-			print("Run away!")
+			if distance_to_player < min_distance_to_player:
+				move_away_player(player_dir)
 
-		if distance_to_player > min_distance_to_player && distance_to_player < max_distance_to_player:
-			velocity.x = 0
-			print("Safe!")
+			if distance_to_player > min_distance_to_player && distance_to_player < max_distance_to_player:
+				velocity.x = 0
+		else:
+			if !raycast_right.is_colliding() && bull_attack == false:
+				bull_attack = true
+				velocity.x = -100
+				bull_timer.start()
+
+			if !raycast_left.is_colliding() && bull_attack == false:
+				bull_attack = true
+				velocity.x = 100
+				bull_timer.start()
 
 	else:
 		detect_turn()
@@ -117,26 +131,21 @@ func _on_player_chase_body_exited(body):
 		aggro = false
 
 func move_towards_player(player_dir):
-	if raycast_left.is_colliding() && raycast_right.is_colliding():
 		speed = 50
 		if player_dir > 0:
 			velocity.x = speed
 		else:
 			velocity.x = speed * -1
-	else:
-		velocity.x = 0
+
 
 
 
 func move_away_player(player_dir):
-	if raycast_left.is_colliding() && raycast_right.is_colliding():
 		speed = 40
 		if player_dir > 0:
 			velocity.x = speed * -1
 		else:
 			velocity.x = speed
-	else:
-		velocity.x = 0
 
 
 func _on_idle_timer_timeout():
@@ -173,14 +182,23 @@ func _on_ranged_attack_body_exited(body):
 func _on_attack_timer_timeout():
 	can_attack = true
 
+func _on_bull_attack_timeout():
+	bull_attack = false
 
 func _throw_rock() -> void:
-	var projectile = rock_throwable_scene.instantiate()
 	projectile.launch(global_position, (player.position - global_position).normalized(), projectile_speed)
 	get_tree().current_scene.add_child(projectile)
+	range_timer.start()
+
+
+func _on_range_attack_timer_timeout():
+	get_tree().current_scene.remove_child(projectile)
+	
 
 
 '''
+Going to use later when I have sprites
+
 func hit():
 	$attack_area.monitoring = true
 
