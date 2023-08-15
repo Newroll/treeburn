@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var speed = -30.0
+var speed = -50.0
 
 @onready var raycast_left = $RayCast_Left
 @onready var raycast_right = $RayCast_Right

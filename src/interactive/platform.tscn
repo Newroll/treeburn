@@ -13,7 +13,7 @@ size = Vector2(58, 16.2031)
 script = ExtResource("1_veek5")
 
 [node name="collider" type="Area2D" parent="."]
-position = Vector2(197, 9)
+position = Vector2(0, 4)
 
 [node name="Rubbishbg" type="Sprite2D" parent="collider"]
 texture_filter = 1
@@ -25,7 +25,7 @@ shape = SubResource("RectangleShape2D_h1k72")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 texture_filter = 1
-position = Vector2(197, 9.10155)
+position = Vector2(0, 4.10155)
 shape = SubResource("RectangleShape2D_t5owi")
 
 [connection signal="body_entered" from="collider" to="." method="_on_collider_body_entered"]

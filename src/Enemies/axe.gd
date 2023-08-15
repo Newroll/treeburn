@@ -82,11 +82,13 @@ func detect_turn():
 func _on_player_chase_body_entered(body):
 	if body.name == "CharacterBody2D":
 		aggro = true
+		speed = 40
 
 
 func _on_player_chase_body_exited(body):
 	if body.name == "CharacterBody2D":
 		aggro = false
+		speed = 25
 
 func move_towards_player(player_dir):
 	if raycast_left.is_colliding() && raycast_right.is_colliding():

@@ -18,6 +18,7 @@ func _physics_process(delta):
 	var input_axis = Input.get_axis("move_left", "move_right")
 
 	if Main.knockback == false:
+		#add check here to check if speed is below limit
 		jump()
 		check_state()
 		wall_sliding_true()
@@ -29,6 +30,8 @@ func _physics_process(delta):
 		player_death()
 	knockback(input_axis, delta)
 	player_movement()
+	
+	Main.playerPosition = get_position()
 
 func check_state():
 	if Main.quicksand == true:
