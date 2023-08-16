@@ -1,0 +1,317 @@
+[gd_scene load_steps=3 format=3 uid="uid://cadaj82njs3cw"]
+
+[ext_resource type="Script" path="res://src/global/leaderboard.gd" id="1_70m5s"]
+[ext_resource type="FontFile" uid="uid://422t11bovf6v" path="res://assets/styles/mainport.ttf" id="2_ofk2g"]
+
+[node name="leaderboard" type="Node2D"]
+script = ExtResource("1_70m5s")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 30.0
+offset_top = 21.0
+offset_right = 280.0
+offset_bottom = 169.0
+
+[node name="title" type="Label" parent="ColorRect"]
+texture_filter = 1
+layout_mode = 0
+offset_left = 79.0
+offset_top = 7.0
+offset_right = 168.0
+offset_bottom = 22.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ofk2g")
+theme_override_font_sizes/font_size = 12
+text = "LEADERBOARD"
+
+[node name="one" type="Label" parent="."]
+texture_filter = 1
+offset_left = 39.0
+offset_top = 45.0
+offset_right = 272.0
+offset_bottom = 58.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ofk2g")
+theme_override_font_sizes/font_size = 10
+text = "1"
+
+[node name="name" type="Label" parent="one"]
+layout_mode = 0
+offset_left = 93.0
+offset_right = 133.0
+offset_bottom = 13.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ofk2g")
+theme_override_font_sizes/font_size = 10
+text = "urmom"
+
+[node name="time" type="Label" parent="one"]
+layout_mode = 0
+offset_left = 197.0
+offset_right = 223.0
+offset_bottom = 13.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ofk2g")
+theme_override_font_sizes/font_size = 10
+text = "1:42"
+
+[node name="two" type="Label" parent="."]
+texture_filter = 1
+offset_left = 38.0
+offset_top = 58.0
+offset_right = 271.0
+offset_bottom = 71.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ofk2g")
+theme_override_font_sizes/font_size = 10
+text = "2"
+
+[node name="name" type="Label" parent="two"]
+layout_mode = 0
+offset_left = 93.0
+offset_right = 133.0
+offset_bottom = 13.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ofk2g")
+theme_override_font_sizes/font_size = 10
+
+[node name="time" type="Label" parent="two"]
+layout_mode = 0
+offset_left = 197.0
+offset_right = 223.0
+offset_bottom = 13.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ofk2g")
+theme_override_font_sizes/font_size = 10
+
+[node name="three" type="Label" parent="."]
+texture_filter = 1
+offset_left = 39.0
+offset_top = 72.0
+offset_right = 272.0
+offset_bottom = 85.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ofk2g")
+theme_override_font_sizes/font_size = 10
+text = "3"
+
+[node name="name" type="Label" parent="three"]
+layout_mode = 0
+offset_left = 93.0
+offset_right = 133.0
+offset_bottom = 13.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ofk2g")
+theme_override_font_sizes/font_size = 10
+
+[node name="time" type="Label" parent="three"]
+layout_mode = 0
+offset_left = 197.0
+offset_right = 223.0
+offset_bottom = 13.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ofk2g")
+theme_override_font_sizes/font_size = 10
+
+[node name="four" type="Label" parent="."]
+texture_filter = 1
+offset_left = 39.0
+offset_top = 85.0
+offset_right = 272.0
+offset_bottom = 98.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ofk2g")
+theme_override_font_sizes/font_size = 10
+text = "4"
+
+[node name="name" type="Label" parent="four"]
+layout_mode = 0
+offset_left = 93.0
+offset_right = 133.0
+offset_bottom = 13.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ofk2g")
+theme_override_font_sizes/font_size = 10
+
+[node name="time" type="Label" parent="four"]
+layout_mode = 0
+offset_left = 197.0
+offset_right = 223.0
+offset_bottom = 13.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ofk2g")
+theme_override_font_sizes/font_size = 10
+
+[node name="five" type="Label" parent="."]
+texture_filter = 1
+offset_left = 39.0
+offset_top = 97.0
+offset_right = 272.0
+offset_bottom = 110.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ofk2g")
+theme_override_font_sizes/font_size = 10
+text = "5"
+
+[node name="name" type="Label" parent="five"]
+layout_mode = 0
+offset_left = 93.0
+offset_right = 133.0
+offset_bottom = 13.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ofk2g")
+theme_override_font_sizes/font_size = 10
+
+[node name="time" type="Label" parent="five"]
+layout_mode = 0
+offset_left = 197.0
+offset_right = 223.0
+offset_bottom = 13.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ofk2g")
+theme_override_font_sizes/font_size = 10
+
+[node name="six" type="Label" parent="."]
+texture_filter = 1
+offset_left = 39.0
+offset_top = 109.0
+offset_right = 272.0
+offset_bottom = 122.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ofk2g")
+theme_override_font_sizes/font_size = 10
+text = "6"
+
+[node name="name" type="Label" parent="six"]
+layout_mode = 0
+offset_left = 93.0
+offset_right = 133.0
+offset_bottom = 13.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ofk2g")
+theme_override_font_sizes/font_size = 10
+
+[node name="time" type="Label" parent="six"]
+layout_mode = 0
+offset_left = 197.0
+offset_right = 223.0
+offset_bottom = 13.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ofk2g")
+theme_override_font_sizes/font_size = 10
+
+[node name="seven" type="Label" parent="."]
+texture_filter = 1
+offset_left = 39.0
+offset_top = 123.0
+offset_right = 272.0
+offset_bottom = 136.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ofk2g")
+theme_override_font_sizes/font_size = 10
+text = "7"
+
+[node name="name" type="Label" parent="seven"]
+layout_mode = 0
+offset_left = 93.0
+offset_right = 133.0
+offset_bottom = 13.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ofk2g")
+theme_override_font_sizes/font_size = 10
+
+[node name="time" type="Label" parent="seven"]
+layout_mode = 0
+offset_left = 197.0
+offset_right = 223.0
+offset_bottom = 13.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ofk2g")
+theme_override_font_sizes/font_size = 10
+
+[node name="eight" type="Label" parent="."]
+texture_filter = 1
+offset_left = 39.0
+offset_top = 138.0
+offset_right = 272.0
+offset_bottom = 151.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ofk2g")
+theme_override_font_sizes/font_size = 10
+text = "8"
+
+[node name="name" type="Label" parent="eight"]
+layout_mode = 0
+offset_left = 93.0
+offset_right = 133.0
+offset_bottom = 13.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ofk2g")
+theme_override_font_sizes/font_size = 10
+
+[node name="time" type="Label" parent="eight"]
+layout_mode = 0
+offset_left = 197.0
+offset_right = 223.0
+offset_bottom = 13.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ofk2g")
+theme_override_font_sizes/font_size = 10
+
+[node name="nine" type="Label" parent="."]
+texture_filter = 1
+offset_left = 39.0
+offset_top = 150.0
+offset_right = 272.0
+offset_bottom = 163.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ofk2g")
+theme_override_font_sizes/font_size = 10
+text = "9"
+
+[node name="name" type="Label" parent="nine"]
+layout_mode = 0
+offset_left = 93.0
+offset_right = 133.0
+offset_bottom = 13.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ofk2g")
+theme_override_font_sizes/font_size = 10
+
+[node name="time" type="Label" parent="nine"]
+layout_mode = 0
+offset_left = 197.0
+offset_right = 223.0
+offset_bottom = 13.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ofk2g")
+theme_override_font_sizes/font_size = 10
+
+[node name="ten" type="Label" parent="."]
+texture_filter = 1
+offset_left = 39.0
+offset_top = 160.0
+offset_right = 272.0
+offset_bottom = 173.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ofk2g")
+theme_override_font_sizes/font_size = 10
+text = "10"
+
+[node name="name" type="Label" parent="ten"]
+layout_mode = 0
+offset_left = 93.0
+offset_right = 133.0
+offset_bottom = 13.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ofk2g")
+theme_override_font_sizes/font_size = 10
+
+[node name="time" type="Label" parent="ten"]
+layout_mode = 0
+offset_left = 197.0
+offset_right = 223.0
+offset_bottom = 13.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_ofk2g")
+theme_override_font_sizes/font_size = 10
