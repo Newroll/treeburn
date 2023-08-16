@@ -2,7 +2,7 @@ extends Node2D
 
 var time = Main.timeEclapsed
 var leaderboardLength = 10
-var scoreArr
+var scoreArr = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -15,13 +15,13 @@ func _ready():
 	if leaderboard.size() < 10:
 		leaderboardLength = leaderboard.size()
 	
-	var i = leaderboardLength - 1
-	while i > 0:
+	var i: int = leaderboardLength - 1
+	while i >= 0:
 		print(leaderboard[i].get("score"))
 		scoreArr.append(leaderboard[i].get("score"))
-		i += 1
-#	print(scoreArr)
-#	print(leaderboard)
+		i -= 1
+	print(scoreArr)
+	print(leaderboard)
 	
 	var array = [1, 3, 5, 7, 9]
 	var value = 5
