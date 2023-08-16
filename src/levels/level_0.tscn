@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dv5udhaqgjxv5"]
+[gd_scene load_steps=18 format=3 uid="uid://dv5udhaqgjxv5"]
 
 [ext_resource type="Script" path="res://src/levels/level_0.gd" id="1_jql4m"]
 [ext_resource type="Texture2D" uid="uid://ddodrd661qp2" path="res://assets/background/cloudsfront.png" id="2_57l4s"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://bmlc5h5gbouaf" path="res://src/interactive/character.tscn" id="9_fuybf"]
 [ext_resource type="FontFile" uid="uid://422t11bovf6v" path="res://assets/styles/mainport.ttf" id="11_edk42"]
 [ext_resource type="PackedScene" uid="uid://kfxb12a1wxyl" path="res://src/interactive/coin.tscn" id="11_h7p48"]
+[ext_resource type="PackedScene" uid="uid://bxrdaun1twtb1" path="res://src/interactive/portal.tscn" id="12_iykh1"]
 [ext_resource type="Script" path="res://src/interactive/coins.gd" id="12_kkmjj"]
 [ext_resource type="PackedScene" uid="uid://dtfkm547yxtbg" path="res://src/ui/ui.tscn" id="15_wxamn"]
 
@@ -413,27 +414,6 @@ text = "Pick this leaf up to restore some of the world health."
 horizontal_alignment = 2
 autowrap_mode = 2
 
-[node name="enter" type="Label" parent="."]
-visible = false
-z_index = -10
-offset_left = 1302.0
-offset_top = -179.0
-offset_right = 1519.0
-offset_bottom = -153.0
-theme_override_fonts/font = ExtResource("11_edk42")
-text = "Press enter to proceed"
-
-[node name="coins" type="Label" parent="."]
-visible = false
-z_index = -10
-offset_left = 1365.0
-offset_top = -161.0
-offset_right = 1518.0
-offset_bottom = -146.0
-theme_override_fonts/font = ExtResource("11_edk42")
-theme_override_font_sizes/font_size = 12
-text = "You will need 5 coins"
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 visible = false
 
@@ -448,3 +428,6 @@ theme_override_fonts/font = ExtResource("11_edk42")
 theme_override_font_sizes/font_size = 10
 text = "This is the world health. You shall bear the consequences if it depletes."
 autowrap_mode = 2
+
+[node name="portal" parent="." instance=ExtResource("12_iykh1")]
+position = Vector2(1480, -128)

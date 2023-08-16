@@ -1,0 +1,45 @@
+[gd_scene load_steps=4 format=3 uid="uid://bxrdaun1twtb1"]
+
+[ext_resource type="Script" path="res://src/interactive/portal.gd" id="1_5tapu"]
+[ext_resource type="FontFile" uid="uid://422t11bovf6v" path="res://assets/styles/mainport.ttf" id="2_5687t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hqj4p"]
+size = Vector2(40, 51)
+
+[node name="portal" type="Area2D"]
+z_index = -10
+script = ExtResource("1_5tapu")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 51.0
+color = Color(1, 0.262745, 1, 1)
+
+[node name="enter" type="Label" parent="."]
+visible = false
+z_index = 10
+texture_filter = 1
+offset_left = -178.0
+offset_top = -58.0
+offset_right = 39.0
+offset_bottom = -32.0
+theme_override_fonts/font = ExtResource("2_5687t")
+text = "Press enter to proceed"
+
+[node name="coins" type="Label" parent="."]
+visible = false
+z_index = 10
+texture_filter = 1
+offset_left = -115.0
+offset_top = -40.0
+offset_right = 38.0
+offset_bottom = -25.0
+theme_override_fonts/font = ExtResource("2_5687t")
+theme_override_font_sizes/font_size = 12
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(20, 25.5)
+shape = SubResource("RectangleShape2D_hqj4p")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

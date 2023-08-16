@@ -1,0 +1,28 @@
+[gd_scene load_steps=2 format=3 uid="uid://q7jiw0ysmd08"]
+
+[ext_resource type="Script" path="res://src/levels/level_4.gd" id="1_rh06d"]
+
+[node name="level_4" type="Node2D"]
+script = ExtResource("1_rh06d")
+
+[node name="title" type="Label" parent="."]
+offset_left = 101.0
+offset_top = 21.0
+offset_right = 223.0
+offset_bottom = 47.0
+text = "Game complete"
+
+[node name="quit" type="Button" parent="."]
+offset_left = 31.0
+offset_top = 94.0
+offset_right = 89.0
+offset_bottom = 125.0
+text = "Quit
+"
+
+[node name="leaderboard" type="Button" parent="."]
+offset_left = 150.0
+offset_top = 96.0
+offset_right = 293.0
+offset_bottom = 127.0
+text = "view leaderboard"

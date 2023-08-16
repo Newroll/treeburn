@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://b4cb7d6bu8kiu"]
+[gd_scene load_steps=67 format=3 uid="uid://b4cb7d6bu8kiu"]
 
 [ext_resource type="Texture2D" uid="uid://dy12u1xfe8uck" path="res://assets/background/lvl1back.png" id="1_dgqja"]
 [ext_resource type="Texture2D" uid="uid://etxpk65gm7kk" path="res://assets/background/lvl1front.png" id="1_fglrk"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://dtfkm547yxtbg" path="res://src/ui/ui.tscn" id="15_0cqxb"]
 [ext_resource type="Texture2D" uid="uid://d3xho7hc8wt4a" path="res://assets/interactive/pitfall.png" id="15_mbeea"]
 [ext_resource type="Script" path="res://src/interactive/pitfall.gd" id="15_pqn2h"]
+[ext_resource type="PackedScene" uid="uid://bxrdaun1twtb1" path="res://src/interactive/portal.tscn" id="16_h5jbk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6mdsj"]
 size = Vector2(112, 16)
@@ -1840,6 +1841,9 @@ sprite_frames = SubResource("SpriteFrames_2nq1x")
 autoplay = "default"
 
 [node name="UI" parent="." instance=ExtResource("15_0cqxb")]
+
+[node name="portal" parent="." instance=ExtResource("16_h5jbk")]
+position = Vector2(3336, -211)
 
 [connection signal="body_entered" from="pitfall/collider" to="pitfall" method="_on_collider_body_entered"]
 [connection signal="body_exited" from="pitfall/collider" to="pitfall" method="_on_collider_body_exited"]

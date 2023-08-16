@@ -14,4 +14,4 @@ func _physics_process(delta):
 
 func _on_body_entered(_body):
 	if _body.is_in_group("player"):
-		Main.dead.emit()
+ 		Main.dead.emit()
