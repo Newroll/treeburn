@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bne1ycyic206n" path="res://assets/foreground/water.png" id="14_dd7rm"]
 [ext_resource type="Texture2D" uid="uid://bdaq3mkajdhsn" path="res://assets/foreground/watertop.png" id="14_ev6a3"]
 [ext_resource type="PackedScene" uid="uid://dtfkm547yxtbg" path="res://src/ui/ui.tscn" id="15_0cqxb"]
-[ext_resource type="PackedScene" uid="uid://dqwcpids7e46a" path="res://src/Enemies/axe.tscn" id="15_gwau3"]
+[ext_resource type="PackedScene" uid="uid://dqwcpids7e46a" path="res://src/enemies/axe.tscn" id="15_gwau3"]
 [ext_resource type="Texture2D" uid="uid://d3xho7hc8wt4a" path="res://assets/interactive/pitfall.png" id="15_mbeea"]
 [ext_resource type="Script" path="res://src/interactive/pitfall.gd" id="15_pqn2h"]
 
@@ -1842,9 +1842,6 @@ autoplay = "default"
 [node name="UI" parent="." instance=ExtResource("15_0cqxb")]
 
 [node name="axe enemies" type="Node" parent="."]
-
-[node name="axe" parent="axe enemies" instance=ExtResource("15_gwau3")]
-position = Vector2(1315, -91)
 
 [connection signal="body_entered" from="pitfall/collider" to="pitfall" method="_on_collider_body_entered"]
 [connection signal="body_exited" from="pitfall/collider" to="pitfall" method="_on_collider_body_exited"]
