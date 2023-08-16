@@ -9,7 +9,6 @@
 [ext_resource type="Texture2D" uid="uid://grrid1bfg8il" path="res://assets/foreground/trees.png" id="4_gewfj"]
 [ext_resource type="Script" path="res://src/interactive/coins.gd" id="5_1cxdc"]
 [ext_resource type="Texture2D" uid="uid://bo5yrg83rhude" path="res://assets/foreground/lvl1_ground.png" id="7_1a65m"]
-[ext_resource type="PackedScene" uid="uid://dqwcpids7e46a" path="res://src/enemies/axe.tscn" id="10_bap6x"]
 [ext_resource type="Texture2D" uid="uid://bne1ycyic206n" path="res://assets/foreground/water.png" id="14_dd7rm"]
 [ext_resource type="Texture2D" uid="uid://bdaq3mkajdhsn" path="res://assets/foreground/watertop.png" id="14_ev6a3"]
 [ext_resource type="PackedScene" uid="uid://dtfkm547yxtbg" path="res://src/ui/ui.tscn" id="15_0cqxb"]
@@ -696,22 +695,22 @@ drag_top_margin = 0.8
 
 [node name="axe" type="Node" parent="."]
 
-[node name="axe" parent="axe" instance=ExtResource("10_bap6x")]
+[node name="axe" parent="axe" instance=ExtResource("15_gwau3")]
 position = Vector2(774, -23)
 
-[node name="axe2" parent="axe" instance=ExtResource("10_bap6x")]
+[node name="axe2" parent="axe" instance=ExtResource("15_gwau3")]
 position = Vector2(1292, -68)
 
-[node name="axe3" parent="axe" instance=ExtResource("10_bap6x")]
+[node name="axe3" parent="axe" instance=ExtResource("15_gwau3")]
 position = Vector2(1522, -71)
 
-[node name="axe4" parent="axe" instance=ExtResource("10_bap6x")]
+[node name="axe4" parent="axe" instance=ExtResource("15_gwau3")]
 position = Vector2(2496, -70)
 
-[node name="axe5" parent="axe" instance=ExtResource("10_bap6x")]
+[node name="axe5" parent="axe" instance=ExtResource("15_gwau3")]
 position = Vector2(2641, -69)
 
-[node name="axe6" parent="axe" instance=ExtResource("10_bap6x")]
+[node name="axe6" parent="axe" instance=ExtResource("15_gwau3")]
 position = Vector2(2798, -71)
 
 [node name="coins" type="Node" parent="."]

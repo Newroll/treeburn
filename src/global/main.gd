@@ -11,7 +11,7 @@ var aggro = false
 var worldHealth = 3600
 var playerPosition
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	framesEclapsed += 1
 	worldHealth -= 1
 	
