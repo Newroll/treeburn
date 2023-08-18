@@ -13,7 +13,7 @@ var quicksand = false
 var ice = false
 var resetPlayer = false
 var knockback = false
-var coinRequirement=[5, 10, 13, 10]
+var coinRequirement=[5, 10, 13, 0]
 var gameComplete = false
 var suffix
 var suffixes
@@ -50,8 +50,8 @@ func _ready():
 	})
 	
 func time_convert(time_in_sec):
-	var seconds = time_in_sec%60
-	var minutes = (time_in_sec/60)%60
+	var seconds = int(time_in_sec)%60
+	var minutes = (int(time_in_sec)/60)%60
 
 	#returns a string with the format "HH:MM:SS"
 	return "%02d:%02d" % [minutes, seconds]
@@ -62,10 +62,7 @@ func ordinal(number: int) -> String:
 		2: "nd",
 		3: "rd",
 	}
-
-	if number % 100 in [11, 12, 13]:
-		suffix = "th"
+	if number <= 3:
+		return str(number)+suffixes[number]
 	else:
-		suffix = suffixes[number % 10]
-
-	return str(number) + suffix
+		return str(number)+"th"

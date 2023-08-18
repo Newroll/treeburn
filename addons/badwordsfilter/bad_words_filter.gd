@@ -329,7 +329,7 @@ func is_word_ok(word: String) -> bool:
 	var delimiters = [' ', '_', '-']
 	
 	for d in delimiters:
-		for s in word.split(d):
+		for s in word.to_lower().split(d):
 			if profanity_list.has(s):
 				return false
 	

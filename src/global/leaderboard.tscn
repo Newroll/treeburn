@@ -24,7 +24,7 @@ theme_override_fonts/font = ExtResource("2_ofk2g")
 theme_override_font_sizes/font_size = 12
 text = "LEADERBOARD"
 
-[node name="one" type="Label" parent="."]
+[node name="1" type="Label" parent="."]
 texture_filter = 1
 offset_left = 39.0
 offset_top = 45.0
@@ -35,7 +35,7 @@ theme_override_fonts/font = ExtResource("2_ofk2g")
 theme_override_font_sizes/font_size = 10
 text = "1"
 
-[node name="name" type="Label" parent="one"]
+[node name="name" type="Label" parent="1"]
 layout_mode = 0
 offset_left = 93.0
 offset_right = 133.0
@@ -45,7 +45,7 @@ theme_override_fonts/font = ExtResource("2_ofk2g")
 theme_override_font_sizes/font_size = 10
 text = "urmom"
 
-[node name="time" type="Label" parent="one"]
+[node name="time" type="Label" parent="1"]
 layout_mode = 0
 offset_left = 197.0
 offset_right = 223.0
@@ -55,7 +55,7 @@ theme_override_fonts/font = ExtResource("2_ofk2g")
 theme_override_font_sizes/font_size = 10
 text = "1:42"
 
-[node name="two" type="Label" parent="."]
+[node name="2" type="Label" parent="."]
 texture_filter = 1
 offset_left = 38.0
 offset_top = 58.0
@@ -66,7 +66,7 @@ theme_override_fonts/font = ExtResource("2_ofk2g")
 theme_override_font_sizes/font_size = 10
 text = "2"
 
-[node name="name" type="Label" parent="two"]
+[node name="name" type="Label" parent="2"]
 layout_mode = 0
 offset_left = 93.0
 offset_right = 133.0
@@ -75,7 +75,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_ofk2g")
 theme_override_font_sizes/font_size = 10
 
-[node name="time" type="Label" parent="two"]
+[node name="time" type="Label" parent="2"]
 layout_mode = 0
 offset_left = 197.0
 offset_right = 223.0
@@ -84,7 +84,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_ofk2g")
 theme_override_font_sizes/font_size = 10
 
-[node name="three" type="Label" parent="."]
+[node name="3" type="Label" parent="."]
 texture_filter = 1
 offset_left = 39.0
 offset_top = 72.0
@@ -95,7 +95,7 @@ theme_override_fonts/font = ExtResource("2_ofk2g")
 theme_override_font_sizes/font_size = 10
 text = "3"
 
-[node name="name" type="Label" parent="three"]
+[node name="name" type="Label" parent="3"]
 layout_mode = 0
 offset_left = 93.0
 offset_right = 133.0
@@ -104,7 +104,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_ofk2g")
 theme_override_font_sizes/font_size = 10
 
-[node name="time" type="Label" parent="three"]
+[node name="time" type="Label" parent="3"]
 layout_mode = 0
 offset_left = 197.0
 offset_right = 223.0
@@ -113,7 +113,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_ofk2g")
 theme_override_font_sizes/font_size = 10
 
-[node name="four" type="Label" parent="."]
+[node name="4" type="Label" parent="."]
 texture_filter = 1
 offset_left = 39.0
 offset_top = 85.0
@@ -124,7 +124,7 @@ theme_override_fonts/font = ExtResource("2_ofk2g")
 theme_override_font_sizes/font_size = 10
 text = "4"
 
-[node name="name" type="Label" parent="four"]
+[node name="name" type="Label" parent="4"]
 layout_mode = 0
 offset_left = 93.0
 offset_right = 133.0
@@ -133,7 +133,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_ofk2g")
 theme_override_font_sizes/font_size = 10
 
-[node name="time" type="Label" parent="four"]
+[node name="time" type="Label" parent="4"]
 layout_mode = 0
 offset_left = 197.0
 offset_right = 223.0
@@ -142,7 +142,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_ofk2g")
 theme_override_font_sizes/font_size = 10
 
-[node name="five" type="Label" parent="."]
+[node name="5" type="Label" parent="."]
 texture_filter = 1
 offset_left = 39.0
 offset_top = 97.0
@@ -153,7 +153,7 @@ theme_override_fonts/font = ExtResource("2_ofk2g")
 theme_override_font_sizes/font_size = 10
 text = "5"
 
-[node name="name" type="Label" parent="five"]
+[node name="name" type="Label" parent="5"]
 layout_mode = 0
 offset_left = 93.0
 offset_right = 133.0
@@ -162,7 +162,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_ofk2g")
 theme_override_font_sizes/font_size = 10
 
-[node name="time" type="Label" parent="five"]
+[node name="time" type="Label" parent="5"]
 layout_mode = 0
 offset_left = 197.0
 offset_right = 223.0
@@ -171,7 +171,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_ofk2g")
 theme_override_font_sizes/font_size = 10
 
-[node name="six" type="Label" parent="."]
+[node name="6" type="Label" parent="."]
 texture_filter = 1
 offset_left = 39.0
 offset_top = 109.0
@@ -182,7 +182,7 @@ theme_override_fonts/font = ExtResource("2_ofk2g")
 theme_override_font_sizes/font_size = 10
 text = "6"
 
-[node name="name" type="Label" parent="six"]
+[node name="name" type="Label" parent="6"]
 layout_mode = 0
 offset_left = 93.0
 offset_right = 133.0
@@ -191,7 +191,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_ofk2g")
 theme_override_font_sizes/font_size = 10
 
-[node name="time" type="Label" parent="six"]
+[node name="time" type="Label" parent="6"]
 layout_mode = 0
 offset_left = 197.0
 offset_right = 223.0
@@ -200,7 +200,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_ofk2g")
 theme_override_font_sizes/font_size = 10
 
-[node name="seven" type="Label" parent="."]
+[node name="7" type="Label" parent="."]
 texture_filter = 1
 offset_left = 39.0
 offset_top = 123.0
@@ -211,7 +211,7 @@ theme_override_fonts/font = ExtResource("2_ofk2g")
 theme_override_font_sizes/font_size = 10
 text = "7"
 
-[node name="name" type="Label" parent="seven"]
+[node name="name" type="Label" parent="7"]
 layout_mode = 0
 offset_left = 93.0
 offset_right = 133.0
@@ -220,7 +220,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_ofk2g")
 theme_override_font_sizes/font_size = 10
 
-[node name="time" type="Label" parent="seven"]
+[node name="time" type="Label" parent="7"]
 layout_mode = 0
 offset_left = 197.0
 offset_right = 223.0
@@ -229,7 +229,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_ofk2g")
 theme_override_font_sizes/font_size = 10
 
-[node name="eight" type="Label" parent="."]
+[node name="8" type="Label" parent="."]
 texture_filter = 1
 offset_left = 39.0
 offset_top = 138.0
@@ -240,7 +240,7 @@ theme_override_fonts/font = ExtResource("2_ofk2g")
 theme_override_font_sizes/font_size = 10
 text = "8"
 
-[node name="name" type="Label" parent="eight"]
+[node name="name" type="Label" parent="8"]
 layout_mode = 0
 offset_left = 93.0
 offset_right = 133.0
@@ -249,7 +249,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_ofk2g")
 theme_override_font_sizes/font_size = 10
 
-[node name="time" type="Label" parent="eight"]
+[node name="time" type="Label" parent="8"]
 layout_mode = 0
 offset_left = 197.0
 offset_right = 223.0
@@ -258,7 +258,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_ofk2g")
 theme_override_font_sizes/font_size = 10
 
-[node name="nine" type="Label" parent="."]
+[node name="9" type="Label" parent="."]
 texture_filter = 1
 offset_left = 39.0
 offset_top = 150.0
@@ -269,7 +269,7 @@ theme_override_fonts/font = ExtResource("2_ofk2g")
 theme_override_font_sizes/font_size = 10
 text = "9"
 
-[node name="name" type="Label" parent="nine"]
+[node name="name" type="Label" parent="9"]
 layout_mode = 0
 offset_left = 93.0
 offset_right = 133.0
@@ -278,7 +278,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_ofk2g")
 theme_override_font_sizes/font_size = 10
 
-[node name="time" type="Label" parent="nine"]
+[node name="time" type="Label" parent="9"]
 layout_mode = 0
 offset_left = 197.0
 offset_right = 223.0
@@ -287,7 +287,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_ofk2g")
 theme_override_font_sizes/font_size = 10
 
-[node name="ten" type="Label" parent="."]
+[node name="10" type="Label" parent="."]
 texture_filter = 1
 offset_left = 39.0
 offset_top = 160.0
@@ -298,7 +298,7 @@ theme_override_fonts/font = ExtResource("2_ofk2g")
 theme_override_font_sizes/font_size = 10
 text = "10"
 
-[node name="name" type="Label" parent="ten"]
+[node name="name" type="Label" parent="10"]
 layout_mode = 0
 offset_left = 93.0
 offset_right = 133.0
@@ -307,7 +307,7 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_ofk2g")
 theme_override_font_sizes/font_size = 10
 
-[node name="time" type="Label" parent="ten"]
+[node name="time" type="Label" parent="10"]
 layout_mode = 0
 offset_left = 197.0
 offset_right = 223.0
