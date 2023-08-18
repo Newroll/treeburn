@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://b6ay00x3a3jcj"]
+[gd_scene load_steps=17 format=3 uid="uid://b6ay00x3a3jcj"]
 
 [ext_resource type="PackedScene" uid="uid://bmlc5h5gbouaf" path="res://src/interactive/character.tscn" id="1_km57j"]
 [ext_resource type="Texture2D" uid="uid://ddodrd661qp2" path="res://assets/background/cloudsfront.png" id="1_s6uy5"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://cqm6jb4lo3pts" path="res://src/interactive/movingplatform.tscn" id="8_pw5pa"]
 [ext_resource type="PackedScene" uid="uid://duxdweo12qa7" path="res://src/interactive/snowalt.tscn" id="10_u32m0"]
 [ext_resource type="PackedScene" uid="uid://dvvqyio0cmfa5" path="res://src/interactive/snow.tscn" id="11_t4lbf"]
+[ext_resource type="PackedScene" uid="uid://bxrdaun1twtb1" path="res://src/interactive/portal.tscn" id="13_7g3nt"]
 [ext_resource type="PackedScene" uid="uid://dtfkm547yxtbg" path="res://src/ui/ui.tscn" id="15_0cqxb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tw11q"]
@@ -897,3 +898,6 @@ position = Vector2(1071, -450)
 position = Vector2(1068, -442)
 
 [node name="ui" parent="." instance=ExtResource("15_0cqxb")]
+
+[node name="portal" parent="." instance=ExtResource("13_7g3nt")]
+position = Vector2(49, -182)

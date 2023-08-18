@@ -20,7 +20,7 @@ func _process(_delta):
 		$CanvasLayer.show()
 		await get_tree().create_timer(1.5).timeout
 		if showLeaf == true:
-			$leaf2.show()
+			#dddddddddddd$leaf2.show()
 			showLeaf = false
 			Main.worldHealth = 3000
 		$leaf.show()

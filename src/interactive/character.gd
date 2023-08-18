@@ -14,9 +14,6 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var knockback_dir = 0
 var knockback_timer_started = false
 
-func _ready():
-	Main.connect("dead", player_dead)
-
 func _physics_process(delta):
 	var input_axis = Input.get_axis("move_left", "move_right")
 	
@@ -29,13 +26,18 @@ func _physics_process(delta):
 		jump()
 		check_state()
 		wall_sliding_true()
-		player_death()
 		animation_state()
 		handle_acceleration(input_axis, delta)
 		apply_friction(input_axis,delta)
-		player_death()
 	else:
 		knockback(input_axis, delta)
+	
+	if position.y > 100:
+		Main.death()
+	
+	if Main.resetPlayer == true:
+		resetPlayerPos()
+		Main.resetPlayer = false
 	
 	Main.playerPosition = get_position()
 
@@ -101,26 +103,22 @@ func wall_sliding_true():
 		velocity.y = movement_data.jump_velocity
 		velocity.x = -250
 
-
-#Resets player values and position.
-func player_death():
+func resetPlayerPos():
 	get_position()
 	if(Main.level == 3):
 		spawnY = -130
-	if (position.y > 100):
-		if(Main.level == 3):
-			spawnY = -130
-		Main.emit_signal("dead")
-
-func player_dead():
+	else:
+		spawnY = -20
 	position = Vector2(10,spawnY)
 	movement_data.double_jump = true
+  
 	#Reset Main
 	Main.coins = 0
 	Main.quicksand = false
 	Main.in_range = false
 	Main.knockback = false
 	Main.health = 3
+
 
 func animation_state():
 	if velocity.x == 0:

@@ -21,6 +21,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 Main="*res://src/global/main.gd"
+SilentWolf="*res://addons/silent_wolf/SilentWolf.gd"
+BadWordsFilter="*res://addons/badwordsfilter/bad_words_filter.gd"
 
 [display]
 
@@ -31,6 +33,10 @@ window/size/window_height_override=1080
 window/stretch/mode="canvas_items"
 window/stretch/aspect="expand"
 window/stretch/scale=6.0
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/badwordsfilter/plugin.cfg", "res://addons/silent_wolf/plugin.cfg")
 
 [input]
 

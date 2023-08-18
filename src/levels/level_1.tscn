@@ -1,4 +1,4 @@
-[gd_scene load_steps=66 format=3 uid="uid://b4cb7d6bu8kiu"]
+[gd_scene load_steps=67 format=3 uid="uid://b4cb7d6bu8kiu"]
 
 [ext_resource type="Texture2D" uid="uid://dy12u1xfe8uck" path="res://assets/background/lvl1back.png" id="1_dgqja"]
 [ext_resource type="Texture2D" uid="uid://etxpk65gm7kk" path="res://assets/background/lvl1front.png" id="1_fglrk"]
@@ -9,12 +9,14 @@
 [ext_resource type="Texture2D" uid="uid://grrid1bfg8il" path="res://assets/foreground/trees.png" id="4_gewfj"]
 [ext_resource type="Script" path="res://src/interactive/coins.gd" id="5_1cxdc"]
 [ext_resource type="Texture2D" uid="uid://bo5yrg83rhude" path="res://assets/foreground/lvl1_ground.png" id="7_1a65m"]
+[ext_resource type="PackedScene" uid="uid://dqwcpids7e46a" path="res://src/Enemies/axe.tscn" id="10_bap6x"]
 [ext_resource type="Texture2D" uid="uid://bne1ycyic206n" path="res://assets/foreground/water.png" id="14_dd7rm"]
 [ext_resource type="Texture2D" uid="uid://bdaq3mkajdhsn" path="res://assets/foreground/watertop.png" id="14_ev6a3"]
 [ext_resource type="PackedScene" uid="uid://dtfkm547yxtbg" path="res://src/ui/ui.tscn" id="15_0cqxb"]
 [ext_resource type="PackedScene" uid="uid://dqwcpids7e46a" path="res://src/enemies/axe.tscn" id="15_gwau3"]
 [ext_resource type="Texture2D" uid="uid://d3xho7hc8wt4a" path="res://assets/interactive/pitfall.png" id="15_mbeea"]
 [ext_resource type="Script" path="res://src/interactive/pitfall.gd" id="15_pqn2h"]
+[ext_resource type="PackedScene" uid="uid://bxrdaun1twtb1" path="res://src/interactive/portal.tscn" id="16_h5jbk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6mdsj"]
 size = Vector2(112, 16)
@@ -1841,6 +1843,8 @@ autoplay = "default"
 
 [node name="UI" parent="." instance=ExtResource("15_0cqxb")]
 
+[node name="portal" parent="." instance=ExtResource("16_h5jbk")]
+position = Vector2(3336, -211)
 [node name="axe enemies" type="Node" parent="."]
 
 [connection signal="body_entered" from="pitfall/collider" to="pitfall" method="_on_collider_body_entered"]
