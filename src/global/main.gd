@@ -6,6 +6,7 @@ var timeEclapsed = 0
 var framesEclapsed = 0
 var health = 3
 var in_range = false
+var player_dir = 0
 var aggro = false
 var worldHealth = 3600
 var playerPosition
@@ -18,7 +19,7 @@ var gameComplete = false
 var suffix
 var suffixes
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	framesEclapsed += 1
 	worldHealth -= 1
 	

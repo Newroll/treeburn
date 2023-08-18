@@ -2,27 +2,35 @@ extends CharacterBody2D
 
 @export var movement_data : MovementData
 
+#Changes the level at which the player respawns along the y axis
 var spawnY = -20
 
+#Gets animated sprite and gravity
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var knockback_timer: Timer = get_node("KnockbackTimer")
 
-var facingDirection = -1
-const KNOCKBACKTIMECONST = 7
-var knockbackTime = KNOCKBACKTIMECONST
+#Gets knockback direction
+var knockback_dir = 0
+var knockback_timer_started = false
 
 func _physics_process(delta):
 	var input_axis = Input.get_axis("move_left", "move_right")
+	
+	#Makes character move with ground and applys gravity
+	player_movement()
+	apply_gravity(delta)
+	
 	if Main.knockback == false:
+		#Run functions
 		jump()
 		check_state()
 		wall_sliding_true()
 		animation_state()
-		apply_gravity(delta)
 		handle_acceleration(input_axis, delta)
 		apply_friction(input_axis,delta)
-	knockback(input_axis, delta)
-	player_movement()
+	else:
+		knockback(input_axis, delta)
 	
 	if position.y > 100:
 		Main.death()
@@ -89,11 +97,11 @@ func wall_sliding_true():
 		
 	if Input.is_action_just_pressed("move_left") && is_on_wall() && not is_on_floor():
 		velocity.y = movement_data.jump_velocity
-		velocity.x = 150
+		velocity.x = 250
 
 	if Input.is_action_just_pressed("move_right") && is_on_wall() && not is_on_floor():
 		velocity.y = movement_data.jump_velocity
-		velocity.x = 150
+		velocity.x = -250
 
 func resetPlayerPos():
 	get_position()
@@ -103,6 +111,14 @@ func resetPlayerPos():
 		spawnY = -20
 	position = Vector2(10,spawnY)
 	movement_data.double_jump = true
+  
+	#Reset Main
+	Main.coins = 0
+	Main.quicksand = false
+	Main.in_range = false
+	Main.knockback = false
+	Main.health = 3
+
 
 func animation_state():
 	if velocity.x == 0:
@@ -116,18 +132,24 @@ func animation_state():
 		animated_sprite.animation = "move"
 		animated_sprite.flip_h = false 
 
-func knockback(input_axis, delta):
-	if Main.knockback == true:
+func knockback(input_axis, _delta):
+	if knockback_timer_started == false:
 		if input_axis < 0:
-			facingDirection = 1
-		if input_axis > 0:
-			facingDirection = -1
-		if knockbackTime > 0:
-			velocity.y = -300
-			velocity.x = facingDirection * 500
-			knockbackTime -= 1
-		if knockbackTime <= 0:
-			velocity.y = 0
-			velocity.x = 0
-			knockbackTime = KNOCKBACKTIMECONST
-			Main.knockback = false
+			knockback_dir = 1
+		else:
+			knockback_dir = -1
+
+		velocity.y = -150
+		velocity.x = 200 * knockback_dir
+
+		knockback_timer.start()
+		knockback_timer_started = true
+		print("Timer started")
+
+
+func _on_knockback_timer_timeout():
+	Main.knockback = false
+	knockback_timer_started = false
+	print("knockback = false!")
+	velocity.y = 0
+	velocity.x = 0

@@ -3,14 +3,14 @@
 [ext_resource type="Script" path="res://src/Enemies/coal.gd" id="1_hb40t"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_achxt"]
-radius = 109.0
-height = 284.375
+radius = 157.0
+height = 314.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_wdm8e"]
 height = 20.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_weeu6"]
-radius = 69.0
+radius = 84.006
 
 [node name="coal" type="CharacterBody2D"]
 position = Vector2(10, 0)
@@ -65,6 +65,11 @@ autostart = true
 wait_time = 2.0
 one_shot = true
 
+[node name="BullAttackTimer" type="Timer" parent="."]
+
+[node name="RangeAttackTimer" type="Timer" parent="."]
+wait_time = 1.5
+
 [connection signal="body_entered" from="ranged_attack" to="." method="_on_ranged_attack_body_entered"]
 [connection signal="body_exited" from="ranged_attack" to="." method="_on_ranged_attack_body_exited"]
 [connection signal="body_entered" from="death" to="." method="_on_death_body_entered"]
@@ -73,3 +78,5 @@ one_shot = true
 [connection signal="timeout" from="AttackTimer" to="." method="_on_attack_timer_timeout"]
 [connection signal="timeout" from="WalkTimer" to="." method="_on_walk_timer_timeout"]
 [connection signal="timeout" from="IdleTimer" to="." method="_on_idle_timer_timeout"]
+[connection signal="timeout" from="BullAttackTimer" to="." method="_on_bull_attack_timeout"]
+[connection signal="timeout" from="RangeAttackTimer" to="." method="_on_range_attack_timer_timeout"]

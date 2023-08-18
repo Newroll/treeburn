@@ -12,6 +12,6 @@ func _physics_process(delta):
 	position += direction * rock_speed * delta
 	rotation += 0.2
 
-func _on_body_entered(_body):
-	if _body.is_in_group("player"):
- 		Main.dead.emit()
+func _on_body_entered(body):
+	if body.name == "CharacterBody2D":
+		Main.dead.emit()
