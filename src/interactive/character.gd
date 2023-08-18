@@ -2,34 +2,40 @@ extends CharacterBody2D
 
 @export var movement_data : MovementData
 
+#Changes the level at which the player respawns along the y axis
 var spawnY = -20
 
+#Gets animated sprite and gravity
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var knockback_timer: Timer = get_node("KnockbackTimer")
 
-var facingDirection = -1
-const KNOCKBACKTIMECONST = 7
-var knockbackTime = KNOCKBACKTIMECONST
+#Gets knockback direction
+var knockback_dir = 0
+var knockback_timer_started = false
 
 func _ready():
 	Main.connect("dead", player_dead)
 
 func _physics_process(delta):
 	var input_axis = Input.get_axis("move_left", "move_right")
-
+	
+	#Makes character move with ground and applys gravity
+	player_movement()
+	apply_gravity(delta)
+	
 	if Main.knockback == false:
-		#add check here to check if speed is below limit
+		#Run functions
 		jump()
 		check_state()
 		wall_sliding_true()
 		player_death()
 		animation_state()
-		apply_gravity(delta)
 		handle_acceleration(input_axis, delta)
 		apply_friction(input_axis,delta)
 		player_death()
-	knockback(input_axis, delta)
-	player_movement()
+	else:
+		knockback(input_axis, delta)
 	
 	Main.playerPosition = get_position()
 
@@ -113,6 +119,7 @@ func player_dead():
 	Main.coins = 0
 	Main.quicksand = false
 	Main.in_range = false
+	Main.knockback = false
 	Main.health = 3
 
 func animation_state():
@@ -127,18 +134,24 @@ func animation_state():
 		animated_sprite.animation = "move"
 		animated_sprite.flip_h = false 
 
-func knockback(input_axis, delta):
-	if Main.knockback == true:
+func knockback(input_axis, _delta):
+	if knockback_timer_started == false:
 		if input_axis < 0:
-			facingDirection = 1
-		if input_axis > 0:
-			facingDirection = -1
-		if knockbackTime > 0:
-			velocity.y = -300
-			velocity.x = facingDirection * 500
-			knockbackTime -= 1
-		if knockbackTime <= 0:
-			velocity.y = 0
-			velocity.x = 0
-			knockbackTime = KNOCKBACKTIMECONST
-			Main.knockback = false
+			knockback_dir = 1
+		else:
+			knockback_dir = -1
+
+		velocity.y = -150
+		velocity.x = 200 * knockback_dir
+
+		knockback_timer.start()
+		knockback_timer_started = true
+		print("Timer started")
+
+
+func _on_knockback_timer_timeout():
+	Main.knockback = false
+	knockback_timer_started = false
+	print("knockback = false!")
+	velocity.y = 0
+	velocity.x = 0
