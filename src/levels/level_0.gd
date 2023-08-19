@@ -25,3 +25,7 @@ func _process(_delta):
 			Main.worldHealth = 3000
 		$leaf.show()
 		sameWorldhealth = false
+		
+	if Input.is_action_just_pressed("esc"):
+		get_tree().paused = true
+		$UI/PauseMenu.show()

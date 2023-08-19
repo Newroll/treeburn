@@ -897,7 +897,7 @@ position = Vector2(1071, -450)
 [node name="snow100" parent="snow2" instance=ExtResource("10_u32m0")]
 position = Vector2(1068, -442)
 
-[node name="ui" parent="." instance=ExtResource("15_0cqxb")]
+[node name="UI" parent="." instance=ExtResource("15_0cqxb")]
 
 [node name="portal" parent="." instance=ExtResource("13_7g3nt")]
 position = Vector2(49, -182)
