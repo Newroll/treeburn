@@ -1,6 +1,6 @@
 [gd_scene load_steps=20 format=3 uid="uid://dqwcpids7e46a"]
 
-[ext_resource type="Script" path="res://src/Enemies/axe.gd" id="1_3cb35"]
+[ext_resource type="Script" path="res://src/enemies/axe.gd" id="1_3cb35"]
 [ext_resource type="Texture2D" uid="uid://jaarn8y61rfq" path="res://assets/player/axesprite.png" id="2_o058r"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_om1wx"]

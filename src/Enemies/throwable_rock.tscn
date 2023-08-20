@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bwopwmlvyw5s0"]
 
-[ext_resource type="Script" path="res://src/Enemies/range_attack.gd" id="1_s3yfb"]
+[ext_resource type="Script" path="res://src/enemies/range_attack.gd" id="1_s3yfb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7v0y0"]
 size = Vector2(10, 2)
