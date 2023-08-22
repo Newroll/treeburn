@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://bcxhwtl70ikil"]
+[gd_scene load_steps=17 format=3 uid="uid://bcxhwtl70ikil"]
 
 [ext_resource type="Script" path="res://src/ui/intro.gd" id="1_thbuj"]
 [ext_resource type="Texture2D" uid="uid://6q7ys6hqnit7" path="res://assets/background/cloudsback.png" id="2_hfyxw"]
@@ -95,8 +95,28 @@ tracks/5/keys = {
 "times": PackedFloat32Array()
 }
 
+[sub_resource type="Animation" id="Animation_4lofb"]
+resource_name = "fadetoblack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_iratv"]
+length = 0.001
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_smr2c"]
 _data = {
+"RESET": SubResource("Animation_iratv"),
+"fadetoblack": SubResource("Animation_4lofb"),
 "splashscreen_animation": SubResource("Animation_6x26f")
 }
 
@@ -157,6 +177,14 @@ text = "Play"
 stream = ExtResource("6_ia2ck")
 autoplay = true
 
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+z_index = 99
+offset_top = -19.0
+offset_right = 1881.0
+offset_bottom = 1175.0
+color = Color(0, 0, 0, 0)
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_smr2c")
@@ -164,9 +192,10 @@ libraries = {
 
 [node name="Label" type="Label" parent="."]
 visible = false
-offset_left = -44.5431
+modulate = Color(1, 1, 1, 0)
+offset_left = 348.0
 offset_top = 338.359
-offset_right = 1993.45
+offset_right = 2385.99
 offset_bottom = 616.359
 theme_override_colors/font_color = Color(0.133333, 0.6, 0.133333, 1)
 theme_override_fonts/font = ExtResource("2_wddbg")
@@ -177,9 +206,10 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Letter" type="Label" parent="."]
 visible = false
-offset_left = 99.4571
+modulate = Color(1, 1, 1, 0.785714)
+offset_left = 826.0
 offset_top = 295.799
-offset_right = 373.458
+offset_right = 1100.0
 offset_bottom = 573.799
 theme_override_colors/font_color = Color(0.133333, 0.6, 0.133333, 1)
 theme_override_fonts/font = ExtResource("2_wddbg")

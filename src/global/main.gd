@@ -18,9 +18,14 @@ var coinRequirement=[5, 10, 13, 0]
 var gameComplete = true
 var suffix
 var suffixes
+var snowHit = 0
 
 func _physics_process(_delta):
 	framesEclapsed += 1
+	
+	if snowHit >= 20:
+		health -= 1
+		snowHit = 0
 	
 	if(framesEclapsed == 6):
 		if(gameComplete == false):

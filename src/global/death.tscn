@@ -5,6 +5,7 @@
 [ext_resource type="FontFile" uid="uid://422t11bovf6v" path="res://assets/styles/mainport.ttf" id="2_3l267"]
 
 [node name="death" type="Node2D"]
+process_mode = 3
 script = ExtResource("1_lls1p")
 
 [node name="ColorRect" type="ColorRect" parent="."]
