@@ -15,17 +15,17 @@ var ice = false
 var resetPlayer = false
 var knockback = false
 var coinRequirement=[5, 10, 13, 0]
-var gameComplete = false
+var gameComplete = true
 var suffix
 var suffixes
 
 func _physics_process(_delta):
 	framesEclapsed += 1
-	worldHealth -= 1
 	
 	if(framesEclapsed == 6):
 		if(gameComplete == false):
 			timeEclapsed += 0.1
+			worldHealth -= 1
 		framesEclapsed = 0
 	if(health <= 0 || worldHealth <= 0):
 		death()

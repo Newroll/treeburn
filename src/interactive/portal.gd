@@ -5,7 +5,7 @@ var entered = false
 func _on_body_entered(body):
 	if body.name == "CharacterBody2D":
 		entered = true
-	$enter.visible = true
+		$enter.visible = true
 
 
 func _on_body_exited(_body):
@@ -15,6 +15,9 @@ func _on_body_exited(_body):
 	
 func _ready():
 	$coins.set_text("You will need " + str(Main.coinRequirement[Main.level]) + " coins")
+	if Main.level == 2:
+		$enter.set_position(2, -35)
+		$coins.set_position(5, -17)
 
 func _process(_delta):
 	if entered == true && Main.coins != Main.coinRequirement[Main.level] && Input.is_action_just_pressed("enter"):

@@ -318,7 +318,7 @@ scale = Vector2(1.25, 1.25)
 remote_path = NodePath("../../Camera2D")
 
 [node name="InfrontPlayer" type="TileMap" parent="."]
-z_index = 20
+z_index = -20
 texture_filter = 1
 tile_set = SubResource("TileSet_nhoyd")
 format = 2
@@ -371,7 +371,7 @@ script = ExtResource("12_kkmjj")
 visible = false
 
 [node name="welcome" type="Label" parent="."]
-z_index = 30
+z_index = -10
 texture_filter = 1
 offset_left = 4.0
 offset_top = -68.0
@@ -382,7 +382,7 @@ text = "Welcome to treeburn!"
 
 [node name="twojump" type="Label" parent="."]
 visible = false
-z_index = 30
+z_index = -10
 texture_filter = 1
 offset_left = 292.0
 offset_top = -112.0
@@ -395,7 +395,7 @@ autowrap_mode = 2
 
 [node name="walljump" type="Label" parent="."]
 visible = false
-z_index = 30
+z_index = -10
 offset_left = 608.0
 offset_top = -92.0
 offset_right = 768.0
@@ -408,7 +408,7 @@ autowrap_mode = 2
 
 [node name="leaf" type="Label" parent="."]
 visible = false
-z_index = 30
+z_index = -10
 offset_left = 906.0
 offset_top = -125.0
 offset_right = 1078.0
@@ -431,11 +431,11 @@ offset_right = 194.0
 offset_bottom = 59.0
 theme_override_fonts/font = ExtResource("11_edk42")
 theme_override_font_sizes/font_size = 10
-text = "This is the world health. Do not let it deplete."
+text = "This is the world health. You shall bear the consequences if it depletes."
 autowrap_mode = 2
 
 [node name="portal" parent="." instance=ExtResource("12_iykh1")]
-position = Vector2(1481, -122)
+position = Vector2(1480, -128)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_df14p")

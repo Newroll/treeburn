@@ -20,7 +20,7 @@ func _process(_delta):
 		$CanvasLayer.show()
 		await get_tree().create_timer(1.5).timeout
 		if showLeaf == true:
-			#dddddddddddd$leaf2.show()
+			$leaf2.show()
 			showLeaf = false
 			Main.worldHealth = 3000
 		$leaf.show()
@@ -29,3 +29,6 @@ func _process(_delta):
 	if Input.is_action_just_pressed("esc"):
 		get_tree().paused = true
 		$UI/PauseMenu.show()
+
+func _ready():
+	Main.gameComplete = false

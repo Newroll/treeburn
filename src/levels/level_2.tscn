@@ -417,7 +417,7 @@ position = Vector2(3043, -9)
 [node name="UI" parent="." instance=ExtResource("15_0cqxb")]
 
 [node name="portal" parent="." instance=ExtResource("17_cr723")]
-position = Vector2(1247, -51)
+position = Vector2(1244, -42)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("18_i5a1a")

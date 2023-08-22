@@ -13,23 +13,23 @@ script = ExtResource("1_5tapu")
 
 [node name="enter" type="Label" parent="."]
 visible = false
-z_index = 10
+z_index = 30
 texture_filter = 1
-offset_left = -178.0
-offset_top = -58.0
-offset_right = 39.0
-offset_bottom = -32.0
+offset_left = -183.0
+offset_top = -34.0
+offset_right = 34.0
+offset_bottom = -8.0
 theme_override_fonts/font = ExtResource("2_5687t")
 text = "Press enter to proceed"
 
 [node name="coins" type="Label" parent="."]
 visible = false
-z_index = 10
+z_index = 30
 texture_filter = 1
-offset_left = -115.0
-offset_top = -40.0
-offset_right = 38.0
-offset_bottom = -25.0
+offset_left = -120.0
+offset_top = -16.0
+offset_right = 33.0
+offset_bottom = -1.0
 theme_override_fonts/font = ExtResource("2_5687t")
 theme_override_font_sizes/font_size = 12
 
