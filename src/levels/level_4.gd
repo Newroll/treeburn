@@ -5,6 +5,7 @@ func _ready():
 	Main.gameComplete = true
 	var finalTime = Main.timeEclapsed*-1
 	var sw_result = await SilentWolf.Scores.get_score_position(finalTime).sw_get_position_complete
+	$loading.hide()
 	var position = sw_result.position
 	if position <= 10:
 		$highscorepopup.show()
@@ -30,3 +31,7 @@ func _on_leaderboard_pressed():
 
 func _on_cancel_pressed():
 	$highscorepopup.hide()
+
+
+func _on_quit_pressed():
+	get_tree().change_scene_to_file("res://src/ui/intro.tscn")
