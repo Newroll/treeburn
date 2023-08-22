@@ -14,3 +14,7 @@ func _process(delta):
 func _on_continue_pressed():
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://src/levels/level_" + str(Main.level) + ".tscn")
+
+
+func _on_quit_pressed():
+	get_tree().change_scene_to_file("res://src/ui/intro.tscn")

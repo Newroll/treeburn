@@ -1,8 +1,59 @@
-[gd_scene load_steps=4 format=3 uid="uid://bhw48p0ycooeo"]
+[gd_scene load_steps=12 format=3 uid="uid://bhw48p0ycooeo"]
 
 [ext_resource type="Texture2D" uid="uid://dp8q7ne2wr5nx" path="res://assets/interactive/deathscreen.png" id="1_6txj8"]
 [ext_resource type="Script" path="res://src/global/death.gd" id="1_lls1p"]
 [ext_resource type="FontFile" uid="uid://422t11bovf6v" path="res://assets/styles/mainport.ttf" id="2_3l267"]
+[ext_resource type="Texture2D" uid="uid://d10oyc3ti1dku" path="res://assets/interactive/firesheet.png" id="4_3qicg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u7p54"]
+atlas = ExtResource("4_3qicg")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cwlb4"]
+atlas = ExtResource("4_3qicg")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_22lay"]
+atlas = ExtResource("4_3qicg")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5twa6"]
+atlas = ExtResource("4_3qicg")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5u507"]
+atlas = ExtResource("4_3qicg")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jv18n"]
+atlas = ExtResource("4_3qicg")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lygyf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u7p54")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cwlb4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_22lay")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5twa6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5u507")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jv18n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
 
 [node name="death" type="Node2D"]
 process_mode = 3
@@ -11,6 +62,7 @@ script = ExtResource("1_lls1p")
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 414.0
 offset_bottom = 208.0
+color = Color(0.352941, 0.352941, 0.352941, 1)
 
 [node name="skillissue" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -20,11 +72,136 @@ texture = ExtResource("1_6txj8")
 
 [node name="continue" type="Button" parent="."]
 texture_filter = 1
-offset_left = 8.0
-offset_top = 89.0
-offset_right = 118.0
-offset_bottom = 115.0
+offset_left = 4.0
+offset_top = 84.0
+offset_right = 245.0
+offset_bottom = 108.0
 theme_override_fonts/font = ExtResource("2_3l267")
-text = "continue"
+theme_override_font_sizes/font_size = 12
+text = "I'm bad at video games (continue)"
+
+[node name="quit" type="Button" parent="."]
+offset_left = 5.0
+offset_top = 115.0
+offset_right = 182.0
+offset_bottom = 138.0
+theme_override_fonts/font = ExtResource("2_3l267")
+theme_override_font_sizes/font_size = 12
+text = "Rage quit (quit to menu)"
+
+[node name="fire" type="Node" parent="."]
+
+[node name="fire" type="AnimatedSprite2D" parent="fire"]
+texture_filter = 1
+position = Vector2(8.5, 163.5)
+scale = Vector2(2.3125, 2.3125)
+sprite_frames = SubResource("SpriteFrames_lygyf")
+autoplay = "default"
+
+[node name="fire2" type="AnimatedSprite2D" parent="fire"]
+texture_filter = 1
+position = Vector2(197.5, 163.5)
+scale = Vector2(2.3125, 2.3125)
+sprite_frames = SubResource("SpriteFrames_lygyf")
+autoplay = "default"
+
+[node name="fire9" type="AnimatedSprite2D" parent="fire"]
+texture_filter = 1
+position = Vector2(224.5, 163.5)
+scale = Vector2(2.3125, 2.3125)
+sprite_frames = SubResource("SpriteFrames_lygyf")
+autoplay = "default"
+
+[node name="fire10" type="AnimatedSprite2D" parent="fire"]
+texture_filter = 1
+position = Vector2(251.5, 163.5)
+scale = Vector2(2.3125, 2.3125)
+sprite_frames = SubResource("SpriteFrames_lygyf")
+autoplay = "default"
+
+[node name="fire11" type="AnimatedSprite2D" parent="fire"]
+texture_filter = 1
+position = Vector2(278.5, 163.5)
+scale = Vector2(2.3125, 2.3125)
+sprite_frames = SubResource("SpriteFrames_lygyf")
+autoplay = "default"
+
+[node name="fire12" type="AnimatedSprite2D" parent="fire"]
+texture_filter = 1
+position = Vector2(305.5, 163.5)
+scale = Vector2(2.3125, 2.3125)
+sprite_frames = SubResource("SpriteFrames_lygyf")
+autoplay = "default"
+
+[node name="fire13" type="AnimatedSprite2D" parent="fire"]
+texture_filter = 1
+position = Vector2(332.5, 163.5)
+scale = Vector2(2.3125, 2.3125)
+sprite_frames = SubResource("SpriteFrames_lygyf")
+autoplay = "default"
+
+[node name="fire14" type="AnimatedSprite2D" parent="fire"]
+texture_filter = 1
+position = Vector2(359.5, 163.5)
+scale = Vector2(2.3125, 2.3125)
+sprite_frames = SubResource("SpriteFrames_lygyf")
+autoplay = "default"
+
+[node name="fire15" type="AnimatedSprite2D" parent="fire"]
+texture_filter = 1
+position = Vector2(386.5, 163.5)
+scale = Vector2(2.3125, 2.3125)
+sprite_frames = SubResource("SpriteFrames_lygyf")
+autoplay = "default"
+
+[node name="fire16" type="AnimatedSprite2D" parent="fire"]
+texture_filter = 1
+position = Vector2(413.5, 163.5)
+scale = Vector2(2.3125, 2.3125)
+sprite_frames = SubResource("SpriteFrames_lygyf")
+autoplay = "default"
+
+[node name="fire3" type="AnimatedSprite2D" parent="fire"]
+texture_filter = 1
+position = Vector2(170.5, 163.5)
+scale = Vector2(2.3125, 2.3125)
+sprite_frames = SubResource("SpriteFrames_lygyf")
+autoplay = "default"
+
+[node name="fire4" type="AnimatedSprite2D" parent="fire"]
+texture_filter = 1
+position = Vector2(143.5, 163.5)
+scale = Vector2(2.3125, 2.3125)
+sprite_frames = SubResource("SpriteFrames_lygyf")
+autoplay = "default"
+
+[node name="fire5" type="AnimatedSprite2D" parent="fire"]
+texture_filter = 1
+position = Vector2(116.5, 163.5)
+scale = Vector2(2.3125, 2.3125)
+sprite_frames = SubResource("SpriteFrames_lygyf")
+autoplay = "default"
+
+[node name="fire6" type="AnimatedSprite2D" parent="fire"]
+texture_filter = 1
+position = Vector2(89.5, 163.5)
+scale = Vector2(2.3125, 2.3125)
+sprite_frames = SubResource("SpriteFrames_lygyf")
+autoplay = "default"
+
+[node name="fire7" type="AnimatedSprite2D" parent="fire"]
+texture_filter = 1
+position = Vector2(62.5, 163.5)
+scale = Vector2(2.3125, 2.3125)
+sprite_frames = SubResource("SpriteFrames_lygyf")
+autoplay = "default"
+
+[node name="fire8" type="AnimatedSprite2D" parent="fire"]
+texture_filter = 1
+position = Vector2(35.5, 163.5)
+scale = Vector2(2.3125, 2.3125)
+sprite_frames = SubResource("SpriteFrames_lygyf")
+autoplay = "default"
 
 [connection signal="pressed" from="continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
