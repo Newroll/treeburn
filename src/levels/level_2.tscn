@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://ddv4q4gf0k1gu"]
+[gd_scene load_steps=25 format=3 uid="uid://ddv4q4gf0k1gu"]
 
 [ext_resource type="Script" path="res://src/levels/level_2.gd" id="1_anxaj"]
 [ext_resource type="PackedScene" uid="uid://bmlc5h5gbouaf" path="res://src/interactive/character.tscn" id="1_km57j"]
@@ -17,6 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://dtfkm547yxtbg" path="res://src/ui/ui.tscn" id="15_0cqxb"]
 [ext_resource type="PackedScene" uid="uid://5sixvjk3b60v" path="res://src/interactive/fire.tscn" id="15_r2b35"]
 [ext_resource type="PackedScene" uid="uid://bxrdaun1twtb1" path="res://src/interactive/portal.tscn" id="17_cr723"]
+[ext_resource type="AudioStream" uid="uid://bqurcfgqivv2x" path="res://assets/music/musiclvl2.mp3" id="18_i5a1a"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3n1mi"]
 texture = ExtResource("4_ps6a8")
@@ -417,5 +418,9 @@ position = Vector2(3043, -9)
 
 [node name="portal" parent="." instance=ExtResource("17_cr723")]
 position = Vector2(1247, -51)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_i5a1a")
+autoplay = true
 
 [connection signal="body_entered" from="death" to="death" method="_on_body_entered"]

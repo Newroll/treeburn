@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=3 uid="uid://b4fhy8nwhgeab"]
+[gd_scene load_steps=68 format=3 uid="uid://b4fhy8nwhgeab"]
 
 [ext_resource type="Texture2D" uid="uid://dy12u1xfe8uck" path="res://assets/background/lvl1back.png" id="1_dgqja"]
 [ext_resource type="Texture2D" uid="uid://etxpk65gm7kk" path="res://assets/background/lvl1front.png" id="1_fglrk"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://d3xho7hc8wt4a" path="res://assets/interactive/pitfall.png" id="15_mbeea"]
 [ext_resource type="Script" path="res://src/interactive/pitfall.gd" id="15_pqn2h"]
 [ext_resource type="PackedScene" uid="uid://bxrdaun1twtb1" path="res://src/interactive/portal.tscn" id="16_h5jbk"]
+[ext_resource type="AudioStream" uid="uid://ctfjl7xm00g0g" path="res://assets/music/musiclvl1.mp3" id="17_1uwno"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6mdsj"]
 size = Vector2(112, 16)
@@ -1846,6 +1847,10 @@ autoplay = "default"
 position = Vector2(3336, -211)
 
 [node name="axe enemies" type="Node" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_1uwno")
+autoplay = true
 
 [connection signal="body_entered" from="pitfall/collider" to="pitfall" method="_on_collider_body_entered"]
 [connection signal="body_exited" from="pitfall/collider" to="pitfall" method="_on_collider_body_exited"]

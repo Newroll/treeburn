@@ -75,8 +75,10 @@ func jump():
 	if Input.is_action_just_pressed("jump"):
 		if is_on_floor():
 			velocity.y = movement_data.jump_velocity
+			$AudioStreamPlayer.play()
 		if not is_on_floor() && movement_data.double_jump == true:
 			velocity.y = movement_data.jump_velocity * 0.8
+			$AudioStreamPlayer.play()
 			movement_data.double_jump = false
 
 	if is_on_floor():
