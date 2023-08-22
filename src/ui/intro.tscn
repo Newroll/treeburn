@@ -1,10 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://bcxhwtl70ikil"]
+[gd_scene load_steps=15 format=3 uid="uid://bcxhwtl70ikil"]
 
 [ext_resource type="Script" path="res://src/ui/intro.gd" id="1_thbuj"]
 [ext_resource type="Texture2D" uid="uid://6q7ys6hqnit7" path="res://assets/background/cloudsback.png" id="2_hfyxw"]
 [ext_resource type="FontFile" uid="uid://es627dw3q2bu" path="res://assets/styles/WayfarersToyBoxRegular.ttf" id="2_wddbg"]
 [ext_resource type="Texture2D" uid="uid://ddodrd661qp2" path="res://assets/background/cloudsfront.png" id="3_26rap"]
 [ext_resource type="StyleBox" uid="uid://cavwdk0v7i65u" path="res://assets/styles/button_theme.tres" id="5_syq3h"]
+[ext_resource type="AudioStream" uid="uid://m4t4b420uqp1" path="res://assets/music/intro.mp3" id="6_ia2ck"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_orp26"]
 bg_color = Color(0.239216, 0.431373, 0.556863, 0.862745)
@@ -70,11 +71,13 @@ scale = Vector2(0.178587, 0.155733)
 script = ExtResource("1_thbuj")
 
 [node name="CloudBack" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(923.919, 563.597)
 scale = Vector2(3.60906, 3.62115)
 texture = ExtResource("2_hfyxw")
 
 [node name="CloudsFront" type="Sprite2D" parent="."]
+texture_filter = 1
 position = Vector2(918.32, 912.672)
 scale = Vector2(3.60906, 2.60237)
 texture = ExtResource("3_26rap")
@@ -158,5 +161,9 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_0tjkf")
 theme_override_styles/hover = SubResource("StyleBoxFlat_wnv00")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_i57td")
 text = "Continue"
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_ia2ck")
+autoplay = true
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/VBoxContainer/MarginContainer/NewGame_Button" to="." method="_on_new_game_button_pressed"]
