@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dv5udhaqgjxv5"]
+[gd_scene load_steps=20 format=3 uid="uid://dv5udhaqgjxv5"]
 
 [ext_resource type="Script" path="res://src/levels/level_0.gd" id="1_jql4m"]
 [ext_resource type="Texture2D" uid="uid://ddodrd661qp2" path="res://assets/background/cloudsfront.png" id="2_57l4s"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bxrdaun1twtb1" path="res://src/interactive/portal.tscn" id="12_iykh1"]
 [ext_resource type="Script" path="res://src/interactive/coins.gd" id="12_kkmjj"]
 [ext_resource type="PackedScene" uid="uid://cjmevitxidwna" path="res://src/ui/pause_menu.tscn" id="13_000hl"]
+[ext_resource type="AudioStream" uid="uid://ctfjl7xm00g0g" path="res://assets/music/musiclvl1.mp3" id="14_df14p"]
 [ext_resource type="PackedScene" uid="uid://dtfkm547yxtbg" path="res://src/ui/ui.tscn" id="15_wxamn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fomlk"]
@@ -435,3 +436,7 @@ autowrap_mode = 2
 
 [node name="portal" parent="." instance=ExtResource("12_iykh1")]
 position = Vector2(1480, -128)
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_df14p")
+autoplay = true
