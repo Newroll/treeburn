@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://dv5udhaqgjxv5"]
+[gd_scene load_steps=24 format=3 uid="uid://dv5udhaqgjxv5"]
 
 [ext_resource type="Script" path="res://src/levels/level_0.gd" id="1_jql4m"]
 [ext_resource type="Texture2D" uid="uid://ddodrd661qp2" path="res://assets/background/cloudsfront.png" id="2_57l4s"]
@@ -260,6 +260,70 @@ texture = ExtResource("7_57h5j")
 [sub_resource type="TileSet" id="TileSet_nhoyd"]
 sources/1 = SubResource("TileSetAtlasSource_fa3kj")
 
+[sub_resource type="Animation" id="Animation_xs3dy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../CanvasLayer/ColorRect:color")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_cwxt5"]
+resource_name = "fadetoblack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_h2hrj"]
+resource_name = "fadetonormal"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ci0ln"]
+_data = {
+"RESET": SubResource("Animation_xs3dy"),
+"fadetoblack": SubResource("Animation_cwxt5"),
+"fadetonormal": SubResource("Animation_h2hrj")
+}
+
 [node name="Level0" type="Node2D"]
 script = ExtResource("1_jql4m")
 
@@ -419,10 +483,10 @@ text = "Pick this leaf up to restore some of the world health."
 horizontal_alignment = 2
 autowrap_mode = 2
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="worldhealth" type="CanvasLayer" parent="."]
 visible = false
 
-[node name="worldhealth" type="Label" parent="CanvasLayer"]
+[node name="worldhealth" type="Label" parent="worldhealth"]
 z_index = -10
 texture_filter = 1
 offset_left = 6.0
@@ -436,6 +500,22 @@ autowrap_mode = 2
 
 [node name="portal" parent="." instance=ExtResource("12_iykh1")]
 position = Vector2(1481, -122)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+z_index = 99
+offset_left = -185.0
+offset_top = -539.0
+offset_right = 1736.0
+offset_bottom = 537.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+root_node = NodePath("../../AudioStreamPlayer")
+libraries = {
+"": SubResource("AnimationLibrary_ci0ln")
+}
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_df14p")

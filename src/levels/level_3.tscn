@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b6ay00x3a3jcj"]
+[gd_scene load_steps=20 format=3 uid="uid://b6ay00x3a3jcj"]
 
 [ext_resource type="PackedScene" uid="uid://bmlc5h5gbouaf" path="res://src/interactive/character.tscn" id="1_km57j"]
 [ext_resource type="Texture2D" uid="uid://ddodrd661qp2" path="res://assets/background/cloudsfront.png" id="1_s6uy5"]
@@ -92,6 +92,42 @@ texture_region_size = Vector2i(48, 48)
 physics_layer_0/collision_layer = 1
 sources/5 = SubResource("TileSetAtlasSource_n3ewm")
 sources/0 = SubResource("TileSetAtlasSource_tw11q")
+
+[sub_resource type="Animation" id="Animation_yw7fn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_snwhm"]
+resource_name = "fadetonormal"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_auhi5"]
+_data = {
+"RESET": SubResource("Animation_yw7fn"),
+"fadetonormal": SubResource("Animation_snwhm")
+}
 
 [node name="Level3" type="Node2D"]
 script = ExtResource("1_ud0ie")
@@ -901,3 +937,19 @@ position = Vector2(1068, -442)
 
 [node name="portal" parent="." instance=ExtResource("13_7g3nt")]
 position = Vector2(3450, -58)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+z_index = 99
+offset_left = -185.0
+offset_top = -539.0
+offset_right = 1736.0
+offset_bottom = 537.0
+color = Color(0, 0, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_auhi5")
+}

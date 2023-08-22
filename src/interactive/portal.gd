@@ -26,4 +26,6 @@ func _process(_delta):
 		Main.coins = 0
 		Main.level += 1
 		Main.worldHealth = 3600
+		$CanvasLayer/AnimationPlayer.play("fadetoblack")
+		await get_tree().create_timer(0.7).timeout
 		get_tree().change_scene_to_file("res://src/levels/level_"+str(Main.level)+".tscn")

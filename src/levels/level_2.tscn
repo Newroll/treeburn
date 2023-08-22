@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://ddv4q4gf0k1gu"]
+[gd_scene load_steps=29 format=3 uid="uid://ddv4q4gf0k1gu"]
 
 [ext_resource type="Script" path="res://src/levels/level_2.gd" id="1_anxaj"]
 [ext_resource type="PackedScene" uid="uid://bmlc5h5gbouaf" path="res://src/interactive/character.tscn" id="1_km57j"]
@@ -138,6 +138,58 @@ sources/3 = SubResource("TileSetAtlasSource_n0dtg")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_58jtv"]
 size = Vector2(1095.25, 27.5)
+
+[sub_resource type="Animation" id="Animation_xs3dy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_h2hrj"]
+resource_name = "fadetonormal"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_cwxt5"]
+resource_name = "fadetoblack"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.7),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ci0ln"]
+_data = {
+"RESET": SubResource("Animation_xs3dy"),
+"fadetoblack": SubResource("Animation_cwxt5"),
+"fadetonormal": SubResource("Animation_h2hrj")
+}
 
 [node name="Level2" type="Node2D"]
 script = ExtResource("1_anxaj")
@@ -422,5 +474,21 @@ position = Vector2(1244, -42)
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("18_i5a1a")
 autoplay = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+z_index = 99
+offset_left = -185.0
+offset_top = -539.0
+offset_right = 1736.0
+offset_bottom = 537.0
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
+root_node = NodePath("../../AudioStreamPlayer")
+libraries = {
+"": SubResource("AnimationLibrary_ci0ln")
+}
 
 [connection signal="body_entered" from="death" to="death" method="_on_body_entered"]
