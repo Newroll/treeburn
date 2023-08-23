@@ -60,7 +60,7 @@ offset_bottom = 110.0
 theme = ExtResource("2_pw8og")
 theme_override_fonts/font = ExtResource("3_5wg7b")
 theme_override_styles/normal = ExtResource("3_sh48l")
-text = "Quit To Menu"
+text = "Quit"
 
 [connection signal="pressed" from="ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="QuitToMenuButton" to="." method="_on_quit_to_menu_button_pressed"]

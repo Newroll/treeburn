@@ -14,7 +14,7 @@ var quicksand = false
 var ice = false
 var resetPlayer = false
 var knockback = false
-var coinRequirement=[5, 10, 13, 0]
+var coinRequirement=[5, 10, 13, 10]
 var gameComplete = true
 var suffix
 var suffixes
