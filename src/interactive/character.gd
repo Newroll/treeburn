@@ -13,6 +13,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 #Get raycasts for knockback
 @onready var raycast_right: RayCast2D= $RayCast_Right
 @onready var raycast_left: RayCast2D = $RayCast_Left
+@onready var raycast_down: RayCast2D = $RayCast_Down
 
 #Gets knockback direction
 var knockback_dir = 0
@@ -22,21 +23,22 @@ var knockback_timer_started = false
 
 func _physics_process(delta):
 	var input_axis = Input.get_axis("move_left", "move_right")
-	
+
 	#Makes character move with ground and applys gravity
 	player_movement()
+	check_state()
 	apply_gravity(delta)
 	
 	if Main.knockback == false:
 		#Run functions
 		jump()
-		check_state()
 		wall_sliding_true()
 		animation_state()
 		handle_acceleration(input_axis, delta)
 		apply_friction(input_axis,delta)
+		wall_jumping()
 	else:
-		knockback(delta)
+		knockback()
 	
 	if position.y > 100:
 		Main.health = -1
@@ -47,6 +49,25 @@ func _physics_process(delta):
 	
 	Main.playerPosition = get_position()
 
+
+func wall_jumping():
+	#For some reason "is_on_wall" is breaking this code.
+	if not is_on_floor():
+		if Input.is_action_just_pressed("move_left"):
+			if raycast_left.is_colliding():
+				var wall_left = raycast_left.get_collider()
+				if wall_left.get_name() == "BehindPlayer":
+					velocity.y = movement_data.jump_velocity
+					velocity.x = 150
+
+		if Input.is_action_just_pressed("move_right"):
+			if raycast_right.is_colliding():
+				var wall_right = raycast_right.get_collider()
+				if wall_right.get_name() == "BehindPlayer":
+					velocity.y = movement_data.jump_velocity
+					velocity.x = -150
+
+
 func check_state():
 	if Main.quicksand == true:
 		movement_data = load("res://src/interactive/QuicksandMovementData.tres")
@@ -56,8 +77,9 @@ func check_state():
 		movement_data = load("res://src/interactive/DefaultMovementData.tres")
 
 func apply_gravity(delta):
-	if not is_on_floor():
+	if not is_on_floor() && movement_data.wall_sliding == false:
 		velocity.y += gravity * delta
+
 
 func handle_acceleration(input_axis, delta):
 	if input_axis != 0:
@@ -65,7 +87,9 @@ func handle_acceleration(input_axis, delta):
 			velocity.x = move_toward(velocity.x, movement_data.speed *  input_axis, movement_data.air_resistance * delta)
 		else:
 			velocity.x = move_toward(velocity.x, movement_data.speed *  input_axis, movement_data.acc * delta)
-			
+
+
+
 func apply_friction(input_axis, delta):
 	if input_axis == 0:
 		if !is_on_floor():
@@ -76,12 +100,14 @@ func apply_friction(input_axis, delta):
 func player_movement():
 	move_and_slide()
 
+
 #Handle Jump.
 func jump():
 	if Input.is_action_just_pressed("jump"):
 		if is_on_floor():
 			velocity.y = movement_data.jump_velocity
 			$AudioStreamPlayer.play()
+
 		if not is_on_floor() && movement_data.double_jump == true:
 			velocity.y = movement_data.jump_velocity * 0.8
 			$AudioStreamPlayer.play()
@@ -90,26 +116,23 @@ func jump():
 	if is_on_floor():
 		movement_data.double_jump = true
 
+
 #Handles Wall Sliding.
 func wall_sliding_true():
-	if not is_on_wall():
-		movement_data.wall_sliding = false
-		return
-
 	if is_on_wall() && not is_on_floor():
 		if Input.is_action_just_pressed("interact"):
 			movement_data.wall_sliding = true
-
-	if movement_data.wall_sliding == true:
-		velocity.y = movement_data.wall_slide
 		
-	if Input.is_action_just_pressed("move_left") && is_on_wall() && not is_on_floor():
-		velocity.y = movement_data.jump_velocity
-		velocity.x = 250
+		if movement_data.wall_sliding:
+			if Input.is_action_just_pressed("KEY_ANY"):
+				movement_data.wall_sliding = false
 
-	if Input.is_action_just_pressed("move_right") && is_on_wall() && not is_on_floor():
-		velocity.y = movement_data.jump_velocity
-		velocity.x = -250
+		if movement_data.wall_sliding == true:
+			velocity.y = movement_data.wall_slide
+	else:
+		movement_data.wall_sliding = false
+		return
+
 
 func resetPlayerPos():
 	get_position()
@@ -140,24 +163,32 @@ func animation_state():
 		animated_sprite.animation = "move"
 		animated_sprite.flip_h = false 
 
-func knockback(_delta):
+
+func knockback():
 	if knockback_timer_started == false:
 		if raycast_right.is_colliding():
-			var colliding_object_right = raycast_right.get_collider()
-			if colliding_object_right.get_name() != "BehindPlayer":
+			var object_right = raycast_right.get_collider()
+			if object_right.get_name() != "BehindPlayer":
 				knockback_dir = -1
 
 		if raycast_left.is_colliding():
-			var colliding_object_left = raycast_left.get_collider()
-			if colliding_object_left.get_name() != "BehindPlayer":
+			var object_left = raycast_left.get_collider()
+			if object_left.get_name() != "BehindPlayer":
 				knockback_dir = 1
-		
+	
 		if raycast_left.is_colliding() && raycast_right.is_colliding():
-			var colliding_object_left = raycast_left.get_collider()
-			var colliding_object_right = raycast_right.get_collider()
-			if colliding_object_left.get_name() != "BehindPlayer" && colliding_object_right.get_name() != "BehindPlayer":
+			var object_left = raycast_left.get_collider()
+			var object_right = raycast_right.get_collider()
+			if object_left.get_name() != "BehindPlayer" && object_right.get_name() != "BehindPlayer":
 				knockback_dir = 0
 				knockback_power = -500
+		
+		if raycast_down.is_colliding():
+			var object_down = raycast_down.get_collider()
+			if object_down.get_name() != "BehindPlayer":
+				knockback_dir = 0
+				knockback_power = -350
+
 
 		velocity.y = knockback_power
 		velocity.x = 150 * knockback_dir
