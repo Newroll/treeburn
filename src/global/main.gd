@@ -19,6 +19,7 @@ var gameComplete = true
 var suffix
 var suffixes
 var snowHit = 0
+var leaderboardOffer = false
 
 func _physics_process(_delta):
 	framesEclapsed += 1

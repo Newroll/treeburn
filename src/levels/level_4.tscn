@@ -53,6 +53,7 @@ theme_override_styles/normal = ExtResource("6_bfk6l")
 text = "view leaderboard"
 
 [node name="highscorepopup" type="ColorRect" parent="."]
+visible = false
 offset_left = 24.0
 offset_top = 22.0
 offset_right = 300.0
@@ -92,10 +93,10 @@ text = "Enter your name below to be placed on the leaderboard."
 [node name="warning" type="Label" parent="highscorepopup"]
 visible = false
 layout_mode = 0
-offset_left = 22.0
-offset_top = 56.0
-offset_right = 114.0
-offset_bottom = 82.0
+offset_left = 177.0
+offset_top = 76.0
+offset_right = 269.0
+offset_bottom = 95.0
 theme_override_fonts/font = ExtResource("2_fndc8")
 text = "BAD WORD!"
 
@@ -121,9 +122,9 @@ text = "Confirm"
 
 [node name="cancel" type="Button" parent="highscorepopup"]
 layout_mode = 0
-offset_left = 108.0
+offset_left = 100.0
 offset_top = 71.0
-offset_right = 179.0
+offset_right = 171.0
 offset_bottom = 95.0
 theme_override_fonts/font = ExtResource("2_fndc8")
 theme_override_font_sizes/font_size = 10
@@ -133,6 +134,7 @@ text = "cancel
 [node name="sfx" type="AudioStreamPlayer" parent="highscorepopup"]
 
 [node name="loading" type="ColorRect" parent="."]
+visible = false
 offset_right = 347.0
 offset_bottom = 208.0
 color = Color(0, 0, 0, 1)
