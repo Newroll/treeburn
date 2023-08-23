@@ -161,10 +161,10 @@ func _on_walk_timer_timeout():
 	else: 
 		walk_timer.start()
 
-
-func _on_death_body_entered(body):
-	if body.name == "CharacterBody2D":
-		Main.dead.emit()
+# this is dumb
+#func _on_death_body_entered(body):
+#	if body.name == "CharacterBody2D":
+#		Main.death()
 
 
 func _on_ranged_attack_body_entered(body):

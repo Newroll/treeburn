@@ -134,7 +134,7 @@ func _on_can_attack_body_exited(body):
 
 func _on_attack_area_body_entered(body):
 	if body.name == "CharacterBody2D":
-		Main.dead.emit()
+		Main.health -= 1
 		aggro = false
 
 

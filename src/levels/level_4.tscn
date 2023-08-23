@@ -1,65 +1,92 @@
-[gd_scene load_steps=2 format=3 uid="uid://q7jiw0ysmd08"]
+[gd_scene load_steps=7 format=3 uid="uid://q7jiw0ysmd08"]
 
 [ext_resource type="Script" path="res://src/levels/level_4.gd" id="1_rh06d"]
+[ext_resource type="FontFile" uid="uid://422t11bovf6v" path="res://assets/styles/mainport.ttf" id="2_fndc8"]
+[ext_resource type="Texture2D" uid="uid://6q7ys6hqnit7" path="res://assets/background/cloudsback.png" id="2_ib1co"]
+[ext_resource type="Texture2D" uid="uid://ddodrd661qp2" path="res://assets/background/cloudsfront.png" id="3_tqwsu"]
+[ext_resource type="Theme" uid="uid://s7ofcp5w0jrk" path="res://assets/styles/pause-menu_theme.tres" id="5_lssyr"]
+[ext_resource type="StyleBox" uid="uid://cavwdk0v7i65u" path="res://assets/styles/button_theme.tres" id="6_bfk6l"]
 
 [node name="level_4" type="Node2D"]
 script = ExtResource("1_rh06d")
 
+[node name="CloudBack" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(160.96, 89.1919)
+scale = Vector2(0.636561, 0.5637)
+texture = ExtResource("2_ib1co")
+
+[node name="CloudsFront" type="Sprite2D" parent="."]
+texture_filter = 1
+position = Vector2(160.919, 139.384)
+scale = Vector2(0.635866, 0.458501)
+texture = ExtResource("3_tqwsu")
+
 [node name="title" type="Label" parent="."]
-offset_left = 101.0
+offset_left = 27.0
 offset_top = 21.0
-offset_right = 223.0
-offset_bottom = 47.0
+offset_right = 293.0
+offset_bottom = 53.0
+theme_override_fonts/font = ExtResource("2_fndc8")
+theme_override_font_sizes/font_size = 30
 text = "Game complete"
 
 [node name="quit" type="Button" parent="."]
-offset_left = 31.0
-offset_top = 94.0
-offset_right = 89.0
-offset_bottom = 125.0
+offset_left = 59.0
+offset_top = 104.0
+offset_right = 258.0
+offset_bottom = 135.0
+theme = ExtResource("5_lssyr")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = ExtResource("6_bfk6l")
 text = "Quit
 "
 
 [node name="leaderboard" type="Button" parent="."]
-offset_left = 150.0
-offset_top = 96.0
-offset_right = 293.0
-offset_bottom = 127.0
+offset_left = 59.0
+offset_top = 67.0
+offset_right = 258.0
+offset_bottom = 101.0
+theme = ExtResource("5_lssyr")
+theme_override_font_sizes/font_size = 12
+theme_override_styles/normal = ExtResource("6_bfk6l")
 text = "view leaderboard"
 
 [node name="highscorepopup" type="ColorRect" parent="."]
-visible = false
-offset_left = 27.0
-offset_top = 10.0
-offset_right = 303.0
-offset_bottom = 137.0
+offset_left = 24.0
+offset_top = 22.0
+offset_right = 300.0
+offset_bottom = 155.0
 color = Color(0, 0, 0, 1)
 
 [node name="title" type="Label" parent="highscorepopup"]
 layout_mode = 0
-offset_left = 83.0
-offset_top = -3.0
-offset_right = 180.0
-offset_bottom = 20.0
+offset_left = 76.0
+offset_top = 4.0
+offset_right = 196.0
+offset_bottom = 19.0
+theme_override_fonts/font = ExtResource("2_fndc8")
 theme_override_font_sizes/font_size = 12
 text = "Congratulations!"
 
 [node name="scorelabel" type="Label" parent="highscorepopup"]
 layout_mode = 0
-offset_left = 14.0
-offset_top = 19.0
-offset_right = 263.0
-offset_bottom = 42.0
-theme_override_font_sizes/font_size = 10
+offset_left = 12.0
+offset_top = 21.0
+offset_right = 250.0
+offset_bottom = 32.0
+theme_override_fonts/font = ExtResource("2_fndc8")
+theme_override_font_sizes/font_size = 8
 text = "You attained a time of SCORE, placing you in PLACE!"
 
 [node name="nameprompt" type="Label" parent="highscorepopup"]
 layout_mode = 0
-offset_left = 4.0
-offset_top = 36.0
-offset_right = 277.0
-offset_bottom = 59.0
-theme_override_font_sizes/font_size = 10
+offset_left = 6.0
+offset_top = 32.0
+offset_right = 271.0
+offset_bottom = 43.0
+theme_override_fonts/font = ExtResource("2_fndc8")
+theme_override_font_sizes/font_size = 8
 text = "Enter your name below to be placed on the leaderboard."
 
 [node name="warning" type="Label" parent="highscorepopup"]
@@ -69,36 +96,58 @@ offset_left = 22.0
 offset_top = 56.0
 offset_right = 114.0
 offset_bottom = 82.0
+theme_override_fonts/font = ExtResource("2_fndc8")
 text = "BAD WORD!"
 
 [node name="nameinput" type="LineEdit" parent="highscorepopup"]
 layout_mode = 0
 offset_left = 19.0
-offset_top = 87.0
-offset_right = 86.0625
-offset_bottom = 118.0
+offset_top = 47.0
+offset_right = 256.0
+offset_bottom = 63.0
+theme_override_fonts/font = ExtResource("2_fndc8")
 theme_override_font_sizes/font_size = 8
 placeholder_text = "Enter name"
 
 [node name="confirm" type="Button" parent="highscorepopup"]
 layout_mode = 0
-offset_left = 100.0
-offset_top = 87.0
-offset_right = 171.0
-offset_bottom = 118.0
+offset_left = 18.0
+offset_top = 71.0
+offset_right = 90.0
+offset_bottom = 95.0
+theme_override_fonts/font = ExtResource("2_fndc8")
+theme_override_font_sizes/font_size = 10
 text = "Confirm"
 
 [node name="cancel" type="Button" parent="highscorepopup"]
 layout_mode = 0
-offset_left = 184.0
-offset_top = 86.0
-offset_right = 241.0
-offset_bottom = 117.0
+offset_left = 108.0
+offset_top = 71.0
+offset_right = 179.0
+offset_bottom = 95.0
+theme_override_fonts/font = ExtResource("2_fndc8")
+theme_override_font_sizes/font_size = 10
 text = "cancel
 "
 
 [node name="sfx" type="AudioStreamPlayer" parent="highscorepopup"]
 
+[node name="loading" type="ColorRect" parent="."]
+offset_right = 347.0
+offset_bottom = 208.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="loading"]
+layout_mode = 0
+offset_left = 39.0
+offset_top = 70.0
+offset_right = 299.0
+offset_bottom = 121.0
+theme_override_fonts/font = ExtResource("2_fndc8")
+theme_override_font_sizes/font_size = 50
+text = "LOADING..."
+
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="leaderboard" to="." method="_on_leaderboard_pressed"]
 [connection signal="pressed" from="highscorepopup/confirm" to="." method="_on_confirm_pressed"]
 [connection signal="pressed" from="highscorepopup/cancel" to="." method="_on_cancel_pressed"]

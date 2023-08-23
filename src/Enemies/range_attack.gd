@@ -14,4 +14,4 @@ func _physics_process(delta):
 
 func _on_body_entered(body):
 	if body.name == "CharacterBody2D":
-		Main.dead.emit()
+		Main.health -= 1

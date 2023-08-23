@@ -33,7 +33,7 @@ func _physics_process(delta):
 		knockback(input_axis, delta)
 	
 	if position.y > 100:
-		Main.death()
+		Main.health = -1
 	
 	if Main.resetPlayer == true:
 		resetPlayerPos()

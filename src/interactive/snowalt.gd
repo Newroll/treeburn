@@ -33,3 +33,7 @@ func _physics_process(delta):
 	
 	if position.y > -500:
 		move_and_slide();
+
+func _on_area_2d_body_entered(body):
+	if body.name == "CharacterBody2D":
+		Main.snowHit += 1

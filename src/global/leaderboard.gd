@@ -2,6 +2,7 @@ extends Node2D
 
 func _ready():
 	var sw_result: Dictionary = await SilentWolf.Scores.get_scores().sw_get_scores_complete
+	$loading.hide()
 	var topScores = sw_result.scores
 	var currentName
 	var currentTime
