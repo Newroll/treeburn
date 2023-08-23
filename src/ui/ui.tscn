@@ -241,7 +241,10 @@ step = 2.08165e-12
 show_percentage = false
 script = ExtResource("8_6i3im")
 
-[node name="PauseMenu" parent="." instance=ExtResource("9_b4xgo")]
+[node name="PauseMenu" type="CanvasLayer" parent="."]
+layer = 3
 visible = false
+
+[node name="PauseMenu" parent="PauseMenu" instance=ExtResource("9_b4xgo")]
 z_index = 60
 z_as_relative = false
