@@ -11,8 +11,8 @@ const rock_throwable_scene = preload("res://src/Enemies/throwable_rock.tscn")
 @onready var walk_timer: Timer = get_node("WalkTimer")
 @onready var bull_timer: Timer = get_node("BullAttackTimer")
 @onready var range_timer: Timer = get_node("RangeAttackTimer")
-#@onready var animated_sprite: AnimatedSprite2D = get_node("AnimatedSprite2D")
-#@onready var animation_player: AnimationPlayer = get_node("AnimationPlayer")
+@onready var animated_sprite: AnimatedSprite2D = get_node("AnimatedSprite2D")
+@onready var animation_player: AnimationPlayer = get_node("AnimationPlayer")
 
 
 # Determines whether or not it can attack
@@ -67,8 +67,8 @@ func _physics_process(delta):
 
 	#Stops enemy movement if attacking
 	
-	#if animation_player.current_animation == "axe_attack":
-		#velocity.x = 0
+	if animation_player.current_animation == "coal_attack":
+		velocity.x = 0
 
 	#Makes the enemy stay in a certain distance from the player
 	#while if there is no where to go to it does a charge attack
@@ -100,7 +100,7 @@ func _physics_process(delta):
 		
 	#Run functions
 	move_and_slide()
-	#animation_state()
+	animation_state()
 
 
 func move_character():
@@ -161,10 +161,11 @@ func _on_walk_timer_timeout():
 	else: 
 		walk_timer.start()
 
-# this is dumb
-#func _on_death_body_entered(body):
-#	if body.name == "CharacterBody2D":
-#		Main.death()
+#It is only monitoring during bull attack
+func _on_death_body_entered(body):
+	if body.name == "CharacterBody2D":
+		Main.health -= 1
+		Main.knockback = true
 
 
 func _on_ranged_attack_body_entered(body):
@@ -195,10 +196,6 @@ func _on_range_attack_timer_timeout():
 	get_tree().current_scene.remove_child(projectile)
 	
 
-
-'''
-Going to use later when I have sprites
-
 func hit():
 	$attack_area.monitoring = true
 
@@ -207,13 +204,12 @@ func end_hit():
 
 
 func animation_state():
-	if not animation_player.current_animation == "axe_attack":
+	if not animation_player.current_animation == "coal_attack":
 		if velocity.x > 0:
-			animated_sprite.flip_h = true
-			animation_player.play("axe_run")
-		if velocity.x < 0:
 			animated_sprite.flip_h = false
-			animation_player.play("axe_run")
+			animated_sprite.play("coal_mov")
+		if velocity.x < 0:
+			animated_sprite.flip_h = true
+			animated_sprite.play("coal_mov")
 		if idle or velocity.x == 0:
-			animation_player.play("axe_idle")
-'''
+			animation_player.play("coal_idle")

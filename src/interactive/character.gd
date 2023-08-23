@@ -10,9 +10,15 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var knockback_timer: Timer = get_node("KnockbackTimer")
 
+#Get raycasts for knockback
+@onready var raycast_right: RayCast2D= $RayCast_Right
+@onready var raycast_left: RayCast2D = $RayCast_Left
+
 #Gets knockback direction
 var knockback_dir = 0
+var knockback_power = -200
 var knockback_timer_started = false
+
 
 func _physics_process(delta):
 	var input_axis = Input.get_axis("move_left", "move_right")
@@ -30,7 +36,7 @@ func _physics_process(delta):
 		handle_acceleration(input_axis, delta)
 		apply_friction(input_axis,delta)
 	else:
-		knockback(input_axis, delta)
+		knockback(delta)
 	
 	if position.y > 100:
 		Main.health = -1
@@ -134,24 +140,34 @@ func animation_state():
 		animated_sprite.animation = "move"
 		animated_sprite.flip_h = false 
 
-func knockback(input_axis, _delta):
+func knockback(_delta):
 	if knockback_timer_started == false:
-		if input_axis < 0:
-			knockback_dir = 1
-		else:
-			knockback_dir = -1
+		if raycast_right.is_colliding():
+			var colliding_object_right = raycast_right.get_collider()
+			if colliding_object_right.get_name() != "BehindPlayer":
+				knockback_dir = -1
 
-		velocity.y = -150
-		velocity.x = 200 * knockback_dir
+		if raycast_left.is_colliding():
+			var colliding_object_left = raycast_left.get_collider()
+			if colliding_object_left.get_name() != "BehindPlayer":
+				knockback_dir = 1
+		
+		if raycast_left.is_colliding() && raycast_right.is_colliding():
+			var colliding_object_left = raycast_left.get_collider()
+			var colliding_object_right = raycast_right.get_collider()
+			if colliding_object_left.get_name() != "BehindPlayer" && colliding_object_right.get_name() != "BehindPlayer":
+				knockback_dir = 0
+				knockback_power = -500
+
+		velocity.y = knockback_power
+		velocity.x = 150 * knockback_dir
 
 		knockback_timer.start()
 		knockback_timer_started = true
-		print("Timer started")
 
 
 func _on_knockback_timer_timeout():
 	Main.knockback = false
 	knockback_timer_started = false
-	print("knockback = false!")
 	velocity.y = 0
 	velocity.x = 0

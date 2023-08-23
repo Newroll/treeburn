@@ -48,13 +48,13 @@ func _physics_process(delta):
 	#Stops enemy movement if attacking
 	if animation_player.current_animation == "axe_attack":
 		velocity.x = 0
-
-	#Makes the enemy chase the player once it is in range through the aggro var
-	if aggro:
-		move_towards_player(player_dir)
 	else:
-		detect_turn()
-		move_character()
+		#Makes the enemy chase the player once it is in range through the aggro var
+		if aggro:
+			move_towards_player(player_dir)
+		else:
+			detect_turn()
+			move_character()
 		
 	#Run functions
 	move_and_slide()
@@ -64,11 +64,11 @@ func _physics_process(delta):
 func move_character():
 	if idle == false:
 		if is_moving_left == true:
-			speed = 25
+			speed = 35
 			velocity.x = speed
 
 		if is_moving_left == false:
-			speed = -25
+			speed = -35
 			velocity.x = speed
 
 
@@ -82,17 +82,15 @@ func detect_turn():
 func _on_player_chase_body_entered(body):
 	if body.name == "CharacterBody2D":
 		aggro = true
-		speed = 40
 
 
 func _on_player_chase_body_exited(body):
 	if body.name == "CharacterBody2D":
 		aggro = false
-		speed = 25
 
 func move_towards_player(player_dir):
 	if raycast_left.is_colliding() && raycast_right.is_colliding():
-		speed = 50
+		speed = 70
 		if player_dir > 0:
 			velocity.x = speed
 		else:
@@ -135,7 +133,8 @@ func _on_can_attack_body_exited(body):
 func _on_attack_area_body_entered(body):
 	if body.name == "CharacterBody2D":
 		Main.health -= 1
-		aggro = false
+		attack_interval_passed = false
+		Main.knockback = true
 
 
 func _on_attack_timer_timeout():

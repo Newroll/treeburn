@@ -38,7 +38,6 @@ texture_filter = 1
 position = Vector2(1.52588e-05, 7.62939e-06)
 scale = Vector2(0.757812, 0.757812)
 sprite_frames = SubResource("SpriteFrames_3bg3d")
-animation = &"move"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_jbxt3")
@@ -50,5 +49,13 @@ volume_db = -5.0
 [node name="KnockbackTimer" type="Timer" parent="."]
 wait_time = 0.3
 one_shot = true
+
+[node name="RayCast_Right" type="RayCast2D" parent="."]
+position = Vector2(6, 0)
+target_position = Vector2(41, 0)
+
+[node name="RayCast_Left" type="RayCast2D" parent="."]
+position = Vector2(-6, 0)
+target_position = Vector2(-41, 0)
 
 [connection signal="timeout" from="KnockbackTimer" to="." method="_on_knockback_timer_timeout"]
