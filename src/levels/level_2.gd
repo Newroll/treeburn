@@ -23,3 +23,5 @@ func _process(_delta):
 
 func _ready():
 	$CanvasLayer/AnimationPlayer.play("fadetonormal")
+	await get_tree().create_timer(0.4).timeout
+	$CanvasLayer.hide()

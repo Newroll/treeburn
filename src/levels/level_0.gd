@@ -33,3 +33,5 @@ func _process(_delta):
 func _ready():
 	Main.gameComplete = false
 	$CanvasLayer/AnimationPlayer.play("fadetonormal")
+	await get_tree().create_timer(1).timeout
+	$CanvasLayer.hide()

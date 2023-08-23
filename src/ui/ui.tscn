@@ -243,3 +243,5 @@ script = ExtResource("8_6i3im")
 
 [node name="PauseMenu" parent="." instance=ExtResource("9_b4xgo")]
 visible = false
+z_index = 60
+z_as_relative = false

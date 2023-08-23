@@ -62,7 +62,7 @@ script = ExtResource("1_lls1p")
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_right = 414.0
 offset_bottom = 208.0
-color = Color(0.352941, 0.352941, 0.352941, 1)
+color = Color(0.364706, 0.298039, 0.266667, 1)
 
 [node name="skillissue" type="Sprite2D" parent="."]
 texture_filter = 1

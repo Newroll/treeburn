@@ -504,7 +504,7 @@ position = Vector2(1481, -122)
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-z_index = 99
+z_index = 50
 offset_left = -185.0
 offset_top = -539.0
 offset_right = 1736.0

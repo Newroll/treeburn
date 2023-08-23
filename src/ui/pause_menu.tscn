@@ -2,10 +2,8 @@
 
 [ext_resource type="Script" path="res://src/ui/pause_menu.gd" id="1_hc50u"]
 [ext_resource type="Theme" uid="uid://s7ofcp5w0jrk" path="res://assets/styles/pause-menu_theme.tres" id="2_pw8og"]
+[ext_resource type="FontFile" uid="uid://422t11bovf6v" path="res://assets/styles/mainport.ttf" id="3_5wg7b"]
 [ext_resource type="StyleBox" uid="uid://cavwdk0v7i65u" path="res://assets/styles/button_theme.tres" id="3_sh48l"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_axg6r"]
-bg_color = Color(0.619608, 0.596078, 0.564706, 0)
 
 [node name="PauseMenu" type="Control"]
 process_mode = 2
@@ -22,69 +20,47 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -81.0
+offset_top = -77.0
+offset_right = 115.0
+offset_bottom = 131.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.666667)
 
-[node name="Panel" type="Panel" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -61.0
-offset_top = -73.0
-offset_right = 92.0
-offset_bottom = 33.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_axg6r")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -17.0
-offset_top = 8.0
-offset_right = -17.0
-offset_bottom = 8.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="Label" type="Label" parent="Panel/VBoxContainer"]
+[node name="Label" type="Label" parent="."]
 layout_mode = 2
+offset_left = 69.0
+offset_top = 50.0
+offset_right = 249.0
+offset_bottom = 61.0
 theme = ExtResource("2_pw8og")
-text = "[ Pause ]"
+theme_override_fonts/font = ExtResource("3_5wg7b")
+text = "[ GAME PAUSED ]"
 horizontal_alignment = 1
 vertical_alignment = 2
 
-[node name="ResumeButton" type="Button" parent="Panel/VBoxContainer"]
+[node name="ResumeButton" type="Button" parent="."]
 layout_mode = 2
+offset_left = 69.0
+offset_top = 65.0
+offset_right = 249.0
+offset_bottom = 84.0
 theme = ExtResource("2_pw8og")
+theme_override_fonts/font = ExtResource("3_5wg7b")
 theme_override_styles/normal = ExtResource("3_sh48l")
 text = "Resume"
 
-[node name="SettingsButton" type="Button" parent="Panel/VBoxContainer"]
-visible = false
+[node name="QuitToMenuButton" type="Button" parent="."]
 layout_mode = 2
+offset_left = 70.0
+offset_top = 89.0
+offset_right = 250.0
+offset_bottom = 110.0
 theme = ExtResource("2_pw8og")
-theme_override_styles/normal = ExtResource("3_sh48l")
-text = "Settings"
-
-[node name="QuitToMenuButton" type="Button" parent="Panel/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("2_pw8og")
+theme_override_fonts/font = ExtResource("3_5wg7b")
 theme_override_styles/normal = ExtResource("3_sh48l")
 text = "Quit To Menu"
 
-[node name="QuitToDesktopButton" type="Button" parent="Panel/VBoxContainer"]
-layout_mode = 2
-theme = ExtResource("2_pw8og")
-theme_override_styles/normal = ExtResource("3_sh48l")
-text = "Quit "
-
-[connection signal="pressed" from="Panel/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
-[connection signal="pressed" from="Panel/VBoxContainer/QuitToMenuButton" to="." method="_on_quit_to_menu_button_pressed"]
-[connection signal="pressed" from="Panel/VBoxContainer/QuitToDesktopButton" to="." method="_on_quit_to_desktop_button_pressed"]
+[connection signal="pressed" from="ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="QuitToMenuButton" to="." method="_on_quit_to_menu_button_pressed"]
