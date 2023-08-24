@@ -18,15 +18,10 @@ func _process(delta):
 
 
 func _on_confirm_pressed():
-	if BadWordsFilter.is_word_ok($highscorepopup/nameinput.get_text()) == false:
-		$highscorepopup/warning.show()
+	if $highscorepopup/nameinput.get_text().length() > 15:
+		$highscorepopup/toolong.show()
 	else:
-		$loading.show()
-		SilentWolf.Scores.save_score($highscorepopup/nameinput.get_text(), Main.timeEclapsed*-1)
-		await get_tree().create_timer(3).timeout
-		$loading.hide()
-		$highscorepopup.hide()
-		Main.leaderboardOffer = true
+		$HTTPRequest.request("https://www.purgomalum.com/service/containsprofanity?text="+$highscorepopup/nameinput.get_text())
 
 
 func _on_leaderboard_pressed():
@@ -42,3 +37,15 @@ func _on_cancel_pressed():
 func _on_quit_pressed():
 	get_tree().change_scene_to_file("res://src/ui/intro.tscn")
 	Main.leaderboardOffer = true
+
+func _on_http_request_request_completed(result, response_code, headers, body):
+	var json = JSON.parse_string(body.get_string_from_utf8())
+	if json == true:
+		$highscorepopup/warning.show()
+	else:
+		$loading.show()
+		SilentWolf.Scores.save_score($highscorepopup/nameinput.get_text(), Main.timeEclapsed*-1)
+		await get_tree().create_timer(3).timeout
+		$loading.hide()
+		$highscorepopup.hide()
+		Main.leaderboardOffer = true
