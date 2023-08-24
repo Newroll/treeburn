@@ -124,10 +124,10 @@ animations = [{
 radius = 89.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kgeqp"]
-size = Vector2(48, 56)
+size = Vector2(58, 56)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_feejs"]
-size = Vector2(46, 56)
+size = Vector2(55, 56)
 
 [sub_resource type="Animation" id="Animation_yx7cu"]
 length = 0.001
@@ -330,7 +330,7 @@ polygon = PackedVector2Array(-7, 28, -4, -2, -5, -6, -7, -19, -20, -19, -24, -8,
 [node name="player_chase" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_chase"]
-position = Vector2(-10, 1)
+position = Vector2(-12, 1)
 shape = SubResource("CircleShape2D_vw6dv")
 
 [node name="attack_area" type="Area2D" parent="."]
@@ -338,13 +338,13 @@ monitoring = false
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="attack_area"]
-position = Vector2(-16, 1)
+position = Vector2(-11, 1)
 shape = SubResource("RectangleShape2D_kgeqp")
 
 [node name="can_attack" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="can_attack"]
-position = Vector2(-16, 1)
+position = Vector2(-11.5, 1)
 shape = SubResource("RectangleShape2D_feejs")
 
 [node name="RayCast_Left" type="RayCast2D" parent="."]
@@ -372,6 +372,14 @@ one_shot = true
 libraries = {
 "": SubResource("AnimationLibrary_kkiu3")
 }
+
+[node name="IsAxe_Left" type="RayCast2D" parent="."]
+position = Vector2(-10, 1)
+target_position = Vector2(-55, 0)
+
+[node name="IsAxe_Right" type="RayCast2D" parent="."]
+position = Vector2(-3, 1)
+target_position = Vector2(48, 0)
 
 [connection signal="body_entered" from="player_chase" to="." method="_on_player_chase_body_entered"]
 [connection signal="body_exited" from="player_chase" to="." method="_on_player_chase_body_exited"]

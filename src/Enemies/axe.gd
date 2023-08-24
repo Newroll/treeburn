@@ -8,13 +8,18 @@ extends CharacterBody2D
 @onready var animated_sprite: AnimatedSprite2D = get_node("AnimatedSprite2D")
 @onready var animation_player: AnimationPlayer = get_node("AnimationPlayer")
 
+#Detects if axe is left or right
+@onready var isaxe_left: RayCast2D = get_node("IsAxe_Left")
+@onready var isaxe_right: RayCast2D = get_node("IsAxe_Right")
+
+
 # Movement State
 var speed = 25
 var is_moving_left = false
 var idle = false
 
-
 #Chase and Attack state
+var has_hit = false
 var can_attack = false
 var aggro = false
 var attack_interval_passed = true
@@ -59,7 +64,23 @@ func _physics_process(delta):
 	#Run functions
 	move_and_slide()
 	animation_state()
+	is_axe_blocking()
 
+
+func is_axe_blocking():
+	if isaxe_right.is_colliding():
+		var object_right = isaxe_right.get_collider()
+		if object_right.is_in_group() == "axe":
+			velocity.x = 0
+		else:
+			print(object_right)
+
+	if isaxe_left.is_colliding():
+		var object_left = isaxe_left.get_collider()
+		if object_left.get_name() == "axe":
+			velocity.x = 0
+		else:
+			print(object_left)
 
 func move_character():
 	if idle == false:
@@ -132,13 +153,16 @@ func _on_can_attack_body_exited(body):
 
 func _on_attack_area_body_entered(body):
 	if body.name == "CharacterBody2D":
-		Main.health -= 1
-		attack_interval_passed = false
-		Main.knockback = true
+		if has_hit == false:
+			Main.health -= 1
+			attack_interval_passed = false
+			Main.knockback = true
+			has_hit = true
 
 
 func _on_attack_timer_timeout():
 	attack_interval_passed = true
+	has_hit = false
 
 
 func animation_state():
