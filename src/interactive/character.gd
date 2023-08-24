@@ -49,25 +49,6 @@ func _physics_process(delta):
 	
 	Main.playerPosition = get_position()
 
-
-func wall_jumping():
-	#For some reason "is_on_wall" is breaking this code.
-	if not is_on_floor():
-		if Input.is_action_just_pressed("move_left"):
-			if raycast_left.is_colliding():
-				var wall_left = raycast_left.get_collider()
-				if wall_left.get_name() == "BehindPlayer":
-					velocity.y = movement_data.jump_velocity
-					velocity.x = 150
-
-		if Input.is_action_just_pressed("move_right"):
-			if raycast_right.is_colliding():
-				var wall_right = raycast_right.get_collider()
-				if wall_right.get_name() == "BehindPlayer":
-					velocity.y = movement_data.jump_velocity
-					velocity.x = -150
-
-
 func check_state():
 	if Main.quicksand == true:
 		movement_data = load("res://src/interactive/QuicksandMovementData.tres")
@@ -134,6 +115,24 @@ func wall_sliding_true():
 		return
 
 
+func wall_jumping():
+	#For some reason "is_on_wall" is breaking this code.
+	if not is_on_floor():
+		if Input.is_action_just_pressed("move_right"):
+			if raycast_left.is_colliding():
+				var wall_left = raycast_left.get_collider()
+				if wall_left.get_name() == "BehindPlayer":
+					velocity.y = movement_data.jump_velocity
+					velocity.x = 150
+
+		if Input.is_action_just_pressed("move_left"):
+			if raycast_right.is_colliding():
+				var wall_right = raycast_right.get_collider()
+				if wall_right.get_name() == "BehindPlayer":
+					velocity.y = movement_data.jump_velocity
+					velocity.x = -150
+
+
 func resetPlayerPos():
 	get_position()
 	if(Main.level == 3):
@@ -170,28 +169,33 @@ func knockback():
 			var object_right = raycast_right.get_collider()
 			if object_right.get_name() != "BehindPlayer":
 				knockback_dir = -1
+				knockback_power = -200
+				print("Knockback right")
 
 		if raycast_left.is_colliding():
 			var object_left = raycast_left.get_collider()
 			if object_left.get_name() != "BehindPlayer":
 				knockback_dir = 1
+				knockback_power = -200
+				print("Knockback left")
 	
 		if raycast_left.is_colliding() && raycast_right.is_colliding():
 			var object_left = raycast_left.get_collider()
 			var object_right = raycast_right.get_collider()
 			if object_left.get_name() != "BehindPlayer" && object_right.get_name() != "BehindPlayer":
 				knockback_dir = 0
-				knockback_power = -500
+				knockback_power = -350
+				print("Knockback down")
 		
-		if raycast_down.is_colliding():
+		if raycast_down.is_colliding() && !raycast_left.is_colliding() && !raycast_right.is_colliding():
 			var object_down = raycast_down.get_collider()
 			if object_down.get_name() != "BehindPlayer":
 				knockback_dir = 0
 				knockback_power = -350
+				print("Knockback down (raycast_down)")
 
-
-		velocity.y = knockback_power
 		velocity.x = 150 * knockback_dir
+		velocity.y = knockback_power
 
 		knockback_timer.start()
 		knockback_timer_started = true

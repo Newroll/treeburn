@@ -52,16 +52,19 @@ one_shot = true
 
 [node name="RayCast_Right" type="RayCast2D" parent="."]
 position = Vector2(6, 0)
-target_position = Vector2(3, 0)
+scale = Vector2(1, 15)
+target_position = Vector2(5, 0)
 collide_with_areas = true
 
 [node name="RayCast_Left" type="RayCast2D" parent="."]
 position = Vector2(-6, 0)
-target_position = Vector2(-3, 0)
+scale = Vector2(1, 15)
+target_position = Vector2(-5, 0)
 collide_with_areas = true
 
 [node name="RayCast_Down" type="RayCast2D" parent="."]
 position = Vector2(0, 11)
+scale = Vector2(7, 1)
 target_position = Vector2(0, 3)
 collide_with_areas = true
 

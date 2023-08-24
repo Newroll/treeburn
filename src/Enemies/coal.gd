@@ -6,37 +6,36 @@ const rock_throwable_scene = preload("res://src/Enemies/throwable_rock.tscn")
 
 #Gets player and timer nodes
 @onready var player: CharacterBody2D = get_tree().current_scene.get_node("CharacterBody2D")
-@onready var attack_timer: Timer = get_node("AttackTimer")
 @onready var idle_timer: Timer = get_node("IdleTimer")
 @onready var walk_timer: Timer = get_node("WalkTimer")
+
+@onready var attack_interval_timer: Timer = get_node("AttackIntervalTimer")
 @onready var bull_timer: Timer = get_node("BullAttackTimer")
 @onready var range_timer: Timer = get_node("RangeAttackTimer")
+
 @onready var animated_sprite: AnimatedSprite2D = get_node("AnimatedSprite2D")
 @onready var animation_player: AnimationPlayer = get_node("AnimationPlayer")
 
-
-# Determines whether or not it can attack
-var can_attack = true
-
-#Declares projectile speed
-@export var projectile_speed: int = 100
-
-
 # Movement State
-var speed = 18
+var speed = 30
 var is_moving_left = false
 var idle = false
 
 #Detects if player is too close
-const max_distance_to_player = 80
-const min_distance_to_player = 60
+const max_distance_to_player = 100
+const min_distance_to_player = 80
 var distance_to_player: float
+
+# Determines whether or not it can attack
+var attack_interval_passed = true
+
+#Declares projectile speed
+@export var projectile_speed: int = 100
 
 #Chase and Attack state
 var aggro = false
 var in_range = false
 var bull_attack = false
-var attack_interval_passed = true
 var projectile = rock_throwable_scene.instantiate()
 
 # Raycasts to determine if ground is available for the enemy to walk on
@@ -59,10 +58,9 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
-	if can_attack && in_range && bull_attack == false:
-		can_attack = false
+	if attack_interval_passed && in_range && bull_attack == false:
+		attack_interval_passed = false
 		_throw_rock()
-		attack_timer.start()
 
 
 	#Stops enemy movement if attacking
@@ -74,25 +72,31 @@ func _physics_process(delta):
 	#while if there is no where to go to it does a charge attack
 	
 	if aggro:
-		if raycast_left.is_colliding() && raycast_right.is_colliding() && bull_attack == false:
-			if distance_to_player > max_distance_to_player:
-				move_towards_player(player_dir)
+		if bull_attack == false:
+			speed = 60
+			if raycast_left.is_colliding() && raycast_right.is_colliding():
+				if distance_to_player > max_distance_to_player:
+					move_towards_player(player_dir)
 
-			if distance_to_player < min_distance_to_player:
-				move_away_player(player_dir)
+				if distance_to_player < min_distance_to_player:
+					move_away_player(player_dir)
 
-			if distance_to_player > min_distance_to_player && distance_to_player < max_distance_to_player:
-				velocity.x = 0
-		else:
-			if !raycast_right.is_colliding() && bull_attack == false:
-				bull_attack = true
-				velocity.x = -100
-				bull_timer.start()
+				if distance_to_player > min_distance_to_player && distance_to_player < max_distance_to_player:
+					velocity.x = 0
+			else:
+				if !raycast_right.is_colliding():
+					bull_attack = true
+					velocity.x = -150
+					bull_timer.start()
+					if !animation_player.current_animation == "bull_attack":
+						animation_player.play("bull_attack")
 
-			if !raycast_left.is_colliding() && bull_attack == false:
-				bull_attack = true
-				velocity.x = 100
-				bull_timer.start()
+				if !raycast_left.is_colliding():
+					bull_attack = true
+					velocity.x = 150
+					bull_timer.start()
+					if !animation_player.current_animation == "bull_attack":
+						animation_player.play("bull_attack")
 
 	else:
 		detect_turn()
@@ -106,11 +110,11 @@ func _physics_process(delta):
 func move_character():
 	if idle == false:
 		if is_moving_left == true:
-			speed = 18
+			speed = 30
 			velocity.x = speed
 
 		if is_moving_left == false:
-			speed = -18
+			speed = -30
 			velocity.x = speed
 
 
@@ -131,7 +135,6 @@ func _on_player_chase_body_exited(body):
 		aggro = false
 
 func move_towards_player(player_dir):
-		speed = 50
 		if player_dir > 0:
 			velocity.x = speed
 		else:
@@ -141,7 +144,6 @@ func move_towards_player(player_dir):
 
 
 func move_away_player(player_dir):
-		speed = 40
 		if player_dir > 0:
 			velocity.x = speed * -1
 		else:
@@ -171,17 +173,15 @@ func _on_death_body_entered(body):
 func _on_ranged_attack_body_entered(body):
 	if body.name == "CharacterBody2D":
 		in_range = true
-		attack_timer.start()
 
 
 func _on_ranged_attack_body_exited(body):
 	if body.name == "CharacterBody2D":
 		in_range = false
-		attack_timer.stop()
 
 
-func _on_attack_timer_timeout():
-	can_attack = true
+func _on_attack_interval_timer_timeout():
+	attack_interval_passed = true
 
 func _on_bull_attack_timeout():
 	bull_attack = false
@@ -194,17 +194,18 @@ func _throw_rock() -> void:
 
 func _on_range_attack_timer_timeout():
 	get_tree().current_scene.remove_child(projectile)
+	attack_interval_timer.start()
 	
 
 func hit():
-	$attack_area.monitoring = true
+	$death.monitoring = true
 
 func end_hit():
-	$attack_area.monitoring = false
+	$death.monitoring = false
 
 
 func animation_state():
-	if not animation_player.current_animation == "coal_attack":
+	if not animation_player.current_animation == "bull_attack":
 		if velocity.x > 0:
 			animated_sprite.flip_h = false
 			animated_sprite.play("coal_mov")
