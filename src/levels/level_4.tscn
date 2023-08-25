@@ -100,18 +100,6 @@ offset_bottom = 95.0
 theme_override_fonts/font = ExtResource("2_fndc8")
 text = "BAD WORD!"
 
-[node name="toolong" type="Label" parent="highscorepopup"]
-visible = false
-layout_mode = 0
-offset_left = 177.0
-offset_top = 73.0
-offset_right = 274.0
-offset_bottom = 95.0
-theme_override_fonts/font = ExtResource("2_fndc8")
-theme_override_font_sizes/font_size = 8
-text = "Exceeded character limit! (max 15)"
-autowrap_mode = 2
-
 [node name="nameinput" type="LineEdit" parent="highscorepopup"]
 layout_mode = 0
 offset_left = 19.0
@@ -121,6 +109,7 @@ offset_bottom = 63.0
 theme_override_fonts/font = ExtResource("2_fndc8")
 theme_override_font_sizes/font_size = 8
 placeholder_text = "Enter name"
+max_length = 15
 
 [node name="confirm" type="Button" parent="highscorepopup"]
 layout_mode = 0
@@ -146,7 +135,6 @@ text = "cancel
 [node name="sfx" type="AudioStreamPlayer" parent="highscorepopup"]
 
 [node name="loading" type="ColorRect" parent="."]
-visible = false
 offset_right = 347.0
 offset_bottom = 208.0
 color = Color(0, 0, 0, 1)

@@ -18,10 +18,7 @@ func _process(delta):
 
 
 func _on_confirm_pressed():
-	if $highscorepopup/nameinput.get_text().length() > 15:
-		$highscorepopup/toolong.show()
-	else:
-		$HTTPRequest.request("https://www.purgomalum.com/service/containsprofanity?text="+$highscorepopup/nameinput.get_text())
+	$HTTPRequest.request("https://www.purgomalum.com/service/containsprofanity?text="+$highscorepopup/nameinput.get_text())
 
 
 func _on_leaderboard_pressed():

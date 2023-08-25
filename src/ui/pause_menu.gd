@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 # NOT WORKING
 #func _process(delta):
@@ -9,6 +9,7 @@ extends Control
 func _on_resume_button_pressed():
 	get_tree().paused = false
 	hide()
+	
 
 
 func _on_quit_to_menu_button_pressed():
