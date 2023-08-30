@@ -8,20 +8,24 @@ extends CharacterBody2D
 @onready var animated_sprite: AnimatedSprite2D = get_node("AnimatedSprite2D")
 @onready var animation_player: AnimationPlayer = get_node("AnimationPlayer")
 
+#Detects if wall is left or right
+@onready var is_wall_left: RayCast2D = get_node("IsWall_Left")
+@onready var is_wall_right: RayCast2D = get_node("IsWall_Right")
+
+# Raycasts to determine if ground is available for the enemy to walk on
+@onready var raycast_left = $RayCast_Left
+@onready var raycast_right = $RayCast_Right
+
 # Movement State
 var speed = 25
 var is_moving_left = false
 var idle = false
 
-
 #Chase and Attack state
+var has_hit = false
 var can_attack = false
 var aggro = false
 var attack_interval_passed = true
-
-# Raycasts to determine if ground is available for the enemy to walk on
-@onready var raycast_left = $RayCast_Left
-@onready var raycast_right = $RayCast_Right
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -48,27 +52,45 @@ func _physics_process(delta):
 	#Stops enemy movement if attacking
 	if animation_player.current_animation == "axe_attack":
 		velocity.x = 0
-
-	#Makes the enemy chase the player once it is in range through the aggro var
-	if aggro:
-		move_towards_player(player_dir)
 	else:
-		detect_turn()
-		move_character()
+		#Makes the enemy chase the player once it is in range through the aggro var
+		if aggro:
+			move_towards_player(player_dir)
+		else:
+			detect_turn()
+			move_character()
 		
 	#Run functions
 	move_and_slide()
 	animation_state()
+	is_wall_blocking()
 
+
+func is_wall_blocking():
+	if is_wall_left.is_colliding():
+		var wall_left = is_wall_left.get_collider()
+		if wall_left.get_name() == "BehindPlayer":
+			if aggro:
+				velocity.x = 0
+			else:
+				is_moving_left = true
+
+	if is_wall_right.is_colliding():
+		var wall_right = is_wall_right.get_collider()
+		if wall_right.get_name() == "BehindPlayer":
+			if aggro:
+				velocity.x = 0
+			else:
+				is_moving_left = false
 
 func move_character():
 	if idle == false:
 		if is_moving_left == true:
-			speed = 25
+			speed = 35
 			velocity.x = speed
 
 		if is_moving_left == false:
-			speed = -25
+			speed = -35
 			velocity.x = speed
 
 
@@ -82,17 +104,15 @@ func detect_turn():
 func _on_player_chase_body_entered(body):
 	if body.name == "CharacterBody2D":
 		aggro = true
-		speed = 40
 
 
 func _on_player_chase_body_exited(body):
 	if body.name == "CharacterBody2D":
 		aggro = false
-		speed = 25
 
 func move_towards_player(player_dir):
 	if raycast_left.is_colliding() && raycast_right.is_colliding():
-		speed = 50
+		speed = 70
 		if player_dir > 0:
 			velocity.x = speed
 		else:
@@ -134,12 +154,16 @@ func _on_can_attack_body_exited(body):
 
 func _on_attack_area_body_entered(body):
 	if body.name == "CharacterBody2D":
-		Main.health -= 1
-		aggro = false
+		if has_hit == false:
+			Main.health -= 1
+			attack_interval_passed = false
+			Main.knockback = true
+			has_hit = true
 
 
 func _on_attack_timer_timeout():
 	attack_interval_passed = true
+	has_hit = false
 
 
 func animation_state():
