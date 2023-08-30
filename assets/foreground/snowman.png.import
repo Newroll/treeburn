@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://v6yxp7jynf4k"
-path="res://.godot/imported/rockenemytileset.png-2aa8e0082e59213e8d70ba1a412464f7.ctex"
+uid="uid://c1nu6w8duwykp"
+path="res://.godot/imported/snowman.png-e8c8f45ccea1c0adf5131ca30a3ffccf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player/rockenemytileset.png"
-dest_files=["res://.godot/imported/rockenemytileset.png-2aa8e0082e59213e8d70ba1a412464f7.ctex"]
+source_file="res://assets/foreground/snowman.png"
+dest_files=["res://.godot/imported/snowman.png-e8c8f45ccea1c0adf5131ca30a3ffccf.ctex"]
 
 [params]
 
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=0
+detect_3d/compress_to=1
