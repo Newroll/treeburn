@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://chcc3nqndgcno"]
+[gd_scene load_steps=18 format=3 uid="uid://dr3lmvseh1mm6"]
 
 [ext_resource type="Script" path="res://src/enemies/coal.gd" id="1_hb40t"]
 [ext_resource type="Texture2D" uid="uid://v6yxp7jynf4k" path="res://assets/player/rockenemytileset.png" id="2_nmty4"]
@@ -89,35 +89,6 @@ tracks/0/keys = {
 "values": [&"default"]
 }
 
-[sub_resource type="Animation" id="Animation_g1chr"]
-resource_name = "coal_idle"
-length = 0.9
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D:animation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [&"default"]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("AnimatedSprite2D:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.7, 0.9),
-"transitions": PackedFloat32Array(1.07177, 1.03526, 0.901251, 1),
-"update": 0,
-"values": [Vector2(-10, 9), Vector2(-10, 10.5), Vector2(-10, 7.5), Vector2(-10, 9)]
-}
-
 [sub_resource type="Animation" id="Animation_7s2h5"]
 resource_name = "bull_attack"
 length = 1.5
@@ -175,6 +146,35 @@ tracks/3/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_g1chr"]
+resource_name = "coal_idle"
+length = 0.9
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:animation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [&"default"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedSprite2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.7, 0.9),
+"transitions": PackedFloat32Array(1.07177, 1.03526, 0.901251, 1),
+"update": 0,
+"values": [Vector2(-10, 9), Vector2(-10, 10.5), Vector2(-10, 7.5), Vector2(-10, 9)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_uqtiq"]
 _data = {
 "RESET": SubResource("Animation_h5sll"),
@@ -192,11 +192,9 @@ scale = Vector2(1.125, 1.1875)
 sprite_frames = SubResource("SpriteFrames_eqc0x")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-visible = false
 polygon = PackedVector2Array(-3, 17, -1, 1, -2, -2, -7, -7, -17, -4, -18, 1, -17, 17)
 
 [node name="ranged_attack" type="Area2D" parent="."]
-visible = false
 collision_layer = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ranged_attack"]
@@ -204,7 +202,6 @@ position = Vector2(-10, -9)
 shape = SubResource("RectangleShape2D_wxp5x")
 
 [node name="death" type="Area2D" parent="."]
-visible = false
 monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="death"]
@@ -212,7 +209,6 @@ position = Vector2(-10, 0)
 shape = SubResource("CapsuleShape2D_wdm8e")
 
 [node name="player_chase" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player_chase"]
 position = Vector2(-9.5, -13.5)
@@ -250,6 +246,18 @@ one_shot = true
 libraries = {
 "": SubResource("AnimationLibrary_uqtiq")
 }
+
+[node name="IsWall_Left" type="RayCast2D" parent="."]
+position = Vector2(-10, 1)
+scale = Vector2(1, 20)
+target_position = Vector2(-25, 0)
+hit_from_inside = true
+
+[node name="IsWall_Right" type="RayCast2D" parent="."]
+position = Vector2(-9, 1)
+scale = Vector2(1, 20)
+target_position = Vector2(25, 0)
+hit_from_inside = true
 
 [connection signal="body_entered" from="ranged_attack" to="." method="_on_ranged_attack_body_entered"]
 [connection signal="body_exited" from="ranged_attack" to="." method="_on_ranged_attack_body_exited"]

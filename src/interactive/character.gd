@@ -10,10 +10,19 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var knockback_timer: Timer = get_node("KnockbackTimer")
 
+#Get raycasts for wall jump
+@onready var wall_right: RayCast2D = $Wall_Right
+@onready var wall_left: RayCast2D = $Wall_Left
+
 #Get raycasts for knockback
-@onready var raycast_right: RayCast2D= $RayCast_Right
-@onready var raycast_left: RayCast2D = $RayCast_Left
-@onready var raycast_down: RayCast2D = $RayCast_Down
+@onready var knockback_right: RayCast2D= $Knockback_Right
+@onready var knockback_left: RayCast2D = $Knockback_Left
+@onready var knockback_down: RayCast2D = $Knockback_Down
+
+#Raycast collider
+var object_down = null
+var object_right = null
+var object_left = null
 
 #Gets knockback direction
 var knockback_dir = 0
@@ -23,6 +32,16 @@ var knockback_timer_started = false
 
 func _physics_process(delta):
 	var input_axis = Input.get_axis("move_left", "move_right")
+	
+	if knockback_right.is_colliding():
+		object_right = knockback_right.get_collider()
+		
+	if knockback_left.is_colliding():
+		object_left = knockback_left.get_collider()
+		
+	if knockback_down.is_colliding():
+		object_down = knockback_down.get_collider()
+		
 
 	#Makes character move with ground and applys gravity
 	player_movement()
@@ -119,16 +138,16 @@ func wall_jumping():
 	#For some reason "is_on_wall" is breaking this code.
 	if not is_on_floor():
 		if Input.is_action_just_pressed("move_right"):
-			if raycast_left.is_colliding():
-				var wall_left = raycast_left.get_collider()
-				if wall_left.get_name() == "BehindPlayer":
+			if wall_left.is_colliding():
+				var object_left_wall = wall_left.get_collider()
+				if object_left_wall.get_name() == "BehindPlayer":
 					velocity.y = movement_data.jump_velocity
 					velocity.x = 150
 
 		if Input.is_action_just_pressed("move_left"):
-			if raycast_right.is_colliding():
-				var wall_right = raycast_right.get_collider()
-				if wall_right.get_name() == "BehindPlayer":
+			if wall_right.is_colliding():
+				var object_right_wall = wall_right.get_collider()
+				if object_right_wall.get_name() == "BehindPlayer":
 					velocity.y = movement_data.jump_velocity
 					velocity.x = -150
 
@@ -165,34 +184,35 @@ func animation_state():
 
 func knockback():
 	if knockback_timer_started == false:
-		if raycast_right.is_colliding():
-			var object_right = raycast_right.get_collider()
+# Identifies whether or not knockback is coming from the right
+		if knockback_right.is_colliding():
 			if object_right.get_name() != "BehindPlayer":
 				knockback_dir = -1
 				knockback_power = -200
 				print("Knockback right")
 
-		if raycast_left.is_colliding():
-			var object_left = raycast_left.get_collider()
+# Identifies whether or not knockback is coming from the left
+		if knockback_left.is_colliding():
 			if object_left.get_name() != "BehindPlayer":
 				knockback_dir = 1
 				knockback_power = -200
 				print("Knockback left")
-	
-		if raycast_left.is_colliding() && raycast_right.is_colliding():
-			var object_left = raycast_left.get_collider()
-			var object_right = raycast_right.get_collider()
-			if object_left.get_name() != "BehindPlayer" && object_right.get_name() != "BehindPlayer":
-				knockback_dir = 0
-				knockback_power = -350
-				print("Knockback down")
-		
-		if raycast_down.is_colliding() && !raycast_left.is_colliding() && !raycast_right.is_colliding():
-			var object_down = raycast_down.get_collider()
+
+# Identifies whether or not knockback is coming from both left and right
+#Function not needed right now
+		#if knockback_left.is_colliding() && knockback_right.is_colliding():
+			#if object_left.get_name() != "BehindPlayer" && object_right.get_name() != "BehindPlayer": 
+				#if object_down.get_name() == "BehindPlayer":
+					#knockback_dir = 0
+					#knockback_power = -350
+					#print("Knockback down")
+
+# Identifies whether or not knockback is coming from below
+		if knockback_down.is_colliding():
 			if object_down.get_name() != "BehindPlayer":
-				knockback_dir = 0
-				knockback_power = -350
-				print("Knockback down (raycast_down)")
+					knockback_dir = randi_range(-1, 1)
+					knockback_power = -350
+					print("Knockback down (raycast_down)")
 
 		velocity.x = 150 * knockback_dir
 		velocity.y = knockback_power

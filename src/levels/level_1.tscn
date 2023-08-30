@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bne1ycyic206n" path="res://assets/foreground/water.png" id="14_dd7rm"]
 [ext_resource type="Texture2D" uid="uid://bdaq3mkajdhsn" path="res://assets/foreground/watertop.png" id="14_ev6a3"]
 [ext_resource type="PackedScene" uid="uid://dtfkm547yxtbg" path="res://src/ui/ui.tscn" id="15_0cqxb"]
-[ext_resource type="PackedScene" uid="uid://dqwcpids7e46a" path="res://src/enemies/axe.tscn" id="15_gwau3"]
+[ext_resource type="PackedScene" uid="uid://dqwcpids7e46a" path="res://src/Enemies/axe.tscn" id="15_gwau3"]
 [ext_resource type="Texture2D" uid="uid://d3xho7hc8wt4a" path="res://assets/interactive/pitfall.png" id="15_mbeea"]
 [ext_resource type="Script" path="res://src/interactive/pitfall.gd" id="15_pqn2h"]
 [ext_resource type="PackedScene" uid="uid://bxrdaun1twtb1" path="res://src/interactive/portal.tscn" id="16_h5jbk"]
@@ -756,16 +756,7 @@ position = Vector2(774, -23)
 position = Vector2(1292, -68)
 
 [node name="axe3" parent="axe" groups=["axe"] instance=ExtResource("15_gwau3")]
-position = Vector2(1522, -71)
-
-[node name="axe4" parent="axe" groups=["axe"] instance=ExtResource("15_gwau3")]
 position = Vector2(2496, -70)
-
-[node name="axe5" parent="axe" groups=["axe"] instance=ExtResource("15_gwau3")]
-position = Vector2(2641, -69)
-
-[node name="axe6" parent="axe" groups=["axe"] instance=ExtResource("15_gwau3")]
-position = Vector2(2798, -71)
 
 [node name="coins" type="Node" parent="."]
 

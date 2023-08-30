@@ -8,10 +8,13 @@ extends CharacterBody2D
 @onready var animated_sprite: AnimatedSprite2D = get_node("AnimatedSprite2D")
 @onready var animation_player: AnimationPlayer = get_node("AnimationPlayer")
 
-#Detects if axe is left or right
-@onready var isaxe_left: RayCast2D = get_node("IsAxe_Left")
-@onready var isaxe_right: RayCast2D = get_node("IsAxe_Right")
+#Detects if wall is left or right
+@onready var is_wall_left: RayCast2D = get_node("IsWall_Left")
+@onready var is_wall_right: RayCast2D = get_node("IsWall_Right")
 
+# Raycasts to determine if ground is available for the enemy to walk on
+@onready var raycast_left = $RayCast_Left
+@onready var raycast_right = $RayCast_Right
 
 # Movement State
 var speed = 25
@@ -23,10 +26,6 @@ var has_hit = false
 var can_attack = false
 var aggro = false
 var attack_interval_passed = true
-
-# Raycasts to determine if ground is available for the enemy to walk on
-@onready var raycast_left = $RayCast_Left
-@onready var raycast_right = $RayCast_Right
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -64,23 +63,25 @@ func _physics_process(delta):
 	#Run functions
 	move_and_slide()
 	animation_state()
-	is_axe_blocking()
+	is_wall_blocking()
 
 
-func is_axe_blocking():
-	if isaxe_right.is_colliding():
-		var object_right = isaxe_right.get_collider()
-		if object_right.is_in_group() == "axe":
-			velocity.x = 0
-		else:
-			print(object_right)
+func is_wall_blocking():
+	if is_wall_left.is_colliding():
+		var wall_left = is_wall_left.get_collider()
+		if wall_left.get_name() == "BehindPlayer":
+			if aggro:
+				velocity.x = 0
+			else:
+				is_moving_left = true
 
-	if isaxe_left.is_colliding():
-		var object_left = isaxe_left.get_collider()
-		if object_left.get_name() == "axe":
-			velocity.x = 0
-		else:
-			print(object_left)
+	if is_wall_right.is_colliding():
+		var wall_right = is_wall_right.get_collider()
+		if wall_right.get_name() == "BehindPlayer":
+			if aggro:
+				velocity.x = 0
+			else:
+				is_moving_left = false
 
 func move_character():
 	if idle == false:

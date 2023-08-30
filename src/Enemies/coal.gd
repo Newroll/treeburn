@@ -42,6 +42,10 @@ var projectile = rock_throwable_scene.instantiate()
 @onready var raycast_left = $RayCast_Left
 @onready var raycast_right = $RayCast_Right
 
+#Detects if wall is left or right
+@onready var is_wall_left: RayCast2D = get_node("IsWall_Left")
+@onready var is_wall_right: RayCast2D = get_node("IsWall_Right")
+
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
@@ -99,12 +103,23 @@ func _physics_process(delta):
 						animation_player.play("bull_attack")
 
 	else:
+		is_wall_blocking()
 		detect_turn()
 		move_character()
 		
 	#Run functions
 	move_and_slide()
 	animation_state()
+
+func is_wall_blocking():
+	if is_wall_left.is_colliding():
+		var wall_left = is_wall_left.get_collider()
+		is_moving_left = true
+		print("Turn around")
+
+	if is_wall_right.is_colliding():
+		var wall_right = is_wall_right.get_collider()
+		is_moving_left = false
 
 
 func move_character():
