@@ -53,6 +53,7 @@ theme_override_styles/normal = ExtResource("6_bfk6l")
 text = "view leaderboard"
 
 [node name="highscorepopup" type="ColorRect" parent="."]
+visible = false
 offset_left = 24.0
 offset_top = 22.0
 offset_right = 300.0
@@ -92,10 +93,10 @@ text = "Enter your name below to be placed on the leaderboard."
 [node name="warning" type="Label" parent="highscorepopup"]
 visible = false
 layout_mode = 0
-offset_left = 22.0
-offset_top = 56.0
-offset_right = 114.0
-offset_bottom = 82.0
+offset_left = 177.0
+offset_top = 76.0
+offset_right = 269.0
+offset_bottom = 95.0
 theme_override_fonts/font = ExtResource("2_fndc8")
 text = "BAD WORD!"
 
@@ -108,6 +109,7 @@ offset_bottom = 63.0
 theme_override_fonts/font = ExtResource("2_fndc8")
 theme_override_font_sizes/font_size = 8
 placeholder_text = "Enter name"
+max_length = 15
 
 [node name="confirm" type="Button" parent="highscorepopup"]
 layout_mode = 0
@@ -121,9 +123,9 @@ text = "Confirm"
 
 [node name="cancel" type="Button" parent="highscorepopup"]
 layout_mode = 0
-offset_left = 108.0
+offset_left = 100.0
 offset_top = 71.0
-offset_right = 179.0
+offset_right = 171.0
 offset_bottom = 95.0
 theme_override_fonts/font = ExtResource("2_fndc8")
 theme_override_font_sizes/font_size = 10
@@ -147,7 +149,10 @@ theme_override_fonts/font = ExtResource("2_fndc8")
 theme_override_font_sizes/font_size = 50
 text = "LOADING..."
 
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
 [connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
 [connection signal="pressed" from="leaderboard" to="." method="_on_leaderboard_pressed"]
 [connection signal="pressed" from="highscorepopup/confirm" to="." method="_on_confirm_pressed"]
 [connection signal="pressed" from="highscorepopup/cancel" to="." method="_on_cancel_pressed"]
+[connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]

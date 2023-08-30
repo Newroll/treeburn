@@ -10,9 +10,13 @@ func _ready():
 	var i = topScores.size()
 	var j = 0
 	while i > 0:
-		currentName = get_node(str(j+1)+"/name")
-		currentTime = get_node(str(j+1)+"/time")
+		currentName = get_node("VBoxContainer/"+str(j+1)+"/name")
+		currentTime = get_node("VBoxContainer/"+str(j+1)+"/time")
 		currentName.set_text(topScores[j].player_name)
 		currentTime.set_text(str(Main.time_convert(int(topScores[j].score*-1))))
 		i -= 1
 		j += 1
+
+
+func _on_quit_pressed():
+	get_tree().change_scene_to_file("res://src/levels/level_4.tscn")

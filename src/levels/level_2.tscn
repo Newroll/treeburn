@@ -434,12 +434,6 @@ position = Vector2(1757, -455)
 [node name="fire7" parent="fire" instance=ExtResource("15_r2b35")]
 position = Vector2(2549, -327)
 
-[node name="fire8" parent="fire" instance=ExtResource("15_r2b35")]
-position = Vector2(2887, -327)
-
-[node name="fire9" parent="fire" instance=ExtResource("15_r2b35")]
-position = Vector2(2903, -327)
-
 [node name="fire10" parent="fire" instance=ExtResource("15_r2b35")]
 position = Vector2(2919, -327)
 

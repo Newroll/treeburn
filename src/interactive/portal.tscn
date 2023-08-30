@@ -96,7 +96,7 @@ scale = Vector2(0.718182, 0.718182)
 texture = ExtResource("3_v6g35")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
+layer = 2
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 z_index = 50
