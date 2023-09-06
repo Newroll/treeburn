@@ -1,5 +1,14 @@
 extends Node2D
 
+func _ready():
+	get_tree().paused = false
+	Main.coins = 0
+	Main.level = 0
+	Main.timeEclapsed = 0
+	Main.worldHealth = 3600
+	Main.gameComplete = true
+	Main.health = 3
+
 func _on_new_game_button_pressed():
 	$title.hide()
 	$NewGame_Button.hide()

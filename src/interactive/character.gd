@@ -9,6 +9,7 @@ var spawnY = -20
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var knockback_timer: Timer = get_node("KnockbackTimer")
+@onready var fireKnockback_timer: Timer = get_node("FireKnockbackTimer")
 
 #Get raycasts for wall jump
 @onready var wall_right: RayCast2D = $Wall_Right
@@ -24,10 +25,15 @@ var object_down = null
 var object_right = null
 var object_left = null
 
+var facingDirection = -1
+const KNOCKBACKTIMECONST = 7
+var knockbackTime = KNOCKBACKTIMECONST
+
 #Gets knockback direction
 var knockback_dir = 0
 var knockback_power = -200
 var knockback_timer_started = false
+var fireKnockback_timer_started = false
 
 
 func _physics_process(delta):
@@ -48,7 +54,7 @@ func _physics_process(delta):
 	check_state()
 	apply_gravity(delta)
 	
-	if Main.knockback == false:
+	if Main.knockback == false && Main.fireKnockback == false:
 		#Run functions
 		jump()
 		wall_sliding_true()
@@ -56,8 +62,10 @@ func _physics_process(delta):
 		handle_acceleration(input_axis, delta)
 		apply_friction(input_axis,delta)
 		wall_jumping()
-	else:
+	elif Main.knockback == true:
 		knockback()
+	elif Main.fireKnockback == true:
+		fireKnockback(input_axis, delta)
 	
 	if position.y > 100:
 		Main.health = -1
@@ -220,9 +228,29 @@ func knockback():
 		knockback_timer.start()
 		knockback_timer_started = true
 
-
 func _on_knockback_timer_timeout():
 	Main.knockback = false
 	knockback_timer_started = false
+	velocity.y = 0
+	velocity.x = 0
+
+func fireKnockback(input_axis, _delta):
+	if fireKnockback_timer_started == false:
+		if input_axis < 0:
+			knockback_dir = 1
+		else:
+			knockback_dir = -1
+
+		velocity.y = -150
+		velocity.x = 200 * knockback_dir
+
+		fireKnockback_timer.start()
+		fireKnockback_timer_started = true
+		print("Timer started")
+
+
+func _on_fire_knockback_timer_timeout():
+	Main.fireKnockback = false
+	fireKnockback_timer_started = false
 	velocity.y = 0
 	velocity.x = 0
