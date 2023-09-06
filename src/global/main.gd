@@ -30,7 +30,7 @@ func _physics_process(_delta):
 	framesEclapsed += 1
 	totalFramesEclapsed += 1
 	
-	if snowHit >= 20:
+	if snowHit >= 5:
 		health -= 1
 		snowHit = 0
 	
