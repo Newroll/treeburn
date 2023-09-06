@@ -8,7 +8,7 @@ var health = 3
 var in_range = false
 var player_dir = 0
 var aggro = false
-var worldHealth = 3600
+var worldHealth = 8
 var playerPosition
 var quicksand = false
 var ice = false
@@ -31,7 +31,7 @@ func _physics_process(_delta):
 	if(framesEclapsed == 6):
 		if(gameComplete == false):
 			timeEclapsed += 0.1
-			worldHealth -= 1
+			worldHealth -= 0.02
 		framesEclapsed = 0
 	if(health <= 0 || worldHealth <= 0):
 		death()
@@ -39,7 +39,7 @@ func _physics_process(_delta):
 func death():
 	coins = 0 
 	health = 3
-	worldHealth = 3600
+	worldHealth = 8
 	quicksand = false
 	ice = false
 	resetPlayer = true

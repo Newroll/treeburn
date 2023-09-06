@@ -14,7 +14,7 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	Main.worldHealth = 3600
+	Main.worldHealth = 8
 
 
 func _on_confirm_pressed():

@@ -6,7 +6,7 @@ var sameWorldhealth = true
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if sameWorldhealth == true:
-		Main.worldHealth = 3600
+		Main.worldHealth = 8
 	
 	if Main.playerPosition.x > 450:
 		$twojump.show()
@@ -22,7 +22,7 @@ func _process(_delta):
 		if showLeaf == true:
 			$leaf2.show()
 			showLeaf = false
-			Main.worldHealth = 3000
+			Main.worldHealth = 6
 		$leaf.show()
 		sameWorldhealth = false
 		

@@ -1,4 +1,4 @@
-extends ProgressBar
+extends AnimatedSprite2D
 
 func _process(_delta):
-	set_value(Main.worldHealth)
+	self.frame = Main.worldHealth

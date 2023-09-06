@@ -25,7 +25,7 @@ func _process(_delta):
 	if entered == true && Input.is_action_just_pressed("enter") && Main.coins>=Main.coinRequirement[Main.level]:
 		Main.coins = 0
 		Main.level += 1
-		Main.worldHealth = 3600
+		Main.worldHealth = 8
 		$CanvasLayer.show()
 		$CanvasLayer/AnimationPlayer.play("fadetoblack")
 		await get_tree().create_timer(0.7).timeout
