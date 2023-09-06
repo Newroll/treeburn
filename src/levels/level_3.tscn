@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://src/interactive/coins.gd" id="5_1cxdc"]
 [ext_resource type="Resource" uid="uid://bybefrr5rfkdx" path="res://src/interactive/DefaultMovementData.tres" id="8_75utj"]
 [ext_resource type="Texture2D" uid="uid://dyjdhilnk6ppo" path="res://assets/foreground/quicksand.png" id="8_m2tjl"]
-[ext_resource type="Script" path="res://src/levels/lvl2death.gd" id="9_v8bnm"]
+[ext_resource type="Script" path="res://src/levels/lvl3death.gd" id="9_dk33i"]
 [ext_resource type="PackedScene" uid="uid://uiouwl5inj5h" path="res://src/interactive/platform.tscn" id="13_uoyuq"]
 [ext_resource type="PackedScene" uid="uid://be2b5vmn7o8d1" path="res://src/interactive/quicksand.tscn" id="14_6ggne"]
 [ext_resource type="PackedScene" uid="uid://dr3lmvseh1mm6" path="res://src/Enemies/coal.tscn" id="14_j8yol"]
@@ -269,7 +269,7 @@ drag_vertical_enabled = true
 drag_top_margin = 0.8
 
 [node name="death" type="Area2D" parent="."]
-script = ExtResource("9_v8bnm")
+script = ExtResource("9_dk33i")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="death"]
 position = Vector2(1965, -240)

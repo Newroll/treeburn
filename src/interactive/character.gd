@@ -59,7 +59,7 @@ func _physics_process(delta):
 	else:
 		knockback()
 	
-	if position.y > 100:
+	if position.y > Main.death_height[Main.level]:
 		Main.health = -1
 	
 	if Main.resetPlayer == true:
