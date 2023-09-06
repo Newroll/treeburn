@@ -13,7 +13,7 @@
 [ext_resource type="Script" path="res://src/levels/lvl3death.gd" id="9_dk33i"]
 [ext_resource type="PackedScene" uid="uid://uiouwl5inj5h" path="res://src/interactive/platform.tscn" id="13_uoyuq"]
 [ext_resource type="PackedScene" uid="uid://be2b5vmn7o8d1" path="res://src/interactive/quicksand.tscn" id="14_6ggne"]
-[ext_resource type="PackedScene" uid="uid://dr3lmvseh1mm6" path="res://src/Enemies/coal.tscn" id="14_j8yol"]
+[ext_resource type="PackedScene" uid="uid://dr3lmvseh1mm6" path="res://src/enemies/coal.tscn" id="14_j8yol"]
 [ext_resource type="PackedScene" uid="uid://dtfkm547yxtbg" path="res://src/ui/ui.tscn" id="15_0cqxb"]
 [ext_resource type="PackedScene" uid="uid://5sixvjk3b60v" path="res://src/interactive/fire.tscn" id="15_r2b35"]
 [ext_resource type="PackedScene" uid="uid://bxrdaun1twtb1" path="res://src/interactive/portal.tscn" id="17_cr723"]
