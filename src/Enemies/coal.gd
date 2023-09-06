@@ -181,7 +181,7 @@ func _on_walk_timer_timeout():
 #It is only monitoring during bull attack
 func _on_death_body_entered(body):
 	if body.name == "CharacterBody2D":
-		Main.health -= 1
+		Main.takeDmg(1)
 		Main.knockback = true
 
 
