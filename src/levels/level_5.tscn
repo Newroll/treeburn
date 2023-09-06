@@ -129,7 +129,7 @@ _data = {
 "fadetonormal": SubResource("Animation_snwhm")
 }
 
-[node name="Level3" type="Node2D"]
+[node name="Level5" type="Node2D"]
 script = ExtResource("1_ud0ie")
 
 [node name="Parallax" type="ParallaxBackground" parent="."]

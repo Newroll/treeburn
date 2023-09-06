@@ -14,7 +14,7 @@ var quicksand = false
 var ice = false
 var resetPlayer = false
 var knockback = false
-var death_height = [100, 100, 200, 100, 100, 100, 100, 100]
+var death_height = [100, 100, 200, 100, 200, 100, 100, 100]
 #var coinRequirement=[5, 10, 16, 12, 13, 11, 10, 0]
 var gameComplete = true
 var suffix
