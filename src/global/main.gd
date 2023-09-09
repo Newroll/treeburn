@@ -4,7 +4,7 @@ var coins = 0
 var level = 0
 var timeEclapsed = 0
 var framesEclapsed = 0
-var health = 300
+var health = 3
 var in_range = false
 var player_dir = 0
 var aggro = false
@@ -14,7 +14,7 @@ var quicksand = false
 var ice = false
 var resetPlayer = false
 var knockback = false
-var death_height = [100, 100, 200, 100, 200, 100, 300, 100]
+var death_height = [100, 100, 200, 100, 200, 100, 400, 100]
 #var coinRequirement=[5, 10, 16, 12, 13, 11, 10, 0]
 var gameComplete = true
 var suffix
