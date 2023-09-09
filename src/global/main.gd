@@ -14,10 +14,10 @@ var quicksand = false
 var ice = false
 var resetPlayer = false
 var knockback = false
-var death_height = [100, 100, 200, 100, 200, 100, 400, 100]
+var death_height = [100, 100, 200, 100, 200, 270, 400, 100]
 #var coinRequirement=[5, 10, 16, 12, 13, 11, 10, 0]
 var gameComplete = true
-var suffix
+var suffixq
 var suffixes
 var snowHit = 0
 var leaderboardOffer = false
