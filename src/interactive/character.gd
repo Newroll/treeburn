@@ -67,7 +67,7 @@ func _physics_process(delta):
 	elif Main.fireKnockback == true:
 		fireKnockback(input_axis, delta)
 	
-	if position.y > 100:
+	if position.y > Main.death_height[Main.level]:
 		Main.health = -1
 	
 	if Main.resetPlayer == true:
@@ -79,9 +79,10 @@ func _physics_process(delta):
 func check_state():
 	if Main.quicksand == true:
 		movement_data = load("res://src/interactive/QuicksandMovementData.tres")
-	elif Main.ice == true:
+	if Main.ice == true:
 		movement_data = load("res://src/interactive/IceMovementData.tres")
-	else:
+		print("Movement data ice")
+	if Main.ice == false && Main.quicksand == false:
 		movement_data = load("res://src/interactive/DefaultMovementData.tres")
 
 func apply_gravity(delta):

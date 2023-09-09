@@ -1,48 +1,43 @@
 extends Node2D
 
-# Called when the node enters the scene tree for the first time.
+
+func _process(_delta):
+	if Input.is_action_just_pressed("one"):
+		Main.coins = 0
+		Main.level = 1
+		get_tree().change_scene_to_file("res://src/levels/level_1.tscn")
+	
+	if Input.is_action_just_pressed("two"):
+		Main.coins = 0
+		Main.level = 2
+		get_tree().change_scene_to_file("res://src/levels/level_2.tscn")
+	
+	if Input.is_action_just_pressed("three"):
+		Main.coins = 0
+		Main.level = 3
+		get_tree().change_scene_to_file("res://src/levels/level_3.tscn")
+	
+	if Input.is_action_just_pressed("four"):
+		Main.coins = 0
+		Main.level = 4
+		get_tree().change_scene_to_file("res://src/levels/level_4.tscn")
+	
+	if Input.is_action_just_pressed("five"):
+		Main.coins = 0
+		Main.level = 5
+		get_tree().change_scene_to_file("res://src/levels/level_5.tscn")
+	
+	if Input.is_action_just_pressed("six"):
+		Main.coins = 0
+		Main.level = 6
+		get_tree().change_scene_to_file("res://src/levels/level_6.tscn")
+	
+		
+	if Input.is_action_just_pressed("esc"):
+		get_tree().paused = true
+		$UI/PauseMenu.show()
+
 func _ready():
-	Main.gameComplete = true
-	var finalTime = Main.timeEclapsed*-1
-	var sw_result = await SilentWolf.Scores.get_score_position(finalTime).sw_get_position_complete
-	$loading.hide()
-	var position = sw_result.position
-	if position <= 10 && Main.leaderboardOffer == false:
-		$highscorepopup.show()
-	$highscorepopup/scorelabel.set_text("You attained a time of "+Main.time_convert(Main.timeEclapsed)+", placing you in "+Main.ordinal(position)+" place!")
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	Main.worldHealth = 3600
-
-
-func _on_confirm_pressed():
-	$HTTPRequest.request("https://www.purgomalum.com/service/containsprofanity?text="+$highscorepopup/nameinput.get_text())
-
-
-func _on_leaderboard_pressed():
-	get_tree().change_scene_to_file("res://src/global/leaderboard.tscn")
-	Main.leaderboardOffer = true
-
-
-func _on_cancel_pressed():
-	$highscorepopup.hide()
-	Main.leaderboardOffer = true
-
-
-func _on_quit_pressed():
-	get_tree().change_scene_to_file("res://src/ui/intro.tscn")
-	Main.leaderboardOffer = true
-
-func _on_http_request_request_completed(result, response_code, headers, body):
-	var json = JSON.parse_string(body.get_string_from_utf8())
-	if json == true:
-		$highscorepopup/warning.show()
-	else:
-		$loading.show()
-		SilentWolf.Scores.save_score($highscorepopup/nameinput.get_text(), Main.timeEclapsed*-1)
-		await get_tree().create_timer(3).timeout
-		$loading.hide()
-		$highscorepopup.hide()
-		Main.leaderboardOffer = true
+	$CanvasLayer/AnimationPlayer.play("fadetonormal")
+	await get_tree().create_timer(1).timeout
+	$CanvasLayer.hide()
