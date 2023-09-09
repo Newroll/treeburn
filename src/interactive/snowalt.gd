@@ -1,12 +1,11 @@
 extends CharacterBody2D
 
 
-const SPEED = 450.0
-const JUMP_VELOCITY = -400.0
+const SPEED = 500
+const JUMP_VELOCITY = -400
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var returnTo = get_position()
-var needToReset = false
 
 
 func _physics_process(delta):
@@ -25,14 +24,13 @@ func _physics_process(delta):
 	
 	if position.x > 1465:
 		position = Vector2(1000, -1000)
-		needToReset = true
 		
-	if int(Main.timeEclapsed) % 6 == 0 && needToReset == true:
+	if int(Main.timeEclapsed) % 6 == 0:
 		position = Vector2(returnTo.x, returnTo.y)
-		needToReset = false
 	
 	if position.y > -500:
 		move_and_slide();
+
 
 func _on_area_2d_body_entered(body):
 	if body.name == "CharacterBody2D":

@@ -11,7 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://d3xho7hc8wt4a" path="res://assets/interactive/pitfall.png" id="5_yitji"]
 [ext_resource type="Texture2D" uid="uid://grrid1bfg8il" path="res://assets/foreground/trees.png" id="6_asx6m"]
 [ext_resource type="Texture2D" uid="uid://iw33gtlicsw4" path="res://assets/foreground/deadtree.png" id="7_503km"]
-[ext_resource type="Texture2D" uid="uid://bo5yrg83rhude" path="res://assets/foreground/lvl1_ground.png" id="7_lmob4"]
+[ext_resource type="Texture2D" uid="qqqqqqqqqqqqquid://bo5yrg83rhude" path="res://assets/foreground/lvl1_ground.png" id="7_lmob4"]
 [ext_resource type="Texture2D" uid="uid://cgwgyacm4bnxw" path="res://assets/foreground/bush.png" id="8_v61fb"]
 [ext_resource type="PackedScene" uid="uid://dqwcpids7e46a" path="res://src/enemies/axe.tscn" id="9_2oe7p"]
 [ext_resource type="Texture2D" uid="uid://k2f1fdpf3td5" path="res://assets/foreground/flower.png" id="9_rwih5"]

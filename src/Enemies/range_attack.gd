@@ -14,4 +14,5 @@ func _physics_process(delta):
 
 func _on_body_entered(body):
 	if body.name == "CharacterBody2D":
-		Main.health -= 1
+		Main.knockback = true
+		Main.takeDmg(1)

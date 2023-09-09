@@ -298,9 +298,11 @@ texture_filter = 1
 position = Vector2(-14, -9.53674e-07)
 scale = Vector2(1.21875, 1.1875)
 sprite_frames = SubResource("SpriteFrames_oo2mv")
-animation = &"run"
+animation = &"attack"
+frame = 4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+visible = false
 polygon = PackedVector2Array(-7, 30, 3, 5, 3, -9, 0, -13, -22, -13, -24, -8, -25, 4, -20, 30, -9, 30)
 
 [node name="player_chase" type="Area2D" parent="."]
@@ -311,6 +313,7 @@ position = Vector2(-12, 1)
 shape = SubResource("CircleShape2D_vw6dv")
 
 [node name="attack_area" type="Area2D" parent="."]
+visible = false
 monitoring = false
 monitorable = false
 
@@ -319,16 +322,19 @@ position = Vector2(-12, 7.5)
 shape = SubResource("RectangleShape2D_kgeqp")
 
 [node name="can_attack" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="can_attack"]
 position = Vector2(-12, 6.5)
 shape = SubResource("RectangleShape2D_feejs")
 
 [node name="RayCast_Left" type="RayCast2D" parent="."]
+visible = false
 position = Vector2(-33, 8)
 target_position = Vector2(0, 25)
 
 [node name="RayCast_Right" type="RayCast2D" parent="."]
+visible = false
 position = Vector2(11, 8)
 target_position = Vector2(0, 25)
 
@@ -351,11 +357,13 @@ libraries = {
 }
 
 [node name="IsWall_Left" type="RayCast2D" parent="."]
+visible = false
 position = Vector2(-10, 1)
 scale = Vector2(1, 10)
 target_position = Vector2(-25, 0)
 
 [node name="IsWall_Right" type="RayCast2D" parent="."]
+visible = false
 position = Vector2(-9, 1)
 scale = Vector2(1, 10)
 target_position = Vector2(25, 0)
