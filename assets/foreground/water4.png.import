@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfw6ie5ct8058"
-path="res://.godot/imported/fullhealth.png-1fbd84cf05dc50afbe208c2c6aa081ac.ctex"
+uid="uid://56vaojwneu6q"
+path="res://.godot/imported/water4.png-f4248b3079e96aa643f030684e960b45.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/player/fullhealth.png"
-dest_files=["res://.godot/imported/fullhealth.png-1fbd84cf05dc50afbe208c2c6aa081ac.ctex"]
+source_file="res://assets/foreground/water4.png"
+dest_files=["res://.godot/imported/water4.png-f4248b3079e96aa643f030684e960b45.ctex"]
 
 [params]
 
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

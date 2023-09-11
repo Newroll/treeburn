@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fn8jdfb0u3bl"
-path="res://.godot/imported/watertop4.png-6ffd7c4f72ea89f6c4a9864b51fe4f3c.ctex"
+uid="uid://drjew8grknouy"
+path="res://.godot/imported/darkbush.png-f4f96ab7ca123f4873e81631c2288194.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/foreground/watertop4.png"
-dest_files=["res://.godot/imported/watertop4.png-6ffd7c4f72ea89f6c4a9864b51fe4f3c.ctex"]
+source_file="res://assets/foreground/darkbush.png"
+dest_files=["res://.godot/imported/darkbush.png-f4f96ab7ca123f4873e81631c2288194.ctex"]
 
 [params]
 
