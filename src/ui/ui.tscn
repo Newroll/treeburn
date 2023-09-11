@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://src/ui/ui.gd" id="1_fj7ts"]
 [ext_resource type="FontFile" uid="uid://422t11bovf6v" path="res://assets/styles/mainport.ttf" id="1_hkuc3"]
 [ext_resource type="StyleBox" uid="uid://cavwdk0v7i65u" path="res://assets/styles/button_theme.tres" id="2_rl8hw"]
-[ext_resource type="Texture2D" uid="uid://bfw6ie5ct8058" path="res://assets/player/fullhealth.png" id="3_lxw2j"]
+[ext_resource type="Texture2D" path="res://assets/player/fullhealth.png" id="3_lxw2j"]
 [ext_resource type="Script" path="res://src/interactive/coincounter.gd" id="3_x676s"]
 [ext_resource type="Script" path="res://src/ui/health1.gd" id="5_ogaie"]
 [ext_resource type="Script" path="res://src/ui/health2.gd" id="6_0g8ks"]
@@ -193,64 +193,64 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_52bx8"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5jkfh"]
 atlas = ExtResource("11_spewb")
-region = Rect2(336, 0, 48, 48)
+region = Rect2(168, 0, 24, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_78b47"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_7fe1l"]
 atlas = ExtResource("11_spewb")
-region = Rect2(288, 0, 48, 48)
+region = Rect2(144, 0, 24, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tqqr4"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5qybd"]
 atlas = ExtResource("11_spewb")
-region = Rect2(240, 0, 48, 48)
+region = Rect2(120, 0, 24, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fxixf"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_tsa6t"]
 atlas = ExtResource("11_spewb")
-region = Rect2(192, 0, 48, 48)
+region = Rect2(96, 0, 24, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_fj24y"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_gy8yo"]
 atlas = ExtResource("11_spewb")
-region = Rect2(144, 0, 48, 48)
+region = Rect2(72, 0, 24, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_72ckm"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_1n2w7"]
 atlas = ExtResource("11_spewb")
-region = Rect2(96, 0, 48, 48)
+region = Rect2(48, 0, 24, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_m8eh7"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_xx4ni"]
 atlas = ExtResource("11_spewb")
-region = Rect2(48, 0, 48, 48)
+region = Rect2(24, 0, 24, 24)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pj5bv"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_kf120"]
 atlas = ExtResource("11_spewb")
-region = Rect2(0, 0, 48, 48)
+region = Rect2(0, 0, 24, 24)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_436fo"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_52bx8")
+"texture": SubResource("AtlasTexture_5jkfh")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_78b47")
+"texture": SubResource("AtlasTexture_7fe1l")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tqqr4")
+"texture": SubResource("AtlasTexture_5qybd")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fxixf")
+"texture": SubResource("AtlasTexture_tsa6t")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_fj24y")
+"texture": SubResource("AtlasTexture_gy8yo")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_72ckm")
+"texture": SubResource("AtlasTexture_1n2w7")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_m8eh7")
+"texture": SubResource("AtlasTexture_xx4ni")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pj5bv")
+"texture": SubResource("AtlasTexture_kf120")
 }],
 "loop": true,
 "name": &"default",
@@ -276,56 +276,64 @@ text = "PAUSE"
 
 [node name="coinanimation" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(292.406, 14.4063)
+position = Vector2(296.406, 11.4063)
 scale = Vector2(0.800782, 0.800782)
 sprite_frames = SubResource("SpriteFrames_dh1gv")
 autoplay = "default"
 
 [node name="CoinCounter" type="Label" parent="."]
 texture_filter = 1
-offset_left = 301.406
-offset_top = 8.40626
-offset_right = 311.406
-offset_bottom = 25.4063
+offset_left = 305.406
+offset_top = 5.40622
+offset_right = 315.406
+offset_bottom = 22.4063
 theme_override_fonts/font = ExtResource("1_hkuc3")
 theme_override_font_sizes/font_size = 14
 text = "0"
 horizontal_alignment = 1
 script = ExtResource("3_x676s")
 
-[node name="health1" type="Sprite2D" parent="."]
+[node name="health" type="Node" parent="."]
+
+[node name="Grass" type="Sprite2D" parent="health"]
+z_index = 3
+position = Vector2(296, 170)
+scale = Vector2(1.15, 1.15)
+texture = ExtResource("12_mf3pq")
+
+[node name="health1" type="Sprite2D" parent="health"]
 texture_filter = 1
-position = Vector2(308.953, 148)
-scale = Vector2(1.5, 1.5)
+position = Vector2(318.247, 156.6)
+scale = Vector2(1.2, 1.2)
 texture = ExtResource("3_lxw2j")
 script = ExtResource("5_ogaie")
 
-[node name="transition" type="AnimatedSprite2D" parent="health1"]
+[node name="transition" type="AnimatedSprite2D" parent="health/health1"]
 visible = false
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_y7kgl")
 
-[node name="health2" type="Sprite2D" parent="."]
+[node name="health2" type="Sprite2D" parent="health"]
 z_index = 2
 texture_filter = 1
-position = Vector2(294.953, 151)
-scale = Vector2(1.5, 1.5)
+position = Vector2(307, 159)
+scale = Vector2(1.2, 1.2)
 texture = ExtResource("3_lxw2j")
 script = ExtResource("6_0g8ks")
 
-[node name="transition" type="AnimatedSprite2D" parent="health2"]
+[node name="transition" type="AnimatedSprite2D" parent="health/health2"]
 visible = false
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_y7kgl")
 
-[node name="health3" type="Sprite2D" parent="."]
+[node name="health3" type="Sprite2D" parent="health"]
 texture_filter = 1
-position = Vector2(279.953, 148)
-scale = Vector2(1.5, 1.5)
+position = Vector2(296.2, 156.6)
+scale = Vector2(1.2, 1.2)
 texture = ExtResource("3_lxw2j")
 script = ExtResource("7_x4u3b")
 
-[node name="transition" type="AnimatedSprite2D" parent="health3"]
+[node name="transition" type="AnimatedSprite2D" parent="health/health3"]
 visible = false
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_y7kgl")
@@ -334,15 +342,18 @@ sprite_frames = SubResource("SpriteFrames_y7kgl")
 visible = false
 
 [node name="worldHealth" type="AnimatedSprite2D" parent="."]
-position = Vector2(29, 153)
-scale = Vector2(0.791667, 0.791667)
+position = Vector2(156.063, 161.938)
+scale = Vector2(1.24479, 1.24479)
 sprite_frames = SubResource("SpriteFrames_436fo")
 script = ExtResource("8_6i3im")
 
-[node name="Grass" type="Sprite2D" parent="."]
-z_index = 3
-position = Vector2(279.953, 163)
-scale = Vector2(1.28125, 1.28125)
-texture = ExtResource("12_mf3pq")
+[node name="version" type="Label" parent="."]
+offset_left = 3.0
+offset_top = 174.0
+offset_right = 66.0
+offset_bottom = 181.0
+theme_override_fonts/font = ExtResource("1_hkuc3")
+theme_override_font_sizes/font_size = 4
+text = "Treeburn v2.6 DEVELOPMENT"
 
 [connection signal="pressed" from="pausebutton" to="." method="_on_button_pressed"]

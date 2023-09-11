@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://ddv4q4gf0k1gu"]
+[gd_scene load_steps=36 format=3 uid="uid://ddv4q4gf0k1gu"]
 
 [ext_resource type="Script" path="res://src/levels/level_3.gd" id="1_anxaj"]
 [ext_resource type="PackedScene" uid="uid://bmlc5h5gbouaf" path="res://src/interactive/character.tscn" id="1_km57j"]
@@ -10,7 +10,11 @@
 [ext_resource type="Script" path="res://src/interactive/coins.gd" id="5_1cxdc"]
 [ext_resource type="Resource" uid="uid://bybefrr5rfkdx" path="res://src/interactive/DefaultMovementData.tres" id="8_75utj"]
 [ext_resource type="Texture2D" uid="uid://dyjdhilnk6ppo" path="res://assets/foreground/quicksand.png" id="8_m2tjl"]
+[ext_resource type="Texture2D" uid="uid://b72n8nuoch7rr" path="res://assets/foreground/water1.png" id="8_o0yn8"]
 [ext_resource type="Script" path="res://src/levels/lvl3death.gd" id="9_dk33i"]
+[ext_resource type="Texture2D" uid="uid://bd6vl58a0mgxm" path="res://assets/foreground/water2.png" id="9_ro86h"]
+[ext_resource type="Texture2D" uid="uid://b00rm7mq2ngec" path="res://assets/foreground/water3.png" id="10_m42dn"]
+[ext_resource type="Texture2D" uid="uid://56vaojwneu6q" path="res://assets/foreground/water4.png" id="11_62hwu"]
 [ext_resource type="PackedScene" uid="uid://uiouwl5inj5h" path="res://src/interactive/platform.tscn" id="13_uoyuq"]
 [ext_resource type="PackedScene" uid="uid://be2b5vmn7o8d1" path="res://src/interactive/quicksand.tscn" id="14_6ggne"]
 [ext_resource type="PackedScene" uid="uid://dr3lmvseh1mm6" path="res://src/enemies/coal.tscn" id="14_j8yol"]
@@ -102,6 +106,37 @@ texture = ExtResource("4_ps6a8")
 physics_layer_0/collision_layer = 1
 sources/2 = SubResource("TileSetAtlasSource_3n1mi")
 
+[sub_resource type="AnimatedTexture" id="AnimatedTexture_487ie"]
+frames = 4
+frame_0/texture = ExtResource("8_o0yn8")
+frame_0/duration = 0.5
+frame_1/texture = ExtResource("9_ro86h")
+frame_1/duration = 0.5
+frame_2/texture = ExtResource("10_m42dn")
+frame_2/duration = 0.5
+frame_3/texture = ExtResource("11_62hwu")
+frame_3/duration = 0.5
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8vn8p"]
+texture = SubResource("AnimatedTexture_487ie")
+use_texture_padding = false
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3affl"]
 texture = ExtResource("8_m2tjl")
 1:0/animation_columns = 3
@@ -110,6 +145,10 @@ texture = ExtResource("8_m2tjl")
 1:0/animation_frame_2/duration = 1.0
 1:0/0 = 0
 0:1/0 = 0
+0:0/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n0dtg"]
 texture = ExtResource("4_ps6a8")
@@ -135,6 +174,9 @@ texture = ExtResource("4_ps6a8")
 [sub_resource type="TileSet" id="TileSet_4xtmi"]
 sources/2 = SubResource("TileSetAtlasSource_3affl")
 sources/3 = SubResource("TileSetAtlasSource_n0dtg")
+sources/0 = SubResource("TileSetAtlasSource_8vn8p")
+
+[sub_resource type="TileSet" id="TileSet_5v8wq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_58jtv"]
 size = Vector2(1095.25, 27.5)
@@ -253,6 +295,10 @@ texture_filter = 1
 tile_set = SubResource("TileSet_4xtmi")
 format = 2
 layer_0/tile_data = PackedInt32Array(-1310559, 65538, 0, -1245023, 2, 1, -1179487, 2, 1, -1113951, 2, 1, -1048415, 2, 1, -982879, 196611, 2, -917343, 2, 1, -1310558, 65538, 0, -1245022, 196611, 1, -1179486, 196611, 2, -1113950, 2, 1, -1048414, 196611, 1, -982878, 196611, 2, -917342, 2, 1, -1310557, 65538, 0, -1245021, 2, 1, -1179485, 2, 1, -1113949, 2, 1, -1048413, 2, 1, -982877, 2, 1, -917341, 2, 1, -1310556, 65538, 0, -1245020, 2, 1, -1179484, 2, 1, -1113948, 196611, 2, -1048412, 2, 1, -982876, 196611, 1, -917340, 2, 1, -1310555, 65538, 0, -1245019, 2, 1, -1179483, 2, 1, -1113947, 2, 1, -1048411, 2, 1, -982875, 2, 1, -917339, 2, 1, -1310554, 65538, 0, -1245018, 2, 1, -1179482, 196611, 1, -1113946, 196611, 2, -1048410, 2, 1, -982874, 196611, 1, -917338, 2, 1, -1310553, 65538, 0, -1245017, 2, 1, -1179481, 2, 1, -1113945, 2, 1, -1048409, 2, 1, -982873, 2, 1, -917337, 196611, 2, -1310547, 65538, 0, -1245011, 2, 1, -1179475, 2, 1, -1113939, 2, 1, -1048403, 2, 1, -982867, 2, 1, -917331, 2, 1, -1310546, 65538, 0, -1245010, 2, 1, -1179474, 2, 1, -1113938, 196611, 1, -1048402, 2, 1, -982866, 2, 1, -917330, 2, 1, -1310545, 65538, 0, -1245009, 2, 1, -1179473, 196611, 1, -1113937, 2, 1, -1048401, 196611, 2, -982865, 196611, 1, -917329, 2, 1, -1310544, 65538, 0, -1245008, 2, 1, -1179472, 2, 1, -1113936, 2, 1, -1048400, 2, 1, -982864, 2, 1, -917328, 2, 1, -1310543, 65538, 0, -1245007, 2, 1, -1179471, 2, 1, -1113935, 196611, 1, -1048399, 2, 1, -982863, 2, 1, -917327, 2, 1, -1310542, 65538, 0, -1245006, 2, 1, -1179470, 196611, 2, -1113934, 2, 1, -1048398, 2, 1, -982862, 196611, 2, -917326, 2, 1, -1310541, 65538, 0, -1245005, 2, 1, -1179469, 2, 1, -1113933, 2, 1, -1048397, 2, 1, -982861, 2, 1, -917325, 2, 1, -1310537, 65538, 0, -1245001, 2, 1, -1179465, 2, 1, -1113929, 196611, 1, -1048393, 2, 1, -982857, 2, 1, -917321, 2, 1, -1310536, 65538, 0, -1245000, 2, 1, -1179464, 196611, 2, -1113928, 2, 1, -1048392, 2, 1, -982856, 196611, 1, -917320, 2, 1, -1310535, 65538, 0, -1244999, 2, 1, -1179463, 196611, 2, -1113927, 2, 1, -1048391, 2, 1, -982855, 2, 1, -917319, 2, 1, -1310534, 65538, 0, -1244998, 2, 1, -1179462, 196611, 1, -1113926, 2, 1, -1048390, 2, 1, -982854, 2, 1, -917318, 2, 1, -1310533, 65538, 0, -1244997, 2, 1, -1179461, 2, 1, -1113925, 196611, 2, -1048389, 196611, 1, -982853, 2, 1, -917317, 2, 1, -1310532, 65538, 0, -1244996, 2, 1, -1179460, 2, 1, -1113924, 2, 1, -1048388, 2, 1, -982852, 2, 1, -917316, 2, 1, -1310531, 65538, 0, -1244995, 196611, 2, -1179459, 196611, 1, -1113923, 2, 1, -1048387, 2, 1, -982851, 196611, 2, -917315, 2, 1, -1310530, 65538, 0, -1244994, 2, 1, -1179458, 2, 1, -1113922, 2, 1, -1048386, 2, 1, -982850, 2, 1, -917314, 2, 1, -1310529, 65538, 0, -1244993, 2, 1, -1179457, 2, 1, -1113921, 196611, 1, -1048385, 196611, 2, -982849, 2, 1, -917313, 2, 1, -1310528, 65538, 0, -1244992, 2, 1, -1179456, 2, 1, -1113920, 2, 1, -1048384, 2, 1, -982848, 196611, 2, -917312, 2, 1, -1310527, 65538, 0, -1244991, 2, 1, -1179455, 2, 1, -1113919, 2, 1, -1048383, 2, 1, -982847, 2, 1, -917311, 2, 1)
+
+[node name="water" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_5v8wq")
+format = 2
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(12.0005, -18)
