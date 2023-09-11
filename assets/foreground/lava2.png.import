@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://brwfgjqgjprgs"
-path="res://.godot/imported/quicksand.png-eebb03fb748667fa14e8ea2e3109944f.ctex"
+uid="uid://8qqkf0fttbv1"
+path="res://.godot/imported/lava2.png-30b37f0c3aac57920dd3d5d0d72c9f46.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/interactive/quicksand.png"
-dest_files=["res://.godot/imported/quicksand.png-eebb03fb748667fa14e8ea2e3109944f.ctex"]
+source_file="res://assets/foreground/lava2.png"
+dest_files=["res://.godot/imported/lava2.png-30b37f0c3aac57920dd3d5d0d72c9f46.ctex"]
 
 [params]
 
@@ -31,4 +31,4 @@ process/normal_map_invert_y=false
 process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
-detect_3d/compress_to=1
+detect_3d/compress_to=0

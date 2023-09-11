@@ -9,14 +9,13 @@ var health = 3
 var in_range = false
 var player_dir = 0
 var aggro = false
-var worldHealth = 3600
+var worldHealth = 8
 var playerPosition
 var quicksand = false
 var ice = false
 var resetPlayer = false
 var knockback = false
 var death_height = [100, 100, 200, 100, 200, 270, 400, 100]
-#var coinRequirement=[5, 10, 16, 12, 13, 11, 10, 0]
 var fireKnockback = false
 var gameComplete = true
 var suffixq
@@ -28,6 +27,11 @@ var immunityTimer
 var immunityTemp = true
 
 func _physics_process(_delta):
+	
+	### REMOVE THIS FUNCTION CALL ###
+	debug()
+	#################################
+	
 	framesEclapsed += 1
 	totalFramesEclapsed += 1
 	
@@ -38,7 +42,7 @@ func _physics_process(_delta):
 	if(framesEclapsed == 6):
 		if(gameComplete == false):
 			timeEclapsed += 0.1
-			worldHealth -= 1
+			worldHealth -= 0.02
 		framesEclapsed = 0
 	if(health <= 0 || worldHealth <= 0):
 		death()
@@ -47,12 +51,9 @@ func _physics_process(_delta):
 		if immunityTemp == true:
 			immunityTimer = totalFramesEclapsed
 			immunityTemp = false
-		print("immune")
-		print(immunityTimer)
 		if immunityTimer + 60 < totalFramesEclapsed:
 			immunity = false
 			immunityTemp = true
-			print("not immune")
 
 func takeDmg(amount):
 	if immunity == false:
@@ -62,7 +63,7 @@ func takeDmg(amount):
 func death():
 	coins = 0 
 	health = 3
-	worldHealth = 3600
+	worldHealth = 8
 	quicksand = false
 	ice = false
 	resetPlayer = true
@@ -96,3 +97,37 @@ func ordinal(number: int) -> String:
 		return str(number)+suffixes[number]
 	else:
 		return str(number)+"th"
+
+func debug():
+	if level != 0 || 7:
+		gameComplete = false
+	
+	if Input.is_action_just_pressed("one"):
+		coins = 0
+		level = 1
+		get_tree().change_scene_to_file("res://src/levels/level_1.tscn")
+	
+	if Input.is_action_just_pressed("two"):
+		coins = 0
+		level = 2
+		get_tree().change_scene_to_file("res://src/levels/level_2.tscn")
+	
+	if Input.is_action_just_pressed("three"):
+		coins = 0
+		level = 3
+		get_tree().change_scene_to_file("res://src/levels/level_3.tscn")
+	
+	if Input.is_action_just_pressed("four"):
+		coins = 0
+		level = 4
+		get_tree().change_scene_to_file("res://src/levels/level_4.tscn")
+	
+	if Input.is_action_just_pressed("five"):
+		coins = 0
+		level = 5
+		get_tree().change_scene_to_file("res://src/levels/level_5.tscn")
+	
+	if Input.is_action_just_pressed("six"):
+		coins = 0
+		level = 6
+		get_tree().change_scene_to_file("res://src/levels/level_6.tscn")

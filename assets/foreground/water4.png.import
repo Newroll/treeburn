@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://uccnuj0fmqxw"
-path="res://.godot/imported/watertop3.png-a4d1493e66c910b3933270b594af6ece.ctex"
+uid="uid://56vaojwneu6q"
+path="res://.godot/imported/water4.png-f4248b3079e96aa643f030684e960b45.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/foreground/watertop3.png"
-dest_files=["res://.godot/imported/watertop3.png-a4d1493e66c910b3933270b594af6ece.ctex"]
+source_file="res://assets/foreground/water4.png"
+dest_files=["res://.godot/imported/water4.png-f4248b3079e96aa643f030684e960b45.ctex"]
 
 [params]
 

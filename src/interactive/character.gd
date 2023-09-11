@@ -81,7 +81,6 @@ func check_state():
 		movement_data = load("res://src/interactive/QuicksandMovementData.tres")
 	if Main.ice == true:
 		movement_data = load("res://src/interactive/IceMovementData.tres")
-		print("Movement data ice")
 	if Main.ice == false && Main.quicksand == false:
 		movement_data = load("res://src/interactive/DefaultMovementData.tres")
 
