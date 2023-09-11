@@ -46,12 +46,9 @@ func _physics_process(_delta):
 		if immunityTemp == true:
 			immunityTimer = totalFramesEclapsed
 			immunityTemp = false
-		print("immune")
-		print(immunityTimer)
 		if immunityTimer + 60 < totalFramesEclapsed:
 			immunity = false
 			immunityTemp = true
-			print("not immune")
 
 func takeDmg(amount):
 	if immunity == false:
