@@ -3,7 +3,6 @@ extends Node2D
 var showLeaf = true
 var sameWorldhealth = true
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	if sameWorldhealth == true:
 		Main.worldHealth = 8

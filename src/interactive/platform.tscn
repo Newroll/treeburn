@@ -34,6 +34,7 @@ size = Vector2(58, 9.1875)
 size = Vector2(58, 27)
 
 [node name="platform" type="CharacterBody2D"]
+z_index = -10
 script = ExtResource("1_veek5")
 
 [node name="collider" type="Area2D" parent="."]
