@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8s5sijgc2w1u"]
+
+[ext_resource type="Script" path="res://src/interactive/snow_6_2.gd" id="1_2mt56"]
+[ext_resource type="Texture2D" uid="uid://g1ncckjw16g8" path="res://assets/foreground/snowball.png" id="2_8dw3i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kj1m3"]
+size = Vector2(11.2, 11.2)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8y5ct"]
+radius = 9.63328
+
+[node name="snow6_2" type="CharacterBody2D"]
+script = ExtResource("1_2mt56")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.823529, 1, 1, 1)
+texture_filter = 1
+position = Vector2(0.199997, 0.200012)
+scale = Vector2(3.7, 3.7)
+texture = ExtResource("2_8dw3i")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.199997, 0.200012)
+shape = SubResource("RectangleShape2D_kj1m3")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.199997, 0.200012)
+shape = SubResource("CircleShape2D_8y5ct")
