@@ -5,7 +5,7 @@
 [ext_resource type="Script" path="res://src/ui/ui.gd" id="1_fj7ts"]
 [ext_resource type="FontFile" uid="uid://422t11bovf6v" path="res://assets/styles/mainport.ttf" id="1_hkuc3"]
 [ext_resource type="StyleBox" uid="uid://cavwdk0v7i65u" path="res://assets/styles/button_theme.tres" id="2_rl8hw"]
-[ext_resource type="Texture2D" path="res://assets/player/fullhealth.png" id="3_lxw2j"]
+[ext_resource type="Texture2D" uid="uid://bfw6ie5ct8058" path="res://assets/player/fullhealth.png" id="3_lxw2j"]
 [ext_resource type="Script" path="res://src/interactive/coincounter.gd" id="3_x676s"]
 [ext_resource type="Script" path="res://src/ui/health1.gd" id="5_ogaie"]
 [ext_resource type="Script" path="res://src/ui/health2.gd" id="6_0g8ks"]

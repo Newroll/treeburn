@@ -487,6 +487,7 @@ frame_3/duration = 0.5
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wtyno"]
 texture = SubResource("AnimatedTexture_487ie")
+use_texture_padding = false
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
