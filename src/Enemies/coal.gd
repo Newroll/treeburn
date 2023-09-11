@@ -77,7 +77,6 @@ func _physics_process(delta):
 	
 	if aggro:
 		if bull_attack == false:
-			speed = 60
 			if raycast_left.is_colliding() && raycast_right.is_colliding():
 				if distance_to_player > max_distance_to_player:
 					move_towards_player(player_dir)
@@ -90,17 +89,13 @@ func _physics_process(delta):
 			else:
 				if !raycast_right.is_colliding():
 					bull_attack = true
-					velocity.x = -150
 					bull_timer.start()
-					if !animation_player.current_animation == "bull_attack":
-						animation_player.play("bull_attack")
+					animation_player.play("bull_attack")
 
 				if !raycast_left.is_colliding():
 					bull_attack = true
-					velocity.x = 150
 					bull_timer.start()
-					if !animation_player.current_animation == "bull_attack":
-						animation_player.play("bull_attack")
+					animation_player.play("bull_attack")
 
 	else:
 		is_wall_blocking()
@@ -110,15 +105,22 @@ func _physics_process(delta):
 	#Run functions
 	move_and_slide()
 	animation_state()
+	can_bull_attack()
+	
+func can_bull_attack():
+	if bull_attack == true:
+		if !raycast_left.is_colliding():
+			velocity.x = 150
+		if !raycast_right.is_colliding():
+			velocity.x = -150
 
 func is_wall_blocking():
 	if is_wall_left.is_colliding():
-		var wall_left = is_wall_left.get_collider()
+		var _wall_left = is_wall_left.get_collider()
 		is_moving_left = true
-		print("Turn around")
 
 	if is_wall_right.is_colliding():
-		var wall_right = is_wall_right.get_collider()
+		var _wall_right = is_wall_right.get_collider()
 		is_moving_left = false
 
 
@@ -151,18 +153,18 @@ func _on_player_chase_body_exited(body):
 
 func move_towards_player(player_dir):
 		if player_dir > 0:
-			velocity.x = speed
+			velocity.x = 60
 		else:
-			velocity.x = speed * -1
+			velocity.x = 60 * -1
 
 
 
 
 func move_away_player(player_dir):
 		if player_dir > 0:
-			velocity.x = speed * -1
+			velocity.x = 60 * -1
 		else:
-			velocity.x = speed
+			velocity.x = 60
 
 
 func _on_idle_timer_timeout():
@@ -181,7 +183,7 @@ func _on_walk_timer_timeout():
 #It is only monitoring during bull attack
 func _on_death_body_entered(body):
 	if body.name == "CharacterBody2D":
-		Main.health -= 1
+		Main.takeDmg(1)
 		Main.knockback = true
 
 

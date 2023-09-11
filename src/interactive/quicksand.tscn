@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://src/interactive/quicksand.gd" id="1_tl2lo"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3c5lk"]
-size = Vector2(58, 36.75)
+size = Vector2(58, 35.375)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2ndl8"]
 size = Vector2(58, 29)
@@ -14,7 +14,7 @@ size = Vector2(58, 29)
 script = ExtResource("1_tl2lo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -20)
+position = Vector2(0, -19.3125)
 shape = SubResource("RectangleShape2D_3c5lk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

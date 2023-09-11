@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 var speed = -50.0
 
+#Detects if the platform hit a wall
 @onready var raycast_left = $RayCast_Left
 @onready var raycast_right = $RayCast_Right
 

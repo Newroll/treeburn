@@ -4,6 +4,7 @@ var coins = 0
 var level = 0
 var timeEclapsed = 0
 var framesEclapsed = 0
+var totalFramesEclapsed = 0
 var health = 3
 var in_range = false
 var player_dir = 0
@@ -14,18 +15,24 @@ var quicksand = false
 var ice = false
 var resetPlayer = false
 var knockback = false
-var coinRequirement=[5, 10, 13, 10, 0]
+var death_height = [100, 100, 200, 100, 200, 270, 400, 100]
+#var coinRequirement=[5, 10, 16, 12, 13, 11, 10, 0]
+var fireKnockback = false
 var gameComplete = true
-var suffix
+var suffixq
 var suffixes
 var snowHit = 0
 var leaderboardOffer = false
+var immunity = false
+var immunityTimer
+var immunityTemp = true
 
 func _physics_process(_delta):
 	framesEclapsed += 1
+	totalFramesEclapsed += 1
 	
-	if snowHit >= 20:
-		health -= 1
+	if snowHit >= 5:
+		takeDmg(1)
 		snowHit = 0
 	
 	if(framesEclapsed == 6):
@@ -35,7 +42,23 @@ func _physics_process(_delta):
 		framesEclapsed = 0
 	if(health <= 0 || worldHealth <= 0):
 		death()
-		
+
+	if immunity == true:
+		if immunityTemp == true:
+			immunityTimer = totalFramesEclapsed
+			immunityTemp = false
+		print("immune")
+		print(immunityTimer)
+		if immunityTimer + 60 < totalFramesEclapsed:
+			immunity = false
+			immunityTemp = true
+			print("not immune")
+
+func takeDmg(amount):
+	if immunity == false:
+		immunity = true
+		health -= amount
+
 func death():
 	coins = 0 
 	health = 3
