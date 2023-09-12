@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://b00rm7mq2ngec" path="res://assets/foreground/water3.png" id="12_hxr85"]
 [ext_resource type="Texture2D" uid="uid://56vaojwneu6q" path="res://assets/foreground/water4.png" id="13_miuvf"]
 [ext_resource type="PackedScene" uid="uid://dtfkm547yxtbg" path="res://src/ui/ui.tscn" id="15_0cqxb"]
-[ext_resource type="PackedScene" uid="uid://dqwcpids7e46a" path="res://src/enemies/axe.tscn" id="15_gwau3"]
+[ext_resource type="PackedScene" uid="uid://dqwcpids7e46a" path="res://src/Enemies/axe.tscn" id="15_gwau3"]
 [ext_resource type="Texture2D" uid="uid://d3xho7hc8wt4a" path="res://assets/interactive/pitfall.png" id="15_mbeea"]
 [ext_resource type="Script" path="res://src/interactive/pitfall.gd" id="15_pqn2h"]
 [ext_resource type="PackedScene" uid="uid://bxrdaun1twtb1" path="res://src/interactive/portal.tscn" id="16_h5jbk"]

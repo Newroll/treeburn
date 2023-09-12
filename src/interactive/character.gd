@@ -98,6 +98,15 @@ func handle_acceleration(input_axis, delta):
 			velocity.x = move_toward(velocity.x, movement_data.speed *  input_axis, movement_data.air_resistance * delta)
 		else:
 			velocity.x = move_toward(velocity.x, movement_data.speed *  input_axis, movement_data.acc * delta)
+		if knockback_left.is_colliding() || knockback_right.is_colliding():
+#			object_left = knockback_left.get_collider()
+#			if object_left.get_name() == "BehindPlayer":
+			velocity.y = movement_data.speed*-1
+
+#		if knockback_right.is_colliding():
+#			object_right = knockback_right.get_collider()
+#			if object_right.get_name() == "BehindPlayer":
+#				velocity.y = movement_data.speed*1
 
 
 

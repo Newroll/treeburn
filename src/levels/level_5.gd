@@ -1,4 +1,4 @@
-extends Node2D
+dextends Node2D
 
 
 func _process(_delta):
