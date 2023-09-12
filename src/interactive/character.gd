@@ -35,6 +35,7 @@ var knockback_power = -200
 var knockback_timer_started = false
 var fireKnockback_timer_started = false
 
+var stupidAnimation
 
 func _physics_process(delta):
 	var input_axis = Input.get_axis("move_left", "move_right")
@@ -47,7 +48,6 @@ func _physics_process(delta):
 		
 	if knockback_down.is_colliding():
 		object_down = knockback_down.get_collider()
-		
 
 	#Makes character move with ground and applys gravity
 	player_movement()
@@ -79,10 +79,13 @@ func _physics_process(delta):
 func check_state():
 	if Main.quicksand == true:
 		movement_data = load("res://src/interactive/QuicksandMovementData.tres")
+		animated_sprite.set_speed_scale(0.26)
 	if Main.ice == true:
 		movement_data = load("res://src/interactive/IceMovementData.tres")
+		animated_sprite.set_speed_scale(0.5)
 	if Main.ice == false && Main.quicksand == false:
 		movement_data = load("res://src/interactive/DefaultMovementData.tres")
+		animated_sprite.set_speed_scale(1.0)
 
 func apply_gravity(delta):
 	if not is_on_floor() && movement_data.wall_sliding == false:
@@ -189,6 +192,18 @@ func animation_state():
 		animated_sprite.animation = "move"
 		animated_sprite.flip_h = false 
 
+	if velocity.y < 0:
+		animated_sprite.animation = "jumpUp"
+		
+	if velocity.y > 0:
+		animated_sprite.animation = "jumpDown"
+
+	if Main.immunity == true:
+		stupidAnimation = true
+
+	if stupidAnimation == true:
+		$AnimationPlayer.play("blink")
+		stupidAnimation = false
 
 func knockback():
 	if knockback_timer_started == false:
