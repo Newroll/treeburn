@@ -1,13 +1,14 @@
-[gd_scene load_steps=19 format=3 uid="uid://bmlc5h5gbouaf"]
+[gd_scene load_steps=20 format=3 uid="uid://bmlc5h5gbouaf"]
 
 [ext_resource type="Script" path="res://src/interactive/character.gd" id="1_bp46o"]
+[ext_resource type="Texture2D" uid="uid://gdaqely7ugfi" path="res://assets/player/idle.png" id="2_lxpg1"]
 [ext_resource type="Texture2D" uid="uid://chea6g7hkkh10" path="res://assets/player/walk-sheet.png" id="3_113e5"]
 [ext_resource type="Texture2D" uid="uid://b3t80oi4p12im" path="res://assets/player/jump-sheet.png" id="3_v4n0d"]
 [ext_resource type="AudioStream" uid="uid://cu5fjnds7y6lc" path="res://assets/sfx/jump.mp3" id="4_8oc82"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_12oar"]
-atlas = ExtResource("3_113e5")
-region = Rect2(110, 0, 22, 31)
+[sub_resource type="AtlasTexture" id="AtlasTexture_s52p2"]
+atlas = ExtResource("2_lxpg1")
+region = Rect2(0, 0, 20, 30)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y0f68"]
 atlas = ExtResource("3_v4n0d")
@@ -45,7 +46,7 @@ region = Rect2(110, 0, 22, 31)
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_12oar")
+"texture": SubResource("AtlasTexture_s52p2")
 }],
 "loop": true,
 "name": &"default",
@@ -92,22 +93,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c2atg"]
-size = Vector2(14, 23)
-
-[sub_resource type="Animation" id="Animation_08rsn"]
-resource_name = "blink"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [false, true, false, true, false, true]
-}
+size = Vector2(14, 22.5)
 
 [sub_resource type="Animation" id="Animation_1egva"]
 length = 0.001
@@ -122,6 +108,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_08rsn"]
+resource_name = "blink"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [false, true, false, true, false, true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jdcev"]
@@ -143,7 +144,7 @@ sprite_frames = SubResource("SpriteFrames_3bg3d")
 autoplay = "move"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(1, 0)
+position = Vector2(1, -0.25)
 shape = SubResource("RectangleShape2D_c2atg")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
