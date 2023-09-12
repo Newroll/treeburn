@@ -141,6 +141,7 @@ texture_filter = 1
 position = Vector2(1.52588e-05, -0.0624927)
 scale = Vector2(0.757812, 0.753906)
 sprite_frames = SubResource("SpriteFrames_3bg3d")
+animation = &"move"
 autoplay = "move"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

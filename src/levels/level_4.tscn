@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://dyjdhilnk6ppo" path="res://assets/foreground/quicksand.png" id="7_6v8xn"]
 [ext_resource type="Texture2D" uid="uid://b00rm7mq2ngec" path="res://assets/foreground/water3.png" id="7_fpejl"]
 [ext_resource type="Texture2D" uid="uid://56vaojwneu6q" path="res://assets/foreground/water4.png" id="8_alvtf"]
-[ext_resource type="PackedScene" uid="uid://dr3lmvseh1mm6" path="res://src/enemies/coal.tscn" id="9_gnxqm"]
+[ext_resource type="PackedScene" uid="uid://dr3lmvseh1mm6" path="res://src/Enemies/coal.tscn" id="9_gnxqm"]
 [ext_resource type="PackedScene" uid="uid://kfxb12a1wxyl" path="res://src/interactive/coin.tscn" id="10_ubqks"]
 [ext_resource type="Script" path="res://src/interactive/coins.gd" id="11_a2h4o"]
 [ext_resource type="PackedScene" uid="uid://uiouwl5inj5h" path="res://src/interactive/platform.tscn" id="12_fql2m"]
