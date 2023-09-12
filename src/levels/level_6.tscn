@@ -13,14 +13,14 @@
 [ext_resource type="Script" path="res://src/interactive/coins.gd" id="7_t8jc3"]
 [ext_resource type="PackedScene" uid="uid://cqm6jb4lo3pts" path="res://src/interactive/movingplatform.tscn" id="8_3s1jq"]
 [ext_resource type="Texture2D" uid="uid://8qqkf0fttbv1" path="res://assets/foreground/lava2.png" id="8_4lf06"]
-[ext_resource type="Texture2D" uid="uid://drjew8grknouy" path="res://assets/foreground/darkbush.png" id="9_f3ovq"]
-[ext_resource type="Texture2D" uid="uid://d3poqaxqqu015" path="res://assets/foreground/icybush.png" id="10_b83wn"]
+[ext_resource type="Texture2D" uid="uid://dkpeqw8nj4j8x" path="res://assets/foreground/darkbush.png" id="9_f3ovq"]
+[ext_resource type="Texture2D" uid="uid://bp87y7wh7hwee" path="res://assets/foreground/icybush.png" id="10_b83wn"]
 [ext_resource type="PackedScene" uid="uid://dy7k7ee83ehvb" path="res://src/interactive/fastmovingplatform.tscn" id="11_7ryix"]
 [ext_resource type="PackedScene" uid="uid://dtfkm547yxtbg" path="res://src/ui/ui.tscn" id="11_h5toi"]
 [ext_resource type="PackedScene" uid="uid://bxrdaun1twtb1" path="res://src/interactive/portal.tscn" id="12_qhl5i"]
 [ext_resource type="PackedScene" uid="uid://b8iwpiqrr2xiw" path="res://src/interactive/fallingrock.tscn" id="14_xi17j"]
-[ext_resource type="PackedScene" uid="uid://dnvbs7br0cml3" path="res://src/interactive/snow_6_1.tscn" id="15_rrql4"]
-[ext_resource type="PackedScene" uid="uid://c8s5sijgc2w1u" path="res://src/interactive/snow_6_2.tscn" id="16_7m0rg"]
+[ext_resource type="PackedScene" path="res://src/interactive/snow_6_1.tscn" id="15_rrql4"]
+[ext_resource type="PackedScene" path="res://src/interactive/snow_6_2.tscn" id="16_7m0rg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tw11q"]
 texture = ExtResource("3_3nj27")

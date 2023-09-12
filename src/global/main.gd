@@ -51,7 +51,7 @@ func _physics_process(_delta):
 		if immunityTemp == true:
 			immunityTimer = totalFramesEclapsed
 			immunityTemp = false
-		if immunityTimer + 60 < totalFramesEclapsed:
+		if immunityTimer + 90 < totalFramesEclapsed:
 			immunity = false
 			immunityTemp = true
 
