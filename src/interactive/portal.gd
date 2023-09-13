@@ -1,6 +1,7 @@
 extends Area2D
 
 var entered = false
+var pressed = false
 
 func _on_body_entered(body):
 	if body.name == "CharacterBody2D":
@@ -20,7 +21,8 @@ func _ready():
 		$coins.set_position(Vector2(5, -17))
 
 func _process(_delta):
-	if entered == true && Input.is_action_just_pressed("enter"):
+	if entered == true && Input.is_action_just_pressed("enter") && pressed == false:
+		pressed = true
 		$coins.visible = true
 		Main.coins = 0
 		Main.level += 1
