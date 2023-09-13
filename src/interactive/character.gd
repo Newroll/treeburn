@@ -59,7 +59,7 @@ func _physics_process(delta):
 		#Run functions
 		jump()
 		wall_sliding_true()
-		animation_state()
+		animation_state(input_axis)
 		handle_acceleration(input_axis, delta)
 		apply_friction(input_axis,delta)
 		wall_jumping()
@@ -181,17 +181,17 @@ func resetPlayerPos():
 	Main.health = 3
 
 
-func animation_state():
+func animation_state(input_axis):
 	if velocity.x == 0:
 		animated_sprite.animation = "default"
 		animated_collision.scale.y = 0.94
 
-	if velocity.x < 0:
+	if velocity.x < 0 && input_axis == -1:
 		animated_sprite.animation = "move"
 		animated_sprite.flip_h = true 
 		animated_collision.scale.y = 1.012
 
-	if velocity.x > 0:
+	if velocity.x > 0 && input_axis == 1:
 		animated_sprite.animation = "move"
 		animated_collision.scale.y = 1.012
 		animated_sprite.flip_h = false 

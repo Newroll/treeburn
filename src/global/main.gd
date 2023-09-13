@@ -42,7 +42,7 @@ func _physics_process(_delta):
 	if(framesEclapsed == 6):
 		if(gameComplete == false):
 			timeEclapsed += 0.1
-			worldHealth -= 0.02
+			worldHealth -= 0.012
 		framesEclapsed = 0
 	if(health <= 0 || worldHealth <= 0):
 		death()
