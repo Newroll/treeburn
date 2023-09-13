@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_7hxmy")
 speed = 135.0
-acc = 700
+acc = 800
 friction = 2000
 jump_velocity = -335
 air_resistance = 450
