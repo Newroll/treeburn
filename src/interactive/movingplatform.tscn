@@ -18,8 +18,10 @@ shape = SubResource("RectangleShape2D_8fhix")
 
 [node name="RayCast_Left" type="RayCast2D" parent="."]
 position = Vector2(-25, 0)
+scale = Vector2(3, 15)
 target_position = Vector2(-2, 0)
 
 [node name="RayCast_Right" type="RayCast2D" parent="."]
 position = Vector2(25, 0)
+scale = Vector2(3, 15)
 target_position = Vector2(2, 0)
