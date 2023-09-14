@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://b2pb8me84tq4k"]
+[gd_scene load_steps=37 format=3 uid="uid://b2pb8me84tq4k"]
 
 [ext_resource type="Script" path="res://src/levels/level_6.gd" id="1_412il"]
 [ext_resource type="Texture2D" uid="uid://ddodrd661qp2" path="res://assets/background/cloudsfront.png" id="1_yn0hu"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://b8iwpiqrr2xiw" path="res://src/interactive/fallingrock.tscn" id="14_xi17j"]
 [ext_resource type="PackedScene" uid="uid://dnvbs7br0cml3" path="res://src/interactive/snow_6_1.tscn" id="15_rrql4"]
 [ext_resource type="PackedScene" uid="uid://c8s5sijgc2w1u" path="res://src/interactive/snow_6_2.tscn" id="16_7m0rg"]
+[ext_resource type="AudioStream" uid="uid://bpeoalgn5ppsk" path="res://assets/music/musiclvl3.mp3" id="20_kq3x2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tw11q"]
 texture = ExtResource("3_3nj27")
@@ -650,3 +651,7 @@ physics_material_override = SubResource("PhysicsMaterial_aximo")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Endbarrier"]
 position = Vector2(3972.5, -556)
 shape = SubResource("RectangleShape2D_ks6tt")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("20_kq3x2")
+autoplay = true
