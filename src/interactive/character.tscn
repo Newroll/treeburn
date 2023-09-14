@@ -134,6 +134,8 @@ _data = {
 [node name="CharacterBody2D" type="CharacterBody2D"]
 collision_layer = 3
 collision_mask = 3
+floor_constant_speed = true
+floor_snap_length = 10.0
 script = ExtResource("1_bp46o")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

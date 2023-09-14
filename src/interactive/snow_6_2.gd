@@ -14,6 +14,7 @@ func _ready():
 
 
 func _physics_process(delta):
+	get_position()
 	
 	if position.y > -800:
 		if not is_on_floor():
@@ -25,16 +26,15 @@ func _physics_process(delta):
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 		
-	get_position()
-	
-	if position.x > 155:
-		position = Vector2(1000, -1000)
+	move_and_slide();
+	#if position.x > 155:
+
 		
 	#if int(Main.timeEclapsed) % 6 == 0:
 		#position = Vector2(returnTo.x, returnTo.y)
 	
 	if position.y > -800:
-		move_and_slide();
+		position = Vector2(1000, -1000)
 
 
 func _on_area_2d_body_entered(body):

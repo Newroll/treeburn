@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://kfxb12a1wxyl" path="res://src/interactive/coin.tscn" id="4_4obr8"]
 [ext_resource type="Texture2D" uid="uid://c53pxjnt6vm8w" path="res://assets/foreground/lvl3_ground.png" id="4_wrhuw"]
 [ext_resource type="Script" path="res://src/interactive/coins.gd" id="5_1cxdc"]
-[ext_resource type="Texture2D" uid="uid://dn4n3jvtjlvx3" path="res://assets/foreground/snowman.png" id="5_fr5lo"]
+[ext_resource type="Texture2D" uid="uid://c1nu6w8duwykp" path="res://assets/foreground/snowman.png" id="5_fr5lo"]
 [ext_resource type="PackedScene" uid="uid://csw24p6f16qes" path="res://src/interactive/ice.tscn" id="6_oragl"]
 [ext_resource type="Texture2D" uid="uid://dsc8uvvr7ij02" path="res://assets/foreground/lava1.png" id="7_fi3sd"]
 [ext_resource type="Texture2D" uid="uid://8qqkf0fttbv1" path="res://assets/foreground/lava2.png" id="8_277tj"]
