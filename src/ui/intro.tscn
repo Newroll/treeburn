@@ -160,10 +160,10 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="NewGame_Button" type="Button" parent="."]
-offset_left = 515.155
-offset_top = 449.487
-offset_right = 1260.16
-offset_bottom = 776.487
+offset_left = 515.0
+offset_top = 392.0
+offset_right = 1260.0
+offset_bottom = 751.0
 focus_mode = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("5_p53nj")
@@ -172,6 +172,20 @@ theme_override_styles/normal = ExtResource("5_syq3h")
 theme_override_styles/hover = SubResource("StyleBoxFlat_orp26")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_fck3n")
 text = "Play"
+
+[node name="creditsbutton" type="Button" parent="."]
+offset_left = 515.0
+offset_top = 790.117
+offset_right = 1260.0
+offset_bottom = 899.117
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_p53nj")
+theme_override_font_sizes/font_size = 72
+theme_override_styles/normal = ExtResource("5_syq3h")
+theme_override_styles/hover = SubResource("StyleBoxFlat_orp26")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_fck3n")
+text = "Credits"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_ia2ck")
@@ -250,4 +264,5 @@ scale = Vector2(6.29599, 7.06746)
 texture = SubResource("AtlasTexture_5cn7q")
 
 [connection signal="pressed" from="NewGame_Button" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="creditsbutton" to="." method="_on_creditsbutton_pressed"]
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
