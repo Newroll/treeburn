@@ -30,11 +30,11 @@ position = Vector2(0.199997, 0.200012)
 shape = SubResource("CircleShape2D_8y5ct")
 
 [node name="TimeoutTimer" type="Timer" parent="."]
-wait_time = 6.0
+wait_time = 3.0
 one_shot = true
 
 [node name="IntervalTimer" type="Timer" parent="."]
-wait_time = 4.0
+wait_time = 3.0
 one_shot = true
 autostart = true
 

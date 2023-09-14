@@ -31,4 +31,15 @@ shape = SubResource("RectangleShape2D_6juw4")
 position = Vector2(0.199997, 0.200012)
 shape = SubResource("CircleShape2D_noq81")
 
+[node name="TimeoutTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[node name="IntervalTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="timeout" from="TimeoutTimer" to="." method="_on_timeout_timer_timeout"]
+[connection signal="timeout" from="IntervalTimer" to="." method="_on_interval_timer_timeout"]

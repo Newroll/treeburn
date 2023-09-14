@@ -189,14 +189,14 @@ func animation_state(input_axis):
 		animated_collision.scale.y = 0.951
 		animated_collision.position.x = 0.2
 
-	if velocity.x < 0 && input_axis == -1:
+	if input_axis == -1:
 		animated_sprite.animation = "move"
 		animated_sprite.flip_h = true 
 		animated_collision.scale.y = 1.03
 		animated_collision.position.x = 1.5
 		#animated_collision.position.y = 1
 
-	if velocity.x > 0 && input_axis == 1:
+	if input_axis == 1:
 		animated_sprite.animation = "move"
 		animated_collision.scale.y = 1.03
 		animated_collision.position.x = 1.5
