@@ -240,7 +240,7 @@ offset_right = 897.799
 offset_bottom = 1084.4
 theme_override_fonts/font = ExtResource("5_p53nj")
 theme_override_font_sizes/font_size = 56
-text = "Treeburn v2.6 DEVELOPMENT"
+text = "Treeburn v2.7 development"
 
 [node name="copyright" type="Label" parent="."]
 offset_left = 22.398

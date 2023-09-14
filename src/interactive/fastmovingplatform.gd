@@ -16,7 +16,7 @@ var can_move = false
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
-func _physics_process(delta):
+func _physics_process(_delta):
 
 	if can_move == true:
 		if wallnear_left.is_colliding():

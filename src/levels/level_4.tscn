@@ -295,7 +295,7 @@ layer_0/tile_data = PackedInt32Array(0, 65538, 0, 1, 65538, 0, 2, 65538, 0, 3, 6
 metadata/_edit_group_ = true
 
 [node name="CharacterBody2D" parent="." groups=["player"] instance=ExtResource("5_jj8pd")]
-position = Vector2(24.0001, -21)
+position = Vector2(22.0002, -23)
 scale = Vector2(1.25, 1.25)
 movement_data = ExtResource("6_jykpc")
 
@@ -315,12 +315,12 @@ format = 2
 layer_0/tile_data = PackedInt32Array(-393059, 65538, 0, -327523, 2, 1, -261987, 2, 1, -196451, 2, 1, -393058, 65538, 0, -327522, 196611, 1, -261986, 196611, 2, -196450, 2, 1, -393057, 65538, 0, -327521, 2, 1, -261985, 2, 1, -196449, 2, 1, -393056, 65538, 0, -327520, 2, 1, -261984, 2, 1, -196448, 196611, 2, -589692, 65538, 0, -524156, 2, 1, -458620, 2, 1, -393084, 2, 1, -327548, 2, 1, -589691, 65538, 0, -524155, 2, 1, -458619, 196611, 1, -393083, 196611, 2, -327547, 2, 1, -589690, 65538, 0, -524154, 2, 1, -458618, 2, 1, -393082, 2, 1, -327546, 2, 1, -589689, 65538, 0, -524153, 2, 1, -458617, 196611, 1, -393081, 2, 1, -327545, 2, 1, -589693, 65538, 0, -589688, 65538, 0, -589687, 131075, 0, -589694, 3, 0, -393060, 3, 0, -393054, 131075, 0, -393055, 65538, 0)
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(24.0001, -21)
+position = Vector2(22.0002, -23)
 scale = Vector2(1.25, 1.25)
 zoom = Vector2(0.9, 0.9)
-limit_left = 0
+limit_left = -10
 limit_top = -500
-limit_right = 3700
+limit_right = 3390
 limit_bottom = 70
 limit_smoothed = true
 position_smoothing_enabled = true
@@ -457,6 +457,7 @@ position = Vector2(2636, -88)
 
 [node name="portal" parent="." instance=ExtResource("16_bpave")]
 position = Vector2(3271, -470)
+metadata/_edit_lock_ = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("17_h8tym")
