@@ -1,22 +1,18 @@
-[gd_scene load_steps=3 format=3 uid="uid://bwopwmlvyw5s0"]
+[gd_scene load_steps=4 format=3 uid="uid://bwopwmlvyw5s0"]
 
 [ext_resource type="Script" path="res://src/enemies/range_attack.gd" id="1_s3yfb"]
+[ext_resource type="Texture2D" uid="uid://rqnk4ivpltvk" path="res://assets/interactive/rockprojectile.png" id="2_jhe2g"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_7v0y0"]
-size = Vector2(10, 2)
+[sub_resource type="CircleShape2D" id="CircleShape2D_vdgup"]
+radius = 4.0
 
 [node name="throwable_rock" type="Area2D"]
-position = Vector2(-5, -1)
 script = ExtResource("1_s3yfb")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 10.0
-offset_bottom = 2.0
-color = Color(0, 0, 0, 1)
-metadata/_edit_use_anchors_ = true
+[node name="Rockprojectile" type="Sprite2D" parent="."]
+texture = ExtResource("2_jhe2g")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(5, 1)
-shape = SubResource("RectangleShape2D_7v0y0")
+shape = SubResource("CircleShape2D_vdgup")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

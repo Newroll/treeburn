@@ -10,7 +10,7 @@ func launch (intial_position: Vector2, dir: Vector2, speed: int) -> void:
 	
 func _physics_process(delta):
 	position += direction * rock_speed * delta
-	rotation += 0.2
+	rotation += 1
 
 func _on_body_entered(body):
 	if body.name == "CharacterBody2D":
