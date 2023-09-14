@@ -1,0 +1,29 @@
+[gd_resource type="AnimatedTexture" load_steps=9 format=3 uid="uid://cgrq68r216777"]
+
+[ext_resource type="Texture2D" uid="uid://d3awp4wl1bia1" path="res://assets/foreground/lava1.png" id="1_demq3"]
+[ext_resource type="Texture2D" uid="uid://dvrqq20nkwdfw" path="res://assets/foreground/lava2.png" id="2_r415g"]
+[ext_resource type="Texture2D" uid="uid://c4wik6378diae" path="res://assets/foreground/lava3.png" id="3_r21yd"]
+[ext_resource type="Texture2D" uid="uid://ko4lak4esr6p" path="res://assets/foreground/lava4.png" id="4_djaq2"]
+[ext_resource type="Texture2D" uid="uid://df02qqo71ka1q" path="res://assets/foreground/lava5.png" id="5_iylso"]
+[ext_resource type="Texture2D" uid="uid://cnvp48ns65iw3" path="res://assets/foreground/lava6.png" id="6_5tfhh"]
+[ext_resource type="Texture2D" uid="uid://dymfr43pyo660" path="res://assets/foreground/lava7.png" id="7_x4ga8"]
+[ext_resource type="Texture2D" uid="uid://c3miydp8ngeka" path="res://assets/foreground/lava8.png" id="8_vd2ul"]
+
+[resource]
+frames = 8
+speed_scale = 2.0
+frame_0/texture = ExtResource("1_demq3")
+frame_1/texture = ExtResource("2_r415g")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("3_r21yd")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("4_djaq2")
+frame_3/duration = 1.0
+frame_4/texture = ExtResource("5_iylso")
+frame_4/duration = 1.0
+frame_5/texture = ExtResource("6_5tfhh")
+frame_5/duration = 1.0
+frame_6/texture = ExtResource("7_x4ga8")
+frame_6/duration = 1.0
+frame_7/texture = ExtResource("8_vd2ul")
+frame_7/duration = 1.0

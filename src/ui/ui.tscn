@@ -303,7 +303,7 @@ texture = ExtResource("12_mf3pq")
 
 [node name="health1" type="Sprite2D" parent="health"]
 texture_filter = 1
-position = Vector2(318.247, 156.6)
+position = Vector2(297, 157)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("3_lxw2j")
 script = ExtResource("5_ogaie")
@@ -316,7 +316,7 @@ sprite_frames = SubResource("SpriteFrames_y7kgl")
 [node name="health2" type="Sprite2D" parent="health"]
 z_index = 2
 texture_filter = 1
-position = Vector2(307, 159)
+position = Vector2(306, 159)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("3_lxw2j")
 script = ExtResource("6_0g8ks")
@@ -328,7 +328,7 @@ sprite_frames = SubResource("SpriteFrames_y7kgl")
 
 [node name="health3" type="Sprite2D" parent="health"]
 texture_filter = 1
-position = Vector2(296.2, 156.6)
+position = Vector2(316, 157)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("3_lxw2j")
 script = ExtResource("7_x4u3b")

@@ -8,6 +8,7 @@ var spawnY = -20
 #Gets animated sprite and gravity
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var animated_collision: CollisionShape2D = $CollisionShape2D
 @onready var knockback_timer: Timer = get_node("KnockbackTimer")
 @onready var fireKnockback_timer: Timer = get_node("FireKnockbackTimer")
 
@@ -58,7 +59,7 @@ func _physics_process(delta):
 		#Run functions
 		jump()
 		wall_sliding_true()
-		animation_state()
+		animation_state(input_axis)
 		handle_acceleration(input_axis, delta)
 		apply_friction(input_axis,delta)
 		wall_jumping()
@@ -180,16 +181,19 @@ func resetPlayerPos():
 	Main.health = 3
 
 
-func animation_state():
+func animation_state(input_axis):
 	if velocity.x == 0:
 		animated_sprite.animation = "default"
+		animated_collision.scale.y = 0.94
 
-	if velocity.x < 0:
+	if velocity.x < 0 && input_axis == -1:
 		animated_sprite.animation = "move"
 		animated_sprite.flip_h = true 
+		animated_collision.scale.y = 1.012
 
-	if velocity.x > 0:
+	if velocity.x > 0 && input_axis == 1:
 		animated_sprite.animation = "move"
+		animated_collision.scale.y = 1.012
 		animated_sprite.flip_h = false 
 
 	if velocity.y < 0:
@@ -212,14 +216,12 @@ func knockback():
 			if object_right.get_name() != "BehindPlayer":
 				knockback_dir = -1
 				knockback_power = -200
-				print("Knockback right")
 
 # Identifies whether or not knockback is coming from the left
 		if knockback_left.is_colliding():
 			if object_left.get_name() != "BehindPlayer":
 				knockback_dir = 1
 				knockback_power = -200
-				print("Knockback left")
 
 # Identifies whether or not knockback is coming from both left and right
 #Function not needed right now
