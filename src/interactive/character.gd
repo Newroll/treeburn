@@ -98,6 +98,7 @@ func handle_acceleration(input_axis, delta):
 		if !is_on_floor():
 			velocity.x = move_toward(velocity.x, movement_data.speed *  input_axis, movement_data.air_resistance * delta)
 		else:
+			await get_tree().create_timer(0.15).timeout if Main.ice == true else await get_tree().create_timer(0).timeout
 			velocity.x = move_toward(velocity.x, movement_data.speed *  input_axis, movement_data.acc * delta)
 
 
@@ -117,6 +118,7 @@ func player_movement():
 func jump():
 	if Input.is_action_just_pressed("jump"):
 		if is_on_floor():
+			await get_tree().create_timer(0.15).timeout if Main.ice == true else await get_tree().create_timer(0).timeout
 			velocity.y = movement_data.jump_velocity
 			$AudioStreamPlayer.play()
 
