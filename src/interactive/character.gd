@@ -8,7 +8,7 @@ var spawnY = -20
 #Gets animated sprite and gravity
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var animated_collision: CollisionShape2D = $CollisionShape2D
+@onready var animated_collision: CollisionPolygon2D = $CollisionShape2D
 @onready var knockback_timer: Timer = get_node("KnockbackTimer")
 @onready var fireKnockback_timer: Timer = get_node("FireKnockbackTimer")
 
@@ -98,7 +98,7 @@ func handle_acceleration(input_axis, delta):
 		if !is_on_floor():
 			velocity.x = move_toward(velocity.x, movement_data.speed *  input_axis, movement_data.air_resistance * delta)
 		else:
-			await get_tree().create_timer(0.15).timeout if Main.ice == true else await get_tree().create_timer(0).timeout
+			await get_tree().create_timer(0.1).timeout if Main.ice == true else await get_tree().create_timer(0).timeout
 			velocity.x = move_toward(velocity.x, movement_data.speed *  input_axis, movement_data.acc * delta)
 
 
@@ -118,7 +118,7 @@ func player_movement():
 func jump():
 	if Input.is_action_just_pressed("jump"):
 		if is_on_floor():
-			await get_tree().create_timer(0.15).timeout if Main.ice == true else await get_tree().create_timer(0).timeout
+			await get_tree().create_timer(0.1).timeout if Main.ice == true else await get_tree().create_timer(0).timeout
 			velocity.y = movement_data.jump_velocity
 			$AudioStreamPlayer.play()
 
@@ -186,16 +186,21 @@ func resetPlayerPos():
 func animation_state(input_axis):
 	if velocity.x == 0:
 		animated_sprite.animation = "default"
-		animated_collision.scale.y = 0.94
+		animated_collision.scale.y = 0.951
+		animated_collision.position.x = 0.2
 
 	if velocity.x < 0 && input_axis == -1:
 		animated_sprite.animation = "move"
 		animated_sprite.flip_h = true 
-		animated_collision.scale.y = 1.012
+		animated_collision.scale.y = 1.03
+		animated_collision.position.x = 1.5
+		#animated_collision.position.y = 1
 
 	if velocity.x > 0 && input_axis == 1:
 		animated_sprite.animation = "move"
-		animated_collision.scale.y = 1.012
+		animated_collision.scale.y = 1.03
+		animated_collision.position.x = 1.5
+		#animated_collision.position.y = 1
 		animated_sprite.flip_h = false 
 
 	if velocity.y < 0:

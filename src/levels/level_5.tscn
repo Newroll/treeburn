@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://kfxb12a1wxyl" path="res://src/interactive/coin.tscn" id="4_4obr8"]
 [ext_resource type="Texture2D" uid="uid://c53pxjnt6vm8w" path="res://assets/foreground/lvl3_ground.png" id="4_wrhuw"]
 [ext_resource type="Script" path="res://src/interactive/coins.gd" id="5_1cxdc"]
-[ext_resource type="Texture2D" uid="uid://c1nu6w8duwykp" path="res://assets/foreground/snowman.png" id="5_fr5lo"]
+[ext_resource type="Texture2D" uid="uid://dn4n3jvtjlvx3" path="res://assets/foreground/snowman.png" id="5_fr5lo"]
 [ext_resource type="PackedScene" uid="uid://csw24p6f16qes" path="res://src/interactive/ice.tscn" id="6_oragl"]
 [ext_resource type="Texture2D" uid="uid://cgrq68r216777" path="res://assets/foreground/lava.tres" id="7_4n8yx"]
 [ext_resource type="PackedScene" uid="uid://cqm6jb4lo3pts" path="res://src/interactive/movingplatform.tscn" id="8_pw5pa"]
@@ -17,7 +17,7 @@
 [ext_resource type="PackedScene" uid="uid://dvvqyio0cmfa5" path="res://src/interactive/snow.tscn" id="11_t4lbf"]
 [ext_resource type="PackedScene" uid="uid://bxrdaun1twtb1" path="res://src/interactive/portal.tscn" id="13_7g3nt"]
 [ext_resource type="PackedScene" uid="uid://dtfkm547yxtbg" path="res://src/ui/ui.tscn" id="15_0cqxb"]
-[ext_resource type="AudioStream" uid="uid://bpeoalgn5ppsk" path="res://assets/music/musiclvl3.mp3" id="18_qb4al"]
+[ext_resource type="AudioStream" uid="uid://b13a80vw2ea3g" path="res://assets/music/musiclvl3.mp3" id="18_qb4al"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tw11q"]
 texture = ExtResource("4_wrhuw")

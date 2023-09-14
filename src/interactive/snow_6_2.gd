@@ -3,6 +3,7 @@ extends CharacterBody2D
 
 const SPEED = 500
 const JUMP_VELOCITY = -400
+var snow_pos = null
 
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var returnTo = get_position()
@@ -14,27 +15,21 @@ func _ready():
 
 
 func _physics_process(delta):
-	get_position()
+	snow_pos = get_position()
+	var limit_y: int = returnTo.y + 450
+	var limit_x: int = returnTo.x + 700
 	
-	if position.y > -800:
-		if not is_on_floor():
-			velocity.y += gravity * delta
-		
-		var direction = 1
-		if direction:
-			velocity.x = direction * SPEED
-		else:
-			velocity.x = move_toward(velocity.x, 0, SPEED)
+	if not is_on_floor():
+		velocity.y += gravity * delta
+
+	velocity.x = SPEED
 		
 	move_and_slide();
-	#if position.x > 155:
-
-		
-	#if int(Main.timeEclapsed) % 6 == 0:
-		#position = Vector2(returnTo.x, returnTo.y)
+	if snow_pos.y > limit_y:
+		position = Vector2(10000, 10000)
 	
-	if position.y > -800:
-		position = Vector2(1000, -1000)
+	if snow_pos.x > limit_x:
+		position = Vector2(10000, 10000)
 
 
 func _on_area_2d_body_entered(body):
