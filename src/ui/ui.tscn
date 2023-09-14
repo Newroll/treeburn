@@ -354,6 +354,6 @@ offset_right = 66.0
 offset_bottom = 181.0
 theme_override_fonts/font = ExtResource("1_hkuc3")
 theme_override_font_sizes/font_size = 4
-text = "Treeburn v2.7 development"
+text = "Treeburn v2.8 development"
 
 [connection signal="pressed" from="pausebutton" to="." method="_on_button_pressed"]

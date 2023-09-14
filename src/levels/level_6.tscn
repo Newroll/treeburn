@@ -19,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://b8iwpiqrr2xiw" path="res://src/interactive/fallingrock.tscn" id="14_xi17j"]
 [ext_resource type="PackedScene" uid="uid://dnvbs7br0cml3" path="res://src/interactive/snow_6_1.tscn" id="15_rrql4"]
 [ext_resource type="PackedScene" uid="uid://c8s5sijgc2w1u" path="res://src/interactive/snow_6_2.tscn" id="16_7m0rg"]
-[ext_resource type="AudioStream" uid="uid://b13a80vw2ea3g" path="res://assets/music/musiclvl3.mp3" id="20_kq3x2"]
+[ext_resource type="AudioStream" uid="uid://bpeoalgn5ppsk" path="res://assets/music/musiclvl3.mp3" id="20_kq3x2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tw11q"]
 texture = ExtResource("3_3nj27")
