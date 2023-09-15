@@ -75,6 +75,10 @@ func _physics_process(delta):
 		Main.health = -1
 	
 	if Main.resetPlayer == true:
+		velocity.y = 0
+		velocity.x = 0
+		animated_sprite.animation = "death"
+		await get_tree().create_timer(1.9).timeout
 		resetPlayerPos()
 		Main.resetPlayer = false
 	
@@ -187,7 +191,7 @@ func resetPlayerPos():
 
 
 func animation_state(input_axis):
-	if velocity.x == 0:
+	if velocity.x == 0 && Main.resetPlayer == false:
 		animated_sprite.animation = "default"
 		animated_collision.scale.y = 0.951
 		animated_collision.position.x = 0.2
@@ -212,7 +216,7 @@ func animation_state(input_axis):
 	if velocity.y > 0:
 		animated_sprite.animation = "jumpDown"
 
-	if Main.immunity == true:
+	if Main.immunity == true && Main.health > 0:
 		stupidAnimation = true
 
 	if stupidAnimation == true:

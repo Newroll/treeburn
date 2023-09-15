@@ -62,12 +62,13 @@ func takeDmg(amount):
 		health -= amount
 
 func death():
+	resetPlayer = true
+	await get_tree().create_timer(2).timeout
 	coins = 0 
 	health = 3
 	worldHealth = 8
 	quicksand = false
 	ice = false
-	resetPlayer = true
 	get_tree().change_scene_to_file("res://src/global/death.tscn")
 	
 func _ready():
