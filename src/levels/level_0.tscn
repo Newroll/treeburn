@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dv5udhaqgjxv5"]
+[gd_scene load_steps=29 format=3 uid="uid://dv5udhaqgjxv5"]
 
 [ext_resource type="Script" path="res://src/levels/level_0.gd" id="1_jql4m"]
 [ext_resource type="Texture2D" uid="uid://ddodrd661qp2" path="res://assets/background/cloudsfront.png" id="2_57l4s"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://etxpk65gm7kk" path="res://assets/background/lvl1front.png" id="4_gjabv"]
 [ext_resource type="Texture2D" uid="uid://grrid1bfg8il" path="res://assets/foreground/trees.png" id="7_57h5j"]
 [ext_resource type="Texture2D" uid="uid://bo5yrg83rhude" path="res://assets/foreground/lvl1_ground.png" id="8_cufxe"]
+[ext_resource type="Script" path="res://src/levels/camera.gd" id="8_dbncd"]
 [ext_resource type="PackedScene" uid="uid://bmlc5h5gbouaf" path="res://src/interactive/character.tscn" id="9_fuybf"]
 [ext_resource type="FontFile" uid="uid://422t11bovf6v" path="res://assets/styles/mainport.ttf" id="11_edk42"]
 [ext_resource type="PackedScene" uid="uid://kfxb12a1wxyl" path="res://src/interactive/coin.tscn" id="11_h7p48"]
@@ -411,6 +412,7 @@ rotation_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_top_margin = 0.8
+script = ExtResource("8_dbncd")
 
 [node name="leaf2" parent="." instance=ExtResource("11_h7p48")]
 visible = false

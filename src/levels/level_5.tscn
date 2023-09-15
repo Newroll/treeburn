@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://dw4ii16uyi0ok"]
+[gd_scene load_steps=35 format=3 uid="uid://dw4ii16uyi0ok"]
 
 [ext_resource type="PackedScene" uid="uid://bmlc5h5gbouaf" path="res://src/interactive/character.tscn" id="1_km57j"]
 [ext_resource type="Texture2D" uid="uid://ddodrd661qp2" path="res://assets/background/cloudsfront.png" id="1_s6uy5"]
@@ -10,9 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://dn4n3jvtjlvx3" path="res://assets/foreground/snowman.png" id="5_fr5lo"]
 [ext_resource type="PackedScene" uid="uid://csw24p6f16qes" path="res://src/interactive/ice.tscn" id="6_oragl"]
 [ext_resource type="Texture2D" uid="uid://cgrq68r216777" path="res://assets/foreground/lava.tres" id="7_4n8yx"]
+[ext_resource type="Script" path="res://src/levels/camera.gd" id="7_fsahj"]
 [ext_resource type="PackedScene" uid="uid://cqm6jb4lo3pts" path="res://src/interactive/movingplatform.tscn" id="8_pw5pa"]
-[ext_resource type="Texture2D" uid="uid://drjew8grknouy" path="res://assets/foreground/darkbush.png" id="9_3yy1o"]
-[ext_resource type="Texture2D" uid="uid://d3poqaxqqu015" path="res://assets/foreground/icybush.png" id="10_rbyoo"]
+[ext_resource type="Texture2D" uid="uid://dkpeqw8nj4j8x" path="res://assets/foreground/darkbush.png" id="9_3yy1o"]
+[ext_resource type="Texture2D" uid="uid://bp87y7wh7hwee" path="res://assets/foreground/icybush.png" id="10_rbyoo"]
 [ext_resource type="PackedScene" uid="uid://duxdweo12qa7" path="res://src/interactive/snowalt.tscn" id="10_u32m0"]
 [ext_resource type="PackedScene" uid="uid://dvvqyio0cmfa5" path="res://src/interactive/snow.tscn" id="11_t4lbf"]
 [ext_resource type="PackedScene" uid="uid://bxrdaun1twtb1" path="res://src/interactive/portal.tscn" id="13_7g3nt"]
@@ -378,6 +379,7 @@ rotation_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_top_margin = 0.8
+script = ExtResource("7_fsahj")
 
 [node name="InfrontPlayer" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_je4o8")
