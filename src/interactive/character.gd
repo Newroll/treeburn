@@ -55,7 +55,10 @@ func _physics_process(delta):
 	check_state()
 	apply_gravity(delta)
 	
-	if Main.knockback == false && Main.fireKnockback == false:
+	if Main.suspendMovement == true:
+		velocity.x = 0
+	
+	if Main.knockback == false && Main.fireKnockback == false && Main.suspendMovement == false:
 		#Run functions
 		jump()
 		wall_sliding_true()

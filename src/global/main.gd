@@ -25,6 +25,7 @@ var leaderboardOffer = false
 var immunity = false
 var immunityTimer
 var immunityTemp = true
+var suspendMovement = false
 
 func _physics_process(_delta):
 	

@@ -414,11 +414,6 @@ drag_vertical_enabled = true
 drag_top_margin = 0.8
 script = ExtResource("8_dbncd")
 
-[node name="leaf2" parent="." instance=ExtResource("11_h7p48")]
-visible = false
-position = Vector2(1091, -114)
-script = ExtResource("12_kkmjj")
-
 [node name="coins2" type="Node" parent="."]
 
 [node name="coin" parent="coins2" instance=ExtResource("11_h7p48")]
@@ -483,15 +478,26 @@ horizontal_alignment = 2
 autowrap_mode = 2
 
 [node name="leaf" type="Label" parent="."]
-visible = false
 z_index = 30
-offset_left = 906.0
-offset_top = -125.0
-offset_right = 1078.0
-offset_bottom = -99.0
+offset_left = 948.0
+offset_top = -139.0
+offset_right = 1120.0
+offset_bottom = -113.0
 theme_override_fonts/font = ExtResource("11_edk42")
 theme_override_font_sizes/font_size = 10
-text = "Pick this leaf up to restore some of the world health."
+text = "Pick up coins to resotre some of the world health"
+horizontal_alignment = 2
+autowrap_mode = 2
+
+[node name="zoom" type="Label" parent="."]
+z_index = 30
+offset_left = 1216.0
+offset_top = -120.0
+offset_right = 1393.0
+offset_bottom = -107.0
+theme_override_fonts/font = ExtResource("11_edk42")
+theme_override_font_sizes/font_size = 10
+text = "Use Q and E to zoom in and out"
 horizontal_alignment = 2
 autowrap_mode = 2
 
@@ -501,17 +507,18 @@ visible = false
 [node name="worldhealth" type="Label" parent="worldhealth"]
 z_index = -10
 texture_filter = 1
-offset_left = 6.0
-offset_top = 20.0
-offset_right = 194.0
-offset_bottom = 59.0
+offset_left = 177.0
+offset_top = 149.0
+offset_right = 264.0
+offset_bottom = 179.0
 theme_override_fonts/font = ExtResource("11_edk42")
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 6
 text = "This is the world health. Do not let it deplete."
 autowrap_mode = 2
 
 [node name="portal" parent="." instance=ExtResource("12_iykh1")]
 position = Vector2(1481, -122)
+metadata/_edit_lock_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

@@ -1,6 +1,5 @@
 extends Node2D
 
-var showLeaf = true
 var sameWorldhealth = true
 
 func _process(_delta):
@@ -15,14 +14,14 @@ func _process(_delta):
 		$walljump.show()
 	if Main.playerPosition.x > 850:
 		$walljump.hide()
-	if Main.playerPosition.x > 925:
-		$CanvasLayer.show()
-		await get_tree().create_timer(1.5).timeout
-		if showLeaf == true:
-			$leaf2.show()
-			showLeaf = false
-			Main.worldHealth = 6
+	if Main.playerPosition.x > 1000:
+		$worldhealth.show()
+		Main.suspendMovement = true
 		$leaf.show()
+		Main.worldHealth = 5
+		await get_tree().create_timer(2).timeout
+		Main.suspendMovement = false
+		$worldhealth.hide()
 		sameWorldhealth = false
 		
 	if Input.is_action_just_pressed("esc"):

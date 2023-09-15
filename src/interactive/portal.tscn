@@ -67,10 +67,10 @@ script = ExtResource("1_5tapu")
 visible = false
 z_index = 30
 texture_filter = 1
-offset_left = -183.0
-offset_top = -34.0
-offset_right = 34.0
-offset_bottom = -8.0
+offset_left = -182.0
+offset_top = -18.0
+offset_right = 35.0
+offset_bottom = 8.0
 theme_override_fonts/font = ExtResource("2_5687t")
 text = "Press enter to proceed"
 
@@ -105,6 +105,7 @@ offset_top = -215.0
 offset_right = 339.0
 offset_bottom = 240.0
 color = Color(0, 0, 0, 0)
+metadata/_edit_lock_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]
 root_node = NodePath("../..")
