@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://b4fhy8nwhgeab"]
+[gd_scene load_steps=34 format=3 uid="uid://b4fhy8nwhgeab"]
 
 [ext_resource type="Texture2D" uid="uid://dy12u1xfe8uck" path="res://assets/background/lvl1back.png" id="1_dgqja"]
 [ext_resource type="Texture2D" uid="uid://etxpk65gm7kk" path="res://assets/background/lvl1front.png" id="1_fglrk"]
@@ -9,10 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://grrid1bfg8il" path="res://assets/foreground/trees.png" id="4_gewfj"]
 [ext_resource type="Script" path="res://src/interactive/coins.gd" id="5_1cxdc"]
 [ext_resource type="Texture2D" uid="uid://bo5yrg83rhude" path="res://assets/foreground/lvl1_ground.png" id="7_1a65m"]
-[ext_resource type="Texture2D" uid="uid://b72n8nuoch7rr" path="res://assets/foreground/water1.png" id="10_ncv6c"]
-[ext_resource type="Texture2D" uid="uid://bd6vl58a0mgxm" path="res://assets/foreground/water2.png" id="11_2c1vw"]
-[ext_resource type="Texture2D" uid="uid://b00rm7mq2ngec" path="res://assets/foreground/water3.png" id="12_hxr85"]
-[ext_resource type="Texture2D" uid="uid://56vaojwneu6q" path="res://assets/foreground/water4.png" id="13_miuvf"]
+[ext_resource type="Texture2D" uid="uid://cs04t8of1amx8" path="res://assets/foreground/water.tres" id="11_h2x7g"]
 [ext_resource type="PackedScene" uid="uid://dtfkm547yxtbg" path="res://src/ui/ui.tscn" id="15_0cqxb"]
 [ext_resource type="PackedScene" uid="uid://dqwcpids7e46a" path="res://src/Enemies/axe.tscn" id="15_gwau3"]
 [ext_resource type="Texture2D" uid="uid://d3xho7hc8wt4a" path="res://assets/interactive/pitfall.png" id="15_mbeea"]
@@ -262,20 +259,9 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_f1fr4")
 sources/0 = SubResource("TileSetAtlasSource_fomlk")
 
-[sub_resource type="AnimatedTexture" id="AnimatedTexture_487ie"]
-frames = 4
-frame_0/texture = ExtResource("10_ncv6c")
-frame_0/duration = 0.5
-frame_1/texture = ExtResource("11_2c1vw")
-frame_1/duration = 0.5
-frame_2/texture = ExtResource("12_hxr85")
-frame_2/duration = 0.5
-frame_3/texture = ExtResource("13_miuvf")
-frame_3/duration = 0.5
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_463j2"]
 resource_name = "water"
-texture = SubResource("AnimatedTexture_487ie")
+texture = ExtResource("11_h2x7g")
 use_texture_padding = false
 0:0/0 = 0
 1:0/0 = 0

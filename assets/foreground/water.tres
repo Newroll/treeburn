@@ -1,0 +1,17 @@
+[gd_resource type="AnimatedTexture" load_steps=5 format=3 uid="uid://cs04t8of1amx8"]
+
+[ext_resource type="Texture2D" uid="uid://b72n8nuoch7rr" path="res://assets/foreground/water1.png" id="1_ylego"]
+[ext_resource type="Texture2D" uid="uid://bd6vl58a0mgxm" path="res://assets/foreground/water2.png" id="2_bil4n"]
+[ext_resource type="Texture2D" uid="uid://b00rm7mq2ngec" path="res://assets/foreground/water3.png" id="3_nufun"]
+[ext_resource type="Texture2D" uid="uid://56vaojwneu6q" path="res://assets/foreground/water4.png" id="4_gvif2"]
+
+[resource]
+frames = 4
+speed_scale = 2.0
+frame_0/texture = ExtResource("1_ylego")
+frame_1/texture = ExtResource("2_bil4n")
+frame_1/duration = 1.0
+frame_2/texture = ExtResource("3_nufun")
+frame_2/duration = 1.0
+frame_3/texture = ExtResource("4_gvif2")
+frame_3/duration = 1.0

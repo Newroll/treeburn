@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://ddv4q4gf0k1gu"]
+[gd_scene load_steps=41 format=3 uid="uid://ddv4q4gf0k1gu"]
 
 [ext_resource type="Script" path="res://src/levels/level_3.gd" id="1_anxaj"]
 [ext_resource type="PackedScene" uid="uid://bmlc5h5gbouaf" path="res://src/interactive/character.tscn" id="1_km57j"]
@@ -10,12 +10,9 @@
 [ext_resource type="Script" path="res://src/interactive/coins.gd" id="5_1cxdc"]
 [ext_resource type="Texture2D" uid="uid://iw33gtlicsw4" path="res://assets/foreground/deadtree.png" id="5_6h5fk"]
 [ext_resource type="Resource" uid="uid://bybefrr5rfkdx" path="res://src/interactive/DefaultMovementData.tres" id="8_75utj"]
+[ext_resource type="Texture2D" uid="uid://cs04t8of1amx8" path="res://assets/foreground/water.tres" id="8_ipyg0"]
 [ext_resource type="Texture2D" uid="uid://dyjdhilnk6ppo" path="res://assets/foreground/quicksand.png" id="8_m2tjl"]
-[ext_resource type="Texture2D" uid="uid://b72n8nuoch7rr" path="res://assets/foreground/water1.png" id="8_o0yn8"]
 [ext_resource type="Script" path="res://src/levels/lvl3death.gd" id="9_dk33i"]
-[ext_resource type="Texture2D" uid="uid://bd6vl58a0mgxm" path="res://assets/foreground/water2.png" id="9_ro86h"]
-[ext_resource type="Texture2D" uid="uid://b00rm7mq2ngec" path="res://assets/foreground/water3.png" id="10_m42dn"]
-[ext_resource type="Texture2D" uid="uid://56vaojwneu6q" path="res://assets/foreground/water4.png" id="11_62hwu"]
 [ext_resource type="PackedScene" uid="uid://uiouwl5inj5h" path="res://src/interactive/platform.tscn" id="13_uoyuq"]
 [ext_resource type="PackedScene" uid="uid://be2b5vmn7o8d1" path="res://src/interactive/quicksand.tscn" id="14_6ggne"]
 [ext_resource type="PackedScene" uid="uid://dr3lmvseh1mm6" path="res://src/Enemies/coal.tscn" id="14_j8yol"]
@@ -107,19 +104,8 @@ texture = ExtResource("4_ps6a8")
 physics_layer_0/collision_layer = 1
 sources/2 = SubResource("TileSetAtlasSource_3n1mi")
 
-[sub_resource type="AnimatedTexture" id="AnimatedTexture_487ie"]
-frames = 4
-frame_0/texture = ExtResource("8_o0yn8")
-frame_0/duration = 0.5
-frame_1/texture = ExtResource("9_ro86h")
-frame_1/duration = 0.5
-frame_2/texture = ExtResource("10_m42dn")
-frame_2/duration = 0.5
-frame_3/texture = ExtResource("11_62hwu")
-frame_3/duration = 0.5
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uu1ao"]
-texture = SubResource("AnimatedTexture_487ie")
+texture = ExtResource("8_ipyg0")
 use_texture_padding = false
 0:0/0 = 0
 1:0/0 = 0

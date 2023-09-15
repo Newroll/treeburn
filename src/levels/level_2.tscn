@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://dbwpjqdopswge"]
+[gd_scene load_steps=45 format=3 uid="uid://dbwpjqdopswge"]
 
 [ext_resource type="Script" path="res://src/levels/level_2.gd" id="1_anxaj"]
 [ext_resource type="PackedScene" uid="uid://bmlc5h5gbouaf" path="res://src/interactive/character.tscn" id="1_km57j"]
@@ -15,10 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://cgwgyacm4bnxw" path="res://assets/foreground/bush.png" id="8_v61fb"]
 [ext_resource type="PackedScene" uid="uid://dqwcpids7e46a" path="res://src/Enemies/axe.tscn" id="9_2oe7p"]
 [ext_resource type="Texture2D" uid="uid://k2f1fdpf3td5" path="res://assets/foreground/flower.png" id="9_rwih5"]
-[ext_resource type="Texture2D" uid="uid://b72n8nuoch7rr" path="res://assets/foreground/water1.png" id="11_ur4yo"]
-[ext_resource type="Texture2D" uid="uid://bd6vl58a0mgxm" path="res://assets/foreground/water2.png" id="12_hk7gg"]
-[ext_resource type="Texture2D" uid="uid://b00rm7mq2ngec" path="res://assets/foreground/water3.png" id="13_18wrt"]
-[ext_resource type="Texture2D" uid="uid://56vaojwneu6q" path="res://assets/foreground/water4.png" id="14_xluxg"]
+[ext_resource type="Texture2D" uid="uid://cs04t8of1amx8" path="res://assets/foreground/water.tres" id="12_g4vdj"]
 [ext_resource type="PackedScene" uid="uid://dtfkm547yxtbg" path="res://src/ui/ui.tscn" id="15_0cqxb"]
 [ext_resource type="AudioStream" uid="uid://ctfjl7xm00g0g" path="res://assets/music/musiclvl1.mp3" id="16_0wo5w"]
 [ext_resource type="PackedScene" uid="uid://bxrdaun1twtb1" path="res://src/interactive/portal.tscn" id="17_cr723"]
@@ -474,19 +471,8 @@ sources/2 = SubResource("TileSetAtlasSource_6qjx1")
 sources/4 = SubResource("TileSetAtlasSource_vn6ux")
 sources/5 = SubResource("TileSetAtlasSource_oxjpi")
 
-[sub_resource type="AnimatedTexture" id="AnimatedTexture_487ie"]
-frames = 4
-frame_0/texture = ExtResource("11_ur4yo")
-frame_0/duration = 0.5
-frame_1/texture = ExtResource("12_hk7gg")
-frame_1/duration = 0.5
-frame_2/texture = ExtResource("13_18wrt")
-frame_2/duration = 0.5
-frame_3/texture = ExtResource("14_xluxg")
-frame_3/duration = 0.5
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wtyno"]
-texture = SubResource("AnimatedTexture_487ie")
+texture = ExtResource("12_g4vdj")
 use_texture_padding = false
 0:0/0 = 0
 1:0/0 = 0
