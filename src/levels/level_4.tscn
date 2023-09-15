@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://cp76pvrrd3bsy"]
+[gd_scene load_steps=36 format=3 uid="uid://cp76pvrrd3bsy"]
 
 [ext_resource type="Script" path="res://src/levels/level_4.gd" id="1_3olgt"]
 [ext_resource type="Texture2D" uid="uid://ddodrd661qp2" path="res://assets/background/cloudsfront.png" id="1_his78"]
@@ -9,7 +9,8 @@
 [ext_resource type="Resource" uid="uid://bybefrr5rfkdx" path="res://src/interactive/DefaultMovementData.tres" id="6_jykpc"]
 [ext_resource type="Texture2D" uid="uid://dyjdhilnk6ppo" path="res://assets/foreground/quicksand.png" id="7_6v8xn"]
 [ext_resource type="Texture2D" uid="uid://cs04t8of1amx8" path="res://assets/foreground/water.tres" id="8_rv3av"]
-[ext_resource type="PackedScene" uid="uid://dr3lmvseh1mm6" path="res://src/Enemies/coal.tscn" id="9_gnxqm"]
+[ext_resource type="PackedScene" uid="uid://dr3lmvseh1mm6" path="res://src/enemies/coal.tscn" id="9_gnxqm"]
+[ext_resource type="Script" path="res://src/levels/camera.gd" id="10_pfy3d"]
 [ext_resource type="PackedScene" uid="uid://kfxb12a1wxyl" path="res://src/interactive/coin.tscn" id="10_ubqks"]
 [ext_resource type="Script" path="res://src/interactive/coins.gd" id="11_a2h4o"]
 [ext_resource type="PackedScene" uid="uid://uiouwl5inj5h" path="res://src/interactive/platform.tscn" id="12_fql2m"]
@@ -314,6 +315,7 @@ rotation_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_top_margin = 0.8
+script = ExtResource("10_pfy3d")
 
 [node name="enemies" type="Node" parent="."]
 

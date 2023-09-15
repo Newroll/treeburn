@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=3 uid="uid://dbwpjqdopswge"]
+[gd_scene load_steps=46 format=3 uid="uid://dbwpjqdopswge"]
 
 [ext_resource type="Script" path="res://src/levels/level_2.gd" id="1_anxaj"]
 [ext_resource type="PackedScene" uid="uid://bmlc5h5gbouaf" path="res://src/interactive/character.tscn" id="1_km57j"]
@@ -13,8 +13,9 @@
 [ext_resource type="Texture2D" uid="uid://iw33gtlicsw4" path="res://assets/foreground/deadtree.png" id="7_503km"]
 [ext_resource type="Texture2D" uid="uid://bo5yrg83rhude" path="res://assets/foreground/lvl1_ground.png" id="7_lmob4"]
 [ext_resource type="Texture2D" uid="uid://cgwgyacm4bnxw" path="res://assets/foreground/bush.png" id="8_v61fb"]
-[ext_resource type="PackedScene" uid="uid://dqwcpids7e46a" path="res://src/Enemies/axe.tscn" id="9_2oe7p"]
+[ext_resource type="PackedScene" uid="uid://dqwcpids7e46a" path="res://src/enemies/axe.tscn" id="9_2oe7p"]
 [ext_resource type="Texture2D" uid="uid://k2f1fdpf3td5" path="res://assets/foreground/flower.png" id="9_rwih5"]
+[ext_resource type="Script" path="res://src/levels/camera.gd" id="11_u62gu"]
 [ext_resource type="Texture2D" uid="uid://cs04t8of1amx8" path="res://assets/foreground/water.tres" id="12_g4vdj"]
 [ext_resource type="PackedScene" uid="uid://dtfkm547yxtbg" path="res://src/ui/ui.tscn" id="15_0cqxb"]
 [ext_resource type="AudioStream" uid="uid://ctfjl7xm00g0g" path="res://assets/music/musiclvl1.mp3" id="16_0wo5w"]
@@ -809,6 +810,7 @@ rotation_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
 drag_top_margin = 0.8
+script = ExtResource("11_u62gu")
 
 [node name="axes" type="Node" parent="."]
 
