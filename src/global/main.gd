@@ -35,7 +35,7 @@ func _physics_process(_delta):
 	framesEclapsed += 1
 	totalFramesEclapsed += 1
 	
-	if snowHit >= 5:
+	if snowHit >= 3:
 		takeDmg(1)
 		snowHit = 0
 	

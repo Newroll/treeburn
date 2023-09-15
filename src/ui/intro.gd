@@ -12,6 +12,7 @@ func _ready():
 func _on_new_game_button_pressed():
 	$title.hide()
 	$NewGame_Button.hide()
+	$creditsbutton.hide()
 	$Label.show()
 	$Letter.show()
 	$AnimationPlayer.play("splashscreen_animation")
