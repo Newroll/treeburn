@@ -27,6 +27,10 @@ var immunityTimer
 var immunityTemp = true
 var suspendMovement = false
 
+#Camera Zoom Levels
+var zoomLevels = [0.5, 0.75, 1, 1.25, 1.5]
+var currentZoomLevel = 2
+
 func _physics_process(_delta):
 	
 	### REMOVE THIS FUNCTION CALL ###
