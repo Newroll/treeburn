@@ -104,6 +104,7 @@ func unanimated_death():
 	worldHealth = 8
 	quicksand = false
 	ice = false
+	below_death_height = false
 	get_tree().change_scene_to_file("res://src/global/death.tscn")
 
 

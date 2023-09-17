@@ -185,7 +185,6 @@ func resetPlayerPos():
 	#Reset Main
 	Main.coins = 0
 	Main.quicksand = false
-	Main.in_range = false
 	Main.knockback = false
 	Main.health = 3
 
@@ -194,20 +193,18 @@ func animation_state(input_axis):
 	if velocity.x == 0 && Main.resetPlayer == false:
 		animated_sprite.animation = "default"
 		animated_collision.scale.y = 0.951
-		animated_collision.position.x = 0.2
+		animated_collision.position.x = 0.1
 
 	if input_axis == -1:
 		animated_sprite.animation = "move"
 		animated_sprite.flip_h = true 
 		animated_collision.scale.y = 1.03
-		animated_collision.position.x = 1.5
-		#animated_collision.position.y = 1
+		animated_collision.position.x = -3
 
 	if input_axis == 1:
 		animated_sprite.animation = "move"
 		animated_collision.scale.y = 1.03
 		animated_collision.position.x = 1.5
-		#animated_collision.position.y = 1
 		animated_sprite.flip_h = false 
 
 	if velocity.y < 0:

@@ -7,6 +7,8 @@ func launch (intial_position: Vector2, dir: Vector2, speed: int) -> void:
 	position = intial_position
 	direction = dir
 	rock_speed = speed
+	monitoring = true
+	show()
 	
 func _physics_process(delta):
 	position += direction * rock_speed * delta
@@ -16,3 +18,5 @@ func _on_body_entered(body):
 	if body.name == "CharacterBody2D":
 		Main.knockback = true
 		Main.takeDmg(1)
+		hide()
+		monitoring = false

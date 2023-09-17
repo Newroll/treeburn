@@ -203,11 +203,11 @@ texture_filter = 1
 position = Vector2(1.52588e-05, -0.0624927)
 scale = Vector2(0.757812, 0.753906)
 sprite_frames = SubResource("SpriteFrames_3bg3d")
-animation = &"death"
+animation = &"move"
 autoplay = "move"
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(0.2, 1)
+position = Vector2(1.5, 1)
 scale = Vector2(1, 0.951)
 polygon = PackedVector2Array(-4.5, 10.3084, 4.5, 10.3084, 4, 6.38298, 5, 3.19149, 6.5, 0.841501, 6, -3.19149, 5, -7.44681, 4, -11.7021, -1, -11.7021, -4, -7.44681, -4, -1.06383, -4, 4.25532, -3.5, 7.15276)
 
@@ -224,6 +224,7 @@ wait_time = 0.3
 one_shot = true
 
 [node name="Wall_Right" type="RayCast2D" parent="."]
+visible = false
 position = Vector2(6, 0)
 scale = Vector2(1, 8)
 target_position = Vector2(5, 0)
@@ -231,6 +232,7 @@ collision_mask = 3
 hit_from_inside = true
 
 [node name="Wall_Left" type="RayCast2D" parent="."]
+visible = false
 position = Vector2(-6, 0)
 scale = Vector2(1, 8)
 target_position = Vector2(-5, 0)
@@ -238,6 +240,7 @@ collision_mask = 3
 hit_from_inside = true
 
 [node name="Knockback_Down" type="RayCast2D" parent="."]
+visible = false
 position = Vector2(0, 11)
 scale = Vector2(10, 2)
 target_position = Vector2(0, 4)
@@ -245,12 +248,14 @@ collision_mask = 3
 hit_from_inside = true
 
 [node name="Knockback_Right" type="RayCast2D" parent="."]
+visible = false
 scale = Vector2(1, 15)
 target_position = Vector2(20, 0)
 collision_mask = 3
 hit_from_inside = true
 
 [node name="Knockback_Left" type="RayCast2D" parent="."]
+visible = false
 scale = Vector2(1, 15)
 target_position = Vector2(-20, 0)
 collision_mask = 3
