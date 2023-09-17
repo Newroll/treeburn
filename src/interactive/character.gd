@@ -72,7 +72,7 @@ func _physics_process(delta):
 		fireKnockback(input_axis, delta)
 	
 	if position.y > Main.death_height[Main.level]:
-		Main.health = -1
+		Main.below_death_height = true
 	
 	if Main.resetPlayer == true:
 		velocity.y = 0
