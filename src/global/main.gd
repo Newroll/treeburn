@@ -43,6 +43,7 @@ var suspendMovement = false
 var immunity = false
 var immunityTimer
 var immunityTemp = true
+var hurtSFX = true
 
 #Camera Zoom Levels
 var zoomLevels = [0.5, 0.75, 1, 1.25, 1.5]
@@ -85,6 +86,7 @@ func _physics_process(_delta):
 
 func takeDmg(amount):
 	if immunity == false:
+		hurtSFX = false
 		immunity = true
 		health -= amount
 

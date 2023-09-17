@@ -216,6 +216,13 @@ func animation_state(input_axis):
 	if Main.immunity == true && Main.health > 0:
 		stupidAnimation = true
 
+	if Main.hurtSFX == false:
+		Main.hurtSFX = true
+		if Main.health > 0:
+			$hurt.play()
+		else: 
+			$die.play()
+
 	if stupidAnimation == true:
 		$AnimationPlayer.play("blink")
 		stupidAnimation = false
