@@ -21,7 +21,10 @@ func _on_animation_player_animation_finished(anim_name):
 	$ColorRect.show()
 	$AnimationPlayer.play("fadetoblack")
 	await get_tree().create_timer(1).timeout
-	get_tree().change_scene_to_file("res://src/levels/level_0.tscn")
+	if Main.demo == false:
+		get_tree().change_scene_to_file("res://src/levels/level_" + str(Main.level) + ".tscn")
+	else:
+		get_tree().change_scene_to_file("res://src/levels/demo_level.tscn")
 	
 
 

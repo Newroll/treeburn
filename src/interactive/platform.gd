@@ -6,12 +6,12 @@ var fallingtime = 0
 var wait = false
 var waittimer = 200
 
-func _on_collider_body_entered(_body):
-	if _body.is_in_group("player"):
+func _on_collider_body_entered(body):
+	if body.name == "CharacterBody2D":
 		entered = true
 
-func _on_collider_body_exited(_body):
-	if _body.is_in_group("player"):
+func _on_collider_body_exited(body):
+	if body.name == "CharacterBody2D":
 		entered = false
 
 func _physics_process(_delta):

@@ -10,12 +10,18 @@ func _ready():
 func _process(_delta):
 	if Input.is_action_just_pressed("enter"):
 		get_tree().paused = false
-		get_tree().change_scene_to_file("res://src/levels/level_" + str(Main.level) + ".tscn")
+		if Main.demo == false:
+			get_tree().change_scene_to_file("res://src/levels/level_" + str(Main.level) + ".tscn")
+		else:
+			get_tree().change_scene_to_file("res://src/levels/demo_level.tscn")
 
 
 func _on_continue_pressed():
 	get_tree().paused = false
-	get_tree().change_scene_to_file("res://src/levels/level_" + str(Main.level) + ".tscn")
+	if Main.demo == false:
+		get_tree().change_scene_to_file("res://src/levels/level_" + str(Main.level) + ".tscn")
+	else:
+		get_tree().change_scene_to_file("res://src/levels/demo_level.tscn")
 
 
 func _on_quit_pressed():
