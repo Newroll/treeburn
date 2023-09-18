@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://b8iwpiqrr2xiw"]
 
-[ext_resource type="Script" path="res://fallingrock.gd" id="1_b8u4m"]
+[ext_resource type="Script" path="res://src/interactive/fallingrock.gd" id="1_b8u4m"]
 [ext_resource type="Texture2D" uid="uid://rrtbld81ux4g" path="res://assets/foreground/rock.png" id="2_amtq7"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_inebp"]
