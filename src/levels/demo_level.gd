@@ -14,6 +14,9 @@ func _process(_delta):
 		$UI/PauseMenu.show()
 		
 	if Main.playerPosition.x < 2013:
+		$bg1.show()
+		$bg2.hide()
+		$bg3.hide()
 		setMusic2 = false
 		setMusic3 = false
 		if setMusic1 == false:
@@ -21,6 +24,9 @@ func _process(_delta):
 			setMusic1 = true
 			$music.play()
 	if Main.playerPosition.x > 2013 && Main.playerPosition.x < 3090:
+		$bg1.hide()
+		$bg2.show()
+		$bg3.hide()
 		setMusic1 = false
 		setMusic3 = false
 		if setMusic2 == false:
@@ -28,6 +34,9 @@ func _process(_delta):
 			setMusic2 = true
 			$music.play()
 	if Main.playerPosition.x > 3090:
+		$bg1.hide()
+		$bg2.hide()
+		$bg3.show()
 		setMusic1 = false
 		setMusic2 = false
 		if setMusic3 == false:
