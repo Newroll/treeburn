@@ -147,15 +147,15 @@ scale = Vector2(4.37462, 2.60237)
 texture = ExtResource("3_26rap")
 
 [node name="title" type="Label" parent="."]
-offset_left = 218.381
+offset_left = 179.184
 offset_top = 128.425
-offset_right = 1682.38
+offset_right = 1643.18
 offset_bottom = 314.425
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.133333, 0.6, 0.133333, 1)
 theme_override_fonts/font = ExtResource("2_wddbg")
 theme_override_font_sizes/font_size = 160
-text = "TreeBurn"
+text = "Treeburn"
 horizontal_alignment = 1
 vertical_alignment = 1
 
