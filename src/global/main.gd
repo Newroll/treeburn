@@ -59,7 +59,7 @@ func _physics_process(_delta):
 	#If it does then just make a commit and remove it.
 	
 	### REMOVE THIS FUNCTION CALL ###
-	debug()
+	#debug()
 	#################################
 	
 	framesEclapsed += 1
@@ -111,36 +111,6 @@ func unanimated_death():
 	ice = false
 	below_death_height = false
 	get_tree().change_scene_to_file("res://src/global/death.tscn")
-
-
-func _ready():
-	SilentWolf.configure({
-		"api_key": "uOYO6LO9ho3RVe8DX0iXE66sxl9GNRK13sasdtVY",
-		"game_id": "Treeburn",
-		"log_level": 1
-	})
-
-	SilentWolf.configure_scores({
-		"open_scene_on_close": "res://scenes/MainPage.tscn"
-	})
-	
-func time_convert(time_in_sec):
-	var seconds = int(time_in_sec)%60
-	var minutes = (int(time_in_sec)/60)%60
-
-	#returns a string with the format "HH:MM:SS"
-	return "%02d:%02d" % [minutes, seconds]
-
-func ordinal(number: int) -> String:
-	suffixes = {
-		1: "st",
-		2: "nd",
-		3: "rd",
-	}
-	if number <= 3:
-		return str(number)+suffixes[number]
-	else:
-		return str(number)+"th"
 
 func debug():
 	if level != 0 || 7:

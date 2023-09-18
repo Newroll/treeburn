@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://df3vetauxnfky"]
+[gd_scene load_steps=8 format=3 uid="uid://dvlsaijqkxsfl"]
 
 [ext_resource type="Script" path="res://src/interactive/pitfall.gd" id="1_3mjn5"]
 [ext_resource type="Texture2D" uid="uid://d3xho7hc8wt4a" path="res://assets/interactive/pitfall.png" id="2_y8eqx"]

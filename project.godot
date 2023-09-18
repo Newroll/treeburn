@@ -10,8 +10,8 @@ config_version=5
 
 [application]
 
-config/name="TreeBurn"
-run/main_scene="res://src/ui/intro.tscn"
+config/name="Treeburn"
+run/main_scene="res://src/levels/demo_level.tscn"
 config/features=PackedStringArray("4.1", "GL Compatibility")
 run/max_fps=60
 boot_splash/image="res://assets/brand/icon.png"
@@ -21,7 +21,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 Main="*res://src/global/main.gd"
-SilentWolf="*res://addons/silent_wolf/SilentWolf.gd"
 
 [display]
 
