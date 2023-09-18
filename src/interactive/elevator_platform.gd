@@ -27,6 +27,8 @@ func _physics_process(_delta):
 		fallingtime += 1
 		velocity = Vector2(0, spd)
 		move_and_slide()
+		if position.y > -15:
+			entered = false
 
 	if fallingtime > 0 && entered == false:
 		if wait == true:
