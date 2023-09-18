@@ -1,0 +1,76 @@
+[gd_scene load_steps=8 format=3 uid="uid://df3vetauxnfky"]
+
+[ext_resource type="Script" path="res://src/interactive/pitfall.gd" id="1_3mjn5"]
+[ext_resource type="Texture2D" uid="uid://d3xho7hc8wt4a" path="res://assets/interactive/pitfall.png" id="2_y8eqx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ht5gh"]
+size = Vector2(112, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ajhoi"]
+size = Vector2(112, 32)
+
+[sub_resource type="Animation" id="Animation_rhm36"]
+length = 0.001
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2040, -128)]
+}
+
+[sub_resource type="Animation" id="Animation_3pinq"]
+resource_name = "wobble"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3, 3.1),
+"transitions": PackedFloat32Array(4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4),
+"update": 0,
+"values": [Vector2(2040, -128), Vector2(2046, -128), Vector2(2040, -128), Vector2(2034, -128), Vector2(2040, -128), Vector2(2046, -128), Vector2(2040, -128), Vector2(2034, -128), Vector2(2040, -128), Vector2(2046, -128), Vector2(2040, -128), Vector2(2034, -128), Vector2(2040, -128), Vector2(2046, -128), Vector2(2040, -128), Vector2(2034, -128), Vector2(2040, -128), Vector2(2046, -128), Vector2(2040, -128), Vector2(2034, -128), Vector2(2040, -128), Vector2(2046, -128), Vector2(2040, -128), Vector2(2034, -128), Vector2(2040, -128), Vector2(2046, -128), Vector2(2040, -128), Vector2(2034, -128), Vector2(2040, -128), Vector2(2046, -128), Vector2(2040, -128), Vector2(2034, -128)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j6f26"]
+_data = {
+"RESET": SubResource("Animation_rhm36"),
+"wobble": SubResource("Animation_3pinq")
+}
+
+[node name="pitfall" type="CharacterBody2D"]
+position = Vector2(-1, 0)
+script = ExtResource("1_3mjn5")
+
+[node name="collider" type="Area2D" parent="."]
+
+[node name="texture" type="Sprite2D" parent="collider"]
+texture_filter = 1
+position = Vector2(2, 64)
+texture = ExtResource("2_y8eqx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collider"]
+position = Vector2(2, -25)
+shape = SubResource("RectangleShape2D_ht5gh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 0)
+shape = SubResource("RectangleShape2D_ajhoi")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../../..")
+libraries = {
+"": SubResource("AnimationLibrary_j6f26")
+}
+
+[connection signal="body_entered" from="collider" to="." method="_on_collider_body_entered"]
+[connection signal="body_exited" from="collider" to="." method="_on_collider_body_exited"]

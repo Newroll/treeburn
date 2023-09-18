@@ -61,7 +61,7 @@ func _physics_process(delta):
 	if Main.knockback == false && Main.fireKnockback == false && Main.suspendMovement == false:
 		#Run functions
 		jump()
-		wall_sliding_true()
+		#wall_sliding_true()
 		animation_state(input_axis)
 		handle_acceleration(input_axis, delta)
 		apply_friction(input_axis,delta)
