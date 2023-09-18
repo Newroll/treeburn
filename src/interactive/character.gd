@@ -71,7 +71,10 @@ func _physics_process(delta):
 	elif Main.fireKnockback == true:
 		fireKnockback(input_axis, delta)
 	
-	if position.y > Main.death_height[Main.level]:
+	if position.y > Main.death_height[Main.level] && Main.demo == false:
+		Main.below_death_height = true
+	
+	if Main.demo == true && position.y > Main.demo_death_height:
 		Main.below_death_height = true
 	
 	if Main.resetPlayer == true:

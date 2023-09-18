@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://src/interactive/platform.gd" id="1_veek5"]
 [ext_resource type="Texture2D" uid="uid://c2mry0qfdwb45" path="res://assets/foreground/lvl2_ground.png" id="2_88krl"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_esmuk"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_koyn3"]
 texture = ExtResource("2_88krl")
 0:0/0 = 0
 1:0/0 = 0
@@ -25,7 +25,7 @@ texture = ExtResource("2_88krl")
 3:2/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_df2ek"]
-sources/0 = SubResource("TileSetAtlasSource_esmuk")
+sources/1 = SubResource("TileSetAtlasSource_koyn3")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h1k72"]
 size = Vector2(58, 9.1875)
@@ -44,7 +44,7 @@ position = Vector2(0, 4)
 texture_filter = 1
 tile_set = SubResource("TileSet_df2ek")
 format = 2
-layer_0/tile_data = PackedInt32Array(65535, 65536, 2, 0, 65536, 2, 1, 131072, 2, 65534, 0, 2, -2, 0, 0, -1, 65536, 0, -65536, 65536, 0, -65535, 131072, 0)
+layer_0/tile_data = PackedInt32Array(-2, 1, 0, -1, 65537, 0, -65536, 65537, 0, -65535, 131073, 0, 65534, 1, 2, 65535, 65537, 2, 0, 65537, 2, 1, 131073, 2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="collider"]
 position = Vector2(0, -19)

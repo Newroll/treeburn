@@ -1,6 +1,7 @@
 extends Node
 #Detects if it is a demo level
 var demo = true
+var demo_death_height = 200
 
 #Player values
 var coins = 0
