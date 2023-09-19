@@ -58,6 +58,7 @@ text = "Restart level"
 metadata/_edit_use_anchors_ = true
 
 [node name="QuitToMenuButton" type="Button" parent="."]
+visible = false
 offset_left = 69.0
 offset_top = 114.0
 offset_right = 249.0

@@ -19,8 +19,4 @@ func _on_quit_to_menu_button_pressed():
 
 
 func _on_restartbutton_pressed():
-	if Main.demo == false:
-		get_tree().change_scene_to_file("res://src/levels/level_" + str(Main.level) + ".tscn")
-	else:
-		get_tree().change_scene_to_file("res://src/levels/demo_level.tscn")
-	get_tree().paused = false
+	Main.unanimated_death()

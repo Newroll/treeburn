@@ -31,10 +31,7 @@ var death_height = [100, 100, 200, 100, 200, 270, 400, 100]
 var below_death_height = false
 
 #Leaderboard values
-var gameComplete = true
-var leaderboardOffer = false
-var suffixq
-var suffixes
+var gameComplete = false
 
 #Avalanche hit detector
 var snowHit = 0
@@ -53,15 +50,6 @@ var zoomLevels = [0.5, 0.75, 1, 1.25, 1.5]
 var currentZoomLevel = 2
 
 func _physics_process(_delta):
-	
-	
-	#Does this need to be removed?
-	#If it does then just make a commit and remove it.
-	
-	### REMOVE THIS FUNCTION CALL ###
-	#debug()
-	#################################
-	
 	framesEclapsed += 1
 	totalFramesEclapsed += 1
 	
@@ -76,8 +64,6 @@ func _physics_process(_delta):
 		framesEclapsed = 0
 	if(health <= 0 || worldHealth <= 0):
 		animated_death()
-	if below_death_height == true:
-		unanimated_death()
 
 	if immunity == true:
 		if immunityTemp == true:
@@ -104,6 +90,7 @@ func animated_death():
 	get_tree().change_scene_to_file("res://src/global/death.tscn")
 
 func unanimated_death():
+	resetPlayer = true
 	coins = 0 
 	health = 3
 	worldHealth = 8
@@ -111,37 +98,3 @@ func unanimated_death():
 	ice = false
 	below_death_height = false
 	get_tree().change_scene_to_file("res://src/global/death.tscn")
-
-func debug():
-	if level != 0 || 7:
-		gameComplete = false
-	
-	if Input.is_action_just_pressed("one"):
-		coins = 0
-		level = 1
-		get_tree().change_scene_to_file("res://src/levels/level_1.tscn")
-	
-	if Input.is_action_just_pressed("two"):
-		coins = 0
-		level = 2
-		get_tree().change_scene_to_file("res://src/levels/level_2.tscn")
-	
-	if Input.is_action_just_pressed("three"):
-		coins = 0
-		level = 3
-		get_tree().change_scene_to_file("res://src/levels/level_3.tscn")
-	
-	if Input.is_action_just_pressed("four"):
-		coins = 0
-		level = 4
-		get_tree().change_scene_to_file("res://src/levels/level_4.tscn")
-	
-	if Input.is_action_just_pressed("five"):
-		coins = 0
-		level = 5
-		get_tree().change_scene_to_file("res://src/levels/level_5.tscn")
-	
-	if Input.is_action_just_pressed("six"):
-		coins = 0
-		level = 6
-		get_tree().change_scene_to_file("res://src/levels/level_6.tscn")

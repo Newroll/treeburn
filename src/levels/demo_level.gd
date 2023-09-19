@@ -43,3 +43,5 @@ func _process(_delta):
 			$music.set_stream(music3)
 			setMusic3 = true
 			$music.play()
+	if Main.playerPosition.y > 200:
+		Main.unanimated_death()

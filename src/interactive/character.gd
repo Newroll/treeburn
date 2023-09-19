@@ -39,6 +39,7 @@ var fireKnockback_timer_started = false
 var stupidAnimation
 
 func _physics_process(delta):
+	Main.playerPosition = get_position()
 	var input_axis = Input.get_axis("move_left", "move_right")
 	
 	if knockback_right.is_colliding():
@@ -61,11 +62,10 @@ func _physics_process(delta):
 	if Main.knockback == false && Main.fireKnockback == false && Main.suspendMovement == false:
 		#Run functions
 		jump()
-		#wall_sliding_true()
 		animation_state(input_axis)
 		handle_acceleration(input_axis, delta)
 		apply_friction(input_axis,delta)
-		wall_jumping()
+		
 	elif Main.knockback == true:
 		knockback()
 	elif Main.fireKnockback == true:
@@ -84,8 +84,6 @@ func _physics_process(delta):
 		await get_tree().create_timer(1.9).timeout
 		resetPlayerPos()
 		Main.resetPlayer = false
-	
-	Main.playerPosition = get_position()
 
 func check_state():
 	if Main.quicksand == true:
@@ -139,42 +137,6 @@ func jump():
 
 	if is_on_floor():
 		movement_data.double_jump = true
-
-
-#Handles Wall Sliding.
-func wall_sliding_true():
-	if is_on_wall() && not is_on_floor():
-		if Input.is_action_just_pressed("interact"):
-			movement_data.wall_sliding = true
-		
-		if movement_data.wall_sliding:
-			if Input.is_action_just_pressed("KEY_ANY"):
-				movement_data.wall_sliding = false
-
-		if movement_data.wall_sliding == true:
-			velocity.y = movement_data.wall_slide
-	else:
-		movement_data.wall_sliding = false
-		return
-
-
-func wall_jumping():
-	#For some reason "is_on_wall" is breaking this code.
-	if not is_on_floor():
-		if Input.is_action_just_pressed("move_right"):
-			if wall_left.is_colliding():
-				var object_left_wall = wall_left.get_collider()
-				if object_left_wall.get_name() == "BehindPlayer":
-					velocity.y = movement_data.jump_velocity
-					velocity.x = 150
-
-		if Input.is_action_just_pressed("move_left"):
-			if wall_right.is_colliding():
-				var object_right_wall = wall_right.get_collider()
-				if object_right_wall.get_name() == "BehindPlayer":
-					velocity.y = movement_data.jump_velocity
-					velocity.x = -150
-
 
 func resetPlayerPos():
 	get_position()
@@ -243,15 +205,6 @@ func knockback():
 			if object_left.get_name() != "BehindPlayer":
 				knockback_dir = 1
 				knockback_power = -200
-
-# Identifies whether or not knockback is coming from both left and right
-#Function not needed right now
-		#if knockback_left.is_colliding() && knockback_right.is_colliding():
-			#if object_left.get_name() != "BehindPlayer" && object_right.get_name() != "BehindPlayer": 
-				#if object_down.get_name() == "BehindPlayer":
-					#knockback_dir = 0
-					#knockback_power = -350
-					#print("Knockback down")
 
 # Identifies whether or not knockback is coming from below
 		if knockback_down.is_colliding():
