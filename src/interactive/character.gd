@@ -65,6 +65,7 @@ func _physics_process(delta):
 		animation_state(input_axis)
 		handle_acceleration(input_axis, delta)
 		apply_friction(input_axis,delta)
+		wall_jumping()
 		
 	elif Main.knockback == true:
 		knockback()
@@ -191,6 +192,23 @@ func animation_state(input_axis):
 	if stupidAnimation == true:
 		$AnimationPlayer.play("blink")
 		stupidAnimation = false
+
+func wall_jumping():
+	#For some reason "is_on_wall" is breaking this code.
+	if not is_on_floor():
+		if Input.is_action_just_pressed("move_right"):
+			if wall_left.is_colliding():
+				var object_left_wall = wall_left.get_collider()
+				if object_left_wall.get_name() == "BehindPlayer":
+					velocity.y = movement_data.jump_velocity
+					velocity.x = 150
+
+		if Input.is_action_just_pressed("move_left"):
+			if wall_right.is_colliding():
+				var object_right_wall = wall_right.get_collider()
+				if object_right_wall.get_name() == "BehindPlayer":
+					velocity.y = movement_data.jump_velocity
+					velocity.x = -150
 
 func knockback():
 	if knockback_timer_started == false:

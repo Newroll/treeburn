@@ -14,25 +14,28 @@ func _process(_delta):
 		$UI/PauseMenu.show()
 		
 	if Main.playerPosition.x < 2013:
+		if setMusic1 == false:
+			if Main.playerPosition.x > 300:
+				transition()
+			$music.set_stream(music1)
+			setMusic1 = true
+			$music.play()
 		$bg1.show()
 		$bg2.hide()
 		$bg3.hide()
 		setMusic2 = false
 		setMusic3 = false
-		if setMusic1 == false:
-			$music.set_stream(music1)
-			setMusic1 = true
-			$music.play()
 	if Main.playerPosition.x > 2013 && Main.playerPosition.x < 3090:
+		if setMusic2 == false:
+			transition()
+			$music.set_stream(music2)
+			setMusic2 = true
+			$music.play()
 		$bg1.hide()
 		$bg2.show()
 		$bg3.hide()
 		setMusic1 = false
 		setMusic3 = false
-		if setMusic2 == false:
-			$music.set_stream(music2)
-			setMusic2 = true
-			$music.play()
 	if Main.playerPosition.x > 3090:
 		$bg1.hide()
 		$bg2.hide()
@@ -40,8 +43,17 @@ func _process(_delta):
 		setMusic1 = false
 		setMusic2 = false
 		if setMusic3 == false:
+			transition()
 			$music.set_stream(music3)
 			setMusic3 = true
 			$music.play()
 	if Main.playerPosition.y > 200:
 		Main.unanimated_death()
+
+func transition():
+	$CanvasLayer.show()
+	get_tree().paused = true
+	$CanvasLayer/AnimationPlayer.play("fade")
+	await get_tree().create_timer(4).timeout
+	get_tree().paused = false
+	$CanvasLayer.hide()
