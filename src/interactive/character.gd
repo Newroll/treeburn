@@ -56,8 +56,8 @@ func _physics_process(delta):
 	check_state()
 	apply_gravity(delta)
 	
-	if Main.suspendMovement == true:
-		velocity.x = 0
+	#if Main.suspendMovement == true:
+		#velocity.x = 0
 	
 	if Main.knockback == false && Main.fireKnockback == false && Main.suspendMovement == false:
 		#Run functions
@@ -78,13 +78,13 @@ func _physics_process(delta):
 	if Main.demo == true && position.y > Main.demo_death_height:
 		Main.below_death_height = true
 	
-	if Main.resetPlayer == true:
-		velocity.y = 0
-		velocity.x = 0
-		animated_sprite.animation = "death"
-		await get_tree().create_timer(1.9).timeout
-		resetPlayerPos()
-		Main.resetPlayer = false
+	#if Main.resetPlayer == true:
+		#velocity.y = 0
+		#velocity.x = 0
+		#animated_sprite.animation = "death"
+		#await get_tree().create_timer(1.9).timeout
+		#resetPlayerPos()
+		#Main.resetPlayer = false
 
 func check_state():
 	if Main.quicksand == true:
@@ -156,7 +156,7 @@ func resetPlayerPos():
 
 
 func animation_state(input_axis):
-	if velocity.x == 0 && Main.resetPlayer == false:
+	if velocity.x == 0:
 		animated_sprite.animation = "default"
 		animated_collision.scale.y = 0.951
 		animated_collision.position.x = 0.1
@@ -171,13 +171,14 @@ func animation_state(input_axis):
 		animated_sprite.animation = "move"
 		animated_collision.scale.y = 1.03
 		animated_collision.position.x = 1.5
-		animated_sprite.flip_h = false 
+		animated_sprite.flip_h = false
 
 	if velocity.y < 0:
 		animated_sprite.animation = "jumpUp"
 		
 	if velocity.y > 0:
 		animated_sprite.animation = "jumpDown"
+
 
 	if Main.immunity == true && Main.health > 0:
 		stupidAnimation = true

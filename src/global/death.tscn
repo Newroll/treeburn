@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bhw48p0ycooeo"]
+[gd_scene load_steps=5 format=3 uid="uid://bhw48p0ycooeo"]
 
 [ext_resource type="Texture2D" uid="uid://dp8q7ne2wr5nx" path="res://assets/interactive/deathscreen.png" id="1_6txj8"]
 [ext_resource type="Script" path="res://src/global/death.gd" id="1_lls1p"]
 [ext_resource type="FontFile" uid="uid://422t11bovf6v" path="res://assets/styles/mainport.ttf" id="2_3l267"]
+[ext_resource type="AudioStream" uid="uid://b7ysdkw0lu2wa" path="res://assets/sfx/death.mp3" id="4_6oap5"]
 
 [node name="death" type="Node2D"]
 process_mode = 3
@@ -27,3 +28,7 @@ offset_bottom = 108.0
 theme_override_fonts/font = ExtResource("2_3l267")
 theme_override_font_sizes/font_size = 18
 text = "press enter to proceed"
+
+[node name="die" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_6oap5")
+volume_db = 20.0

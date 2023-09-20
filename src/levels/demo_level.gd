@@ -17,7 +17,9 @@ func _process(_delta):
 	if Input.is_action_just_pressed("esc"):
 		get_tree().paused = true
 		$UI/PauseMenu.show()
-		
+	
+	Main.playerPosition = $CharacterBody2D.get_position()
+	
 	if Main.playerPosition.x < 1800 && setLevel1 == false:
 		setLevel1 = true
 		setLevel2 = false

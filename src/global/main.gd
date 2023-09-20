@@ -62,7 +62,7 @@ func _physics_process(_delta):
 			timeEclapsed += 0.1
 			worldHealth -= 0.025
 		framesEclapsed = 0
-	if(health <= 0 || worldHealth <= 0):
+	if(health <= 0 || worldHealth <= 0) && below_death_height == false:
 		animated_death()
 
 	if immunity == true:
@@ -81,7 +81,6 @@ func takeDmg(amount):
 
 func animated_death():
 	resetPlayer = true
-	await get_tree().create_timer(2).timeout
 	coins = 0 
 	health = 3
 	worldHealth = 8

@@ -205,10 +205,7 @@ texture_filter = 1
 position = Vector2(1.52588e-05, -0.0624927)
 scale = Vector2(0.757812, 0.753906)
 sprite_frames = SubResource("SpriteFrames_3bg3d")
-animation = &"death"
 autoplay = "move"
-frame = 4
-frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(1.5, 1)
@@ -274,7 +271,7 @@ volume_db = 12.0
 
 [node name="hurt" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_aa582")
-volume_db = 11.0
+volume_db = 18.0
 pitch_scale = 0.77
 
 [connection signal="timeout" from="FireKnockbackTimer" to="." method="_on_fire_knockback_timer_timeout"]
