@@ -89,13 +89,13 @@ func _physics_process(delta):
 func check_state():
 	if Main.quicksand == true:
 		movement_data = load("res://src/interactive/QuicksandMovementData.tres")
-		animated_sprite.set_speed_scale(0.26)
+		#animated_sprite.set_speed_scale(0.26)
 	if Main.ice == true:
 		movement_data = load("res://src/interactive/IceMovementData.tres")
-		animated_sprite.set_speed_scale(0.5)
+		#animated_sprite.set_speed_scale(0.5)
 	if Main.ice == false && Main.quicksand == false:
 		movement_data = load("res://src/interactive/DefaultMovementData.tres")
-		animated_sprite.set_speed_scale(1.0)
+		#animated_sprite.set_speed_scale(1.0)
 
 func apply_gravity(delta):
 	if not is_on_floor() && movement_data.wall_sliding == false:
