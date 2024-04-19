@@ -5,3 +5,5 @@
 [resource]
 default_font = ExtResource("1_tkhgn")
 default_font_size = 8
+MarginContainer/constants/margin_bottom = 160
+MarginContainer/constants/margin_top = 0
