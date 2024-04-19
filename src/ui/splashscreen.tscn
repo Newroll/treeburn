@@ -99,16 +99,16 @@ scale = Vector2(7.1121, 3.65379)
 texture = ExtResource("3_s78pp")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-autoplay = "splashscreen_animation"
 libraries = {
 "": SubResource("AnimationLibrary_smr2c")
 }
+autoplay = "splashscreen_animation"
 
 [node name="Label" type="Label" parent="."]
-offset_left = -44.5431
-offset_top = 338.359
-offset_right = 1993.45
-offset_bottom = 616.359
+modulate = Color(1, 1, 1, 0)
+offset_left = 348.0
+offset_right = 2385.99
+offset_bottom = 278.0
 theme_override_colors/font_color = Color(0.133333, 0.6, 0.133333, 1)
 theme_override_fonts/font = ExtResource("1_ajybt")
 theme_override_font_sizes/font_size = 170
@@ -117,10 +117,10 @@ horizontal_alignment = 1
 metadata/_edit_use_anchors_ = true
 
 [node name="Letter" type="Label" parent="."]
-offset_left = 99.4571
-offset_top = 295.799
-offset_right = 373.458
-offset_bottom = 573.799
+modulate = Color(1, 1, 1, 0)
+offset_left = 826.0
+offset_right = 1100.0
+offset_bottom = 278.0
 theme_override_colors/font_color = Color(0.133333, 0.6, 0.133333, 1)
 theme_override_fonts/font = ExtResource("1_ajybt")
 theme_override_font_sizes/font_size = 190
