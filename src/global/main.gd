@@ -49,9 +49,15 @@ var hurtSFX = true
 var zoomLevels = [0.5, 0.75, 1, 1.25, 1.5]
 var currentZoomLevel = 2
 
+#Checks Scene
+var introScene = null
+
 func _physics_process(_delta):
-	
-	
+	#Changes scale factor between game and levels
+	if get_tree().current_scene == introScene :
+		get_tree().root.content_scale_factor = 1
+	else:
+		get_tree().root.content_scale_factor = 6
 	#Does this need to be removed?
 	#If it does then just make a commit and remove it.
 	

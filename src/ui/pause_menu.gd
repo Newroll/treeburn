@@ -19,4 +19,5 @@ func _on_quit_to_menu_button_pressed():
 
 
 func _on_restartbutton_pressed():
-	Main.death()
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://src/levels/level_" + str(Main.level) + ".tscn")
