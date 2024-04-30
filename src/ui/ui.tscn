@@ -258,6 +258,8 @@ animations = [{
 }]
 
 [node name="ui" type="CanvasLayer"]
+scale = Vector2(6, 6)
+transform = Transform2D(6, 0, 0, 6, 0, 0)
 script = ExtResource("1_fj7ts")
 
 [node name="pausebutton" type="Button" parent="."]
@@ -276,22 +278,24 @@ text = "PAUSE"
 
 [node name="coinanimation" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
-position = Vector2(296.406, 11.4063)
-scale = Vector2(0.800782, 0.800782)
+position = Vector2(291.733, 13.224)
+scale = Vector2(0.8, 0.903)
 sprite_frames = SubResource("SpriteFrames_dh1gv")
 autoplay = "default"
 
 [node name="CoinCounter" type="Label" parent="."]
 texture_filter = 1
-offset_left = 305.406
-offset_top = 5.40622
-offset_right = 315.406
-offset_bottom = 22.4063
+offset_left = 299.8
+offset_top = 6.224
+offset_right = 341.8
+offset_bottom = 67.224
+scale = Vector2(0.25, 0.25)
 theme_override_fonts/font = ExtResource("1_hkuc3")
-theme_override_font_sizes/font_size = 14
+theme_override_font_sizes/font_size = 64
 text = "0"
 horizontal_alignment = 1
 script = ExtResource("3_x676s")
+metadata/_edit_use_anchors_ = true
 
 [node name="health" type="Node" parent="."]
 
@@ -352,8 +356,10 @@ offset_left = 3.0
 offset_top = 174.0
 offset_right = 66.0
 offset_bottom = 181.0
+scale = Vector2(0.25, 0.25)
 theme_override_fonts/font = ExtResource("1_hkuc3")
-theme_override_font_sizes/font_size = 4
+theme_override_font_sizes/font_size = 28
 text = "Treeburn v2.8 development"
+metadata/_edit_use_anchors_ = true
 
 [connection signal="pressed" from="pausebutton" to="." method="_on_button_pressed"]

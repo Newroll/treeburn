@@ -8,6 +8,8 @@
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 2
 layer = 3
+scale = Vector2(6, 6)
+transform = Transform2D(6, 0, 0, 6, 0, 0)
 script = ExtResource("1_hc50u")
 
 [node name="ColorRect" type="ColorRect" parent="."]

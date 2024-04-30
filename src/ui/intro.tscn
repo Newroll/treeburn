@@ -107,11 +107,11 @@ vertical = true
 
 [node name="MarginContainer" type="MarginContainer" parent="buttonsContainer"]
 layout_mode = 2
-theme_override_constants/margin_top = 96
-theme_override_constants/margin_bottom = 32
+theme_override_constants/margin_top = 256
+theme_override_constants/margin_bottom = 8
 
 [node name="NewGame_Button" type="Button" parent="buttonsContainer/MarginContainer"]
-custom_minimum_size = Vector2(720, 156)
+custom_minimum_size = Vector2(720, 256)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -126,7 +126,7 @@ text = "Play"
 
 [node name="MarginContainer2" type="MarginContainer" parent="buttonsContainer"]
 layout_mode = 2
-theme_override_constants/margin_bottom = 32
+theme_override_constants/margin_bottom = 8
 
 [node name="settingsButton" type="Button" parent="buttonsContainer/MarginContainer2"]
 custom_minimum_size = Vector2(720, 96)
@@ -144,7 +144,7 @@ text = "Settings"
 
 [node name="MarginContainer3" type="MarginContainer" parent="buttonsContainer"]
 layout_mode = 2
-theme_override_constants/margin_bottom = 32
+theme_override_constants/margin_bottom = 8
 
 [node name="creditsbutton" type="Button" parent="buttonsContainer/MarginContainer3"]
 custom_minimum_size = Vector2(720, 96)
