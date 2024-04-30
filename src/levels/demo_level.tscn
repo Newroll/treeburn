@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://cgwgyacm4bnxw" path="res://assets/foreground/bush.png" id="10_xyu0t"]
 [ext_resource type="Texture2D" uid="uid://k2f1fdpf3td5" path="res://assets/foreground/flower.png" id="11_cgp4y"]
 [ext_resource type="Texture2D" uid="uid://d3poqaxqqu015" path="res://assets/foreground/icybush.png" id="11_smy4m"]
-[ext_resource type="Texture2D" uid="uid://c1nu6w8duwykp" path="res://assets/foreground/snowman.png" id="12_r2hbt"]
+[ext_resource type="Texture2D" uid="uid://dn4n3jvtjlvx3" path="res://assets/foreground/snowman.png" id="12_r2hbt"]
 [ext_resource type="PackedScene" uid="uid://bmlc5h5gbouaf" path="res://src/interactive/character.tscn" id="13_thrk5"]
 [ext_resource type="Script" path="res://src/levels/camera.gd" id="14_lb2th"]
 [ext_resource type="Texture2D" uid="uid://b1ulb37udof5d" path="res://assets/foreground/quicksand.png" id="15_11nk1"]
@@ -1340,7 +1340,7 @@ position = Vector2(1327, 34)
 texture = ExtResource("27_lmh7a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pitfall/collider"]
-position = Vector2(1327, -55)
+position = Vector2(1341, -55)
 shape = SubResource("RectangleShape2D_xuqyn")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pitfall"]
@@ -1380,6 +1380,7 @@ position = Vector2(4588, -640.875)
 shape = SubResource("RectangleShape2D_mqr16")
 
 [node name="music" type="AudioStreamPlayer" parent="."]
+volume_db = -15.0
 autoplay = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -1414,7 +1415,7 @@ offset_right = 180.0
 offset_bottom = 50.0
 theme_override_fonts/font = ExtResource("34_1ipix")
 theme_override_font_sizes/font_size = 12
-text = "PLAY FULL VERSION AT HTTPS://TREEBURN.ME"
+text = "PLAY FULL VERSION AT HTTPS://TREEBURN."
 horizontal_alignment = 2
 autowrap_mode = 2
 
