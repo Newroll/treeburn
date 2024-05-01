@@ -44,6 +44,9 @@ var immunity = false
 var immunityTimer
 var immunityTemp = true
 var hurtSFX = true
+var resetHealth1 = false
+var resetHealth2 = false
+var resetHealth3 = false
 
 #Camera Zoom Levels
 var zoomLevels = [0.5, 0.75, 1, 1.25, 1.5]
