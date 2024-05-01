@@ -345,6 +345,7 @@ offset_left = -80.0
 offset_top = -462.0
 offset_right = 3321.0
 offset_bottom = 185.0
+scale = Vector2(1, 1.36)
 color = Color(0.396078, 0.717647, 0.831373, 1)
 
 [node name="SkyFront" type="ParallaxLayer" parent="Parallax"]
