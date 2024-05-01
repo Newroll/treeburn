@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bhw48p0ycooeo"]
+[gd_scene load_steps=5 format=3 uid="uid://bhw48p0ycooeo"]
 
 [ext_resource type="Texture2D" uid="uid://dp8q7ne2wr5nx" path="res://assets/interactive/deathscreen.png" id="1_6txj8"]
 [ext_resource type="Script" path="res://src/global/death.gd" id="1_lls1p"]
 [ext_resource type="FontFile" uid="uid://422t11bovf6v" path="res://assets/styles/mainport.ttf" id="2_3l267"]
+[ext_resource type="Theme" uid="uid://s7ofcp5w0jrk" path="res://assets/styles/pause-menu_theme.tres" id="3_71uao"]
 
 [node name="death" type="Node2D"]
 process_mode = 3
@@ -15,49 +16,61 @@ offset_right = 1920.0
 offset_bottom = 1080.0
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 1080.0
 scale = Vector2(1, 0.995402)
 color = Color(0, 0, 0, 1)
 
-[node name="BoxContainer" type="BoxContainer" parent="Control"]
-layout_mode = 0
+[node name="MainMarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 2
 offset_right = 1920.0
 offset_bottom = 1080.0
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_top = 32
+
+[node name="BoxContainer" type="BoxContainer" parent="Control/MainMarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
 alignment = 1
 vertical = true
 
-[node name="skillissue" type="Sprite2D" parent="Control/BoxContainer"]
+[node name="skillissue" type="Sprite2D" parent="Control/MainMarginContainer/BoxContainer"]
 texture_filter = 1
-position = Vector2(6.10352e-05, 0)
+position = Vector2(6.10352e-05, 72)
 scale = Vector2(29.9277, 29.266)
 texture = ExtResource("1_6txj8")
 centered = false
 
-[node name="MarginContainer" type="MarginContainer" parent="Control/BoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="Control/MainMarginContainer/BoxContainer"]
 layout_mode = 2
+theme_override_constants/margin_left = 8
 
-[node name="continue" type="Button" parent="Control/BoxContainer/MarginContainer"]
+[node name="continue" type="Button" parent="Control/MainMarginContainer/BoxContainer/MarginContainer"]
 texture_filter = 1
 custom_minimum_size = Vector2(720, 96)
 layout_mode = 2
 size_flags_horizontal = 0
+theme = ExtResource("3_71uao")
 theme_override_fonts/font = ExtResource("2_3l267")
 theme_override_font_sizes/font_size = 48
 text = "Continue
 "
+alignment = 0
 
-[node name="MarginContainer2" type="MarginContainer" parent="Control/BoxContainer"]
+[node name="MarginContainer2" type="MarginContainer" parent="Control/MainMarginContainer/BoxContainer"]
 layout_mode = 2
-theme_override_constants/margin_left = 32
+theme_override_constants/margin_left = 8
 
-[node name="quit" type="Button" parent="Control/BoxContainer/MarginContainer2"]
-custom_minimum_size = Vector2(720, 96)
+[node name="quit" type="Button" parent="Control/MainMarginContainer/BoxContainer/MarginContainer2"]
+custom_minimum_size = Vector2(1080, 96)
 layout_mode = 2
 size_flags_horizontal = 0
+theme = ExtResource("3_71uao")
 theme_override_fonts/font = ExtResource("2_3l267")
 theme_override_font_sizes/font_size = 48
 text = "Quit (progress will not be saved)"
+alignment = 0
 
-[connection signal="pressed" from="Control/BoxContainer/MarginContainer/continue" to="." method="_on_continue_pressed"]
-[connection signal="pressed" from="Control/BoxContainer/MarginContainer2/quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Control/MainMarginContainer/BoxContainer/MarginContainer/continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Control/MainMarginContainer/BoxContainer/MarginContainer2/quit" to="." method="_on_quit_pressed"]

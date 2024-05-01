@@ -1,9 +1,15 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://s7ofcp5w0jrk"]
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://s7ofcp5w0jrk"]
 
 [ext_resource type="FontFile" uid="uid://422t11bovf6v" path="res://assets/styles/mainport.ttf" id="1_tkhgn"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_brf0t"]
+bg_color = Color(1, 1, 1, 1)
 
 [resource]
 default_font = ExtResource("1_tkhgn")
 default_font_size = 8
+Button/colors/font_color = Color(0, 0, 0, 1)
+Button/constants/h_separation = 20
+Button/styles/normal = SubResource("StyleBoxFlat_brf0t")
 MarginContainer/constants/margin_bottom = 160
 MarginContainer/constants/margin_top = 0
