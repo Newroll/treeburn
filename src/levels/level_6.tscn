@@ -328,6 +328,11 @@ script = ExtResource("1_412il")
 [node name="Parallax" type="ParallaxBackground" parent="."]
 
 [node name="SkyBack" type="ColorRect" parent="Parallax"]
+anchors_preset = -1
+anchor_left = -0.252083
+anchor_top = -1.41944
+anchor_right = 0.901042
+anchor_bottom = 0.618519
 offset_left = -2.0
 offset_top = -222.0
 offset_right = 2593.0
@@ -627,6 +632,7 @@ offset_left = -185.0
 offset_top = -539.0
 offset_right = 1736.0
 offset_bottom = 537.0
+scale = Vector2(6, 6)
 color = Color(0, 0, 0, 0)
 metadata/_edit_lock_ = true
 

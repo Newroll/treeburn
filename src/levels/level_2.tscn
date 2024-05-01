@@ -13,7 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://iw33gtlicsw4" path="res://assets/foreground/deadtree.png" id="7_503km"]
 [ext_resource type="Texture2D" uid="uid://bo5yrg83rhude" path="res://assets/foreground/lvl1_ground.png" id="7_lmob4"]
 [ext_resource type="Texture2D" uid="uid://cgwgyacm4bnxw" path="res://assets/foreground/bush.png" id="8_v61fb"]
-[ext_resource type="PackedScene" uid="uid://dqwcpids7e46a" path="res://src/enemies/axe.tscn" id="9_2oe7p"]
+[ext_resource type="PackedScene" uid="uid://dqwcpids7e46a" path="res://src/Enemies/axe.tscn" id="9_2oe7p"]
 [ext_resource type="Texture2D" uid="uid://k2f1fdpf3td5" path="res://assets/foreground/flower.png" id="9_rwih5"]
 [ext_resource type="Script" path="res://src/levels/camera.gd" id="11_u62gu"]
 [ext_resource type="Texture2D" uid="uid://cs04t8of1amx8" path="res://assets/foreground/water.tres" id="12_g4vdj"]
@@ -746,6 +746,10 @@ script = ExtResource("1_anxaj")
 [node name="Parallax" type="ParallaxBackground" parent="."]
 
 [node name="SkyBack" type="ColorRect" parent="Parallax"]
+anchors_preset = -1
+anchor_left = -0.192708
+anchor_top = -0.233333
+anchor_bottom = 0.263889
 offset_left = -8.0
 offset_top = -429.0
 offset_right = 3393.0
@@ -958,6 +962,7 @@ offset_left = -185.0
 offset_top = -539.0
 offset_right = 1736.0
 offset_bottom = 537.0
+scale = Vector2(6, 6)
 color = Color(0, 0, 0, 0)
 metadata/_edit_use_anchors_ = true
 metadata/_edit_lock_ = true

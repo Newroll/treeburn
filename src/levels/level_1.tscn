@@ -392,10 +392,10 @@ script = ExtResource("1_tuhjd")
 [node name="Parallax" type="ParallaxBackground" parent="."]
 
 [node name="SkyBack" type="ColorRect" parent="Parallax"]
-offset_left = -8.0
+offset_left = -224.0
 offset_top = -429.0
-offset_right = 3393.0
-offset_bottom = 218.0
+offset_right = 3720.0
+offset_bottom = 616.0
 color = Color(0.396078, 0.717647, 0.831373, 1)
 
 [node name="SkyFront" type="ParallaxLayer" parent="Parallax"]
@@ -579,6 +579,7 @@ offset_left = -185.0
 offset_top = -539.0
 offset_right = 1736.0
 offset_bottom = 537.0
+scale = Vector2(6, 6)
 color = Color(0, 0, 0, 0)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]

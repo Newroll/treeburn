@@ -94,6 +94,7 @@ text = "Resume"
 
 [node name="MarginContainer3" type="MarginContainer" parent="buttonsContainer"]
 layout_mode = 2
+theme_override_constants/margin_bottom = 8
 
 [node name="RestartButton" type="Button" parent="buttonsContainer/MarginContainer3"]
 custom_minimum_size = Vector2(720, 96)

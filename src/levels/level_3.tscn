@@ -395,10 +395,10 @@ script = ExtResource("1_anxaj")
 [node name="Parallax" type="ParallaxBackground" parent="."]
 
 [node name="SkyBack" type="ColorRect" parent="Parallax"]
-offset_left = -8.0
-offset_top = -545.0
-offset_right = 3184.0
-offset_bottom = 112.0
+offset_left = -185.0
+offset_top = -841.0
+offset_right = 3521.0
+offset_bottom = 345.0
 color = Color(0.454902, 0.423529, 0.447059, 1)
 
 [node name="SkyFront" type="ParallaxLayer" parent="Parallax"]
@@ -687,6 +687,7 @@ offset_left = -185.0
 offset_top = -539.0
 offset_right = 1736.0
 offset_bottom = 537.0
+scale = Vector2(6, 6)
 color = Color(0, 0, 0, 0)
 metadata/_edit_lock_ = true
 

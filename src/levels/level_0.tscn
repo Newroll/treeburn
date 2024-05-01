@@ -537,6 +537,7 @@ offset_left = -185.0
 offset_top = -539.0
 offset_right = 1736.0
 offset_bottom = 537.0
+scale = Vector2(6, 6)
 color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer"]

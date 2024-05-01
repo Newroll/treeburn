@@ -8,6 +8,7 @@
 [ext_resource type="StyleBox" uid="uid://cavwdk0v7i65u" path="res://assets/styles/button_theme.tres" id="6_2j2vy"]
 
 [node name="level_7" type="Node2D"]
+scale = Vector2(6, 6)
 script = ExtResource("1_rv2n1")
 
 [node name="CloudBack" type="Sprite2D" parent="."]
@@ -22,38 +23,47 @@ position = Vector2(160.919, 139.384)
 scale = Vector2(0.635866, 0.458501)
 texture = ExtResource("3_xpbhx")
 
-[node name="title" type="Label" parent="."]
-offset_left = 27.0
-offset_top = 21.0
-offset_right = 293.0
-offset_bottom = 53.0
+[node name="BoxContainer" type="BoxContainer" parent="."]
+offset_right = 1068.0
+offset_bottom = 601.0
+scale = Vector2(0.3, 0.3)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 8
+alignment = 1
+vertical = true
+
+[node name="title" type="Label" parent="BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("4_8ec4r")
-theme_override_font_sizes/font_size = 30
+theme_override_font_sizes/font_size = 96
 text = "Game complete"
 
-[node name="quit" type="Button" parent="."]
-offset_left = 59.0
-offset_top = 104.0
-offset_right = 258.0
-offset_bottom = 135.0
+[node name="quit" type="Button" parent="BoxContainer"]
+custom_minimum_size = Vector2(720, 96)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme = ExtResource("5_lcsue")
-theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 56
 theme_override_styles/normal = ExtResource("6_2j2vy")
 text = "Quit
 "
 
-[node name="leaderboard" type="Button" parent="."]
-offset_left = 59.0
-offset_top = 67.0
-offset_right = 258.0
-offset_bottom = 101.0
+[node name="leaderboard" type="Button" parent="BoxContainer"]
+custom_minimum_size = Vector2(720, 96)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme = ExtResource("5_lcsue")
-theme_override_font_sizes/font_size = 12
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 56
 theme_override_styles/normal = ExtResource("6_2j2vy")
-text = "view leaderboard"
+text = "View Leaderboard"
 
 [node name="highscorepopup" type="ColorRect" parent="."]
-visible = false
 offset_left = 24.0
 offset_top = 22.0
 offset_right = 300.0
@@ -66,8 +76,9 @@ offset_left = 76.0
 offset_top = 4.0
 offset_right = 196.0
 offset_bottom = 19.0
+scale = Vector2(0.125, 0.125)
 theme_override_fonts/font = ExtResource("4_8ec4r")
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 96
 text = "Congratulations!"
 
 [node name="scorelabel" type="Label" parent="highscorepopup"]
@@ -76,8 +87,9 @@ offset_left = 12.0
 offset_top = 21.0
 offset_right = 250.0
 offset_bottom = 32.0
+scale = Vector2(0.125, 0.125)
 theme_override_fonts/font = ExtResource("4_8ec4r")
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 64
 text = "You attained a time of SCORE, placing you in PLACE!"
 
 [node name="nameprompt" type="Label" parent="highscorepopup"]
@@ -86,28 +98,31 @@ offset_left = 6.0
 offset_top = 32.0
 offset_right = 271.0
 offset_bottom = 43.0
+scale = Vector2(0.125, 0.125)
 theme_override_fonts/font = ExtResource("4_8ec4r")
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 64
 text = "Enter your name below to be placed on the leaderboard."
 
 [node name="warning" type="Label" parent="highscorepopup"]
-visible = false
 layout_mode = 0
 offset_left = 177.0
 offset_top = 76.0
 offset_right = 269.0
 offset_bottom = 95.0
+scale = Vector2(0.25, 0.25)
 theme_override_fonts/font = ExtResource("4_8ec4r")
+theme_override_font_sizes/font_size = 64
 text = "BAD WORD!"
 
 [node name="nameinput" type="LineEdit" parent="highscorepopup"]
 layout_mode = 0
 offset_left = 19.0
 offset_top = 47.0
-offset_right = 256.0
-offset_bottom = 63.0
+offset_right = 1915.0
+offset_bottom = 175.0
+scale = Vector2(0.125, 0.125)
 theme_override_fonts/font = ExtResource("4_8ec4r")
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 64
 placeholder_text = "Enter name"
 max_length = 15
 
@@ -135,8 +150,9 @@ text = "cancel
 [node name="sfx" type="AudioStreamPlayer" parent="highscorepopup"]
 
 [node name="loading" type="ColorRect" parent="."]
-offset_right = 347.0
-offset_bottom = 208.0
+visible = false
+offset_right = 424.0
+offset_bottom = 223.0
 color = Color(0, 0, 0, 1)
 
 [node name="Label" type="Label" parent="loading"]
@@ -151,8 +167,8 @@ text = "LOADING..."
 
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 
-[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="leaderboard" to="." method="_on_leaderboard_pressed"]
+[connection signal="pressed" from="BoxContainer/quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="BoxContainer/leaderboard" to="." method="_on_leaderboard_pressed"]
 [connection signal="pressed" from="highscorepopup/confirm" to="." method="_on_confirm_pressed"]
 [connection signal="pressed" from="highscorepopup/cancel" to="." method="_on_cancel_pressed"]
 [connection signal="request_completed" from="HTTPRequest" to="." method="_on_http_request_request_completed"]
