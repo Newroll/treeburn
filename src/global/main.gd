@@ -46,8 +46,8 @@ var immunityTemp = true
 var hurtSFX = true
 
 #Camera Zoom Levels
-var zoomLevels = [2, 3.25, 4.5]
-var currentZoomLevel = 2
+var zoomLevels = [4.0, 5.0, 6.0]
+var currentZoomLevel = 1
 
 #Checks Scene
 var introScene = null

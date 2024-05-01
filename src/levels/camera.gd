@@ -5,5 +5,5 @@ func _process(_delta):
 
 	if Input.is_action_just_pressed("zoomOut") && Main.currentZoomLevel > 0:
 		Main.currentZoomLevel -= 1
-	if Input.is_action_just_pressed("zoomIn") && Main.currentZoomLevel < 1:
+	if Input.is_action_just_pressed("zoomIn") && Main.currentZoomLevel < 2:
 		Main.currentZoomLevel += 1
