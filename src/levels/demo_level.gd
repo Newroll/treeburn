@@ -45,6 +45,16 @@ func transition():
 	#$CanvasLayer.show()
 	get_tree().paused = true
 	$CanvasLayer/AnimationPlayer.play("fade")
+	Main.health = 3
+	Main.worldHealth = 8
+	Main.resetHealth1 = true
+	Main.resetHealth2 = true
+	Main.resetHealth3 = true
+	await get_tree().create_timer(1).timeout
+	Main.resetHealth1 = false
+	Main.resetHealth2 = false
+	Main.resetHealth3 = false
+
 
 func transition_done():
 	get_tree().paused = false
