@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://q7jiw0ysmd08"]
+[gd_scene load_steps=8 format=3 uid="uid://q7jiw0ysmd08"]
 
 [ext_resource type="Script" path="res://src/levels/level_7.gd" id="1_rv2n1"]
 [ext_resource type="Texture2D" uid="uid://6q7ys6hqnit7" path="res://assets/background/cloudsback.png" id="2_0y7rx"]
@@ -6,6 +6,10 @@
 [ext_resource type="FontFile" uid="uid://422t11bovf6v" path="res://assets/styles/mainport.ttf" id="4_8ec4r"]
 [ext_resource type="Theme" uid="uid://s7ofcp5w0jrk" path="res://assets/styles/pause-menu_theme.tres" id="5_lcsue"]
 [ext_resource type="StyleBox" uid="uid://cavwdk0v7i65u" path="res://assets/styles/button_theme.tres" id="6_2j2vy"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_imdys"]
+content_margin_left = 25.0
+bg_color = Color(0.0588235, 0.0588235, 0.0588235, 1)
 
 [node name="level_7" type="Node2D"]
 scale = Vector2(6, 6)
@@ -64,6 +68,7 @@ theme_override_styles/normal = ExtResource("6_2j2vy")
 text = "View Leaderboard"
 
 [node name="highscorepopup" type="ColorRect" parent="."]
+visible = false
 offset_left = 24.0
 offset_top = 22.0
 offset_right = 300.0
@@ -104,6 +109,7 @@ theme_override_font_sizes/font_size = 64
 text = "Enter your name below to be placed on the leaderboard."
 
 [node name="warning" type="Label" parent="highscorepopup"]
+visible = false
 layout_mode = 0
 offset_left = 177.0
 offset_top = 76.0
@@ -123,6 +129,7 @@ offset_bottom = 175.0
 scale = Vector2(0.125, 0.125)
 theme_override_fonts/font = ExtResource("4_8ec4r")
 theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = SubResource("StyleBoxFlat_imdys")
 placeholder_text = "Enter name"
 max_length = 15
 
@@ -130,20 +137,22 @@ max_length = 15
 layout_mode = 0
 offset_left = 18.0
 offset_top = 71.0
-offset_right = 90.0
-offset_bottom = 95.0
+offset_right = 594.0
+offset_bottom = 263.0
+scale = Vector2(0.125, 0.125)
 theme_override_fonts/font = ExtResource("4_8ec4r")
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 80
 text = "Confirm"
 
 [node name="cancel" type="Button" parent="highscorepopup"]
 layout_mode = 0
 offset_left = 100.0
 offset_top = 71.0
-offset_right = 171.0
-offset_bottom = 95.0
+offset_right = 676.0
+offset_bottom = 263.0
+scale = Vector2(0.125, 0.125)
 theme_override_fonts/font = ExtResource("4_8ec4r")
-theme_override_font_sizes/font_size = 10
+theme_override_font_sizes/font_size = 80
 text = "cancel
 "
 
