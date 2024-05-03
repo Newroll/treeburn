@@ -101,6 +101,7 @@ func detect_turn():
 	if !raycast_right.is_colliding():
 		is_moving_left = false
 
+
 func _on_player_chase_body_entered(body):
 	if body.name == "CharacterBody2D":
 		aggro = true

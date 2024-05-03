@@ -1,10 +1,8 @@
-[gd_scene load_steps=50 format=3 uid="uid://dtfkm547yxtbg"]
+[gd_scene load_steps=48 format=3 uid="uid://dtfkm547yxtbg"]
 
-[ext_resource type="Theme" uid="uid://s7ofcp5w0jrk" path="res://assets/styles/pause-menu_theme.tres" id="1_e0i4l"]
 [ext_resource type="Texture2D" uid="uid://b2ky8y6x7pqrl" path="res://assets/interactive/coin.png" id="1_edg3u"]
 [ext_resource type="Script" path="res://src/ui/ui.gd" id="1_fj7ts"]
 [ext_resource type="FontFile" uid="uid://422t11bovf6v" path="res://assets/styles/mainport.ttf" id="1_hkuc3"]
-[ext_resource type="StyleBox" uid="uid://cavwdk0v7i65u" path="res://assets/styles/button_theme.tres" id="2_rl8hw"]
 [ext_resource type="Texture2D" uid="uid://bfw6ie5ct8058" path="res://assets/player/fullhealth.png" id="3_lxw2j"]
 [ext_resource type="Script" path="res://src/interactive/coincounter.gd" id="3_x676s"]
 [ext_resource type="Script" path="res://src/ui/health1.gd" id="5_ogaie"]
@@ -258,38 +256,54 @@ animations = [{
 }]
 
 [node name="ui" type="CanvasLayer"]
-scale = Vector2(6, 6)
-transform = Transform2D(6, 0, 0, 6, 0, 0)
+scale = Vector2(5.5, 5.5)
+transform = Transform2D(5.5, 0, 0, 5.5, 0, 0)
 script = ExtResource("1_fj7ts")
 
-[node name="pausebutton" type="Button" parent="."]
-visible = false
-offset_left = 6.0
-offset_top = 6.0
-offset_right = 35.0
-offset_bottom = 17.0
-theme = ExtResource("1_e0i4l")
-theme_override_font_sizes/font_size = 6
-theme_override_styles/normal = ExtResource("2_rl8hw")
-theme_override_styles/hover = ExtResource("2_rl8hw")
-theme_override_styles/pressed = ExtResource("2_rl8hw")
-theme_override_styles/focus = ExtResource("2_rl8hw")
-text = "PAUSE"
+[node name="BoxContainer" type="BoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 170.0
+offset_bottom = 113.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.167, 0.167)
+size_flags_horizontal = 8
+size_flags_vertical = 4
 
-[node name="coinanimation" type="AnimatedSprite2D" parent="."]
-texture_filter = 1
-position = Vector2(291.733, 13.224)
-scale = Vector2(0.8, 0.903)
-sprite_frames = SubResource("SpriteFrames_dh1gv")
-autoplay = "default"
+[node name="MarginContainer2" type="MarginContainer" parent="BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_bottom = 30
 
-[node name="CoinCounter" type="Label" parent="."]
+[node name="version" type="Label" parent="BoxContainer/MarginContainer2"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+theme_override_fonts/font = ExtResource("1_hkuc3")
+theme_override_font_sizes/font_size = 28
+text = "Treeburn v2.8 development"
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="BoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 0
+theme_override_constants/margin_top = 64
+theme_override_constants/margin_right = 70
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BoxContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 10
+size_flags_vertical = 0
+alignment = 1
+
+[node name="CoinCounter" type="Label" parent="BoxContainer/MarginContainer/VBoxContainer"]
 texture_filter = 1
-offset_left = 299.8
-offset_top = 6.224
-offset_right = 341.8
-offset_bottom = 67.224
-scale = Vector2(0.25, 0.25)
+layout_mode = 2
 theme_override_fonts/font = ExtResource("1_hkuc3")
 theme_override_font_sizes/font_size = 64
 text = "0"
@@ -297,17 +311,24 @@ horizontal_alignment = 1
 script = ExtResource("3_x676s")
 metadata/_edit_use_anchors_ = true
 
+[node name="coinanimation" type="AnimatedSprite2D" parent="BoxContainer/MarginContainer/VBoxContainer"]
+texture_filter = 1
+position = Vector2(-61.8322, 23.0985)
+scale = Vector2(4.19162, 4.19162)
+sprite_frames = SubResource("SpriteFrames_dh1gv")
+autoplay = "default"
+
 [node name="health" type="Node" parent="."]
 
 [node name="Grass" type="Sprite2D" parent="health"]
 z_index = 3
-position = Vector2(296, 170)
+position = Vector2(318.611, 179.691)
 scale = Vector2(1.15, 1.15)
 texture = ExtResource("12_mf3pq")
 
 [node name="health1" type="Sprite2D" parent="health"]
 texture_filter = 1
-position = Vector2(297, 157)
+position = Vector2(319.611, 166.691)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("3_lxw2j")
 script = ExtResource("5_ogaie")
@@ -320,7 +341,7 @@ sprite_frames = SubResource("SpriteFrames_y7kgl")
 [node name="health2" type="Sprite2D" parent="health"]
 z_index = 2
 texture_filter = 1
-position = Vector2(306, 159)
+position = Vector2(328.611, 168.691)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("3_lxw2j")
 script = ExtResource("6_0g8ks")
@@ -332,7 +353,7 @@ sprite_frames = SubResource("SpriteFrames_y7kgl")
 
 [node name="health3" type="Sprite2D" parent="health"]
 texture_filter = 1
-position = Vector2(316, 157)
+position = Vector2(338.611, 166.691)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("3_lxw2j")
 script = ExtResource("7_x4u3b")
@@ -346,20 +367,7 @@ sprite_frames = SubResource("SpriteFrames_y7kgl")
 visible = false
 
 [node name="worldHealth" type="AnimatedSprite2D" parent="."]
-position = Vector2(156.063, 161.938)
+position = Vector2(168.727, 171.636)
 scale = Vector2(1.24479, 1.24479)
 sprite_frames = SubResource("SpriteFrames_436fo")
 script = ExtResource("8_6i3im")
-
-[node name="version" type="Label" parent="."]
-offset_left = 3.0
-offset_top = 174.0
-offset_right = 66.0
-offset_bottom = 181.0
-scale = Vector2(0.25, 0.25)
-theme_override_fonts/font = ExtResource("1_hkuc3")
-theme_override_font_sizes/font_size = 28
-text = "Treeburn v2.8 development"
-metadata/_edit_use_anchors_ = true
-
-[connection signal="pressed" from="pausebutton" to="." method="_on_button_pressed"]

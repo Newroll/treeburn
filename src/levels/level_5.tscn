@@ -314,6 +314,8 @@ script = ExtResource("1_ud0ie")
 metadata/_edit_horizontal_guides_ = [-157.0]
 
 [node name="Parallax" type="ParallaxBackground" parent="."]
+scale = Vector2(1.3, 1.3)
+transform = Transform2D(1.3, 0, 0, 1.3, 0, 0)
 
 [node name="SkyBack" type="ColorRect" parent="Parallax"]
 offset_left = -486.0

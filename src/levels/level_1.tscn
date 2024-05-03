@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=3 uid="uid://b4fhy8nwhgeab"]
+[gd_scene load_steps=36 format=3 uid="uid://b4fhy8nwhgeab"]
 
 [ext_resource type="Texture2D" uid="uid://dy12u1xfe8uck" path="res://assets/background/lvl1back.png" id="1_dgqja"]
 [ext_resource type="Texture2D" uid="uid://etxpk65gm7kk" path="res://assets/background/lvl1front.png" id="1_fglrk"]
@@ -13,10 +13,26 @@
 [ext_resource type="Script" path="res://src/levels/camera.gd" id="12_kxua7"]
 [ext_resource type="PackedScene" uid="uid://dtfkm547yxtbg" path="res://src/ui/ui.tscn" id="15_0cqxb"]
 [ext_resource type="PackedScene" uid="uid://dqwcpids7e46a" path="res://src/Enemies/axe.tscn" id="15_gwau3"]
-[ext_resource type="Texture2D" uid="uid://d3xho7hc8wt4a" path="res://assets/interactive/pitfall.png" id="15_mbeea"]
 [ext_resource type="Script" path="res://src/interactive/pitfall.gd" id="15_pqn2h"]
 [ext_resource type="PackedScene" uid="uid://bxrdaun1twtb1" path="res://src/interactive/portal.tscn" id="16_h5jbk"]
 [ext_resource type="AudioStream" uid="uid://ctfjl7xm00g0g" path="res://assets/music/musiclvl1.mp3" id="17_1uwno"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ppf6s"]
+texture = ExtResource("7_1a65m")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+9:0/0 = 0
+10:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_cjk2c"]
+sources/0 = SubResource("TileSetAtlasSource_ppf6s")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6mdsj"]
 size = Vector2(112, 16)
@@ -390,6 +406,8 @@ size = Vector2(20, 184)
 script = ExtResource("1_tuhjd")
 
 [node name="Parallax" type="ParallaxBackground" parent="."]
+scale = Vector2(1.3, 1.3)
+transform = Transform2D(1.3, 0, 0, 1.3, 0, 0)
 
 [node name="SkyBack" type="ColorRect" parent="Parallax"]
 offset_left = -224.0
@@ -434,10 +452,11 @@ script = ExtResource("15_pqn2h")
 
 [node name="collider" type="Area2D" parent="pitfall"]
 
-[node name="texture" type="Sprite2D" parent="pitfall/collider"]
-texture_filter = 1
-position = Vector2(2, 64)
-texture = ExtResource("15_mbeea")
+[node name="pitfallTexture" type="TileMap" parent="pitfall/collider"]
+z_index = 7
+tile_set = SubResource("TileSet_cjk2c")
+format = 2
+layer_0/tile_data = PackedInt32Array(-3, 262144, 0, -2, 262144, 0, -1, 262144, 0, -65536, 262144, 0, -65535, 262144, 0, -65534, 262144, 0, 65533, 655360, 0, 131069, 655360, 0, 196605, 655360, 0, 262141, 655360, 0, 327677, 655360, 0, 393213, 655360, 0, 458749, 655360, 0, 524285, 655360, 0, 589821, 655360, 0, 655357, 655360, 0, 720893, 655360, 0, 786429, 655360, 0, 65534, 655360, 0, 131070, 655360, 0, 196606, 655360, 0, 262142, 655360, 0, 327678, 655360, 0, 393214, 655360, 0, 458750, 655360, 0, 524286, 655360, 0, 589822, 655360, 0, 655358, 655360, 0, 720894, 655360, 0, 786430, 655360, 0, 65535, 655360, 0, 131071, 655360, 0, 196607, 655360, 0, 262143, 655360, 0, 327679, 655360, 0, 393215, 655360, 0, 458751, 655360, 0, 524287, 655360, 0, 589823, 655360, 0, 655359, 655360, 0, 720895, 655360, 0, 786431, 655360, 0, 0, 655360, 0, 65536, 655360, 0, 131072, 655360, 0, 196608, 655360, 0, 262144, 655360, 0, 327680, 655360, 0, 393216, 655360, 0, 458752, 655360, 0, 524288, 655360, 0, 589824, 655360, 0, 655360, 655360, 0, 720896, 655360, 0, 1, 655360, 0, 65537, 655360, 0, 131073, 655360, 0, 196609, 655360, 0, 262145, 655360, 0, 327681, 655360, 0, 393217, 655360, 0, 458753, 655360, 0, 524289, 655360, 0, 589825, 655360, 0, 655361, 655360, 0, 720897, 655360, 0, 2, 655360, 0, 65538, 655360, 0, 131074, 655360, 0, 196610, 655360, 0, 262146, 655360, 0, 327682, 655360, 0, 393218, 655360, 0, 458754, 655360, 0, 524290, 655360, 0, 589826, 655360, 0, 655362, 655360, 0, 720898, 655360, 0, 851965, 655360, 0, 851966, 655360, 0, 851967, 655360, 0, 786432, 655360, 0, 786433, 655360, 0, 786434, 655360, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="pitfall/collider"]
 position = Vector2(2, -25)
@@ -575,10 +594,10 @@ autoplay = true
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 z_index = 99
-offset_left = -185.0
-offset_top = -539.0
-offset_right = 1736.0
-offset_bottom = 537.0
+offset_left = -184.0
+offset_top = -558.0
+offset_right = 1737.0
+offset_bottom = 518.0
 scale = Vector2(6, 6)
 color = Color(0, 0, 0, 0)
 
