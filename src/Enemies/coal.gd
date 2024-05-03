@@ -49,14 +49,23 @@ var projectile = rock_throwable_scene.instantiate()
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+#Player Values
+var player_dir = null
+
 
 #func _ready():
 	#animation_player.play("axe_run")
 
 
 func _physics_process(delta):
-	var player_dir = player.position.x - position.x
-	distance_to_player = abs(player.position.x - global_position.x)
+	if player.global_position.x > global_position.x:
+		player_dir = 1
+
+	if player.global_position.x < global_position.x:
+		player_dir = -1
+
+	
+	distance_to_player = abs(player.global_position.x - global_position.x)
 	
 	# Add the gravity.
 	if not is_on_floor():
