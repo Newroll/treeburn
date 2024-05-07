@@ -1,55 +1,116 @@
-[gd_scene load_steps=5 format=3 uid="uid://bwom3600dmuy1"]
+[gd_scene load_steps=8 format=3 uid="uid://bwom3600dmuy1"]
 
 [ext_resource type="Script" path="res://src/ui/splashscreen.gd" id="1_6gylh"]
 [ext_resource type="FontFile" uid="uid://es627dw3q2bu" path="res://assets/styles/WayfarersToyBoxRegular.ttf" id="1_ajybt"]
 [ext_resource type="Texture2D" uid="uid://6q7ys6hqnit7" path="res://assets/background/cloudsback.png" id="2_0bd7w"]
 [ext_resource type="Texture2D" uid="uid://ddodrd661qp2" path="res://assets/background/cloudsfront.png" id="3_s78pp"]
 
+[sub_resource type="Animation" id="Animation_tmcu0"]
+resource_name = "splashscreenAnimation"
+length = 3.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("title:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.6, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.160784), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("title:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.8, 2.6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(179.184, 448), Vector2(179.184, 448), Vector2(179.184, 128.425)]
+}
+
+[sub_resource type="Animation" id="Animation_pi6gc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("title:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(230, 448)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("title:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_46ntq"]
+_data = {
+"RESET": SubResource("Animation_pi6gc"),
+"splashscreenAnimation": SubResource("Animation_tmcu0")
+}
+
 [node name="splashscreen" type="Node2D"]
 position = Vector2(72, 8)
-scale = Vector2(0.0898008, 0.158892)
 script = ExtResource("1_6gylh")
 metadata/_edit_vertical_guides_ = []
 
 [node name="CloudBack" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(9721.52, 3329.31)
-scale = Vector2(42.3246, 21.7129)
+position = Vector2(932.319, 558.648)
+scale = Vector2(4.38555, 3.62115)
 texture = ExtResource("2_0bd7w")
 
 [node name="CloudsFront" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(9888.55, 5412.48)
-scale = Vector2(42.3246, 16.2851)
+position = Vector2(929.519, 911.817)
+scale = Vector2(4.37462, 2.60237)
 texture = ExtResource("3_s78pp")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
-offset_left = -780.001
-offset_right = 20601.0
-offset_bottom = 6778.0
-size_flags_horizontal = 0
-size_flags_vertical = 8
-alignment = 1
+visible = false
+offset_left = -76.0
+offset_top = -8.0
+offset_right = 1848.0
+offset_bottom = 1072.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+metadata/_edit_lock_ = true
 
-[node name="Label" type="Label" parent="HBoxContainer"]
-custom_minimum_size = Vector2(1443, 195)
-layout_mode = 2
-size_flags_horizontal = 8
+[node name="title" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = 230.0
+offset_top = 448.0
+offset_right = 1694.0
+offset_bottom = 631.002
+size_flags_horizontal = 6
 theme_override_colors/font_color = Color(0.133333, 0.6, 0.133333, 1)
 theme_override_fonts/font = ExtResource("1_ajybt")
-theme_override_font_sizes/font_size = 1360
-text = " reeBurn"
-horizontal_alignment = 1
-metadata/_edit_use_anchors_ = true
-
-[node name="Letter" type="Label" parent="HBoxContainer"]
-custom_minimum_size = Vector2(217, 218)
-layout_mode = 2
-size_flags_horizontal = 4
-theme_override_colors/font_color = Color(0.133333, 0.6, 0.133333, 1)
-theme_override_fonts/font = ExtResource("1_ajybt")
-theme_override_font_sizes/font_size = 1360
-text = "T"
+theme_override_font_sizes/font_size = 160
+text = "Treeburn"
 horizontal_alignment = 1
 vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_46ntq")
+}
+autoplay = "splashscreenAnimation"
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

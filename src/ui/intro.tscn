@@ -125,6 +125,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_clr3p")
 text = "Play"
 
 [node name="MarginContainer2" type="MarginContainer" parent="buttonsContainer"]
+visible = false
 layout_mode = 2
 theme_override_constants/margin_bottom = 8
 
