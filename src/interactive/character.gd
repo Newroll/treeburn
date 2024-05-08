@@ -66,21 +66,21 @@ func _physics_process(delta):
 		handle_acceleration(input_axis, delta)
 		apply_friction(input_axis,delta)
 		wall_jumping()
+		
 	elif Main.knockback == true:
 		knockback()
+		
 	elif Main.fireKnockback == true:
 		fireKnockback(input_axis, delta)
 	
 	if position.y > Main.death_height[Main.level]:
 		Main.below_death_height = true
 	
-	if Main.resetPlayer == true:
-		velocity.y = 0
-		velocity.x = 0
-		animated_sprite.animation = "death"
-		await get_tree().create_timer(1.9).timeout
-		resetPlayerPos()
-		Main.resetPlayer = false
+	#if Main.resetPlayer == true:
+		#velocity.y = 0
+		#velocity.x = 0
+		#resetPlayerPos()
+		#Main.resetPlayer = false
 	
 	Main.playerPosition = get_position()
 
@@ -88,10 +88,12 @@ func check_state():
 	if Main.quicksand == true:
 		movement_data = load("res://src/interactive/QuicksandMovementData.tres")
 		animated_sprite.set_speed_scale(0.26)
-	if Main.ice == true:
+		
+	elif Main.ice == true:
 		movement_data = load("res://src/interactive/IceMovementData.tres")
 		animated_sprite.set_speed_scale(0.5)
-	if Main.ice == false && Main.quicksand == false:
+		
+	elif Main.ice == false && Main.quicksand == false:
 		movement_data = load("res://src/interactive/DefaultMovementData.tres")
 		animated_sprite.set_speed_scale(1.0)
 
@@ -190,7 +192,7 @@ func resetPlayerPos():
 
 
 func animation_state(input_axis):
-	if velocity.x == 0 && Main.resetPlayer == false:
+	if velocity.x == 0:
 		animated_sprite.animation = "default"
 		animated_collision.scale.y = 0.951
 		animated_collision.position.x = 0.1

@@ -339,6 +339,8 @@ size = Vector2(38, 647.125)
 script = ExtResource("1_jql4m")
 
 [node name="Parallax" type="ParallaxBackground" parent="."]
+scale = Vector2(1.3, 1.3)
+transform = Transform2D(1.3, 0, 0, 1.3, 0, 0)
 
 [node name="SkyBack" type="ColorRect" parent="Parallax"]
 offset_left = -80.0
@@ -484,6 +486,7 @@ horizontal_alignment = 2
 autowrap_mode = 2
 
 [node name="leaf" type="Label" parent="."]
+visible = false
 z_index = 30
 offset_left = 948.0
 offset_top = -139.0
@@ -492,11 +495,12 @@ offset_bottom = -19.0
 scale = Vector2(0.3, 0.3)
 theme_override_fonts/font = ExtResource("11_edk42")
 theme_override_font_sizes/font_size = 28
-text = "Pick up coins to resotre some of the world health"
+text = "Pick up coins to restore some of the world health"
 horizontal_alignment = 2
 autowrap_mode = 2
 
 [node name="zoom" type="Label" parent="."]
+visible = false
 z_index = 30
 offset_left = 1216.0
 offset_top = -120.0
@@ -511,16 +515,19 @@ autowrap_mode = 2
 
 [node name="worldhealth" type="CanvasLayer" parent="."]
 visible = false
+scale = Vector2(0.125, 0.125)
+transform = Transform2D(0.125, 0, 0, 0.125, 0, 0)
 
 [node name="worldhealth" type="Label" parent="worldhealth"]
 z_index = -10
 texture_filter = 1
-offset_left = 177.0
-offset_top = 149.0
-offset_right = 264.0
-offset_bottom = 179.0
+offset_left = 3552.0
+offset_top = 7256.0
+offset_right = 5127.0
+offset_bottom = 7660.0
+scale = Vector2(2, 2)
 theme_override_fonts/font = ExtResource("11_edk42")
-theme_override_font_sizes/font_size = 6
+theme_override_font_sizes/font_size = 128
 text = "This is the world health. Do not let it deplete."
 autowrap_mode = 2
 
@@ -529,6 +536,7 @@ position = Vector2(1481, -122)
 metadata/_edit_lock_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 visible = false

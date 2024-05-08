@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://6q7ys6hqnit7" path="res://assets/background/cloudsback.png" id="1_3u6i1"]
 [ext_resource type="Texture2D" uid="uid://ddodrd661qp2" path="res://assets/background/cloudsfront.png" id="2_wboru"]
 [ext_resource type="FontFile" uid="uid://422t11bovf6v" path="res://assets/styles/mainport.ttf" id="2_wu7ff"]
-[ext_resource type="StyleBox" uid="uid://cavwdk0v7i65u" path="res://assets/styles/button_theme.tres" id="5_ccjao"]
+[ext_resource type="StyleBox" uid="uid://cavwdk0v7i65u" path="res://assets/styles/menu.tres" id="5_ccjao"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4o2do"]
 bg_color = Color(0.239216, 0.431373, 0.556863, 0.862745)

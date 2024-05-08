@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://src/ui/pause_menu.gd" id="1_hc50u"]
 [ext_resource type="FontFile" uid="uid://422t11bovf6v" path="res://assets/styles/mainport.ttf" id="3_5wg7b"]
-[ext_resource type="StyleBox" uid="uid://cavwdk0v7i65u" path="res://assets/styles/button_theme.tres" id="3_sh48l"]
+[ext_resource type="StyleBox" uid="uid://cavwdk0v7i65u" path="res://assets/styles/menu.tres" id="3_sh48l"]
 [ext_resource type="FontFile" uid="uid://es627dw3q2bu" path="res://assets/styles/WayfarersToyBoxRegular.ttf" id="5_vsh5n"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f8vgm"]
