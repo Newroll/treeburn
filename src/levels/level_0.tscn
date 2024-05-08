@@ -380,7 +380,7 @@ position = Vector2(204, 142)
 scale = Vector2(0.796524, 1.22034)
 texture = ExtResource("4_gjabv")
 
-[node name="BehindPlayer" type="TileMap" parent="."]
+[node name="Ground" type="TileMap" parent="."]
 z_index = -30
 texture_filter = 1
 tile_set = SubResource("TileSet_5cvp5")

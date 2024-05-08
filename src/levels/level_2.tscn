@@ -789,7 +789,7 @@ position = Vector2(204, 142)
 scale = Vector2(0.796524, 1.22034)
 texture = ExtResource("3_wpmmd")
 
-[node name="BehindPlayer" type="TileMap" parent="."]
+[node name="Ground" type="TileMap" parent="."]
 texture_filter = 1
 tile_set = SubResource("TileSet_0gyv5")
 format = 2

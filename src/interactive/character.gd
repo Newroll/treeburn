@@ -163,14 +163,14 @@ func wall_jumping():
 		if Input.is_action_just_pressed("move_right"):
 			if wall_left.is_colliding():
 				var object_left_wall = wall_left.get_collider()
-				if object_left_wall.get_name() == "BehindPlayer":
+				if object_left_wall.get_name() == "Ground":
 					velocity.y = movement_data.jump_velocity
 					velocity.x = 150
 
 		if Input.is_action_just_pressed("move_left"):
 			if wall_right.is_colliding():
 				var object_right_wall = wall_right.get_collider()
-				if object_right_wall.get_name() == "BehindPlayer":
+				if object_right_wall.get_name() == "Ground":
 					velocity.y = movement_data.jump_velocity
 					velocity.x = -150
 
@@ -233,13 +233,13 @@ func knockback():
 	if knockback_timer_started == false:
 # Identifies whether or not knockback is coming from the right
 		if knockback_right.is_colliding():
-			if object_right.get_name() != "BehindPlayer":
+			if object_right.get_name() != "Ground":
 				knockback_dir = -1
 				knockback_power = -200
 
 # Identifies whether or not knockback is coming from the left
 		if knockback_left.is_colliding():
-			if object_left.get_name() != "BehindPlayer":
+			if object_left.get_name() != "Ground":
 				knockback_dir = 1
 				knockback_power = -200
 
@@ -254,7 +254,7 @@ func knockback():
 
 # Identifies whether or not knockback is coming from below
 		if knockback_down.is_colliding():
-			if object_down.get_name() != "BehindPlayer":
+			if object_down.get_name() != "Ground":
 					knockback_dir = randi_range(-1, 1)
 					knockback_power = -350
 					print("Knockback down (raycast_down)")

@@ -276,7 +276,7 @@ position = Vector2(204, 142)
 scale = Vector2(0.796524, 1.22034)
 texture = ExtResource("3_aw48q")
 
-[node name="BehindPlayer" type="TileMap" parent="."]
+[node name="Ground" type="TileMap" parent="."]
 z_index = 10
 texture_filter = 1
 tile_set = SubResource("TileSet_ef2n0")

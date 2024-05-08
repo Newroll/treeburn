@@ -15,12 +15,12 @@ func _physics_process(_delta):
 
 	if raycast_left.is_colliding():
 		object_left = raycast_left.get_collider()
-		if object_left.get_name() == "BehindPlayer":
+		if object_left.get_name() == "Ground":
 			speed = 30
 	
 	if raycast_right.is_colliding():
 		object_right = raycast_right.get_collider()
-		if object_right.get_name() == "BehindPlayer":
+		if object_right.get_name() == "Ground":
 			speed = -30
 
 	velocity = Vector2(speed, 0)

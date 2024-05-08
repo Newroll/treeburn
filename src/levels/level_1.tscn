@@ -472,7 +472,7 @@ libraries = {
 "": SubResource("AnimationLibrary_j6f26")
 }
 
-[node name="BehindPlayer" type="TileMap" parent="."]
+[node name="Ground" type="TileMap" parent="."]
 texture_filter = 1
 tile_set = SubResource("TileSet_5cvp5")
 format = 2
