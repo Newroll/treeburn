@@ -199,11 +199,10 @@ target_position = Vector2(-5, 0)
 collision_mask = 3
 hit_from_inside = true
 
-[node name="Knockback_Down" type="RayCast2D" parent="."]
-visible = false
+[node name="detectDown" type="RayCast2D" parent="."]
 position = Vector2(0, 11)
 scale = Vector2(10, 2)
-target_position = Vector2(0, 4)
+target_position = Vector2(0, 3)
 collision_mask = 3
 hit_from_inside = true
 

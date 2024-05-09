@@ -19,7 +19,9 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 #Get raycasts for knockback
 @onready var knockback_right: RayCast2D= $Knockback_Right
 @onready var knockback_left: RayCast2D = $Knockback_Left
-@onready var knockback_down: RayCast2D = $Knockback_Down
+
+#Detects down obv
+@onready var detectDown: RayCast2D = $detectDown
 
 #Raycast collider
 var object_down = null
@@ -47,8 +49,8 @@ func _physics_process(delta):
 	if knockback_left.is_colliding():
 		object_left = knockback_left.get_collider()
 		
-	if knockback_down.is_colliding():
-		object_down = knockback_down.get_collider()
+	if detectDown.is_colliding():
+		object_down = detectDown.get_collider()
 
 	#Makes character move with ground and applys gravity
 	player_movement()
@@ -192,22 +194,29 @@ func resetPlayerPos():
 
 
 func animation_state(input_axis):
-	if velocity.x == 0:
-		animated_sprite.animation = "default"
-		animated_collision.scale.y = 0.951
-		animated_collision.position.x = 0.1
+	
+	while detectDown.is_colliding():
+		if velocity.x == 0:
+			animated_sprite.animation = "default"
+			animated_collision.scale.y = 0.951
+			animated_collision.position.x = 0.1
 
-	if input_axis == -1:
-		animated_sprite.animation = "move"
-		animated_sprite.flip_h = true 
-		animated_collision.scale.y = 1.03
-		animated_collision.position.x = -3
+		#if input_axis == -1:
+		if velocity.x < 0:
+			animated_sprite.animation = "move"
+			animated_collision.scale.y = 1.03
+			animated_collision.position.x = -3
 
+		if velocity.x > 0:
+			animated_sprite.animation = "move"
+			animated_collision.scale.y = 1.03
+			animated_collision.position.x = 1.5
+	
 	if input_axis == 1:
-		animated_sprite.animation = "move"
-		animated_collision.scale.y = 1.03
-		animated_collision.position.x = 1.5
 		animated_sprite.flip_h = false 
+	
+	if input_axis == -1:
+		animated_sprite.flip_h = true 
 
 	if velocity.y < 0:
 		animated_sprite.animation = "jumpUp"
@@ -253,7 +262,7 @@ func knockback():
 					#print("Knockback down")
 
 # Identifies whether or not knockback is coming from below
-		if knockback_down.is_colliding():
+		if detectDown.is_colliding():
 			if object_down.get_name() != "Ground":
 					knockback_dir = randi_range(-1, 1)
 					knockback_power = -350
