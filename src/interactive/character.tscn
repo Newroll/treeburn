@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bmlc5h5gbouaf"]
+[gd_scene load_steps=37 format=3 uid="uid://bmlc5h5gbouaf"]
 
 [ext_resource type="Script" path="res://src/interactive/character.gd" id="1_bp46o"]
 [ext_resource type="Texture2D" uid="uid://gdaqely7ugfi" path="res://assets/player/idle.png" id="2_lxpg1"]
@@ -156,6 +156,56 @@ animations = [{
 "speed": 17.0
 }]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7x2x"]
+atlas = ExtResource("3_113e5")
+region = Rect2(0, 0, 22, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bhf51"]
+atlas = ExtResource("3_113e5")
+region = Rect2(22, 0, 22, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yf2j4"]
+atlas = ExtResource("3_113e5")
+region = Rect2(44, 0, 22, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0g74i"]
+atlas = ExtResource("3_113e5")
+region = Rect2(66, 0, 22, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4j7q"]
+atlas = ExtResource("3_113e5")
+region = Rect2(88, 0, 22, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v7atb"]
+atlas = ExtResource("3_113e5")
+region = Rect2(110, 0, 22, 31)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cisot"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7x2x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bhf51")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yf2j4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0g74i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c4j7q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v7atb")
+}],
+"loop": true,
+"name": &"move",
+"speed": 17.0
+}]
+
 [sub_resource type="Animation" id="Animation_1egva"]
 length = 0.001
 tracks/0/type = "value"
@@ -205,6 +255,15 @@ texture_filter = 1
 position = Vector2(1.52588e-05, -0.0624927)
 scale = Vector2(0.757812, 0.753906)
 sprite_frames = SubResource("SpriteFrames_3bg3d")
+animation = &"move"
+autoplay = "move"
+
+[node name="move" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(1.52588e-05, -0.0624927)
+scale = Vector2(0.757812, 0.753906)
+sprite_frames = SubResource("SpriteFrames_cisot")
+animation = &"move"
 autoplay = "move"
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
