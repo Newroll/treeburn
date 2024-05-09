@@ -193,26 +193,38 @@ func resetPlayerPos():
 
 func animation_state(input_axis):
 	if velocity.x == 0:
+		$move.hide()
+		animated_sprite.show()
 		animated_sprite.animation = "default"
 		animated_collision.scale.y = 0.951
 		animated_collision.position.x = 0.1
 
 	if input_axis == -1:
-		animated_sprite.animation = "move"
-		animated_sprite.flip_h = true 
+		animated_sprite.hide()
+		$move.show()
+		$move.flip_h = true
+		animated_sprite.flip_h = true
 		animated_collision.scale.y = 1.03
 		animated_collision.position.x = -3
 
 	if input_axis == 1:
+		animated_sprite.hide()
+		$move.show()
+		$move.flip_h = false
+		animated_sprite.flip_h = false
 		animated_sprite.animation = "move"
 		animated_collision.scale.y = 1.03
 		animated_collision.position.x = 1.5
 		animated_sprite.flip_h = false 
 
 	if velocity.y < 0:
+		$move.hide()
+		animated_sprite.show()
 		animated_sprite.animation = "jumpUp"
 		
 	if velocity.y > 0:
+		$move.hide()
+		animated_sprite.show()
 		animated_sprite.animation = "jumpDown"
 
 	if Main.immunity == true && Main.health > 0:
