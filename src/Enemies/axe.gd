@@ -61,7 +61,7 @@ func _physics_process(delta):
 	else:
 		#Makes the enemy chase the player once it is in range through the aggro var
 		if aggro:
-			move_towards_player(player_dir)
+			move_towards_player()
 		else:
 			detect_turn()
 			move_character()
@@ -117,7 +117,7 @@ func _on_player_chase_body_exited(body):
 	if body.name == "CharacterBody2D":
 		aggro = false
 
-func move_towards_player(player_dir):
+func move_towards_player():
 	if raycast_left.is_colliding() && raycast_right.is_colliding():
 		speed = 70
 		if player_dir > 0:
@@ -162,7 +162,7 @@ func _on_can_attack_body_exited(body):
 func _on_attack_area_body_entered(body):
 	if body.name == "CharacterBody2D":
 		if has_hit == false:
-			Main.health -= 1
+			Main.takeDmg(1)
 			attack_interval_passed = false
 			Main.knockback = true
 			has_hit = true

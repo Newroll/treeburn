@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://bmlc5h5gbouaf"]
+[gd_scene load_steps=31 format=3 uid="uid://bmlc5h5gbouaf"]
 
 [ext_resource type="Script" path="res://src/interactive/character.gd" id="1_bp46o"]
 [ext_resource type="Texture2D" uid="uid://gdaqely7ugfi" path="res://assets/player/idle.png" id="2_lxpg1"]
@@ -287,7 +287,7 @@ libraries = {
 
 [node name="die" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_k36x5")
-volume_db = 12.0
+volume_db = 6.19
 
 [node name="hurt" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_aa582")
