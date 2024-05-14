@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bmlc5h5gbouaf"]
+[gd_scene load_steps=30 format=3 uid="uid://bmlc5h5gbouaf"]
 
 [ext_resource type="Script" path="res://src/interactive/character.gd" id="1_bp46o"]
 [ext_resource type="Texture2D" uid="uid://gdaqely7ugfi" path="res://assets/player/idle.png" id="2_lxpg1"]
@@ -6,7 +6,6 @@
 [ext_resource type="Texture2D" uid="uid://b3t80oi4p12im" path="res://assets/player/jump-sheet.png" id="3_v4n0d"]
 [ext_resource type="AudioStream" uid="uid://cu5fjnds7y6lc" path="res://assets/sfx/jump.mp3" id="4_8oc82"]
 [ext_resource type="AudioStream" uid="uid://msvppnb7g40h" path="res://assets/sfx/hurt.mp3" id="7_aa582"]
-[ext_resource type="AudioStream" uid="uid://b7ysdkw0lu2wa" path="res://assets/sfx/death.mp3" id="7_k36x5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qdcey"]
 atlas = ExtResource("2_lxpg1")
@@ -285,14 +284,9 @@ libraries = {
 "": SubResource("AnimationLibrary_jdcev")
 }
 
-[node name="die" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_k36x5")
-volume_db = 6.19
-
 [node name="hurt" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_aa582")
 volume_db = 11.0
-pitch_scale = 0.77
 
 [connection signal="timeout" from="FireKnockbackTimer" to="." method="_on_fire_knockback_timer_timeout"]
 [connection signal="timeout" from="KnockbackTimer" to="." method="_on_knockback_timer_timeout"]

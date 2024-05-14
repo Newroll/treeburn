@@ -44,6 +44,7 @@ var immunity = false
 var immunityTimer
 var immunityTemp = true
 var hurtSFX = true
+var dieSFX = true
 
 #Camera Zoom Levels
 var zoomLevels = [4.0, 5.0, 6.0]
@@ -93,11 +94,12 @@ func takeDmg(amount):
 
 func death():
 	coins = 0 
-	health = 3
+	health = 0
 	worldHealth = 8
 	quicksand = false
 	ice = false
 	below_death_height = false
+	dieSFX = false
 	get_tree().change_scene_to_file("res://src/global/death.tscn")
 
 

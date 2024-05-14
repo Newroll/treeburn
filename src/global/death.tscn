@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://bhw48p0ycooeo"]
+[gd_scene load_steps=9 format=3 uid="uid://bhw48p0ycooeo"]
 
 [ext_resource type="Texture2D" uid="uid://dp8q7ne2wr5nx" path="res://assets/interactive/deathscreen.png" id="1_6txj8"]
 [ext_resource type="Script" path="res://src/global/death.gd" id="1_lls1p"]
 [ext_resource type="FontFile" uid="uid://422t11bovf6v" path="res://assets/styles/mainport.ttf" id="2_3l267"]
 [ext_resource type="Theme" uid="uid://h03jnrduf8o4" path="res://assets/styles/death.tres" id="3_vhpyf"]
+[ext_resource type="AudioStream" uid="uid://b7ysdkw0lu2wa" path="res://assets/sfx/death.mp3" id="5_uegtu"]
 
 [sub_resource type="Animation" id="Animation_invgh"]
 length = 0.001
@@ -117,6 +118,10 @@ libraries = {
 "": SubResource("AnimationLibrary_gk33f")
 }
 autoplay = "death_fadein"
+
+[node name="die" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_uegtu")
+volume_db = 6.19
 
 [connection signal="pressed" from="Control/MainMarginContainer/BoxContainer/MarginContainer/continue" to="." method="_on_continue_pressed"]
 [connection signal="pressed" from="Control/MainMarginContainer/BoxContainer/MarginContainer2/quit" to="." method="_on_quit_pressed"]
