@@ -83,12 +83,15 @@ position = Vector2(929.519, 911.817)
 scale = Vector2(4.37462, 2.60237)
 texture = ExtResource("3_26rap")
 
-[node name="title" type="Label" parent="."]
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
 layout_mode = 0
-offset_left = 179.184
-offset_top = 128.425
-offset_right = 1643.18
-offset_bottom = 314.425
+offset_right = 1921.0
+offset_bottom = 482.0
+alignment = 1
+
+[node name="title" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.133333, 0.6, 0.133333, 1)
 theme_override_fonts/font = ExtResource("2_wddbg")
