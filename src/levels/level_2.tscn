@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://dbwpjqdopswge"]
+[gd_scene load_steps=40 format=3 uid="uid://dbwpjqdopswge"]
 
 [ext_resource type="Script" path="res://src/levels/level_2.gd" id="1_anxaj"]
 [ext_resource type="PackedScene" uid="uid://bmlc5h5gbouaf" path="res://src/interactive/character.tscn" id="1_km57j"]
@@ -6,9 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dy12u1xfe8uck" path="res://assets/background/lvl1back.png" id="2_cwifa"]
 [ext_resource type="Texture2D" uid="uid://etxpk65gm7kk" path="res://assets/background/lvl1front.png" id="3_wpmmd"]
 [ext_resource type="PackedScene" uid="uid://kfxb12a1wxyl" path="res://src/interactive/coin.tscn" id="4_4obr8"]
-[ext_resource type="Script" path="res://src/interactive/pitfall.gd" id="4_n0arp"]
 [ext_resource type="Script" path="res://src/interactive/coins.gd" id="5_1cxdc"]
-[ext_resource type="Texture2D" uid="uid://d3xho7hc8wt4a" path="res://assets/interactive/pitfall.png" id="5_yitji"]
 [ext_resource type="Texture2D" uid="uid://grrid1bfg8il" path="res://assets/foreground/trees.png" id="6_asx6m"]
 [ext_resource type="Texture2D" uid="uid://iw33gtlicsw4" path="res://assets/foreground/deadtree.png" id="7_503km"]
 [ext_resource type="Texture2D" uid="uid://bo5yrg83rhude" path="res://assets/foreground/lvl1_ground.png" id="7_lmob4"]
@@ -19,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://cs04t8of1amx8" path="res://assets/foreground/water.tres" id="12_g4vdj"]
 [ext_resource type="PackedScene" uid="uid://dtfkm547yxtbg" path="res://src/ui/ui.tscn" id="15_0cqxb"]
 [ext_resource type="AudioStream" uid="uid://ctfjl7xm00g0g" path="res://assets/music/musiclvl1.mp3" id="16_0wo5w"]
+[ext_resource type="PackedScene" uid="uid://csvdkfpk6ptk0" path="res://src/interactive/pitfall.tscn" id="16_1or4d"]
 [ext_resource type="PackedScene" uid="uid://bxrdaun1twtb1" path="res://src/interactive/portalRight.tscn" id="17_cr723"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fomlk"]
@@ -633,50 +632,6 @@ sources/3 = SubResource("TileSetAtlasSource_egts4")
 sources/4 = SubResource("TileSetAtlasSource_5gubf")
 sources/0 = SubResource("TileSetAtlasSource_wtyno")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ht5gh"]
-size = Vector2(112, 16)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ajhoi"]
-size = Vector2(112, 32)
-
-[sub_resource type="Animation" id="Animation_rhm36"]
-length = 0.001
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(2040, -128)]
-}
-
-[sub_resource type="Animation" id="Animation_3pinq"]
-resource_name = "wobble"
-length = 3.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1, 1.1, 1.2, 1.3, 1.4, 1.5, 1.6, 1.7, 1.8, 1.9, 2, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 3, 3.1),
-"transitions": PackedFloat32Array(4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4, 4),
-"update": 0,
-"values": [Vector2(2040, -128), Vector2(2046, -128), Vector2(2040, -128), Vector2(2034, -128), Vector2(2040, -128), Vector2(2046, -128), Vector2(2040, -128), Vector2(2034, -128), Vector2(2040, -128), Vector2(2046, -128), Vector2(2040, -128), Vector2(2034, -128), Vector2(2040, -128), Vector2(2046, -128), Vector2(2040, -128), Vector2(2034, -128), Vector2(2040, -128), Vector2(2046, -128), Vector2(2040, -128), Vector2(2034, -128), Vector2(2040, -128), Vector2(2046, -128), Vector2(2040, -128), Vector2(2034, -128), Vector2(2040, -128), Vector2(2046, -128), Vector2(2040, -128), Vector2(2034, -128), Vector2(2040, -128), Vector2(2046, -128), Vector2(2040, -128), Vector2(2034, -128)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_j6f26"]
-_data = {
-"RESET": SubResource("Animation_rhm36"),
-"wobble": SubResource("Animation_3pinq")
-}
-
 [sub_resource type="Animation" id="Animation_xs3dy"]
 length = 0.001
 tracks/0/type = "value"
@@ -835,80 +790,13 @@ layer_0/tile_data = PackedInt32Array(-917554, 1, 2, -852018, 1, 3, -786482, 1, 4
 
 [node name="pitfalls" type="Node" parent="."]
 
-[node name="pitfall" type="CharacterBody2D" parent="pitfalls"]
-position = Vector2(1590, 16)
-script = ExtResource("4_n0arp")
-
-[node name="collider" type="Area2D" parent="pitfalls/pitfall"]
-
-[node name="texture" type="Sprite2D" parent="pitfalls/pitfall/collider"]
-texture_filter = 1
-position = Vector2(2, 64)
-texture = ExtResource("5_yitji")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="pitfalls/pitfall/collider"]
-position = Vector2(2, -25)
-shape = SubResource("RectangleShape2D_ht5gh")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="pitfalls/pitfall"]
-position = Vector2(2, 0)
-shape = SubResource("RectangleShape2D_ajhoi")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="pitfalls/pitfall"]
-root_node = NodePath("../../..")
-libraries = {
-"": SubResource("AnimationLibrary_j6f26")
-}
-
-[node name="pitfall2" type="CharacterBody2D" parent="pitfalls"]
+[node name="pitfall" parent="pitfalls" instance=ExtResource("16_1or4d")]
 position = Vector2(1702, 16)
-script = ExtResource("4_n0arp")
 
-[node name="collider" type="Area2D" parent="pitfalls/pitfall2"]
+[node name="pitfall2" parent="pitfalls" instance=ExtResource("16_1or4d")]
 
-[node name="texture" type="Sprite2D" parent="pitfalls/pitfall2/collider"]
-texture_filter = 1
-position = Vector2(2, 64)
-texture = ExtResource("5_yitji")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="pitfalls/pitfall2/collider"]
-position = Vector2(2, -25)
-shape = SubResource("RectangleShape2D_ht5gh")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="pitfalls/pitfall2"]
-position = Vector2(2, 0)
-shape = SubResource("RectangleShape2D_ajhoi")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="pitfalls/pitfall2"]
-root_node = NodePath("../..")
-libraries = {
-"": SubResource("AnimationLibrary_j6f26")
-}
-
-[node name="pitfall3" type="CharacterBody2D" parent="pitfalls"]
+[node name="pitfall3" parent="pitfalls" instance=ExtResource("16_1or4d")]
 position = Vector2(1814, 16)
-script = ExtResource("4_n0arp")
-
-[node name="collider" type="Area2D" parent="pitfalls/pitfall3"]
-
-[node name="texture" type="Sprite2D" parent="pitfalls/pitfall3/collider"]
-texture_filter = 1
-position = Vector2(2, 64)
-texture = ExtResource("5_yitji")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="pitfalls/pitfall3/collider"]
-position = Vector2(2, -25)
-shape = SubResource("RectangleShape2D_ht5gh")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="pitfalls/pitfall3"]
-position = Vector2(2, 0)
-shape = SubResource("RectangleShape2D_ajhoi")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="pitfalls/pitfall3"]
-root_node = NodePath("../..")
-libraries = {
-"": SubResource("AnimationLibrary_j6f26")
-}
 
 [node name="coins" type="Node" parent="."]
 
@@ -990,10 +878,3 @@ physics_material_override = SubResource("PhysicsMaterial_aclc0")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="barriers/Endbarrier"]
 position = Vector2(2827.5, -109)
 shape = SubResource("RectangleShape2D_x3ig7")
-
-[connection signal="body_entered" from="pitfalls/pitfall/collider" to="pitfalls/pitfall" method="_on_collider_body_entered"]
-[connection signal="body_exited" from="pitfalls/pitfall/collider" to="pitfalls/pitfall" method="_on_collider_body_exited"]
-[connection signal="body_entered" from="pitfalls/pitfall2/collider" to="pitfalls/pitfall2" method="_on_collider_body_entered"]
-[connection signal="body_exited" from="pitfalls/pitfall2/collider" to="pitfalls/pitfall2" method="_on_collider_body_exited"]
-[connection signal="body_entered" from="pitfalls/pitfall3/collider" to="pitfalls/pitfall3" method="_on_collider_body_entered"]
-[connection signal="body_exited" from="pitfalls/pitfall3/collider" to="pitfalls/pitfall3" method="_on_collider_body_exited"]

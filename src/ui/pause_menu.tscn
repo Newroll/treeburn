@@ -60,7 +60,8 @@ vertical = true
 
 [node name="MarginContainer4" type="MarginContainer" parent="buttonsContainer"]
 layout_mode = 2
-theme_override_constants/margin_top = 256
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
 [node name="title" type="Label" parent="buttonsContainer/MarginContainer4"]
 custom_minimum_size = Vector2(1920, 256)
@@ -112,7 +113,6 @@ text = "Restart Level"
 
 [node name="MarginContainer2" type="MarginContainer" parent="buttonsContainer"]
 layout_mode = 2
-theme_override_constants/margin_bottom = 256
 
 [node name="QuitMenuButton" type="Button" parent="buttonsContainer/MarginContainer2"]
 custom_minimum_size = Vector2(720, 96)

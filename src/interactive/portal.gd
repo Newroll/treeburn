@@ -23,6 +23,7 @@ func _process(_delta):
 		$coins.visible = true
 		Main.coins = 0
 		Main.level += 1
+		Main.health = 3
 		Main.worldHealth = 8
 		$CanvasLayer.show()
 		$CanvasLayer/AnimationPlayer.play("fadetoblack")
