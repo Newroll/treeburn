@@ -127,7 +127,7 @@ radius = 106.0
 size = Vector2(54, 43)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_feejs"]
-size = Vector2(56, 45)
+size = Vector2(54, 43)
 
 [sub_resource type="Animation" id="Animation_yx7cu"]
 length = 0.001
@@ -312,7 +312,6 @@ position = Vector2(-12, 1)
 shape = SubResource("CircleShape2D_vw6dv")
 
 [node name="attack_area" type="Area2D" parent="."]
-visible = false
 monitoring = false
 monitorable = false
 
@@ -321,10 +320,9 @@ position = Vector2(-12, 7.5)
 shape = SubResource("RectangleShape2D_kgeqp")
 
 [node name="can_attack" type="Area2D" parent="."]
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="can_attack"]
-position = Vector2(-12, 6.5)
+position = Vector2(-12, 7.5)
 shape = SubResource("RectangleShape2D_feejs")
 
 [node name="RayCast_Left" type="RayCast2D" parent="."]
