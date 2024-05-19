@@ -363,11 +363,11 @@ visible = false
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_y7kgl")
 
-[node name="PauseMenu" parent="." instance=ExtResource("9_b4xgo")]
-visible = false
-
 [node name="worldHealth" type="AnimatedSprite2D" parent="."]
 position = Vector2(168.727, 171.636)
 scale = Vector2(1.24479, 1.24479)
 sprite_frames = SubResource("SpriteFrames_436fo")
 script = ExtResource("8_6i3im")
+
+[node name="PauseMenu" parent="." instance=ExtResource("9_b4xgo")]
+visible = false
