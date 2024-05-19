@@ -62,9 +62,9 @@ vertical = true
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_constants/margin_bottom = 80
 
 [node name="title" type="Label" parent="buttonsContainer/MarginContainer4"]
-custom_minimum_size = Vector2(1920, 256)
 layout_mode = 2
 size_flags_vertical = 10
 theme_override_colors/font_color = Color(1, 1, 1, 1)

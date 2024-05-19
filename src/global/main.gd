@@ -53,6 +53,9 @@ var currentZoomLevel = 1
 #Checks Scene
 var introScene = null
 
+#Checks if in fullscreen
+var windowFull = false
+
 func _physics_process(_delta):
 	#Does this need to be removed?
 	#If it does then just make a commit and remove it.
@@ -60,6 +63,14 @@ func _physics_process(_delta):
 	### REMOVE THIS FUNCTION CALL ###
 	debug()
 	#################################
+	
+	if Input.is_action_just_pressed("fullscreen"):
+		if windowFull == false:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+			windowFull = true
+		else:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+			windowFull = false
 	
 	framesEclapsed += 1
 	totalFramesEclapsed += 1
