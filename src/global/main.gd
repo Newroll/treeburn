@@ -58,10 +58,12 @@ var windowFull = false
 
 func _physics_process(_delta):
 	#Does this need to be removed?
+	# yes it does jayden
 	#If it does then just make a commit and remove it.
 	
 	### REMOVE THIS FUNCTION CALL ###
-	debug()
+	#debug()
+	# there, i've removed it
 	#################################
 	
 	if Input.is_action_just_pressed("fullscreen"):
