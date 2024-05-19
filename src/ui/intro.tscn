@@ -5,7 +5,7 @@
 [ext_resource type="FontFile" uid="uid://es627dw3q2bu" path="res://assets/styles/WayfarersToyBoxRegular.ttf" id="2_wddbg"]
 [ext_resource type="Texture2D" uid="uid://ddodrd661qp2" path="res://assets/background/cloudsfront.png" id="3_26rap"]
 [ext_resource type="FontFile" uid="uid://422t11bovf6v" path="res://assets/styles/mainport.ttf" id="5_p53nj"]
-[ext_resource type="StyleBox" uid="uid://cavwdk0v7i65u" path="res://assets/styles/menu.tres" id="5_syq3h"]
+[ext_resource type="StyleBox" uid="uid://dgv7mr7d2hwjx" path="res://assets/styles/menu.tres" id="5_syq3h"]
 [ext_resource type="AudioStream" uid="uid://m4t4b420uqp1" path="res://assets/music/intro.mp3" id="6_ia2ck"]
 [ext_resource type="Texture2D" uid="uid://grrid1bfg8il" path="res://assets/foreground/trees.png" id="8_ewxgs"]
 
@@ -202,13 +202,13 @@ vertical = true
 layout_mode = 2
 theme_override_fonts/font = ExtResource("5_p53nj")
 theme_override_font_sizes/font_size = 56
-text = "Treeburn v2.8 development"
+text = "Treeburn v2.9 final final release"
 
 [node name="copyright" type="Label" parent="MarginContainer/copyrightContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("5_p53nj")
 theme_override_font_sizes/font_size = 36
-text = "Copyright 2023 Treeburn Studios. All rights reserved."
+text = "Copyright 2024 Treeburn Studios. All rights reserved."
 
 [node name="talltree" type="Sprite2D" parent="."]
 texture_filter = 1
