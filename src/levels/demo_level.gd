@@ -14,6 +14,13 @@ func _ready():
 
 
 func _process(_delta):
+	if Input.is_action_just_pressed("f11"):
+		$CharacterBody2D.position = Vector2(1850, -200)
+	if Input.is_action_just_pressed("f12"):
+		$CharacterBody2D.position = Vector2(2970, -50)
+	if Input.is_action_just_pressed("f9"):
+		Main.worldHealth = 99999
+		Main.health = 99999
 	if Input.is_action_just_pressed("esc"):
 		get_tree().paused = true
 		$UI/PauseMenu.show()

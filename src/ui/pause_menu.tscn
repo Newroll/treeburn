@@ -43,7 +43,7 @@ offset_bottom = 84.0
 theme = ExtResource("2_pw8og")
 theme_override_fonts/font = ExtResource("3_5wg7b")
 theme_override_styles/normal = ExtResource("3_sh48l")
-text = "Resume"
+text = "press enter to Resume"
 metadata/_edit_use_anchors_ = true
 
 [node name="restartbutton" type="Button" parent="."]
@@ -54,7 +54,7 @@ offset_bottom = 108.0
 theme = ExtResource("2_pw8og")
 theme_override_fonts/font = ExtResource("3_5wg7b")
 theme_override_styles/normal = ExtResource("3_sh48l")
-text = "Restart level"
+text = "press backspace to Restart level"
 metadata/_edit_use_anchors_ = true
 
 [node name="QuitToMenuButton" type="Button" parent="."]

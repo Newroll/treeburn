@@ -1,10 +1,12 @@
 extends CanvasLayer
 
 # NOT WORKING
-#func _process(delta):
-#	if Input.is_action_just_pressed("esc") && get_tree().paused == true:
-#		get_tree().paused = false
-#		hide()
+func _process(_delta):
+	if Input.is_action_just_pressed("enter") && get_tree().paused == true:
+		get_tree().paused = false
+		hide()
+	if Input.is_action_just_pressed("bksp") && get_tree().paused == true:
+		Main.unanimated_death()
 
 func _on_resume_button_pressed():
 	get_tree().paused = false

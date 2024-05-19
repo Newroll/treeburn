@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 # Loads throwable rock
-const rock_throwable_scene = preload("res://src/Enemies/throwable_rock.tscn")
+const rock_throwable_scene = preload("res://src/enemies/throwable_rock.tscn")
 
 
 #Gets player and timer nodes

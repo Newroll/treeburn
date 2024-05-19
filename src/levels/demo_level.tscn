@@ -20,12 +20,12 @@
 [ext_resource type="Script" path="res://src/levels/camera.gd" id="14_lb2th"]
 [ext_resource type="Texture2D" uid="uid://b1ulb37udof5d" path="res://assets/foreground/quicksand.png" id="15_11nk1"]
 [ext_resource type="Texture2D" uid="uid://cs04t8of1amx8" path="res://assets/foreground/water.tres" id="15_belry"]
-[ext_resource type="PackedScene" uid="uid://dqwcpids7e46a" path="res://src/Enemies/axe.tscn" id="16_at8lt"]
+[ext_resource type="PackedScene" uid="uid://dqwcpids7e46a" path="res://src/enemies/axe.tscn" id="16_at8lt"]
 [ext_resource type="Texture2D" uid="uid://cgrq68r216777" path="res://assets/foreground/lava.tres" id="16_npoop"]
 [ext_resource type="PackedScene" uid="uid://kfxb12a1wxyl" path="res://src/interactive/coin.tscn" id="17_3f6r7"]
 [ext_resource type="PackedScene" uid="uid://5sixvjk3b60v" path="res://src/interactive/fire.tscn" id="17_bka0n"]
 [ext_resource type="PackedScene" uid="uid://uiouwl5inj5h" path="res://src/interactive/platform.tscn" id="17_p8has"]
-[ext_resource type="PackedScene" uid="uid://dr3lmvseh1mm6" path="res://src/Enemies/coal.tscn" id="17_uqbt0"]
+[ext_resource type="PackedScene" uid="uid://dr3lmvseh1mm6" path="res://src/enemies/coal.tscn" id="17_uqbt0"]
 [ext_resource type="Script" path="res://src/interactive/coins.gd" id="18_fwh26"]
 [ext_resource type="PackedScene" uid="uid://cqm6jb4lo3pts" path="res://src/interactive/movingplatform.tscn" id="20_k2wu3"]
 [ext_resource type="PackedScene" uid="uid://dtfkm547yxtbg" path="res://src/ui/ui.tscn" id="21_tf1h8"]
@@ -1401,7 +1401,7 @@ libraries = {
 }
 
 [node name="end" type="ColorRect" parent="."]
-offset_left = 4389.0
+offset_left = 4356.0
 offset_top = -437.0
 offset_right = 4600.0
 offset_bottom = -389.0
@@ -1409,25 +1409,27 @@ color = Color(0, 0, 0, 0.380392)
 
 [node name="full" type="Label" parent="end"]
 layout_mode = 0
-offset_left = 28.0
+offset_left = -3.0
 offset_top = 20.0
-offset_right = 180.0
-offset_bottom = 50.0
+offset_right = 214.0
+offset_bottom = 62.0
 theme_override_fonts/font = ExtResource("34_1ipix")
 theme_override_font_sizes/font_size = 12
-text = "PLAY FULL VERSION AT HTTPS://TREEBURN."
+text = "PLAY FULL VERSION AT
+ HTTPS://TREEBURN.athenas.dev"
 horizontal_alignment = 2
 autowrap_mode = 2
 
 [node name="complete" type="Label" parent="end"]
 layout_mode = 0
-offset_left = 3.0
+offset_left = -2.0
 offset_top = 2.0
-offset_right = 180.0
+offset_right = 215.0
 offset_bottom = 24.0
 theme_override_fonts/font = ExtResource("34_1ipix")
 theme_override_font_sizes/font_size = 20
 text = "DEMO COMPLETE"
+horizontal_alignment = 2
 
 [node name="quicksand" parent="." instance=ExtResource("35_hptgh")]
 position = Vector2(2721, 10)

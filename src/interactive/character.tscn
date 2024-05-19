@@ -273,7 +273,7 @@ polygon = PackedVector2Array(-4.5, 10.3084, 4.5, 10.3084, 4, 6.38298, 5, 3.19149
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_8oc82")
-volume_db = -5.0
+volume_db = -10.0
 
 [node name="FireKnockbackTimer" type="Timer" parent="."]
 wait_time = 0.3
@@ -326,7 +326,7 @@ libraries = {
 
 [node name="die" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_k36x5")
-volume_db = 12.0
+volume_db = -5.0
 
 [node name="hurt" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_aa582")
