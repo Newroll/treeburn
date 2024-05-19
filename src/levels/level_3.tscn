@@ -19,8 +19,8 @@
 [ext_resource type="PackedScene" uid="uid://dr3lmvseh1mm6" path="res://src/Enemies/coal.tscn" id="14_j8yol"]
 [ext_resource type="PackedScene" uid="uid://dtfkm547yxtbg" path="res://src/ui/ui.tscn" id="15_0cqxb"]
 [ext_resource type="PackedScene" uid="uid://5sixvjk3b60v" path="res://src/interactive/fire.tscn" id="15_r2b35"]
-[ext_resource type="PackedScene" uid="uid://bxrdaun1twtb1" path="res://src/interactive/portal.tscn" id="17_cr723"]
 [ext_resource type="AudioStream" uid="uid://bqurcfgqivv2x" path="res://assets/music/musiclvl2.mp3" id="18_i5a1a"]
+[ext_resource type="PackedScene" uid="uid://dhrpqqlu52bto" path="res://src/interactive/portalLeft.tscn" id="20_lsf5d"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3n1mi"]
 texture = ExtResource("4_ps6a8")
@@ -675,9 +675,8 @@ position = Vector2(3043, -9)
 
 [node name="UI" parent="." instance=ExtResource("15_0cqxb")]
 
-[node name="portal" parent="." instance=ExtResource("17_cr723")]
-position = Vector2(1244, -42)
-metadata/_edit_lock_ = true
+[node name="portal" parent="." instance=ExtResource("20_lsf5d")]
+position = Vector2(1244, -38)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("18_i5a1a")

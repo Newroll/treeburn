@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://d3poqaxqqu015" path="res://assets/foreground/icybush.png" id="10_rbyoo"]
 [ext_resource type="PackedScene" uid="uid://duxdweo12qa7" path="res://src/interactive/snowalt.tscn" id="10_u32m0"]
 [ext_resource type="PackedScene" uid="uid://dvvqyio0cmfa5" path="res://src/interactive/snow.tscn" id="11_t4lbf"]
-[ext_resource type="PackedScene" uid="uid://bxrdaun1twtb1" path="res://src/interactive/portal.tscn" id="13_7g3nt"]
+[ext_resource type="PackedScene" uid="uid://bxrdaun1twtb1" path="res://src/interactive/portalRight.tscn" id="13_7g3nt"]
 [ext_resource type="PackedScene" uid="uid://dtfkm547yxtbg" path="res://src/ui/ui.tscn" id="15_0cqxb"]
 [ext_resource type="AudioStream" uid="uid://bpeoalgn5ppsk" path="res://assets/music/musiclvl3.mp3" id="18_qb4al"]
 
@@ -486,6 +486,9 @@ position = Vector2(647, 6)
 [node name="movingplatform4" parent="platforms" instance=ExtResource("8_pw5pa")]
 position = Vector2(281, 111)
 
+[node name="movingplatform5" parent="platforms" instance=ExtResource("8_pw5pa")]
+position = Vector2(3148, 6)
+
 [node name="avalanche" type="Node2D" parent="."]
 
 [node name="snow1" parent="avalanche" instance=ExtResource("11_t4lbf")]
@@ -563,7 +566,7 @@ position = Vector2(1074, -433)
 [node name="UI" parent="." instance=ExtResource("15_0cqxb")]
 
 [node name="portal" parent="." instance=ExtResource("13_7g3nt")]
-position = Vector2(3450, -58)
+position = Vector2(3450, -52)
 metadata/_edit_lock_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

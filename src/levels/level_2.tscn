@@ -19,7 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://cs04t8of1amx8" path="res://assets/foreground/water.tres" id="12_g4vdj"]
 [ext_resource type="PackedScene" uid="uid://dtfkm547yxtbg" path="res://src/ui/ui.tscn" id="15_0cqxb"]
 [ext_resource type="AudioStream" uid="uid://ctfjl7xm00g0g" path="res://assets/music/musiclvl1.mp3" id="16_0wo5w"]
-[ext_resource type="PackedScene" uid="uid://bxrdaun1twtb1" path="res://src/interactive/portal.tscn" id="17_cr723"]
+[ext_resource type="PackedScene" uid="uid://bxrdaun1twtb1" path="res://src/interactive/portalRight.tscn" id="17_cr723"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fomlk"]
 texture = ExtResource("6_asx6m")

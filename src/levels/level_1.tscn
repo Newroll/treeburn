@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dtfkm547yxtbg" path="res://src/ui/ui.tscn" id="15_0cqxb"]
 [ext_resource type="PackedScene" uid="uid://dqwcpids7e46a" path="res://src/Enemies/axe.tscn" id="15_gwau3"]
 [ext_resource type="Script" path="res://src/interactive/pitfall.gd" id="15_pqn2h"]
-[ext_resource type="PackedScene" uid="uid://bxrdaun1twtb1" path="res://src/interactive/portal.tscn" id="16_h5jbk"]
+[ext_resource type="PackedScene" uid="uid://bxrdaun1twtb1" path="res://src/interactive/portalRight.tscn" id="16_h5jbk"]
 [ext_resource type="AudioStream" uid="uid://ctfjl7xm00g0g" path="res://assets/music/musiclvl1.mp3" id="17_1uwno"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ppf6s"]
