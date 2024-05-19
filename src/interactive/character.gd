@@ -66,21 +66,21 @@ func _physics_process(delta):
 		handle_acceleration(input_axis, delta)
 		apply_friction(input_axis,delta)
 		wall_jumping()
+		
 	elif Main.knockback == true:
 		knockback()
+		
 	elif Main.fireKnockback == true:
 		fireKnockback(input_axis, delta)
 	
 	if position.y > Main.death_height[Main.level]:
 		Main.below_death_height = true
 	
-	if Main.resetPlayer == true:
-		velocity.y = 0
-		velocity.x = 0
-		animated_sprite.animation = "death"
-		await get_tree().create_timer(1.9).timeout
-		resetPlayerPos()
-		Main.resetPlayer = false
+	#if Main.resetPlayer == true:
+		#velocity.y = 0
+		#velocity.x = 0
+		#resetPlayerPos()
+		#Main.resetPlayer = false
 	
 	Main.playerPosition = get_position()
 
@@ -88,10 +88,12 @@ func check_state():
 	if Main.quicksand == true:
 		movement_data = load("res://src/interactive/QuicksandMovementData.tres")
 		animated_sprite.set_speed_scale(0.26)
-	if Main.ice == true:
+		
+	elif Main.ice == true:
 		movement_data = load("res://src/interactive/IceMovementData.tres")
 		animated_sprite.set_speed_scale(0.5)
-	if Main.ice == false && Main.quicksand == false:
+		
+	elif Main.ice == false && Main.quicksand == false:
 		movement_data = load("res://src/interactive/DefaultMovementData.tres")
 		animated_sprite.set_speed_scale(1.0)
 
@@ -161,14 +163,14 @@ func wall_jumping():
 		if Input.is_action_just_pressed("move_right"):
 			if wall_left.is_colliding():
 				var object_left_wall = wall_left.get_collider()
-				if object_left_wall.get_name() == "BehindPlayer":
+				if object_left_wall.get_name() == "Ground":
 					velocity.y = movement_data.jump_velocity
 					velocity.x = 150
 
 		if Input.is_action_just_pressed("move_left"):
 			if wall_right.is_colliding():
 				var object_right_wall = wall_right.get_collider()
-				if object_right_wall.get_name() == "BehindPlayer":
+				if object_right_wall.get_name() == "Ground":
 					velocity.y = movement_data.jump_velocity
 					velocity.x = -150
 
@@ -190,38 +192,51 @@ func resetPlayerPos():
 
 
 func animation_state(input_axis):
-	if velocity.x == 0 && Main.resetPlayer == false:
+	if velocity.x == 0:
+		$move.hide()
+		animated_sprite.show()
 		animated_sprite.animation = "default"
 		animated_collision.scale.y = 0.951
 		animated_collision.position.x = 0.1
 
 	if input_axis == -1:
-		animated_sprite.animation = "move"
-		animated_sprite.flip_h = true 
+		animated_sprite.hide()
+		$move.show()
+		$move.flip_h = true
+		animated_sprite.flip_h = true
 		animated_collision.scale.y = 1.03
 		animated_collision.position.x = -3
 
 	if input_axis == 1:
+		animated_sprite.hide()
+		$move.show()
+		$move.flip_h = false
+		animated_sprite.flip_h = false
 		animated_sprite.animation = "move"
 		animated_collision.scale.y = 1.03
 		animated_collision.position.x = 1.5
 		animated_sprite.flip_h = false 
 
 	if velocity.y < 0:
+		$move.hide()
+		animated_sprite.show()
 		animated_sprite.animation = "jumpUp"
 		
 	if velocity.y > 0:
+		$move.hide()
+		animated_sprite.show()
 		animated_sprite.animation = "jumpDown"
 
 	if Main.immunity == true && Main.health > 0:
 		stupidAnimation = true
 
-	if Main.hurtSFX == false:
-		Main.hurtSFX = true
-		if Main.health > 0:
+	if Main.health > 0:
+		if Main.hurtSFX == false:
+			Main.hurtSFX = true
 			$hurt.play()
-		else: 
-			$die.play()
+
+		if Main.immunity == true:
+			stupidAnimation = true
 
 	if stupidAnimation == true:
 		$AnimationPlayer.play("blink")
@@ -231,13 +246,13 @@ func knockback():
 	if knockback_timer_started == false:
 # Identifies whether or not knockback is coming from the right
 		if knockback_right.is_colliding():
-			if object_right.get_name() != "BehindPlayer":
+			if object_right.get_name() != "Ground":
 				knockback_dir = -1
 				knockback_power = -200
 
 # Identifies whether or not knockback is coming from the left
 		if knockback_left.is_colliding():
-			if object_left.get_name() != "BehindPlayer":
+			if object_left.get_name() != "Ground":
 				knockback_dir = 1
 				knockback_power = -200
 
@@ -252,7 +267,7 @@ func knockback():
 
 # Identifies whether or not knockback is coming from below
 		if knockback_down.is_colliding():
-			if object_down.get_name() != "BehindPlayer":
+			if object_down.get_name() != "Ground":
 					knockback_dir = randi_range(-1, 1)
 					knockback_power = -350
 					print("Knockback down (raycast_down)")

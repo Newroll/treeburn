@@ -1,22 +1,22 @@
-[gd_scene load_steps=17 format=3 uid="uid://bcxhwtl70ikil"]
+[gd_scene load_steps=17 format=3 uid="uid://cqrwjuelx6yl0"]
 
-[ext_resource type="Script" path="res://src/ui/intro.gd" id="1_thbuj"]
+[ext_resource type="Script" path="res://src/ui/intro.gd" id="1_7frfu"]
 [ext_resource type="Texture2D" uid="uid://6q7ys6hqnit7" path="res://assets/background/cloudsback.png" id="2_hfyxw"]
 [ext_resource type="FontFile" uid="uid://es627dw3q2bu" path="res://assets/styles/WayfarersToyBoxRegular.ttf" id="2_wddbg"]
 [ext_resource type="Texture2D" uid="uid://ddodrd661qp2" path="res://assets/background/cloudsfront.png" id="3_26rap"]
 [ext_resource type="FontFile" uid="uid://422t11bovf6v" path="res://assets/styles/mainport.ttf" id="5_p53nj"]
-[ext_resource type="StyleBox" uid="uid://cavwdk0v7i65u" path="res://assets/styles/button_theme.tres" id="5_syq3h"]
+[ext_resource type="StyleBox" uid="uid://cavwdk0v7i65u" path="res://assets/styles/menu.tres" id="5_syq3h"]
 [ext_resource type="AudioStream" uid="uid://m4t4b420uqp1" path="res://assets/music/intro.mp3" id="6_ia2ck"]
 [ext_resource type="Texture2D" uid="uid://grrid1bfg8il" path="res://assets/foreground/trees.png" id="8_ewxgs"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_orp26"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ojjmp"]
 bg_color = Color(0.239216, 0.431373, 0.556863, 0.862745)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fck3n"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_clr3p"]
 bg_color = Color(0.239216, 0.376471, 0.392157, 0.862745)
 corner_radius_top_left = 10
 corner_radius_top_right = 10
@@ -44,74 +44,6 @@ tracks/0/keys = {
 [sub_resource type="Animation" id="Animation_6x26f"]
 resource_name = "splashscreen_animation"
 length = 6.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Letter:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.4),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Label:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(1.4, 3.8),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/2/type = "bezier"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Letter:position:x")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(826, -0.25, 0, 0.25, 0, 99.4571, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(1.4, 4.1)
-}
-tracks/3/type = "bezier"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Letter:position:y")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"handle_modes": PackedInt32Array(),
-"points": PackedFloat32Array(),
-"times": PackedFloat32Array()
-}
-tracks/4/type = "bezier"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Label:position:x")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"handle_modes": PackedInt32Array(0, 0),
-"points": PackedFloat32Array(348, -0.25, 0, 0.25, 0, -44.5431, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(2.6, 4.1)
-}
-tracks/5/type = "bezier"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Label:position:y")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"handle_modes": PackedInt32Array(),
-"points": PackedFloat32Array(),
-"times": PackedFloat32Array()
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_smr2c"]
 _data = {
@@ -120,19 +52,24 @@ _data = {
 "splashscreen_animation": SubResource("Animation_6x26f")
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2gttb"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_m4ws4"]
 atlas = ExtResource("8_ewxgs")
 region = Rect2(166, 19, 64, 109)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_5cn7q"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_24llv"]
 atlas = ExtResource("8_ewxgs")
 region = Rect2(33.4562, 50.944, 57.1602, 77.3233)
 
-[node name="intro" type="Node2D"]
-process_mode = 3
-position = Vector2(0, 3)
-scale = Vector2(0.178587, 0.155733)
-script = ExtResource("1_thbuj")
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+script = ExtResource("1_7frfu")
 
 [node name="CloudBack" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -146,11 +83,15 @@ position = Vector2(929.519, 911.817)
 scale = Vector2(4.37462, 2.60237)
 texture = ExtResource("3_26rap")
 
-[node name="title" type="Label" parent="."]
-offset_left = 179.184
-offset_top = 128.425
-offset_right = 1643.18
-offset_bottom = 314.425
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_right = 1921.0
+offset_bottom = 482.0
+alignment = 1
+
+[node name="title" type="Label" parent="HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_colors/font_color = Color(0.133333, 0.6, 0.133333, 1)
 theme_override_fonts/font = ExtResource("2_wddbg")
@@ -159,41 +100,79 @@ text = "Treeburn"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="NewGame_Button" type="Button" parent="."]
-offset_left = 515.0
-offset_top = 392.0
-offset_right = 1260.0
-offset_bottom = 751.0
+[node name="buttonsContainer" type="BoxContainer" parent="."]
+custom_minimum_size = Vector2(120, 120)
+layout_mode = 2
+offset_right = 1920.0
+offset_bottom = 1080.0
+alignment = 1
+vertical = true
+
+[node name="MarginContainer" type="MarginContainer" parent="buttonsContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 256
+theme_override_constants/margin_bottom = 8
+
+[node name="NewGame_Button" type="Button" parent="buttonsContainer/MarginContainer"]
+custom_minimum_size = Vector2(720, 256)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 focus_mode = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("5_p53nj")
-theme_override_font_sizes/font_size = 200
+theme_override_font_sizes/font_size = 128
 theme_override_styles/normal = ExtResource("5_syq3h")
-theme_override_styles/hover = SubResource("StyleBoxFlat_orp26")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_fck3n")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ojjmp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_clr3p")
 text = "Play"
 
-[node name="creditsbutton" type="Button" parent="."]
-offset_left = 515.0
-offset_top = 790.117
-offset_right = 1260.0
-offset_bottom = 899.117
+[node name="MarginContainer2" type="MarginContainer" parent="buttonsContainer"]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_bottom = 8
+
+[node name="settingsButton" type="Button" parent="buttonsContainer/MarginContainer2"]
+custom_minimum_size = Vector2(720, 96)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 focus_mode = 0
 theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("5_p53nj")
-theme_override_font_sizes/font_size = 72
+theme_override_font_sizes/font_size = 64
 theme_override_styles/normal = ExtResource("5_syq3h")
-theme_override_styles/hover = SubResource("StyleBoxFlat_orp26")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_fck3n")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ojjmp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_clr3p")
+text = "Settings"
+
+[node name="MarginContainer3" type="MarginContainer" parent="buttonsContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 8
+
+[node name="creditsbutton" type="Button" parent="buttonsContainer/MarginContainer3"]
+custom_minimum_size = Vector2(720, 96)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_p53nj")
+theme_override_font_sizes/font_size = 64
+theme_override_styles/normal = ExtResource("5_syq3h")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ojjmp")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_clr3p")
 text = "Credits"
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_ia2ck")
+volume_db = -10.0
 autoplay = true
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
 z_index = 99
+layout_mode = 0
 offset_top = -19.0
 offset_right = 1881.0
 offset_bottom = 1175.0
@@ -204,65 +183,44 @@ libraries = {
 "": SubResource("AnimationLibrary_smr2c")
 }
 
-[node name="Label" type="Label" parent="."]
-visible = false
-modulate = Color(1, 1, 1, 0)
-offset_left = 348.0
-offset_top = 338.359
-offset_right = 2385.99
-offset_bottom = 616.359
-theme_override_colors/font_color = Color(0.133333, 0.6, 0.133333, 1)
-theme_override_fonts/font = ExtResource("2_wddbg")
-theme_override_font_sizes/font_size = 170
-text = " reeburn"
-horizontal_alignment = 1
-metadata/_edit_use_anchors_ = true
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -93.0
+offset_right = 1155.0
+grow_vertical = 0
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_bottom = 16
 
-[node name="Letter" type="Label" parent="."]
-visible = false
-modulate = Color(1, 1, 1, 0.785714)
-offset_left = 826.0
-offset_top = 295.799
-offset_right = 1100.0
-offset_bottom = 573.799
-theme_override_colors/font_color = Color(0.133333, 0.6, 0.133333, 1)
-theme_override_fonts/font = ExtResource("2_wddbg")
-theme_override_font_sizes/font_size = 190
-text = "T"
-horizontal_alignment = 1
-vertical_alignment = 1
-metadata/_edit_use_anchors_ = true
+[node name="copyrightContainer" type="BoxContainer" parent="MarginContainer"]
+layout_mode = 2
+vertical = true
 
-[node name="version" type="Label" parent="."]
-offset_left = 16.7985
-offset_top = 1027.4
-offset_right = 897.799
-offset_bottom = 1084.4
+[node name="version" type="Label" parent="MarginContainer/copyrightContainer"]
+layout_mode = 2
 theme_override_fonts/font = ExtResource("5_p53nj")
 theme_override_font_sizes/font_size = 56
 text = "Treeburn v2.8 development"
 
-[node name="copyright" type="Label" parent="."]
-offset_left = 22.398
-offset_top = 1091.61
-offset_right = 1177.4
-offset_bottom = 1129.61
+[node name="copyright" type="Label" parent="MarginContainer/copyrightContainer"]
+layout_mode = 2
 theme_override_fonts/font = ExtResource("5_p53nj")
 theme_override_font_sizes/font_size = 36
 text = "Copyright 2023 Treeburn Studios. All rights reserved."
 
 [node name="talltree" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(1680.1, 757.609)
+position = Vector2(1680, 704)
 scale = Vector2(6.29599, 7.06746)
-texture = SubResource("AtlasTexture_2gttb")
+texture = SubResource("AtlasTexture_m4ws4")
 
 [node name="shorttree" type="Sprite2D" parent="."]
 texture_filter = 1
-position = Vector2(1456.12, 873.191)
+position = Vector2(1456, 817)
 scale = Vector2(6.29599, 7.06746)
-texture = SubResource("AtlasTexture_5cn7q")
+texture = SubResource("AtlasTexture_24llv")
 
-[connection signal="pressed" from="NewGame_Button" to="." method="_on_new_game_button_pressed"]
-[connection signal="pressed" from="creditsbutton" to="." method="_on_creditsbutton_pressed"]
-[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
+[connection signal="pressed" from="buttonsContainer/MarginContainer/NewGame_Button" to="." method="_on_new_game_button_pressed"]
+[connection signal="pressed" from="buttonsContainer/MarginContainer3/creditsbutton" to="." method="_on_creditsbutton_pressed"]

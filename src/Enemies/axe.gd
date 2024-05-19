@@ -30,14 +30,20 @@ var attack_interval_passed = true
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+#Player direction
+var player_dir = null
 
 func _ready():
 	animation_player.play("axe_run")
 
 
 func _physics_process(delta):
-	var player_dir = player.position.x - position.x
-	
+	if player.global_position.x > global_position.x:
+		player_dir = 1
+
+	if player.global_position.x < global_position.x:
+		player_dir = -1
+
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
@@ -55,7 +61,7 @@ func _physics_process(delta):
 	else:
 		#Makes the enemy chase the player once it is in range through the aggro var
 		if aggro:
-			move_towards_player(player_dir)
+			move_towards_player()
 		else:
 			detect_turn()
 			move_character()
@@ -101,6 +107,7 @@ func detect_turn():
 	if !raycast_right.is_colliding():
 		is_moving_left = false
 
+
 func _on_player_chase_body_entered(body):
 	if body.name == "CharacterBody2D":
 		aggro = true
@@ -110,7 +117,7 @@ func _on_player_chase_body_exited(body):
 	if body.name == "CharacterBody2D":
 		aggro = false
 
-func move_towards_player(player_dir):
+func move_towards_player():
 	if raycast_left.is_colliding() && raycast_right.is_colliding():
 		speed = 70
 		if player_dir > 0:
@@ -155,7 +162,7 @@ func _on_can_attack_body_exited(body):
 func _on_attack_area_body_entered(body):
 	if body.name == "CharacterBody2D":
 		if has_hit == false:
-			Main.health -= 1
+			Main.takeDmg(1)
 			attack_interval_passed = false
 			Main.knockback = true
 			has_hit = true

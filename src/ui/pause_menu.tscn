@@ -1,13 +1,29 @@
-[gd_scene load_steps=5 format=3 uid="uid://cjmevitxidwna"]
+[gd_scene load_steps=7 format=3 uid="uid://cjmevitxidwna"]
 
 [ext_resource type="Script" path="res://src/ui/pause_menu.gd" id="1_hc50u"]
-[ext_resource type="Theme" uid="uid://s7ofcp5w0jrk" path="res://assets/styles/pause-menu_theme.tres" id="2_pw8og"]
 [ext_resource type="FontFile" uid="uid://422t11bovf6v" path="res://assets/styles/mainport.ttf" id="3_5wg7b"]
-[ext_resource type="StyleBox" uid="uid://cavwdk0v7i65u" path="res://assets/styles/button_theme.tres" id="3_sh48l"]
+[ext_resource type="StyleBox" uid="uid://cavwdk0v7i65u" path="res://assets/styles/menu.tres" id="3_sh48l"]
+[ext_resource type="FontFile" uid="uid://es627dw3q2bu" path="res://assets/styles/WayfarersToyBoxRegular.ttf" id="5_vsh5n"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f8vgm"]
+bg_color = Color(0.239216, 0.431373, 0.556863, 0.862745)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1fgqu"]
+bg_color = Color(0.239216, 0.376471, 0.392157, 0.862745)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 
 [node name="PauseMenu" type="CanvasLayer"]
 process_mode = 2
 layer = 3
+scale = Vector2(6, 6)
+transform = Transform2D(6, 0, 0, 6, 0, 0)
 script = ExtResource("1_hc50u")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -21,53 +37,97 @@ offset_bottom = 131.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.666667)
-metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="."]
-offset_left = 69.0
-offset_top = 50.0
-offset_right = 249.0
-offset_bottom = 61.0
-theme = ExtResource("2_pw8og")
-theme_override_fonts/font = ExtResource("3_5wg7b")
-text = "[ GAME PAUSED ]"
+[node name="buttonsContainer" type="BoxContainer" parent="."]
+custom_minimum_size = Vector2(120, 120)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -960.167
+offset_top = -540.333
+offset_right = 959.833
+offset_bottom = 555.667
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.166779, 0.164457)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 8
+alignment = 1
+vertical = true
+
+[node name="MarginContainer4" type="MarginContainer" parent="buttonsContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_bottom = 80
+
+[node name="title" type="Label" parent="buttonsContainer/MarginContainer4"]
+layout_mode = 2
+size_flags_vertical = 10
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("5_vsh5n")
+theme_override_font_sizes/font_size = 72
+text = "[ Game Paused ]"
 horizontal_alignment = 1
-vertical_alignment = 2
-metadata/_edit_use_anchors_ = true
+vertical_alignment = 1
 
-[node name="ResumeButton" type="Button" parent="."]
-offset_left = 69.0
-offset_top = 65.0
-offset_right = 249.0
-offset_bottom = 84.0
-theme = ExtResource("2_pw8og")
+[node name="MarginContainer" type="MarginContainer" parent="buttonsContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_constants/margin_bottom = 8
+
+[node name="ResumeButton" type="Button" parent="buttonsContainer/MarginContainer"]
+custom_minimum_size = Vector2(720, 96)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_5wg7b")
+theme_override_font_sizes/font_size = 64
 theme_override_styles/normal = ExtResource("3_sh48l")
+theme_override_styles/hover = SubResource("StyleBoxFlat_f8vgm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1fgqu")
 text = "Resume"
-metadata/_edit_use_anchors_ = true
 
-[node name="restartbutton" type="Button" parent="."]
-offset_left = 69.0
-offset_top = 89.0
-offset_right = 249.0
-offset_bottom = 108.0
-theme = ExtResource("2_pw8og")
+[node name="MarginContainer3" type="MarginContainer" parent="buttonsContainer"]
+layout_mode = 2
+theme_override_constants/margin_bottom = 8
+
+[node name="RestartButton" type="Button" parent="buttonsContainer/MarginContainer3"]
+custom_minimum_size = Vector2(720, 96)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_5wg7b")
+theme_override_font_sizes/font_size = 64
 theme_override_styles/normal = ExtResource("3_sh48l")
-text = "Restart level"
-metadata/_edit_use_anchors_ = true
+theme_override_styles/hover = SubResource("StyleBoxFlat_f8vgm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1fgqu")
+text = "Restart Level"
 
-[node name="QuitToMenuButton" type="Button" parent="."]
-offset_left = 69.0
-offset_top = 114.0
-offset_right = 249.0
-offset_bottom = 134.0
-theme = ExtResource("2_pw8og")
+[node name="MarginContainer2" type="MarginContainer" parent="buttonsContainer"]
+layout_mode = 2
+
+[node name="QuitMenuButton" type="Button" parent="buttonsContainer/MarginContainer2"]
+custom_minimum_size = Vector2(720, 96)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+focus_mode = 0
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("3_5wg7b")
+theme_override_font_sizes/font_size = 64
 theme_override_styles/normal = ExtResource("3_sh48l")
-text = "Quit"
-metadata/_edit_use_anchors_ = true
+theme_override_styles/hover = SubResource("StyleBoxFlat_f8vgm")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_1fgqu")
+text = "QUIT"
 
-[connection signal="pressed" from="ResumeButton" to="." method="_on_resume_button_pressed"]
-[connection signal="pressed" from="restartbutton" to="." method="_on_restartbutton_pressed"]
-[connection signal="pressed" from="QuitToMenuButton" to="." method="_on_quit_to_menu_button_pressed"]
+[connection signal="pressed" from="buttonsContainer/MarginContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="buttonsContainer/MarginContainer3/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="buttonsContainer/MarginContainer2/QuitMenuButton" to="." method="_on_quit_menu_button_pressed"]

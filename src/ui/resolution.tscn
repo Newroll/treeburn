@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://sua3v5r6c582"]
 
-[ext_resource type="Script" path="res://src/resolution.gd" id="1_if2jp"]
+[ext_resource type="Script" path="res://src/ui/splashscreen.gd" id="1_if2jp"]
 
 [node name="Resolution" type="Control"]
 layout_mode = 3

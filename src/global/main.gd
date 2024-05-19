@@ -44,20 +44,35 @@ var immunity = false
 var immunityTimer
 var immunityTemp = true
 var hurtSFX = true
+var dieSFX = true
 
 #Camera Zoom Levels
-var zoomLevels = [0.5, 0.75, 1, 1.25, 1.5]
-var currentZoomLevel = 2
+var zoomLevels = [4.0, 5.0, 6.0]
+var currentZoomLevel = 1
+
+#Checks Scene
+var introScene = null
+
+#Checks if in fullscreen
+var windowFull = false
 
 func _physics_process(_delta):
-	
-	
 	#Does this need to be removed?
+	# yes it does jayden
 	#If it does then just make a commit and remove it.
 	
 	### REMOVE THIS FUNCTION CALL ###
-	debug()
+	#debug()
+	# there, i've removed it
 	#################################
+	
+	if Input.is_action_just_pressed("fullscreen"):
+		if windowFull == false:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)
+			windowFull = true
+		else:
+			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
+			windowFull = false
 	
 	framesEclapsed += 1
 	totalFramesEclapsed += 1
@@ -72,9 +87,9 @@ func _physics_process(_delta):
 			worldHealth -= 0.012
 		framesEclapsed = 0
 	if(health <= 0 || worldHealth <= 0):
-		animated_death()
-	if below_death_height == true:
-		unanimated_death()
+		death()
+	elif below_death_height == true:
+		death()
 
 	if immunity == true:
 		if immunityTemp == true:
@@ -90,23 +105,14 @@ func takeDmg(amount):
 		immunity = true
 		health -= amount
 
-func animated_death():
-	resetPlayer = true
-	await get_tree().create_timer(2).timeout
+func death():
 	coins = 0 
-	health = 3
-	worldHealth = 8
-	quicksand = false
-	ice = false
-	get_tree().change_scene_to_file("res://src/global/death.tscn")
-
-func unanimated_death():
-	coins = 0 
-	health = 3
+	health = 0
 	worldHealth = 8
 	quicksand = false
 	ice = false
 	below_death_height = false
+	dieSFX = false
 	get_tree().change_scene_to_file("res://src/global/death.tscn")
 
 

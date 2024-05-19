@@ -49,14 +49,23 @@ var projectile = rock_throwable_scene.instantiate()
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
+#Player Values
+var player_dir = null
+
 
 #func _ready():
 	#animation_player.play("axe_run")
 
 
 func _physics_process(delta):
-	var player_dir = player.position.x - position.x
-	distance_to_player = abs(player.position.x - global_position.x)
+	if player.global_position.x > global_position.x:
+		player_dir = 1
+
+	if player.global_position.x < global_position.x:
+		player_dir = -1
+
+	
+	distance_to_player = abs(player.global_position.x - global_position.x)
 	
 	# Add the gravity.
 	if not is_on_floor():
@@ -79,10 +88,10 @@ func _physics_process(delta):
 		if bull_attack == false:
 			if raycast_left.is_colliding() && raycast_right.is_colliding():
 				if distance_to_player > max_distance_to_player:
-					move_towards_player(player_dir)
+					move_towards_player()
 
 				if distance_to_player < min_distance_to_player:
-					move_away_player(player_dir)
+					move_away_player()
 
 				if distance_to_player > min_distance_to_player && distance_to_player < max_distance_to_player:
 					velocity.x = 0
@@ -151,7 +160,7 @@ func _on_player_chase_body_exited(body):
 	if body.name == "CharacterBody2D":
 		aggro = false
 
-func move_towards_player(player_dir):
+func move_towards_player():
 		if player_dir > 0:
 			velocity.x = 60
 		else:
@@ -160,7 +169,7 @@ func move_towards_player(player_dir):
 
 
 
-func move_away_player(player_dir):
+func move_away_player():
 		if player_dir > 0:
 			velocity.x = 60 * -1
 		else:

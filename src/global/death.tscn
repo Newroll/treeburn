@@ -1,240 +1,127 @@
-[gd_scene load_steps=12 format=3 uid="uid://bhw48p0ycooeo"]
+[gd_scene load_steps=9 format=3 uid="uid://bhw48p0ycooeo"]
 
 [ext_resource type="Texture2D" uid="uid://dp8q7ne2wr5nx" path="res://assets/interactive/deathscreen.png" id="1_6txj8"]
 [ext_resource type="Script" path="res://src/global/death.gd" id="1_lls1p"]
 [ext_resource type="FontFile" uid="uid://422t11bovf6v" path="res://assets/styles/mainport.ttf" id="2_3l267"]
-[ext_resource type="Texture2D" uid="uid://d10oyc3ti1dku" path="res://assets/interactive/firesheet.png" id="4_3qicg"]
+[ext_resource type="Theme" uid="uid://h03jnrduf8o4" path="res://assets/styles/death.tres" id="3_vhpyf"]
+[ext_resource type="AudioStream" uid="uid://b7ysdkw0lu2wa" path="res://assets/sfx/death.mp3" id="5_uegtu"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_u7p54"]
-atlas = ExtResource("4_3qicg")
-region = Rect2(0, 0, 16, 16)
+[sub_resource type="Animation" id="Animation_invgh"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/MainMarginContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_cwlb4"]
-atlas = ExtResource("4_3qicg")
-region = Rect2(16, 0, 16, 16)
+[sub_resource type="Animation" id="Animation_6lc3w"]
+resource_name = "death_fadein"
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/MainMarginContainer:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_22lay"]
-atlas = ExtResource("4_3qicg")
-region = Rect2(32, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5twa6"]
-atlas = ExtResource("4_3qicg")
-region = Rect2(48, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_5u507"]
-atlas = ExtResource("4_3qicg")
-region = Rect2(64, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jv18n"]
-atlas = ExtResource("4_3qicg")
-region = Rect2(80, 0, 16, 16)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_lygyf"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_u7p54")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cwlb4")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_22lay")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5twa6")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_5u507")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jv18n")
-}],
-"loop": true,
-"name": &"default",
-"speed": 4.0
-}]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gk33f"]
+_data = {
+"RESET": SubResource("Animation_invgh"),
+"death_fadein": SubResource("Animation_6lc3w")
+}
 
 [node name="death" type="Node2D"]
 process_mode = 3
 script = ExtResource("1_lls1p")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_right = 414.0
-offset_bottom = 208.0
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1920.0
+offset_bottom = 1080.0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_left = -82.0
+offset_top = -42.0
+offset_right = 1838.0
+offset_bottom = 1038.0
+scale = Vector2(1.1, 1.1)
 color = Color(0, 0, 0, 1)
 
-[node name="skillissue" type="Sprite2D" parent="."]
-texture_filter = 1
-position = Vector2(151.148, 40.125)
-scale = Vector2(6.52273, 6.52273)
-texture = ExtResource("1_6txj8")
+[node name="MainMarginContainer" type="MarginContainer" parent="Control"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+offset_right = 1920.0
+offset_bottom = 1080.0
+theme_override_constants/margin_left = 48
+theme_override_constants/margin_top = 32
 
-[node name="continue" type="Button" parent="."]
+[node name="BoxContainer" type="BoxContainer" parent="Control/MainMarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+alignment = 1
+vertical = true
+
+[node name="skillissue" type="Sprite2D" parent="Control/MainMarginContainer/BoxContainer"]
 texture_filter = 1
-offset_left = 7.0
-offset_top = 93.0
-offset_right = 88.0
-offset_bottom = 117.0
+position = Vector2(6.10352e-05, 72)
+scale = Vector2(29.9277, 29.266)
+texture = ExtResource("1_6txj8")
+centered = false
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MainMarginContainer/BoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+
+[node name="continue" type="Button" parent="Control/MainMarginContainer/BoxContainer/MarginContainer"]
+texture_filter = 1
+custom_minimum_size = Vector2(720, 96)
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("3_vhpyf")
 theme_override_fonts/font = ExtResource("2_3l267")
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 48
 text = "Continue
 "
+alignment = 0
 
-[node name="quit" type="Button" parent="."]
-offset_left = 7.0
-offset_top = 125.0
-offset_right = 253.0
-offset_bottom = 148.0
+[node name="MarginContainer2" type="MarginContainer" parent="Control/MainMarginContainer/BoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+
+[node name="quit" type="Button" parent="Control/MainMarginContainer/BoxContainer/MarginContainer2"]
+custom_minimum_size = Vector2(1080, 96)
+layout_mode = 2
+size_flags_horizontal = 0
+theme = ExtResource("3_vhpyf")
 theme_override_fonts/font = ExtResource("2_3l267")
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 48
 text = "Quit (progress will not be saved)"
+alignment = 0
 
-[node name="fire" type="Node" parent="."]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_gk33f")
+}
+autoplay = "death_fadein"
 
-[node name="fire" type="AnimatedSprite2D" parent="fire"]
-visible = false
-modulate = Color(0.447059, 0.447059, 0.447059, 1)
-texture_filter = 1
-position = Vector2(8.5, 163.5)
-scale = Vector2(2.3125, 2.3125)
-sprite_frames = SubResource("SpriteFrames_lygyf")
-autoplay = "default"
+[node name="die" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_uegtu")
+volume_db = 6.19
 
-[node name="fire2" type="AnimatedSprite2D" parent="fire"]
-visible = false
-modulate = Color(0.447059, 0.447059, 0.447059, 1)
-texture_filter = 1
-position = Vector2(197.5, 163.5)
-scale = Vector2(2.3125, 2.3125)
-sprite_frames = SubResource("SpriteFrames_lygyf")
-autoplay = "default"
-
-[node name="fire9" type="AnimatedSprite2D" parent="fire"]
-visible = false
-modulate = Color(0.447059, 0.447059, 0.447059, 1)
-texture_filter = 1
-position = Vector2(224.5, 163.5)
-scale = Vector2(2.3125, 2.3125)
-sprite_frames = SubResource("SpriteFrames_lygyf")
-autoplay = "default"
-
-[node name="fire10" type="AnimatedSprite2D" parent="fire"]
-visible = false
-modulate = Color(0.447059, 0.447059, 0.447059, 1)
-texture_filter = 1
-position = Vector2(251.5, 163.5)
-scale = Vector2(2.3125, 2.3125)
-sprite_frames = SubResource("SpriteFrames_lygyf")
-autoplay = "default"
-
-[node name="fire11" type="AnimatedSprite2D" parent="fire"]
-visible = false
-modulate = Color(0.447059, 0.447059, 0.447059, 1)
-texture_filter = 1
-position = Vector2(278.5, 163.5)
-scale = Vector2(2.3125, 2.3125)
-sprite_frames = SubResource("SpriteFrames_lygyf")
-autoplay = "default"
-
-[node name="fire12" type="AnimatedSprite2D" parent="fire"]
-visible = false
-modulate = Color(0.447059, 0.447059, 0.447059, 1)
-texture_filter = 1
-position = Vector2(305.5, 163.5)
-scale = Vector2(2.3125, 2.3125)
-sprite_frames = SubResource("SpriteFrames_lygyf")
-autoplay = "default"
-
-[node name="fire13" type="AnimatedSprite2D" parent="fire"]
-visible = false
-modulate = Color(0.447059, 0.447059, 0.447059, 1)
-texture_filter = 1
-position = Vector2(332.5, 163.5)
-scale = Vector2(2.3125, 2.3125)
-sprite_frames = SubResource("SpriteFrames_lygyf")
-autoplay = "default"
-
-[node name="fire14" type="AnimatedSprite2D" parent="fire"]
-visible = false
-modulate = Color(0.447059, 0.447059, 0.447059, 1)
-texture_filter = 1
-position = Vector2(359.5, 163.5)
-scale = Vector2(2.3125, 2.3125)
-sprite_frames = SubResource("SpriteFrames_lygyf")
-autoplay = "default"
-
-[node name="fire15" type="AnimatedSprite2D" parent="fire"]
-visible = false
-modulate = Color(0.447059, 0.447059, 0.447059, 1)
-texture_filter = 1
-position = Vector2(386.5, 163.5)
-scale = Vector2(2.3125, 2.3125)
-sprite_frames = SubResource("SpriteFrames_lygyf")
-autoplay = "default"
-
-[node name="fire16" type="AnimatedSprite2D" parent="fire"]
-visible = false
-modulate = Color(0.447059, 0.447059, 0.447059, 1)
-texture_filter = 1
-position = Vector2(413.5, 163.5)
-scale = Vector2(2.3125, 2.3125)
-sprite_frames = SubResource("SpriteFrames_lygyf")
-autoplay = "default"
-
-[node name="fire3" type="AnimatedSprite2D" parent="fire"]
-visible = false
-modulate = Color(0.447059, 0.447059, 0.447059, 1)
-texture_filter = 1
-position = Vector2(170.5, 163.5)
-scale = Vector2(2.3125, 2.3125)
-sprite_frames = SubResource("SpriteFrames_lygyf")
-autoplay = "default"
-
-[node name="fire4" type="AnimatedSprite2D" parent="fire"]
-visible = false
-modulate = Color(0.447059, 0.447059, 0.447059, 1)
-texture_filter = 1
-position = Vector2(143.5, 163.5)
-scale = Vector2(2.3125, 2.3125)
-sprite_frames = SubResource("SpriteFrames_lygyf")
-autoplay = "default"
-
-[node name="fire5" type="AnimatedSprite2D" parent="fire"]
-visible = false
-modulate = Color(0.447059, 0.447059, 0.447059, 1)
-texture_filter = 1
-position = Vector2(116.5, 163.5)
-scale = Vector2(2.3125, 2.3125)
-sprite_frames = SubResource("SpriteFrames_lygyf")
-autoplay = "default"
-
-[node name="fire6" type="AnimatedSprite2D" parent="fire"]
-visible = false
-modulate = Color(0.447059, 0.447059, 0.447059, 1)
-texture_filter = 1
-position = Vector2(89.5, 163.5)
-scale = Vector2(2.3125, 2.3125)
-sprite_frames = SubResource("SpriteFrames_lygyf")
-autoplay = "default"
-
-[node name="fire7" type="AnimatedSprite2D" parent="fire"]
-visible = false
-modulate = Color(0.447059, 0.447059, 0.447059, 1)
-texture_filter = 1
-position = Vector2(62.5, 163.5)
-scale = Vector2(2.3125, 2.3125)
-sprite_frames = SubResource("SpriteFrames_lygyf")
-autoplay = "default"
-
-[node name="fire8" type="AnimatedSprite2D" parent="fire"]
-visible = false
-modulate = Color(0.447059, 0.447059, 0.447059, 1)
-texture_filter = 1
-position = Vector2(35.5, 163.5)
-scale = Vector2(2.3125, 2.3125)
-sprite_frames = SubResource("SpriteFrames_lygyf")
-autoplay = "default"
-
-[connection signal="pressed" from="continue" to="." method="_on_continue_pressed"]
-[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Control/MainMarginContainer/BoxContainer/MarginContainer/continue" to="." method="_on_continue_pressed"]
+[connection signal="pressed" from="Control/MainMarginContainer/BoxContainer/MarginContainer2/quit" to="." method="_on_quit_pressed"]
